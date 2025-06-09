@@ -6,7 +6,7 @@
 #include "PMDutil.h"
 
 COMConfig comConfig = {0, 0, 0, 0, 0, 0};
-COMmanagement comMan = {200, 10000, 20000, 1000000000, 15000};
+COMmanagement comMan = {200, 10000, 20000, 1000000000, 15000, 17000};
 COMImpValues comImp = {1/8.0, .05, 15, 45};
 
 #define BUFFSIZE   200

@@ -75,7 +75,7 @@ PMDresult Impedance(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, PMDPerip
 	double xd_ddot = 0;
 
 	// Position
-	PMDint32 pos = 0, posPLim = 17000, posNLim = 0;
+	PMDint32 pos = 0, posPLim = comMan._posLimit, posNLim = 0;
 	PMDint32 posMax = comConfig._endPos, posMin = comConfig._startPos;
 	if (posMax > posPLim) posMax = posPLim;
 	if (posMin < posNLim) posMin = posNLim;

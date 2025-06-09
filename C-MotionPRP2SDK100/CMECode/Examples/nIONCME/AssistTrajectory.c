@@ -86,7 +86,7 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 	double forceError = 0, forceTemp = 0;
 
 	// Position
-	PMDint32 pos = 0, posPLim = 17000, posNLim = 0;
+	PMDint32 pos = 0, posPLim = comMan._posLimit, posNLim = 0;
 	PMDint32 posMax = comConfig._endPos, posMin = comConfig._startPos;
 	if (posMax > posPLim) posMax = posPLim;
 	if (posMin < posNLim) posMin = posNLim;

@@ -25,6 +25,7 @@ extern "C" {
 		int _vOffset;			// Velocity Offset
 		int _fOffset;			// Force Offset
 		int _mOffset;			// Motor Command Offset
+		int _posLimit;			// Positive Position Limit (encoder counts)
 	} COMmanagement;
 
 	// Struct to hold Impedance Variables

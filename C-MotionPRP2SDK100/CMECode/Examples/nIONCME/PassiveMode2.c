@@ -29,7 +29,7 @@ PMDresult PassiveMode2(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, PMDPe
 	PMDuint16 status = 0;
 
 	// Position
-	PMDint32 pos = 0, posPLim = 17000, posNLim = 50;
+	PMDint32 pos = 0, posPLim = comMan._posLimit, posNLim = 50;
 	PMDint32 pos1 = comConfig._endPos, pos2 = comConfig._startPos, destpos;
 	if (pos1 > posPLim) pos1 = posPLim;
 	if (pos2 < posNLim) pos2 = posNLim;

@@ -29,7 +29,7 @@ PMDresult ResistTorqueGoal2(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, 
 	int waitPWM = 8 * motScale;
 	
 	// Position
-	PMDint32 pos = 0, posPLim = 17000, posNLim = 50;
+	PMDint32 pos = 0, posPLim = comMan._posLimit, posNLim = 50;
 	PMDint32 posMax = comConfig._endPos, posMin = comConfig._startPos;
 	if (posMax > posPLim) posMax = posPLim;
 	if (posMin < posNLim) posMin = posNLim;

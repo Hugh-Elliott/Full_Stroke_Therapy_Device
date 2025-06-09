@@ -805,7 +805,7 @@ LOAD c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/
 LOAD c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc.a
 END GROUP
 
-.text           0x08140000    0x1b240
+.text           0x08140000    0x1b250
  *(header)
  header         0x08140000        0xc obj/nIONCME.o
  *(CMEversion)
@@ -843,455 +843,456 @@ END GROUP
                 0x08141030      0xe98 obj/Pro-MotionExport1_15_25.o
                 0x08141030                SetupAxis1
  .text.PassiveMode2
-                0x08141ec8     0x2480 obj/PassiveMode2.o
+                0x08141ec8     0x2488 obj/PassiveMode2.o
                 0x08141ec8                PassiveMode2
- .text.read     0x08144348       0xb8 obj/LoadCellFunctions.o
-                0x08144348                read
+ .text.read     0x08144350       0xb8 obj/LoadCellFunctions.o
+                0x08144350                read
  .text.read_average
-                0x08144400       0x4e obj/LoadCellFunctions.o
-                0x08144400                read_average
- *fill*         0x0814444e        0x2 ff
+                0x08144408       0x4e obj/LoadCellFunctions.o
+                0x08144408                read_average
+ *fill*         0x08144456        0x2 ff
  .text.tareLoadCell
-                0x08144450       0x34 obj/LoadCellFunctions.o
-                0x08144450                tareLoadCell
- .text.getTare  0x08144484       0x18 obj/LoadCellFunctions.o
-                0x08144484                getTare
- .text.setTare  0x0814449c       0x20 obj/LoadCellFunctions.o
-                0x0814449c                setTare
+                0x08144458       0x34 obj/LoadCellFunctions.o
+                0x08144458                tareLoadCell
+ .text.getTare  0x0814448c       0x18 obj/LoadCellFunctions.o
+                0x0814448c                getTare
+ .text.setTare  0x081444a4       0x20 obj/LoadCellFunctions.o
+                0x081444a4                setTare
  .text.calibrateScale
-                0x081444bc       0x78 obj/LoadCellFunctions.o
-                0x081444bc                calibrateScale
+                0x081444c4       0x78 obj/LoadCellFunctions.o
+                0x081444c4                calibrateScale
  .text.getScale
-                0x08144534       0x28 obj/LoadCellFunctions.o
-                0x08144534                getScale
+                0x0814453c       0x28 obj/LoadCellFunctions.o
+                0x0814453c                getScale
  .text.setScale
-                0x0814455c       0x3c obj/LoadCellFunctions.o
-                0x0814455c                setScale
+                0x08144564       0x3c obj/LoadCellFunctions.o
+                0x08144564                setScale
  .text.getValue
-                0x08144598       0x2c obj/LoadCellFunctions.o
-                0x08144598                getValue
+                0x081445a0       0x2c obj/LoadCellFunctions.o
+                0x081445a0                getValue
  .text.getUnits
-                0x081445c4       0x40 obj/LoadCellFunctions.o
-                0x081445c4                getUnits
+                0x081445cc       0x40 obj/LoadCellFunctions.o
+                0x081445cc                getUnits
  .text.HomeCapture
-                0x08144604      0x5ac obj/HomeCapture.o
-                0x08144604                HomeCapture
+                0x0814460c      0x5ac obj/HomeCapture.o
+                0x0814460c                HomeCapture
  .text.ReverseMove
-                0x08144bb0      0x118 obj/ReverseMove.o
-                0x08144bb0                ReverseMove
+                0x08144bb8      0x118 obj/ReverseMove.o
+                0x08144bb8                ReverseMove
  .text.defaultVals
-                0x08144cc8       0x3c obj/ComFunctions.o
-                0x08144cc8                defaultVals
- *fill*         0x08144d04        0x4 ff
- .text.Take     0x08144d08      0x2a4 obj/ComFunctions.o
-                0x08144d08                Take
- .text.Send     0x08144fac      0x488 obj/ComFunctions.o
-                0x08144fac                Send
+                0x08144cd0       0x3c obj/ComFunctions.o
+                0x08144cd0                defaultVals
+ *fill*         0x08144d0c        0x4 ff
+ .text.Take     0x08144d10      0x2a4 obj/ComFunctions.o
+                0x08144d10                Take
+ .text.Send     0x08144fb4      0x488 obj/ComFunctions.o
+                0x08144fb4                Send
  .text.SendParts
-                0x08145434      0x414 obj/ComFunctions.o
-                0x08145434                SendParts
+                0x0814543c      0x414 obj/ComFunctions.o
+                0x0814543c                SendParts
  .text.SendImpVars
-                0x08145848      0x37c obj/ComFunctions.o
-                0x08145848                SendImpVars
- *fill*         0x08145bc4        0x4 ff
+                0x08145850      0x37c obj/ComFunctions.o
+                0x08145850                SendImpVars
+ *fill*         0x08145bcc        0x4 ff
  .text.Assistive2
-                0x08145bc8     0x15c8 obj/Assistive2.o
-                0x08145bc8                Assistive2
+                0x08145bd0     0x15c8 obj/Assistive2.o
+                0x08145bd0                Assistive2
  .text.Admittance2
-                0x08147190     0x238c obj/Admittance2.o
-                0x08147190                Admittance2
- *fill*         0x0814951c        0x4 ff
+                0x08147198     0x238c obj/Admittance2.o
+                0x08147198                Admittance2
+ *fill*         0x08149524        0x4 ff
  .text.ResistTorqueGoal2
-                0x08149520     0x1b6c obj/ResistTorqueGoal2.o
-                0x08149520                ResistTorqueGoal2
- *fill*         0x0814b08c        0x4 ff
+                0x08149528     0x1b6c obj/ResistTorqueGoal2.o
+                0x08149528                ResistTorqueGoal2
+ *fill*         0x0814b094        0x4 ff
  .text.StepResponse
-                0x0814b090      0xe0c obj/StepResponse.o
-                0x0814b090                StepResponse
- *fill*         0x0814be9c        0x4 ff
+                0x0814b098      0xe0c obj/StepResponse.o
+                0x0814b098                StepResponse
+ *fill*         0x0814bea4        0x4 ff
  .text.LoadCellCME
-                0x0814bea0      0x3bc obj/LoadCellCME.o
-                0x0814bea0                LoadCellCME
- *fill*         0x0814c25c        0x4 ff
+                0x0814bea8      0x3bc obj/LoadCellCME.o
+                0x0814bea8                LoadCellCME
+ *fill*         0x0814c264        0x4 ff
  .text.AssistiveForce
-                0x0814c260     0x1674 obj/AssistiveForce.o
-                0x0814c260                AssistiveForce
- *fill*         0x0814d8d4        0x4 ff
+                0x0814c268     0x1674 obj/AssistiveForce.o
+                0x0814c268                AssistiveForce
+ *fill*         0x0814d8dc        0x4 ff
  .text.Transparent
-                0x0814d8d8      0xe70 obj/Transparent.o
-                0x0814d8d8                Transparent
+                0x0814d8e0      0xe70 obj/Transparent.o
+                0x0814d8e0                Transparent
  .text.Impedance
-                0x0814e748     0x1788 obj/Impedance.o
-                0x0814e748                Impedance
+                0x0814e750     0x1788 obj/Impedance.o
+                0x0814e750                Impedance
  .text.trapProfile
-                0x0814fed0      0x184 obj/AssistTrajectory.o
+                0x0814fed8      0x184 obj/AssistTrajectory.o
  .text.trapProfile2
-                0x08150054       0xf0 obj/AssistTrajectory.o
- *fill*         0x08150144        0x4 ff
+                0x0815005c       0xf0 obj/AssistTrajectory.o
+ *fill*         0x0815014c        0x4 ff
  .text.AssistTrajectory
-                0x08150148     0x233c obj/AssistTrajectory.o
-                0x08150148                AssistTrajectory
+                0x08150150     0x2344 obj/AssistTrajectory.o
+                0x08150150                AssistTrajectory
  .text.ReturnHome
-                0x08152484      0x29c obj/ReturnHome.o
-                0x08152484                ReturnHome
+                0x08152494      0x29c obj/ReturnHome.o
+                0x08152494                ReturnHome
  .text.PMDSetProfileMode
-                0x08152720       0x22 obj/C-Motion.o
-                0x08152720                PMDSetProfileMode
+                0x08152730       0x22 obj/C-Motion.o
+                0x08152730                PMDSetProfileMode
  .text.PMDSetPosition
-                0x08152742       0x20 obj/C-Motion.o
-                0x08152742                PMDSetPosition
+                0x08152752       0x20 obj/C-Motion.o
+                0x08152752                PMDSetPosition
  .text.PMDSetVelocity
-                0x08152762       0x20 obj/C-Motion.o
-                0x08152762                PMDSetVelocity
+                0x08152772       0x20 obj/C-Motion.o
+                0x08152772                PMDSetVelocity
  .text.PMDGetVelocity
-                0x08152782       0x1e obj/C-Motion.o
-                0x08152782                PMDGetVelocity
+                0x08152792       0x1e obj/C-Motion.o
+                0x08152792                PMDGetVelocity
  .text.PMDSetAcceleration
-                0x081527a0       0x1e obj/C-Motion.o
-                0x081527a0                PMDSetAcceleration
+                0x081527b0       0x1e obj/C-Motion.o
+                0x081527b0                PMDSetAcceleration
  .text.PMDSetJerk
-                0x081527be       0x1e obj/C-Motion.o
-                0x081527be                PMDSetJerk
+                0x081527ce       0x1e obj/C-Motion.o
+                0x081527ce                PMDSetJerk
  .text.PMDSetGearRatio
-                0x081527dc       0x20 obj/C-Motion.o
-                0x081527dc                PMDSetGearRatio
+                0x081527ec       0x20 obj/C-Motion.o
+                0x081527ec                PMDSetGearRatio
  .text.PMDSetGearMaster
-                0x081527fc       0x42 obj/C-Motion.o
-                0x081527fc                PMDSetGearMaster
+                0x0815280c       0x42 obj/C-Motion.o
+                0x0815280c                PMDSetGearMaster
  .text.PMDSetStopMode
-                0x0815283e       0x22 obj/C-Motion.o
-                0x0815283e                PMDSetStopMode
+                0x0815284e       0x22 obj/C-Motion.o
+                0x0815284e                PMDSetStopMode
  .text.PMDGetCommandedVelocity
-                0x08152860       0x1e obj/C-Motion.o
-                0x08152860                PMDGetCommandedVelocity
+                0x08152870       0x1e obj/C-Motion.o
+                0x08152870                PMDGetCommandedVelocity
  .text.PMDSetMotorLimit
-                0x0815287e       0x22 obj/C-Motion.o
-                0x0815287e                PMDSetMotorLimit
+                0x0815288e       0x22 obj/C-Motion.o
+                0x0815288e                PMDSetMotorLimit
  .text.PMDSetMotorBias
-                0x081528a0       0x22 obj/C-Motion.o
-                0x081528a0                PMDSetMotorBias
+                0x081528b0       0x22 obj/C-Motion.o
+                0x081528b0                PMDSetMotorBias
  .text.PMDSetPositionErrorLimit
-                0x081528c2       0x1e obj/C-Motion.o
-                0x081528c2                PMDSetPositionErrorLimit
+                0x081528d2       0x1e obj/C-Motion.o
+                0x081528d2                PMDSetPositionErrorLimit
  .text.PMDSetSettleTime
-                0x081528e0       0x22 obj/C-Motion.o
-                0x081528e0                PMDSetSettleTime
+                0x081528f0       0x22 obj/C-Motion.o
+                0x081528f0                PMDSetSettleTime
  .text.PMDSetSettleWindow
-                0x08152902       0x22 obj/C-Motion.o
-                0x08152902                PMDSetSettleWindow
+                0x08152912       0x22 obj/C-Motion.o
+                0x08152912                PMDSetSettleWindow
  .text.PMDSetTrackingWindow
-                0x08152924       0x22 obj/C-Motion.o
-                0x08152924                PMDSetTrackingWindow
+                0x08152934       0x22 obj/C-Motion.o
+                0x08152934                PMDSetTrackingWindow
  .text.PMDSetMotionCompleteMode
-                0x08152946       0x22 obj/C-Motion.o
-                0x08152946                PMDSetMotionCompleteMode
+                0x08152956       0x22 obj/C-Motion.o
+                0x08152956                PMDSetMotionCompleteMode
  .text.PMDSetSampleTime
-                0x08152968       0x1e obj/C-Motion.o
-                0x08152968                PMDSetSampleTime
+                0x08152978       0x1e obj/C-Motion.o
+                0x08152978                PMDSetSampleTime
  .text.PMDGetSampleTime
-                0x08152986       0x1e obj/C-Motion.o
-                0x08152986                PMDGetSampleTime
+                0x08152996       0x1e obj/C-Motion.o
+                0x08152996                PMDGetSampleTime
  .text.PMDSetBreakpoint
-                0x081529a4       0x56 obj/C-Motion.o
-                0x081529a4                PMDSetBreakpoint
+                0x081529b4       0x56 obj/C-Motion.o
+                0x081529b4                PMDSetBreakpoint
  .text.PMDSetBreakpointValue
-                0x081529fa       0x24 obj/C-Motion.o
-                0x081529fa                PMDSetBreakpointValue
+                0x08152a0a       0x24 obj/C-Motion.o
+                0x08152a0a                PMDSetBreakpointValue
  .text.PMDUpdate
-                0x08152a1e       0x1a obj/C-Motion.o
-                0x08152a1e                PMDUpdate
+                0x08152a2e       0x1a obj/C-Motion.o
+                0x08152a2e                PMDUpdate
  .text.PMDResetEventStatus
-                0x08152a38       0x22 obj/C-Motion.o
-                0x08152a38                PMDResetEventStatus
+                0x08152a48       0x22 obj/C-Motion.o
+                0x08152a48                PMDResetEventStatus
  .text.PMDGetEventStatus
-                0x08152a5a       0x1e obj/C-Motion.o
-                0x08152a5a                PMDGetEventStatus
+                0x08152a6a       0x1e obj/C-Motion.o
+                0x08152a6a                PMDGetEventStatus
  .text.PMDGetActivityStatus
-                0x08152a78       0x1e obj/C-Motion.o
-                0x08152a78                PMDGetActivityStatus
+                0x08152a88       0x1e obj/C-Motion.o
+                0x08152a88                PMDGetActivityStatus
  .text.PMDSetSignalSense
-                0x08152a96       0x22 obj/C-Motion.o
-                0x08152a96                PMDSetSignalSense
+                0x08152aa6       0x22 obj/C-Motion.o
+                0x08152aa6                PMDSetSignalSense
  .text.PMDGetSignalStatus
-                0x08152ab8       0x1e obj/C-Motion.o
-                0x08152ab8                PMDGetSignalStatus
+                0x08152ac8       0x1e obj/C-Motion.o
+                0x08152ac8                PMDGetSignalStatus
  .text.PMDAdjustActualPosition
-                0x08152ad6       0x20 obj/C-Motion.o
-                0x08152ad6                PMDAdjustActualPosition
+                0x08152ae6       0x20 obj/C-Motion.o
+                0x08152ae6                PMDAdjustActualPosition
  .text.PMDGetActualPosition
-                0x08152af6       0x1e obj/C-Motion.o
-                0x08152af6                PMDGetActualPosition
+                0x08152b06       0x1e obj/C-Motion.o
+                0x08152b06                PMDGetActualPosition
  .text.PMDSetCaptureSource
-                0x08152b14       0x22 obj/C-Motion.o
-                0x08152b14                PMDSetCaptureSource
+                0x08152b24       0x22 obj/C-Motion.o
+                0x08152b24                PMDSetCaptureSource
  .text.PMDSetEncoderSource
-                0x08152b36       0x22 obj/C-Motion.o
-                0x08152b36                PMDSetEncoderSource
+                0x08152b46       0x22 obj/C-Motion.o
+                0x08152b46                PMDSetEncoderSource
  .text.PMDSetAuxiliaryEncoderSource
-                0x08152b58       0x34 obj/C-Motion.o
-                0x08152b58                PMDSetAuxiliaryEncoderSource
+                0x08152b68       0x34 obj/C-Motion.o
+                0x08152b68                PMDSetAuxiliaryEncoderSource
  .text.PMDGetCaptureValue
-                0x08152b8c       0x1e obj/C-Motion.o
-                0x08152b8c                PMDGetCaptureValue
+                0x08152b9c       0x1e obj/C-Motion.o
+                0x08152b9c                PMDGetCaptureValue
  .text.PMDSetMotorType
-                0x08152baa       0x22 obj/C-Motion.o
-                0x08152baa                PMDSetMotorType
+                0x08152bba       0x22 obj/C-Motion.o
+                0x08152bba                PMDSetMotorType
  .text.PMDGetMotorType
-                0x08152bcc       0x2c obj/C-Motion.o
-                0x08152bcc                PMDGetMotorType
+                0x08152bdc       0x2c obj/C-Motion.o
+                0x08152bdc                PMDGetMotorType
  .text.PMDSetMotorCommand
-                0x08152bf8       0x22 obj/C-Motion.o
-                0x08152bf8                PMDSetMotorCommand
+                0x08152c08       0x22 obj/C-Motion.o
+                0x08152c08                PMDSetMotorCommand
  .text.PMDGetActiveMotorCommand
-                0x08152c1a       0x1e obj/C-Motion.o
-                0x08152c1a                PMDGetActiveMotorCommand
+                0x08152c2a       0x1e obj/C-Motion.o
+                0x08152c2a                PMDGetActiveMotorCommand
  .text.PMDSetCommutationMode
-                0x08152c38       0x22 obj/C-Motion.o
-                0x08152c38                PMDSetCommutationMode
+                0x08152c48       0x22 obj/C-Motion.o
+                0x08152c48                PMDSetCommutationMode
  .text.PMDSetPhaseInitializeMode
-                0x08152c5a       0x22 obj/C-Motion.o
-                0x08152c5a                PMDSetPhaseInitializeMode
+                0x08152c6a       0x22 obj/C-Motion.o
+                0x08152c6a                PMDSetPhaseInitializeMode
  .text.PMDGetPhaseInitializeMode
-                0x08152c7c       0x1e obj/C-Motion.o
-                0x08152c7c                PMDGetPhaseInitializeMode
+                0x08152c8c       0x1e obj/C-Motion.o
+                0x08152c8c                PMDGetPhaseInitializeMode
  .text.PMDSetPhasePrescale
-                0x08152c9a       0x22 obj/C-Motion.o
-                0x08152c9a                PMDSetPhasePrescale
+                0x08152caa       0x22 obj/C-Motion.o
+                0x08152caa                PMDSetPhasePrescale
  .text.PMDSetPhaseCorrectionMode
-                0x08152cbc       0x22 obj/C-Motion.o
-                0x08152cbc                PMDSetPhaseCorrectionMode
+                0x08152ccc       0x22 obj/C-Motion.o
+                0x08152ccc                PMDSetPhaseCorrectionMode
  .text.PMDInitializePhase
-                0x08152cde       0x1a obj/C-Motion.o
-                0x08152cde                PMDInitializePhase
+                0x08152cee       0x1a obj/C-Motion.o
+                0x08152cee                PMDInitializePhase
  .text.PMDGetVersion32
-                0x08152cf8       0x1e obj/C-Motion.o
-                0x08152cf8                PMDGetVersion32
+                0x08152d08       0x1e obj/C-Motion.o
+                0x08152d08                PMDGetVersion32
  .text.PMDGetInstructionError
-                0x08152d16       0x1e obj/C-Motion.o
-                0x08152d16                PMDGetInstructionError
+                0x08152d26       0x1e obj/C-Motion.o
+                0x08152d26                PMDGetInstructionError
  .text.PMDGetTime
-                0x08152d34       0x1e obj/C-Motion.o
-                0x08152d34                PMDGetTime
+                0x08152d44       0x1e obj/C-Motion.o
+                0x08152d44                PMDGetTime
  .text.PMDSetPositionLoop
-                0x08152d52       0x24 obj/C-Motion.o
-                0x08152d52                PMDSetPositionLoop
+                0x08152d62       0x24 obj/C-Motion.o
+                0x08152d62                PMDSetPositionLoop
  .text.PMDSetOperatingMode
-                0x08152d76       0x22 obj/C-Motion.o
-                0x08152d76                PMDSetOperatingMode
+                0x08152d86       0x22 obj/C-Motion.o
+                0x08152d86                PMDSetOperatingMode
  .text.PMDRestoreOperatingMode
-                0x08152d98       0x1a obj/C-Motion.o
-                0x08152d98                PMDRestoreOperatingMode
+                0x08152da8       0x1a obj/C-Motion.o
+                0x08152da8                PMDRestoreOperatingMode
  .text.PMDSetCurrentFoldback
-                0x08152db2       0x26 obj/C-Motion.o
-                0x08152db2                PMDSetCurrentFoldback
+                0x08152dc2       0x26 obj/C-Motion.o
+                0x08152dc2                PMDSetCurrentFoldback
  .text.PMDSetCurrentControlMode
-                0x08152dd8       0x22 obj/C-Motion.o
-                0x08152dd8                PMDSetCurrentControlMode
+                0x08152de8       0x22 obj/C-Motion.o
+                0x08152de8                PMDSetCurrentControlMode
  .text.PMDSetAxisOutMask
-                0x08152dfa       0x52 obj/C-Motion.o
-                0x08152dfa                PMDSetAxisOutMask
+                0x08152e0a       0x52 obj/C-Motion.o
+                0x08152e0a                PMDSetAxisOutMask
  .text.PMDSetEventAction
-                0x08152e4c       0x26 obj/C-Motion.o
-                0x08152e4c                PMDSetEventAction
+                0x08152e5c       0x26 obj/C-Motion.o
+                0x08152e5c                PMDSetEventAction
  .text.PMDGetBusVoltage
-                0x08152e72       0x1e obj/C-Motion.o
-                0x08152e72                PMDGetBusVoltage
+                0x08152e82       0x1e obj/C-Motion.o
+                0x08152e82                PMDGetBusVoltage
  .text.PMDGetDriveFaultStatus
-                0x08152e90       0x1e obj/C-Motion.o
-                0x08152e90                PMDGetDriveFaultStatus
+                0x08152ea0       0x1e obj/C-Motion.o
+                0x08152ea0                PMDGetDriveFaultStatus
  .text.PMDSetCurrentLoop
-                0x08152eae       0x40 obj/C-Motion.o
-                0x08152eae                PMDSetCurrentLoop
+                0x08152ebe       0x40 obj/C-Motion.o
+                0x08152ebe                PMDSetCurrentLoop
  .text.PMDSetFOC
-                0x08152eee       0x40 obj/C-Motion.o
-                0x08152eee                PMDSetFOC
+                0x08152efe       0x40 obj/C-Motion.o
+                0x08152efe                PMDSetFOC
  .text.PMDSetFaultOutMask
-                0x08152f2e       0x22 obj/C-Motion.o
-                0x08152f2e                PMDSetFaultOutMask
+                0x08152f3e       0x22 obj/C-Motion.o
+                0x08152f3e                PMDSetFaultOutMask
  .text.PMDSetDriveFaultParameter
-                0x08152f50       0x26 obj/C-Motion.o
-                0x08152f50                PMDSetDriveFaultParameter
+                0x08152f60       0x26 obj/C-Motion.o
+                0x08152f60                PMDSetDriveFaultParameter
  .text.PMDSetDrivePWM
-                0x08152f76       0x26 obj/C-Motion.o
-                0x08152f76                PMDSetDrivePWM
+                0x08152f86       0x26 obj/C-Motion.o
+                0x08152f86                PMDSetDrivePWM
  .text.PMDSetCommutationParameter
-                0x08152f9c       0x24 obj/C-Motion.o
-                0x08152f9c                PMDSetCommutationParameter
+                0x08152fac       0x24 obj/C-Motion.o
+                0x08152fac                PMDSetCommutationParameter
  .text.PMDSetPhaseParameter
-                0x08152fc0       0x26 obj/C-Motion.o
-                0x08152fc0                PMDSetPhaseParameter
+                0x08152fd0       0x26 obj/C-Motion.o
+                0x08152fd0                PMDSetPhaseParameter
  .text.BuildCommand
-                0x08152fe6       0x28 obj/PMDtrans.o
-                0x08152fe6                BuildCommand
+                0x08152ff6       0x28 obj/PMDtrans.o
+                0x08152ff6                BuildCommand
  .text.SendCommand
-                0x0815300e       0x3e obj/PMDtrans.o
-                0x0815300e                SendCommand
+                0x0815301e       0x3e obj/PMDtrans.o
+                0x0815301e                SendCommand
  .text.SendCommandWord
-                0x0815304c       0x46 obj/PMDtrans.o
-                0x0815304c                SendCommandWord
+                0x0815305c       0x46 obj/PMDtrans.o
+                0x0815305c                SendCommandWord
  .text.SendCommandWordWord
-                0x08153092       0x54 obj/PMDtrans.o
-                0x08153092                SendCommandWordWord
+                0x081530a2       0x54 obj/PMDtrans.o
+                0x081530a2                SendCommandWordWord
  .text.SendCommandWordWordWord
-                0x081530e6       0x58 obj/PMDtrans.o
-                0x081530e6                SendCommandWordWordWord
+                0x081530f6       0x58 obj/PMDtrans.o
+                0x081530f6                SendCommandWordWordWord
  .text.SendCommandLong
-                0x0815313e       0x4e obj/PMDtrans.o
-                0x0815313e                SendCommandLong
+                0x0815314e       0x4e obj/PMDtrans.o
+                0x0815314e                SendCommandLong
  .text.SendCommandWordLong
-                0x0815318c       0x56 obj/PMDtrans.o
-                0x0815318c                SendCommandWordLong
+                0x0815319c       0x56 obj/PMDtrans.o
+                0x0815319c                SendCommandWordLong
  .text.SendCommandGetWord
-                0x081531e2       0x58 obj/PMDtrans.o
-                0x081531e2                SendCommandGetWord
+                0x081531f2       0x58 obj/PMDtrans.o
+                0x081531f2                SendCommandGetWord
  .text.SendCommandGetLong
-                0x0815323a       0x5e obj/PMDtrans.o
-                0x0815323a                SendCommandGetLong
+                0x0815324a       0x5e obj/PMDtrans.o
+                0x0815324a                SendCommandGetLong
  .text.PMDGetErrorMessage
-                0x08153298      0x7dc obj/PMDdiag.o
-                0x08153298                PMDGetErrorMessage
+                0x081532a8      0x7dc obj/PMDdiag.o
+                0x081532a8                PMDGetErrorMessage
  .text.PMDPeriphReceive
-                0x08153a74       0x52 obj/PMDcommon.o
-                0x08153a74                PMDPeriphReceive
+                0x08153a84       0x52 obj/PMDcommon.o
+                0x08153a84                PMDPeriphReceive
  .text.PMDPeriphSend
-                0x08153ac6       0x52 obj/PMDcommon.o
-                0x08153ac6                PMDPeriphSend
+                0x08153ad6       0x52 obj/PMDcommon.o
+                0x08153ad6                PMDPeriphSend
  .text.PMDPeriphRead
-                0x08153b18       0x4e obj/PMDcommon.o
-                0x08153b18                PMDPeriphRead
+                0x08153b28       0x4e obj/PMDcommon.o
+                0x08153b28                PMDPeriphRead
  .text.PMDPeriphClose
-                0x08153b66       0x4e obj/PMDcommon.o
-                0x08153b66                PMDPeriphClose
+                0x08153b76       0x4e obj/PMDcommon.o
+                0x08153b76                PMDPeriphClose
  .text.PMDDeviceClose
-                0x08153bb4       0x4e obj/PMDcommon.o
-                0x08153bb4                PMDDeviceClose
- *fill*         0x08153c02        0x2 ff
+                0x08153bc4       0x4e obj/PMDcommon.o
+                0x08153bc4                PMDDeviceClose
+ *fill*         0x08153c12        0x2 ff
  .text.WaitForAlgorithmicPhaseInitialization
-                0x08153c04       0x40 obj/PMDutil.o
-                0x08153c04                WaitForAlgorithmicPhaseInitialization
+                0x08153c14       0x40 obj/PMDutil.o
+                0x08153c14                WaitForAlgorithmicPhaseInitialization
  .text.InitializePhase
-                0x08153c44       0x74 obj/PMDutil.o
-                0x08153c44                InitializePhase
+                0x08153c54       0x74 obj/PMDutil.o
+                0x08153c54                InitializePhase
  .text.CopyDataSectionToRAM
-                0x08153cb8       0x3c obj/startup.o
-                0x08153cb8                CopyDataSectionToRAM
- .text.round    0x08153cf4       0x9c c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(lib_a-s_round.o)
-                0x08153cf4                round
- .text.sqrt     0x08153d90       0x54 c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(lib_a-w_sqrt.o)
-                0x08153d90                sqrt
+                0x08153cc8       0x3c obj/startup.o
+                0x08153cc8                CopyDataSectionToRAM
+ .text.round    0x08153d04       0x9c c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(lib_a-s_round.o)
+                0x08153d04                round
+ .text.sqrt     0x08153da0       0x54 c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(lib_a-w_sqrt.o)
+                0x08153da0                sqrt
  .text.__ieee754_sqrt
-                0x08153de4        0x8 c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(lib_a-e_sqrt.o)
-                0x08153de4                __ieee754_sqrt
- .text.__errno  0x08153dec        0xc c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc.a(lib_a-errno.o)
-                0x08153dec                __errno
- .text          0x08153df8      0x134 c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc.a(lib_a-memcpy.o)
-                0x08153df8                memcpy
- .text.memset   0x08153f2c       0xa0 c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc.a(lib_a-memset.o)
-                0x08153f2c                memset
+                0x08153df4        0x8 c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(lib_a-e_sqrt.o)
+                0x08153df4                __ieee754_sqrt
+ .text.__errno  0x08153dfc        0xc c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc.a(lib_a-errno.o)
+                0x08153dfc                __errno
+ .text          0x08153e08      0x134 c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc.a(lib_a-memcpy.o)
+                0x08153e08                memcpy
+ .text.memset   0x08153f3c       0xa0 c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc.a(lib_a-memset.o)
+                0x08153f3c                memset
  *(.rodata*)
  .rodata.UCFileName
-                0x08153fcc        0xa obj/nIONCME.o
- *fill*         0x08153fd6        0x2 ff
- .rodata        0x08153fd8      0xecb obj/nIONCME.o
- *fill*         0x08154ea3        0x1 ff
- .rodata        0x08154ea4     0x1163 obj/Pro-MotionExport1_15_25.o
- *fill*         0x08156007        0x1 ff
- .rodata        0x08156008      0x396 obj/PassiveMode2.o
- *fill*         0x0815639e        0x2 ff
- .rodata        0x081563a0       0xb3 obj/LoadCellFunctions.o
- *fill*         0x08156453        0x1 ff
- .rodata        0x08156454      0x3b6 obj/HomeCapture.o
- *fill*         0x0815680a        0x2 ff
- .rodata        0x0815680c       0xc5 obj/ReverseMove.o
- *fill*         0x081568d1        0x3 ff
- .rodata        0x081568d4      0x4c5 obj/ComFunctions.o
- *fill*         0x08156d99        0x3 ff
- .rodata        0x08156d9c      0x30a obj/Assistive2.o
- *fill*         0x081570a6        0x2 ff
- .rodata        0x081570a8      0x3e6 obj/Admittance2.o
- *fill*         0x0815748e        0x2 ff
- .rodata        0x08157490      0x345 obj/ResistTorqueGoal2.o
- *fill*         0x081577d5        0x3 ff
- .rodata        0x081577d8      0x32d obj/StepResponse.o
- *fill*         0x08157b05        0x3 ff
- .rodata        0x08157b08      0x194 obj/LoadCellCME.o
- .rodata        0x08157c9c      0x3e0 obj/AssistiveForce.o
- .rodata        0x0815807c      0x24f obj/Transparent.o
- *fill*         0x081582cb        0x1 ff
- .rodata        0x081582cc      0x305 obj/Impedance.o
- *fill*         0x081585d1        0x3 ff
- .rodata        0x081585d4      0x3d5 obj/AssistTrajectory.o
- *fill*         0x081589a9        0x3 ff
- .rodata        0x081589ac      0x1ee obj/ReturnHome.o
- *fill*         0x08158b9a        0x2 ff
- .rodata        0x08158b9c     0x2491 obj/PMDdiag.o
- *fill*         0x0815b02d        0x3 ff
- .rodata        0x0815b030      0x20c obj/PMDutil.o
-                0x0815b240                . = ALIGN (0x8)
- *fill*         0x0815b23c        0x4 ff
-                0x0815b240                _text_end = .
+                0x08153fdc        0xa obj/nIONCME.o
+ *fill*         0x08153fe6        0x2 ff
+ .rodata        0x08153fe8      0xecb obj/nIONCME.o
+ *fill*         0x08154eb3        0x1 ff
+ .rodata        0x08154eb4     0x1163 obj/Pro-MotionExport1_15_25.o
+ *fill*         0x08156017        0x1 ff
+ .rodata        0x08156018      0x396 obj/PassiveMode2.o
+ *fill*         0x081563ae        0x2 ff
+ .rodata        0x081563b0       0xb3 obj/LoadCellFunctions.o
+ *fill*         0x08156463        0x1 ff
+ .rodata        0x08156464      0x3b6 obj/HomeCapture.o
+ *fill*         0x0815681a        0x2 ff
+ .rodata        0x0815681c       0xc5 obj/ReverseMove.o
+ *fill*         0x081568e1        0x3 ff
+ .rodata        0x081568e4      0x4c5 obj/ComFunctions.o
+ *fill*         0x08156da9        0x3 ff
+ .rodata        0x08156dac      0x30a obj/Assistive2.o
+ *fill*         0x081570b6        0x2 ff
+ .rodata        0x081570b8      0x3e6 obj/Admittance2.o
+ *fill*         0x0815749e        0x2 ff
+ .rodata        0x081574a0      0x345 obj/ResistTorqueGoal2.o
+ *fill*         0x081577e5        0x3 ff
+ .rodata        0x081577e8      0x32d obj/StepResponse.o
+ *fill*         0x08157b15        0x3 ff
+ .rodata        0x08157b18      0x194 obj/LoadCellCME.o
+ .rodata        0x08157cac      0x3e0 obj/AssistiveForce.o
+ .rodata        0x0815808c      0x24f obj/Transparent.o
+ *fill*         0x081582db        0x1 ff
+ .rodata        0x081582dc      0x305 obj/Impedance.o
+ *fill*         0x081585e1        0x3 ff
+ .rodata        0x081585e4      0x3d5 obj/AssistTrajectory.o
+ *fill*         0x081589b9        0x3 ff
+ .rodata        0x081589bc      0x1ee obj/ReturnHome.o
+ *fill*         0x08158baa        0x2 ff
+ .rodata        0x08158bac     0x2491 obj/PMDdiag.o
+ *fill*         0x0815b03d        0x3 ff
+ .rodata        0x0815b040      0x20c obj/PMDutil.o
+                0x0815b250                . = ALIGN (0x8)
+ *fill*         0x0815b24c        0x4 ff
+                0x0815b250                _text_end = .
 
-.glue_7         0x0815b240        0x0
- .glue_7        0x0815b240        0x0 linker stubs
+.glue_7         0x0815b250        0x0
+ .glue_7        0x0815b250        0x0 linker stubs
 
-.glue_7t        0x0815b240        0x0
- .glue_7t       0x0815b240        0x0 linker stubs
+.glue_7t        0x0815b250        0x0
+ .glue_7t       0x0815b250        0x0 linker stubs
 
-.vfp11_veneer   0x0815b240        0x0
- .vfp11_veneer  0x0815b240        0x0 linker stubs
+.vfp11_veneer   0x0815b250        0x0
+ .vfp11_veneer  0x0815b250        0x0 linker stubs
 
-.v4_bx          0x0815b240        0x0
- .v4_bx         0x0815b240        0x0 linker stubs
+.v4_bx          0x0815b250        0x0
+ .v4_bx         0x0815b250        0x0 linker stubs
 
-.iplt           0x0815b240        0x0
- .iplt          0x0815b240        0x0 obj/nIONCME.o
+.iplt           0x0815b250        0x0
+ .iplt          0x0815b250        0x0 obj/nIONCME.o
 
-.rel.dyn        0x0815b240        0x0
- .rel.iplt      0x0815b240        0x0 obj/nIONCME.o
+.rel.dyn        0x0815b250        0x0
+ .rel.iplt      0x0815b250        0x0 obj/nIONCME.o
 
-.data           0x20010000      0x470 load address 0x0815b240
+.data           0x20010000      0x478 load address 0x0815b250
                 0x20010000                _data_start = .
  *(.data)
  *(.data*)
  .data.loadCellConfig
                 0x20010000        0xc obj/LoadCellFunctions.o
                 0x20010000                loadCellConfig
- .data.comMan   0x2001000c       0x14 obj/ComFunctions.o
+ .data.comMan   0x2001000c       0x18 obj/ComFunctions.o
                 0x2001000c                comMan
- .data.comImp   0x20010020       0x20 obj/ComFunctions.o
-                0x20010020                comImp
+ *fill*         0x20010024        0x4 
+ .data.comImp   0x20010028       0x20 obj/ComFunctions.o
+                0x20010028                comImp
  .data.__fdlib_version
-                0x20010040        0x1 c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(lib_a-s_lib_ver.o)
-                0x20010040                __fdlib_version
- *fill*         0x20010041        0x3 
+                0x20010048        0x1 c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(lib_a-s_lib_ver.o)
+                0x20010048                __fdlib_version
+ *fill*         0x20010049        0x3 
  .data._impure_ptr
-                0x20010044        0x4 c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc.a(lib_a-impure.o)
-                0x20010044                _impure_ptr
+                0x2001004c        0x4 c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc.a(lib_a-impure.o)
+                0x2001004c                _impure_ptr
  .data.impure_data
-                0x20010048      0x428 c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc.a(lib_a-impure.o)
-                0x20010470                . = ALIGN (0x8)
-                0x20010470                _data_end = .
+                0x20010050      0x428 c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc.a(lib_a-impure.o)
+                0x20010478                . = ALIGN (0x8)
+                0x20010478                _data_end = .
 
-.igot.plt       0x20010470        0x0 load address 0x0815b6b0
- .igot.plt      0x20010470        0x0 obj/nIONCME.o
+.igot.plt       0x20010478        0x0 load address 0x0815b6c8
+ .igot.plt      0x20010478        0x0 obj/nIONCME.o
 
-.bss            0x20010470       0x20 load address 0x0815b6b0
-                0x20010470                _bss_start = .
+.bss            0x20010478       0x20 load address 0x0815b6c8
+                0x20010478                _bss_start = .
  *(.bss*)
  .bss.comConfig
-                0x20010470       0x18 obj/ComFunctions.o
-                0x20010470                comConfig
+                0x20010478       0x18 obj/ComFunctions.o
+                0x20010478                comConfig
  *(COMMON)
- COMMON         0x20010488        0x2 obj/nIONCME.o
-                0x20010488                result
-                0x20010490                . = ALIGN (0x8)
- *fill*         0x2001048a        0x6 
-                0x20010490                end = .
-                0x20010490                _end = .
-                0x20010490                _bss_end = .
+ COMMON         0x20010490        0x2 obj/nIONCME.o
+                0x20010490                result
+                0x20010498                . = ALIGN (0x8)
+ *fill*         0x20010492        0x6 
+                0x20010498                end = .
+                0x20010498                _end = .
+                0x20010498                _bss_end = .
                 0x00000020                _bss_size = SIZEOF (.bss)
-                0x00000470                _data_size = SIZEOF (.data)
-                0x0815b240                _data_load_start = LOADADDR (.data)
+                0x00000478                _data_size = SIZEOF (.data)
+                0x0815b250                _data_load_start = LOADADDR (.data)
 OUTPUT(nIONCME.elf elf32-littlearm)
 LOAD linker stubs
 
