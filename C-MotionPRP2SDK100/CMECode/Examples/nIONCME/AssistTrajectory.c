@@ -16,6 +16,7 @@
 #define VELDIRINT 0
 #define TRAPPROFILE 01
 #define EKFONLINE 0
+#define SENDTRAJFORCE 01
 
 static double trapProfile(double a, double v_max, double* v_peak, double* TimeAccel, double* TimeCon, double* TimeTotal, double posMaxCM, double posMinCM) {
 
@@ -231,6 +232,31 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 	PMDint32 posTemp = 0;
 	PMDint16 motTemp = 0;
 
+#if SENDTRAJFORCE == 1
+	// Arrays used for sending the control Force breakdown
+	int TIMEFORCE[arraySize] = { 0 };
+	int FORCE[arraySize] = { 0 };
+	int FEXT[arraySize] = { 0 };
+	int E_TERM[arraySize] = { 0 };
+	int E_DOT_TERM[arraySize] = { 0 };
+	int TC[arraySize] = { 0 };
+	int TV[arraySize] = { 0 };
+	int ACCELERATION[arraySize] = { 0 };
+
+	int iFORCE = 0;
+
+	int tmin = 99999999999,
+		fmin = 99999999999,
+		femin = 99999999999,
+		emin = 99999999999,
+		edotmin = 99999999999,
+		tcmin = 99999999999,
+		tvmin = 99999999999,
+		amin = 99999999999;
+
+
+#endif // SENDTRAJFORCE
+
 	// Size of arrays
 	int tSize = 0, pSize = 0, vSize = 0, mSize = 0, fSize = 0, dSize = 0;
 
@@ -259,6 +285,17 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 
 	SendParts(hPeriphSer, binSave, TIME[i], POS[i], VeL[i], force[i], motCom[i], DesVeL[i]);
 	i++;
+#if SENDTRAJFORCE == 1
+	TIMEFORCE[iFORCE] = TIME[i - 1];
+	FORCE[iFORCE] = (0 + 200) * 10000;
+	FEXT[iFORCE] = (0 + 200) * 10000;
+	E_TERM[iFORCE] = (0 + 200) * 10000;
+	E_DOT_TERM[iFORCE] = (0 + 200) * 10000;
+	TC[iFORCE] = (0 + 200) * 10000;
+	TV[iFORCE] = (0 + 200) * 10000;
+	ACCELERATION[iFORCE] = (0 + 200) * 10000;
+	iFORCE++;
+#endif
 
 	PMDprintf("Starting Assistive Trajectory!\r\n");
 	while (run) {
@@ -571,6 +608,49 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 				if (instructionerror != 0) {
 					PMDGetErrorMessage(instructionerror);
 				}
+#if SENDTRAJFORCE == 1
+				//PMD_RESULT(PMDGetTime(hAxis1, &curTime));
+
+				TIMEFORCE[iFORCE] = TIME[i-1];
+				FORCE[iFORCE] = (F + 200) * 10000;
+				FEXT[iFORCE] = (fgain * Fext + 200) * 10000;
+				E_TERM[iFORCE] = (-mMd * Kd * e + 200) * 10000;
+				E_DOT_TERM[iFORCE] = (-mMd * Dd * e_dot + 200) * 10000;
+				TC[iFORCE] = (dir * Tcoulomb + 200) * 10000;
+				TV[iFORCE] = (viscousFrictionGain * x_dot + 200) * 10000;
+				ACCELERATION[iFORCE] = (m * x0_ddot + 200) * 10000;
+
+				SendTrajForce(hPeriphSer, TIMEFORCE[iFORCE], FORCE[iFORCE], FEXT[iFORCE], E_TERM[iFORCE], E_DOT_TERM[iFORCE], TC[iFORCE], TV[iFORCE], ACCELERATION[iFORCE]);
+
+				/*
+				if (fmin > FORCE[iFORCE]) {
+					fmin = FORCE[iFORCE];
+				}
+				if (femin > FEXT[iFORCE]) {
+					femin = FEXT[iFORCE];
+				}
+				if (emin > E_TERM[iFORCE]) {
+					emin = E_TERM[iFORCE];
+				}
+				if (edotmin > E_DOT_TERM[iFORCE]) {
+					edotmin = E_DOT_TERM[iFORCE];
+				}
+				if (tcmin > TC[iFORCE]) {
+					tcmin = TC[iFORCE];
+				}
+				if (tvmin > TV[iFORCE]) {
+					tvmin = TV[iFORCE];
+				}
+				if (amin > ACCELERATION[iFORCE]) {
+					amin = ACCELERATION[iFORCE];
+				}
+				*/
+				iFORCE++;
+				if (iFORCE == 20) {
+					iFORCE = 0;
+				}
+				
+#endif
 			}
 		}
 
@@ -621,7 +701,7 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 		command = F * motScale;
 		//PMDprintf("velDir = %d, visGain = %f, x_dot = %f, velDir*visGain = %f, all = %f\r\n", velDir, viscousFrictionGain, x_dot, (velDir* viscousFrictionGain), (velDir* (viscousFrictionGain* fabs(x_dot))));
 		//PMDprintf("x0 = %f, x = %f, x= %f, e = %f\r\n", x0, (counts2cm * (POS[j] - pOffset)), x, e);
-		//PMDprintf("F = %f, Fext = %f, e = %f, e_dot = %f, Tcoulomb = %f, viscous = %f, x0_ddot = %f\r\n", F, (fgain * Fext), (-mMd * Kd * e), (-mMd * Dd * e_dot), (velDir * Tcoulomb), (velDir * (viscousFrictionGain * fabs(x_dot))), (m * x0_ddot));
+		PMDprintf("F = %f, Fext = %f, e = %f, e_dot = %f, Tcoulomb = %f, viscous = %f, x0_ddot = %f\r\n", F, (fgain * Fext), (-mMd * Kd * e), (-mMd * Dd * e_dot), (dir * Tcoulomb), (viscousFrictionGain * x_dot), (m * x0_ddot));
 		//PMDprintf("x_dot = %f, velDir = %f");
 		//PMDprintf("VeL = %f, x0_dot = %f, e_dot = %f, x = %f, x0 = %f\r\n", (x_dot), x0_dot, e_dot, x, x0);
 		if (abs(F) > 30) {
@@ -706,7 +786,9 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 	PMDprintf("        %f  %f\r\n", ekf.sigma_pred[1][0], ekf.sigma_pred[1][1]);
 	PMDprintf("mu = %f, mu_dot = %f\r\n", ekf.mu[0], ekf.mu[1]);
 #endif // EKFONLINE == 1
-
+#if SENDTRAJFORCE == 1
+	//PMDprintf("fmin = %d, femin = %d, emin = %d, edotmin = %d, tcmin = %d, tvmin = %d, amin = %d\r\n", fmin, femin, emin, edotmin, tcmin, tvmin, amin);
+#endif
 	return result;
 
 }

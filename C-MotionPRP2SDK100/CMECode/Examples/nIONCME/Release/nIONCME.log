@@ -190,19 +190,43 @@ Impedance.c(28,6): warning G183B9D1E: variable 'saved' set but not used [-Wunuse
   Compiling C: AssistTrajectory.c
   "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/AssistTrajectory.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 AssistTrajectory.c -o obj/AssistTrajectory.o 
   AssistTrajectory.c: In function 'trapProfile':
-AssistTrajectory.c(47,1): warning G06B731C0: no return statement in function returning non-void [-Wreturn-type]
-     47 | }
+AssistTrajectory.c(48,1): warning G06B731C0: no return statement in function returning non-void [-Wreturn-type]
+     48 | }
         | ^
   AssistTrajectory.c: In function 'trapProfile2':
-AssistTrajectory.c(67,1): warning G06B731C0: no return statement in function returning non-void [-Wreturn-type]
-     67 | }
+AssistTrajectory.c(68,1): warning G06B731C0: no return statement in function returning non-void [-Wreturn-type]
+     68 | }
         | ^
   AssistTrajectory.c: In function 'AssistTrajectory':
-AssistTrajectory.c(583,9): warning G3FC1A267: suggest parentheses around comparison in operand of '&' [-Wparentheses]
-    583 |   if (i == 4 & firstRun == 0) j = 14;
+AssistTrajectory.c(248,13): warning G25572111: overflow in conversion from 'long long int' to 'int' changes value from '99999999999' to '1215752191' [-Woverflow]
+    248 |  int tmin = 99999999999,
+        |             ^~~~~~~~~~~
+AssistTrajectory.c(249,10): warning G25572111: overflow in conversion from 'long long int' to 'int' changes value from '99999999999' to '1215752191' [-Woverflow]
+    249 |   fmin = 99999999999,
+        |          ^~~~~~~~~~~
+AssistTrajectory.c(250,11): warning G25572111: overflow in conversion from 'long long int' to 'int' changes value from '99999999999' to '1215752191' [-Woverflow]
+    250 |   femin = 99999999999,
+        |           ^~~~~~~~~~~
+AssistTrajectory.c(251,10): warning G25572111: overflow in conversion from 'long long int' to 'int' changes value from '99999999999' to '1215752191' [-Woverflow]
+    251 |   emin = 99999999999,
+        |          ^~~~~~~~~~~
+AssistTrajectory.c(252,13): warning G25572111: overflow in conversion from 'long long int' to 'int' changes value from '99999999999' to '1215752191' [-Woverflow]
+    252 |   edotmin = 99999999999,
+        |             ^~~~~~~~~~~
+AssistTrajectory.c(253,11): warning G25572111: overflow in conversion from 'long long int' to 'int' changes value from '99999999999' to '1215752191' [-Woverflow]
+    253 |   tcmin = 99999999999,
+        |           ^~~~~~~~~~~
+AssistTrajectory.c(254,11): warning G25572111: overflow in conversion from 'long long int' to 'int' changes value from '99999999999' to '1215752191' [-Woverflow]
+    254 |   tvmin = 99999999999,
+        |           ^~~~~~~~~~~
+AssistTrajectory.c(255,10): warning G25572111: overflow in conversion from 'long long int' to 'int' changes value from '99999999999' to '1215752191' [-Woverflow]
+    255 |   amin = 99999999999;
+        |          ^~~~~~~~~~~
+AssistTrajectory.c(663,9): warning G3FC1A267: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+    663 |   if (i == 4 & firstRun == 0) j = 14;
         |       ~~^~~~
-AssistTrajectory.c(187,74): warning G183B9D1E: variable 'comTIME' set but not used [-Wunused-but-set-variable]
-    187 |  PMDuint32 startTime, curTime, sampleTime, cycTime, TRACESTART, serTime, comTIME, loadCycTime, deltaT = 0, waitTime;
+AssistTrajectory.c(188,74): warning G183B9D1E: variable 'comTIME' set but not used [-Wunused-but-set-variable]
+    188 |  PMDuint32 startTime, curTime, sampleTime, cycTime, TRACESTART, serTime, comTIME, loadCycTime, deltaT = 0, waitTime;
         |                                                                          ^~~~~~~
    
   Compiling C: ReturnHome.c
@@ -252,7 +276,7 @@ EKF.c(120,13): warning G26EC2BC0: passing argument 1 of 'mat2x2_sub' from incomp
   Linking: nIONCME.elf
   "..\..\GNU/bin/arm-none-eabi-gcc" -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/nIONCME.elf.d -Wcast-qual -Wno-unused-variable -mhard-float obj/UserImport.o obj/nIONCME.o obj/Pro-MotionExport1_15_25.o obj/Examples.o obj/PassiveMode2.o obj/LoadCellFunctions.o obj/HomeCapture.o obj/ReverseMove.o obj/ComFunctions.o obj/Assistive2.o obj/Admittance2.o obj/ResistTorqueGoal2.o obj/StepResponse.o obj/LoadCellCME.o obj/AssistiveForce.o obj/SaveOnly.o obj/Transparent.o obj/Impedance.o obj/AssistTrajectory.o obj/ReturnHome.o obj/EKF.o obj/C-Motion.o obj/PMDtrans.o obj/PMDdiag.o obj/PMDcommon.o obj/PMDutil.o obj/startup.o obj/syscalls.o  --output nIONCME.elf -nostartfiles  -Wl,-Map=nIONCME.map,--gc-sections,--print-memory-usage -lm	 -lc -T../..//linkPMD.ld
   Memory region         Used Size  Region Size  %age Used
-             FLASH:      112328 B       256 KB     42.85%
+             FLASH:      115752 B       256 KB     44.16%
                RAM:        1176 B        64 KB      1.79%
    
   Creating CME flash file: nIONCME.bin
@@ -266,7 +290,7 @@ EKF.c(120,13): warning G26EC2BC0: passing argument 1 of 'mat2x2_sub' from incomp
    
   Adding CRC to flash file:
   ../../utils/bin/crc nIONCME.bin
-  CRC = 60383895
+  CRC = 4865FA6C
   
   Errors: none
   --------  end  --------

@@ -322,3 +322,93 @@ void SendImpVars(PMDPeriphHandle* hPeriphSer, double m, double Md, double Dd, do
 	PMDTaskWait(100);
 
 }
+
+void SendTrajForce(PMDPeriphHandle* hPeriphSer, int TIMEFORCE, int F, int Fext, int e_term, int e_dot_term, int Tc, int Tv, int a) {
+	PMDresult result;
+	char label[3] = { '<', 'G', '>' };
+	char endlabel[4] = { '>', '>', '>', '>' };
+	PMDint32 
+		tArr[1] = { TIMEFORCE }, 
+		FArr[1] = { F }, 
+		FextArr[1] = { Fext }, 
+		eArr[1] = { e_term }, 
+		e_dotArr[1] = { e_dot_term },
+		TcArr[1] = { Tc },
+		TvArr[1] = { Tv },
+		aArr[1] = { a };
+	PMDprintf("eArr = %d\r\n", eArr[0]);
+	if (TIMEFORCE < 0) {
+		PMDprintf("Time Negative: %d\r\n", TIMEFORCE);
+	}
+	if (F < 0) {
+		PMDprintf("Force Negative: %d\r\n", F);
+	}
+	if (Fext < 0) {
+		PMDprintf("Fext Negative: %d\r\n", Fext);
+	}
+	if (e_term < 0) {
+		PMDprintf("Pos Error Negative: %d\r\n", e_term);
+	}
+	if (e_dot_term < 0) {
+		PMDprintf("Vel Error Negative: %d\r\n", e_dot_term);
+	}
+	if (Tc < 0) {
+		PMDprintf("Tc Negative: %d\r\n", Tc);
+	}
+	if (Tv < 0) {
+		PMDprintf("Tv Negative: %d\r\n", Tv);
+	}
+	if (a < 0) {
+		PMDprintf("Acceleration Negative: %d\r\n", a);
+	}
+	
+	// Time 2
+	label[1] = 't';
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &label, 3, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &tArr, 4, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &endlabel, 4, .1));
+
+	// Force
+	label[1] = 'f';
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &label, 3, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &FArr, 4, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &endlabel, 4, .1));
+
+	// Fext
+	label[1] = 'g';
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &label, 3, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &FextArr, 4, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &endlabel, 4, .1));
+
+	// Position error
+	label[1] = 'e';
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &label, 3, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &eArr, 4, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &endlabel, 4, .1));
+
+	// Velocity Error
+	label[1] = 'v';
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &label, 3, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &e_dotArr, 4, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &endlabel, 4, .1));
+
+	// T coulomb
+	label[1] = 'c';
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &label, 3, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &TcArr, 4, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &endlabel, 4, .1));
+
+	// T viscous
+	label[1] = 'w';
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &label, 3, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &TvArr, 4, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &endlabel, 4, .1));
+
+	// Acceleration
+	label[1] = 'a';
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &label, 3, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &aArr, 4, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &endlabel, 4, .1));
+
+
+}

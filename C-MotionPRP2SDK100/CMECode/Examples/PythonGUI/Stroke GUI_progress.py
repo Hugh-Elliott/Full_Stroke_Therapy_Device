@@ -1,10 +1,11 @@
 # Made and created by Hugh Elliott for the purpose of the Design and Control of a Stroke Therapy Device
-nIONcon = True
-TEST = False
-ALLDATA = False
-SIMULATION = False
-plotOn = True
-SENDINLOOP = False
+nIONcon = True              # Turns on/ off serial communication
+TEST = False                 # Test functions for send/ receive
+ALLDATA = False           # Switches between receiving all data at the end or as it goes
+SIMULATION = False      # Turns on/off matlab simulation code
+plotOn = True                   # Turns on/off plotting using matplotlib
+SENDINLOOP = False      # Turns on/off including the Send function in the main loop vs only calling the Send function when a button is pressed
+TRAJFORCE = True            # Turns on/off saving the force components from Assitive Mode Trajectory
 
 from tkinter import *
 from tkinter import ttk
@@ -119,6 +120,7 @@ motScale = 32768.0 / 100
 # Figure variables
 fig1 = None
 fig2 = None
+fig3 = None
 
 # Impedance Controller Variables
 Md_Imp = 0
@@ -136,6 +138,35 @@ MdImpEntryVar.set(.05)
 DdImpEntryVar.set(15)
 KdImpEntryVar.set(45)
 
+# Variables needed for the trajectory force breakdown
+if (TRAJFORCE):
+    TFSave = 0
+    FSave = 0
+    FextSave = 0
+    e_termSave = 0
+    e_dot_termSave = 0
+    TcSave = 0
+    TvSave = 0
+    aSave = 0
+
+    TIMEFORCE = []
+    FORCE = []
+    FEXT = []
+    E_TERM = []
+    E_DOT_TERM = []
+    TC = []
+    TV = []
+    ACCELERATION = []
+
+    TIMEFORCE2 = []
+    FORCE2 = []
+    FEXT2 = []
+    E_TERM2 = []
+    E_DOT_TERM2 = []
+    TC2 = []
+    TV2 = []
+    ACCELERATION2 = []
+    
 def print_dimensions():
     width = window.winfo_width()
     height = window.winfo_height()
@@ -499,6 +530,8 @@ def Receive():
     global mSAVED, MdSAVED, DdSAVED, KdSAVED
 
     allSaveFlags = tSave|pSave|vSave|fSave|mSave|dSave|mImpSave|MdImpSave|DdImpSave|KdImpSave
+    if(TRAJFORCE):
+        allSaveFlags = allSaveFlags|TFSave|FSave|FextSave|e_termSave|e_dot_termSave|TcSave|TvSave|aSave
     try:
         ion = [0x00]
         if (NIONCME.in_waiting > 0 and allSaveFlags == 0):
@@ -546,16 +579,18 @@ def Receive():
                 print("ion = <S")
             if (ion == b'<W>'):
                 mImpSave = 1
-                print("ion = <m")
+                print("ion = <W")
             if (ion == b'<X>'):
                 MdImpSave = 1
-                print("ion = <i")
+                print("ion = <X")
             if (ion == b'<Y>'):
                 DdImpSave = 1
-                print("ion = <d")
+                print("ion = <Y")
             if (ion == b'<Z>'):
                 KdImpSave = 1
-                print("ion = <k")
+                print("ion = <Z")
+            if (TRAJFORCE and M == 77):
+                TrajFlag(ion)
         
         if (NIONCME.in_waiting > 3):
             ion = NIONCME.read(4)
@@ -593,6 +628,8 @@ def Receive():
                 if (ALLDATA):
                     icount = len(ion)
                     print(f"Received {icount} raw bytes: {ion.hex()}")
+                if (TRAJFORCE and M == 77):
+                    TrajFlag(ion)
             else:
                 if (tSave):
                     TIME.append(temp)
@@ -639,6 +676,8 @@ def Receive():
                         KdSAVED = 0
                     print(f"Kd = {Kd_Imp}")
                     print(f"{temp}")
+                if (TRAJFORCE and M == 77):
+                    TrajFlag(ion)
             if(ALLDATA):
                 icount = len(ion)
                 #print(f"Received {icount} raw bytes: {ion.hex()}")            
@@ -908,6 +947,8 @@ def Receive():
                 file1.write(f"% Md = {Md_Imp}" + '\n')
                 file1.write(f"% Dd = {Dd_Imp}" + '\n')
                 file1.write(f"% Kd = {Kd_Imp}" + '\n')
+                if (TRAJFORCE):
+                    TrajWrite(file1)
             file1.close()
             if (plotOn):
                 Plots()
@@ -973,7 +1014,7 @@ def GoFunc():
         UpdateVAL()
 
 def Plots():
-    global fig1, fig2, ax1, ax2
+    global fig1, fig2, ax1, ax2, fig3, ax3
 
     if fig1 is not None and not plt.fignum_exists(fig1.number):
         fig1 = None
@@ -1055,6 +1096,34 @@ def Plots():
         fig2.canvas.draw_idle()
         fig2.canvas.flush_events()
 
+        if(TRAJFORCE and M == 77):
+            try:
+                if fig3 is None:
+                    fig3, ax3 = plt.subplots(num="Force Plot")
+                else:
+                    fig3.clf()
+                    ax3 = fig3.add_subplot(111)
+                ax3.set_title(f"{title}")
+                ax3.set_xlabel("Time (s)")
+                ax3.set_ylabel("Force (N)")
+                ax3.plot(TIMEFORCE2, FORCE2, label = "Control Force")
+                ax3.plot(TIMEFORCE2, FEXT2, label = "Fext")
+                ax3.plot(TIMEFORCE2, E_TERM2, label = "Position Error")
+                ax3.plot(TIMEFORCE2, E_DOT_TERM2, label = "Velocity Error")
+                ax3.plot(TIMEFORCE2, TC2, label = "Tcoulomb")
+                ax3.plot(TIMEFORCE2, TV2, label = "Tviscous")
+                ax3.plot(TIMEFORCE2, ACCELERATION2, label = "x0_ddot")
+
+                ax3.legend()    
+                ax3.grid(True)
+                trajForcePadding = (max(TIMEFORCE2) - min(TIMEFORCE2)) * 0.05
+                ax3.set_xlim(0, max(TIMEFORCE2)+trajForcePadding)
+
+                fig3.canvas.draw_idle()
+                fig3.canvas.flush_events()
+            except Exception as e:
+                print(f"Error plotting figure 3: {e}")
+
         plt.pause(0.001)
         
     except Exception as e:
@@ -1062,6 +1131,8 @@ def Plots():
     
 def Sizing():
     # used to suppliment arrays in the event that data is lost in communication
+    global TIME, POS, VeL, force, motCom, DesVeL
+    
     try:
         Sum = 0
         tSize = len(TIME)
@@ -1075,6 +1146,10 @@ def Sizing():
         for i in range(1,tSize):
             Sum += int(TIME[i]) - int(TIME[i-1])
         deltaT = Sum/(tSize-1)
+        for i in range(1,tSize):
+            temp = int(TIME[i]) - int(TIME[i-1])
+            if (temp > 3*deltaT):
+                TIME[i] = int(TIME[i-1]) + deltaT
         if (tSize < sizeMax and tSize >0):
             for i in range(tSize, sizeMax):
                 TIME.append(int(TIME[-1]) + deltaT)
@@ -1093,12 +1168,45 @@ def Sizing():
         if (dSize < sizeMax and dSize >0):
             for i in range(dSize, sizeMax):
                 DesVeL.append(DesVeL[-1])
+        if (TRAJFORCE and M == 77):
+            global TIMEFORCE, FORCE, FEXT, E_TERM, E_DOT_TERM, TC, TV, ACCELERATION
+            
+            FSize = len(FORCE)
+            FESize = len(FEXT)
+            ESize = len(E_TERM)
+            EDOTSize = len(E_DOT_TERM)
+            TCSize = len(TC)
+            TVSize = len(TV)
+            ACCELSize = len(ACCELERATION)
+
+            if (FSize < sizeMax and FSize >0):
+                for i in range(FSize, sizeMax):
+                    FORCE.append(FORCE[-1])
+            if (FESize < sizeMax and FESize >0):
+                for i in range(FESize, sizeMax):
+                    FEXT.append(FEXT[-1])
+            if (ESize < sizeMax and ESize >0):
+                for i in range(ESize, sizeMax):
+                    E_TERM.append(E_TERM[-1])
+            if (EDOTSize < sizeMax and EDOTSize >0):
+                for i in range(EDOTSize, sizeMax):
+                    E_DOT_TERM.append(E_DOT_TERM[-1])
+            if (TCSize < sizeMax and TCSize >0):
+                for i in range(TCSize, sizeMax):
+                    TC.append(TC[-1])
+            if (TVSize < sizeMax and TVSize >0):
+                for i in range(TVSize, sizeMax):
+                    TV.append(TV[-1])
+            if (ACCELSize < sizeMax and ACCELSize >0):
+                for i in range(ACCELSize, sizeMax):
+                    ACCELERATION.append(ACCELERATION[-1])
+            
     except Exception as e:
         print(f"Sizing Error: {e}")
 
 impdataLab = ["W", "X", "Y", "Z"]
 impdata = [0, 0, 0, 0]
-def IMPSEND():
+def IMPSEND():      # Sends Impedance Variables
     global t
 
     impdata[0] = int(mImpEntryVar.get() * 1000)
@@ -1121,6 +1229,146 @@ def IMPSEND():
         print(f"Error sending data: {e}")
     print()
 
+def TrajFlag(ion):         # Flags and save values for assitive mode trajectory force breakdown. Used with SendTrajForce on nION side 
+    global TFSave, FSave, FextSave, e_termSave, e_dot_termSave, TcSave, TvSave, aSave
+    global TIMEFORCE, FORCE, FEXT, E_TERM, E_DOT_TERM, TC , TV, ACCELERATION
+
+    if (len(ion) != 4):
+        dataOn = 0
+    else:
+        dataOn = 1
+    if (ion == b'<t>'):
+        TFSave = 1
+##        print("ion = <t>")
+    if (ion == b'<f>'):
+        FSave = 1
+##        print("ion = <f>")
+    if (ion == b'<g>'):
+        FextSave = 1
+##        print("ion = <g>")
+    if (ion == b'<e>'):
+        e_termSave = 1
+##        print("ion = <e>")
+    if (ion == b'<v>'):
+        e_dot_termSave = 1
+##        print("ion = <v>")
+    if (ion == b'<c>'):
+        TcSave = 1
+##        print("ion = <c>")
+    if (ion == b'<w>'):
+        TvSave = 1
+##        print("ion = <w>")
+    if (ion == b'<a>'):
+        aSave = 1
+##        print("ion = <a>")
+    if (dataOn):
+        temp = int.from_bytes(ion, byteorder='little')
+        if (temp == endValue or temp == otherEnd):
+            if (temp == otherEnd):
+                    dump = NIONCME.read(1)
+                    print(f"endValue= {temp:x}, dump = {dump}")
+            if(TFSave):
+                TFSave = 0
+            if(FSave):
+                FSave = 0
+            if(FextSave):
+                FextSave = 0
+            if(e_termSave):
+                e_termSave = 0
+            if(e_dot_termSave):
+                e_dot_termSave = 0
+            if(TcSave):
+                TcSave = 0
+            if(TvSave):
+                TvSave = 0
+            if(aSave):
+                aSave = 0
+        else:
+            if(TFSave):
+                TIMEFORCE.append(temp)
+            if(FSave):
+                FORCE.append(temp)
+            if(FextSave):
+                FEXT.append(temp)
+            if(e_termSave):
+                E_TERM.append(temp)
+            if(e_dot_termSave):
+                E_DOT_TERM.append(temp)
+            if(TcSave):
+                TC.append(temp)
+            if(TvSave):
+                TV.append(temp)
+            if(aSave):
+                ACCELERATION.append(temp)
+        
+def TrajWrite(file1):        # Writes values from TrajFlag to matlab script
+    
+    global TIMEFORCE, FORCE, FEXT, E_TERM, E_DOT_TERM, TC, TV, ACCELERATION
+    global TIMEFORCE2, FORCE2, FEXT2, E_TERM2, E_DOT_TERM2, TC2, TV2, ACCELERATION2
+    
+    TIMEFORCE2 = [(i-1000)*.001 for i in TIME]
+##    FORCE2 = [(i-fOffset)/10000 for i in FORCE]
+##    FEXT2 = [(i-fOffset)/10000 for i in FEXT]
+##    E_TERM2 = [(i-fOffset)/10000 for i in E_TERM]
+##    E_DOT_TERM2 = [(i-fOffset)/10000 for i in E_DOT_TERM]
+##    TC2 = [(i-fOffset)/10000 for i in TC]
+##    TV2 = [(i-fOffset)/10000 for i in TV]
+##    ACCELERATION2 = [(i-fOffset)/10000 for i in ACCELERATION]
+    FORCE2 = [((i/10000)-200) for i in FORCE]
+    FEXT2 = [((i/10000)-200) for i in FEXT]
+    E_TERM2 = [((i/10000)-200) for i in E_TERM]
+    E_DOT_TERM2 = [((i/10000)-200) for i in E_DOT_TERM]
+    TC2 = [((i/10000)-200) for i in TC]
+    TV2 = [((i/10000)-200) for i in TV]
+    ACCELERATION2 = [((i/10000)-200) for i in ACCELERATION]
+
+
+##    print(f"TIMEFORCE = {TIMEFORCE2}")
+##    print(f"FORCE = {FORCE}")
+##    print(f"FORCE2 = {FORCE2}")
+##    print(f"FEXT = {FEXT2}")
+##    print(f"E_TERM = {E_TERM}")
+##    print(f"E_DOT_TERM = {E_DOT_TERM2}")
+##    print(f"TC = {TC2}")
+##    print(f"TV = {TV2}")
+##    print(f"ACCELERATION = {ACCELERATION2}")
+
+    file1.write('\n')
+    file1.write(f"TIMEFORCE = {TIMEFORCE2};" + '\n')
+    file1.write(f"FORCE = {FORCE2};" + '\n')
+    file1.write(f"FEXT = {FEXT2};" + '\n')
+    file1.write(f"E_TERM = {E_TERM2};" + '\n')
+    file1.write(f"E_DOT_TERM = {E_DOT_TERM2};" + '\n')
+    file1.write(f"TC = {TC2};" + '\n')
+    file1.write(f"TV = {TV2};" + '\n')
+    file1.write(f"ACCELERATION = {ACCELERATION2};" + '\n')
+    file1.write('\n')
+    file1.write("figure(3)" + '\n')
+    file1.write("plot(TIMEFORCE, FORCE, 'LineWidth', 1)" + '\n')
+    file1.write("hold on" + '\n')
+    file1.write("plot(TIMEFORCE, FEXT, 'LineWidth', 1)" + '\n')
+    file1.write("plot(TIMEFORCE, E_TERM, 'LineWidth', 1)" + '\n')
+    file1.write("plot(TIMEFORCE, E_DOT_TERM, 'LineWidth', 1)" + '\n')
+    file1.write("plot(TIMEFORCE, TC, 'LineWidth', 1)" + '\n')
+    file1.write("plot(TIMEFORCE, TV, 'LineWidth', 1)" + '\n')
+    file1.write("plot(TIMEFORCE, ACCELERATION, 'LineWidth', 1)" + '\n')
+    file1.write("legend('Control Force', 'Fext', 'Position Error', 'Velocity Error', 'Tcoulomb', 'Tviscous', 'x0_ddot', 'Location', 'best')" + '\n')
+    file1.write("hold off" + '\n')
+    file1.write("grid on" + '\n')
+    file1.write("xlabel('Time (s)')" + '\n')
+    file1.write("ylabel('Force (N)')" + '\n')
+    file1.write("title('Assistive Trajectory')" + '\n')
+
+    TIMEFORCE = []
+    FORCE = []
+    FEXT = []
+    E_TERM = []
+    E_DOT_TERM = []
+    TC = []
+    TV = []
+    ACCELERATION = []
+    
+    
 # Buttons
 start = Button(text="Start", fg="black", width = z, command = Start)
 start.place(x = s+1.5*space, y = h/2)

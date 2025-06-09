@@ -50,6 +50,7 @@ extern "C" {
 	void SendMotComTest(PMDPeriphHandle* hPeriphSer, PMDint16 mot1, PMDint16 mot2); // Used to test sending motCom and little endian style
 	void SendParts(PMDPeriphHandle* hPeriphSer, char sendMode, PMDuint32 time, PMDint32 pos, PMDint32 vel, PMDint32 force, PMDint16 motCom, PMDint32 desVel);
 	void SendImpVars(PMDPeriphHandle* hPeriphSer, double m, double Md, double Dd, double Kd); // Used to send Impedance variables
+	void SendTrajForce(PMDPeriphHandle* hPeriphSer, int TIMEFORCE, int F, int Fext, int e_term, int e_dot_term, int Tc, int Tv, int a); // Used for the force breakdown in trajectory mode
 
 	// If we are using a C++ compiler, close the extern "C" block
 #ifdef __cplusplus
