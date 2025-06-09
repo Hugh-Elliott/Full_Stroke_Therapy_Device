@@ -1,0 +1,22 @@
+<Project name="hello">
+  <Folder name="include">
+    <File path="..\..\..\C-Motion\Include\C-Motion.h"></File>
+    <File path="..\..\..\C-Motion\Include\PMDsys.h"></File>
+    <File path="..\..\..\C-Motion\Include\PMDperiph.h"></File>
+    <File path="..\..\..\C-Motion\Include\PMDdevice.h"></File>
+    <File path="..\..\..\C-Motion\Include\PMDdiag.h"></File>
+    <File path="..\..\..\C-Motion\Include\PMDecode.h"></File>
+    <File path="..\..\..\C-Motion\Include\PMDRPtypes.h"></File>
+    <File path="..\..\..\C-Motion\Include\PMDtypes.h"></File>
+  </Folder>
+  <Folder name="source">
+    <File path="..\..\..\C-Motion\C\C-Motion.c"></File>
+    <File path="..\..\..\C-Motion\C\PMDtrans.c"></File>
+    <File path="..\..\..\C-Motion\C\PMDdiag.c"></File>
+    <File path="..\..\..\C-Motion\C\PMDcommon.c"></File>
+    <File path="..\..\..\C-Motion\C\PMDutil.c"></File>
+  </Folder>
+  <File path="README"></File>
+<File path="hello.c"></File>
+<File path="Makefile"></File>
+</Project>

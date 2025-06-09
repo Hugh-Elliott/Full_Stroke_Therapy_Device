@@ -1,0 +1,14 @@
+The Hello project is an almost minimal example of a C-Motion Engine program.
+
+The program will print some information to the console:
+
+   * A "Hello, world" message.
+   * The program version, which is 1.0 as provided.
+   * The encoder reading for axis 1, which will be set to 1000.
+
+After the initial prints, the program will enter a loop that polls the
+encoder position every second, and prints the time in milliseconds and
+the encoder position whenever the position changes.
+
+
+For technical support, call PMD at (978) 266-1210, or email <support@pmdcorp.com>.

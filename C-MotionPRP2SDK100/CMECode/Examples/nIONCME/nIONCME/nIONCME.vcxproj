@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+    <ProjectGuid>{B9759E02-33BC-199C-8E39-741669961D99}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\Debug\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <EmbedManifest>false</EmbedManifest>
+    <IncludePath>C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples;C:\Users\hjhje\vcpkg\installed\x86-windows\include;C:\Users\hjhje\vcpkg\installed\x86-windows\lib;C:\Users\hjhje\vcpkg\installed\x86-windows\bin;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <EmbedManifest>false</EmbedManifest>
+    <IncludePath>C:\Users\hjhje\vcpkg\installed\x86-windows\include;C:\Users\hjhje\vcpkg\installed\x86-windows\lib;C:\Users\hjhje\vcpkg\installed\x86-windows\bin;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Release\</OutDir>
+    <IntDir>.\Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Users\hjhje\vcpkg\installed\x86-windows\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\hjhje\vcpkg\installed\x86-windows\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>..\..\..\c-motion\include;..\..\..\c-motion\include\ixxat4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;USE_CAN_INTERFACE;USE_SPI_INTERFACE;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <BrowseInformation>true</BrowseInformation>
+      <PrecompiledHeaderOutputFile>.\Debug\nIONCME.pch</PrecompiledHeaderOutputFile>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Midl>
+      <TypeLibraryName>.\Debug\nIONCME.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug\nIONCME.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>.\Debug\nIONCME.exe</OutputFile>
+      <AdditionalLibraryDirectories>../../Debug;C:\Users\hjhje\vcpkg\installed\x86-windows\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ni845x.lib;vcinpl2.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <DelayLoadDLLs>ni845x.dll;vcinpl2.dll</DelayLoadDLLs>
+      <AdditionalOptions>/VERBOSE %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>..\..\..\c-motion\include;..\..\..\c-motion\include\ixxat4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;USE_CAN_INTERFACE;USE_SPI_INTERFACE;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <BrowseInformation>true</BrowseInformation>
+      <PrecompiledHeaderOutputFile>.\Debug\nIONCME.pch</PrecompiledHeaderOutputFile>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Midl>
+      <TypeLibraryName>.\Debug\nIONCME.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug\nIONCME.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>.\Debug\nIONCME.exe</OutputFile>
+      <AdditionalLibraryDirectories>../../Debug;C:\Users\hjhje\vcpkg\installed\x86-windows\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ni845x.lib;vcinpl2.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <DelayLoadDLLs>ni845x.dll;vcinpl2.dll</DelayLoadDLLs>
+      <AdditionalOptions>/VERBOSE %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>..\..\..\c-motion\include;..\..\..\c-motion\include\ixxat4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;USE_CAN_INTERFACE;USE_SPI_INTERFACE;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <PrecompiledHeaderOutputFile>.\Release\nIONCME.pch</PrecompiledHeaderOutputFile>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CompileAs>Default</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Midl>
+      <TypeLibraryName>.\Release\nIONCME.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\nIONCME.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>.\Release\nIONCME.exe</OutputFile>
+      <AdditionalLibraryDirectories>../../Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ni845x.lib;vcinpl2.lib;Ws2_32.lib;minizip.lib;xlsxwriter.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>ni845x.dll;vcinpl2.dll</DelayLoadDLLs>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>..\..\..\c-motion\include;..\..\..\c-motion\include\ixxat4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;USE_CAN_INTERFACE;USE_SPI_INTERFACE;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <PrecompiledHeaderOutputFile>.\Release\nIONCME.pch</PrecompiledHeaderOutputFile>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Midl>
+      <TypeLibraryName>.\Release\nIONCME.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\nIONCME.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>.\Release\nIONCME.exe</OutputFile>
+      <AdditionalLibraryDirectories>../../Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ni845x.lib;vcinpl2.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>ni845x.dll;vcinpl2.dll</DelayLoadDLLs>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\C-Motion\C\c-motion.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\Examples.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDcan.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDcommon.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDdiag.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDIXXATCAN4.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDopen.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDPcan.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDPser.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDPspi.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDPtcp.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDRP.cpp" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDRPdevice.cpp" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDRPperiph.cpp" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDser.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDspi.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDtrans.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDutil.c" />
+    <ClCompile Include="..\..\..\CMECode\Examples\nIONCME\nIONCME.c" />
+    <ClCompile Include="..\..\..\Pro-MotionExport.c" />
+    <ClCompile Include="Admittance.cpp" />
+    <ClCompile Include="Admittance2.c" />
+    <ClCompile Include="AnalogExample.cpp" />
+    <ClCompile Include="Assistive.cpp" />
+    <ClCompile Include="Assistive2.c" />
+    <ClCompile Include="COMFUNC.cpp" />
+    <ClCompile Include="ComFunctions.c" />
+    <ClCompile Include="FullMotionRange.c" />
+    <ClCompile Include="HomeCapture.cpp" />
+    <ClCompile Include="LoadCellFunctions.c" />
+    <ClCompile Include="LoadCellTest.cpp" />
+    <ClCompile Include="LoadCellTest2.cpp" />
+    <ClCompile Include="MotionCOMTest.cpp" />
+    <ClCompile Include="MotionCycle.cpp" />
+    <ClCompile Include="PassiveMode.cpp" />
+    <ClCompile Include="PassiveMode2.c" />
+    <ClCompile Include="ResistMode.cpp" />
+    <ClCompile Include="ResistTorqueGoal.cpp" />
+    <ClCompile Include="ResistTorqueGoal2.c" />
+    <ClCompile Include="ReverseMove.cpp" />
+    <ClCompile Include="SetTrace.cpp" />
+    <ClCompile Include="SPIMaster.c" />
+    <ClCompile Include="StepInput.cpp" />
+    <ClCompile Include="StepInput2.cpp" />
+    <ClCompile Include="TorqueAnalog.cpp" />
+    <ClCompile Include="TorqueMode.cpp" />
+    <ClCompile Include="TorqueResist2.cpp" />
+    <ClCompile Include="TorqueResistMode.cpp" />
+    <ClCompile Include="TraceTest.cpp" />
+    <ClCompile Include="Write.cpp" />
+    <ClCompile Include="Write2CSV.cpp" />
+    <ClCompile Include="Write2M.cpp" />
+    <ClCompile Include="Write2XLSX.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="WriteExcel.cpp" />
+    <ClCompile Include="WriteExcel2.cpp" />
+    <ClCompile Include="WriteExcelDirect.cpp" />
+    <ClCompile Include="WriteExcelDirectVec.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\C-Motion\Include\c-motion.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\Examples.h" />
+    <ClInclude Include="..\..\..\c-motion\include\ni\ni845x.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDdevice.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDdiag.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDecode.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDintf.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDIXXATCAN.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDocode.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDperiph.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDPfunc.h" />
+    <ClInclude Include="..\..\..\c-motion\include\pmdrp.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDrpcode.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDrpdevice.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDRPperiph.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDRPtypes.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDsys.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDtrans.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDtypes.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDutil.h" />
+    <ClInclude Include="Admittance.h" />
+    <ClInclude Include="Admittance2.h" />
+    <ClInclude Include="AnalogExample.h" />
+    <ClInclude Include="Assistive.h" />
+    <ClInclude Include="Assistive2.h" />
+    <ClInclude Include="COMFUNC.h" />
+    <ClInclude Include="ComFunctions.h" />
+    <ClInclude Include="FullMotionRange.h" />
+    <ClInclude Include="HomeCapture.h" />
+    <ClInclude Include="LoadCellFunctions.h" />
+    <ClInclude Include="LoadCellTest.h" />
+    <ClInclude Include="LoadCellTest2.h" />
+    <ClInclude Include="MotionCOMTest.h" />
+    <ClInclude Include="MotionCycle.h" />
+    <ClInclude Include="PassiveMode.h" />
+    <ClInclude Include="PassiveMode2.h" />
+    <ClInclude Include="ResistMode.h" />
+    <ClInclude Include="ResistTorqueGoal.h" />
+    <ClInclude Include="ResistTorqueGoal2.h" />
+    <ClInclude Include="ReverseMove.h" />
+    <ClInclude Include="SetTrace.h" />
+    <ClInclude Include="StepInput.h" />
+    <ClInclude Include="StepInput2.h" />
+    <ClInclude Include="TorqueAnalog.h" />
+    <ClInclude Include="TorqueMode.h" />
+    <ClInclude Include="TorqueResist2.h" />
+    <ClInclude Include="TorqueResistMode.h" />
+    <ClInclude Include="TraceTest.h" />
+    <ClInclude Include="Write.h" />
+    <ClInclude Include="Write2CSV.h" />
+    <ClInclude Include="Write2M.h" />
+    <ClInclude Include="Write2XLSX.h" />
+    <ClInclude Include="WriteExcel.h" />
+    <ClInclude Include="WriteExcel2.h" />
+    <ClInclude Include="WriteExcelDirect.h" />
+    <ClInclude Include="WriteExcelDirectVec.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\..\vcpkg\installed\x86-windows\bin\minizip.dll" />
+    <None Include="..\..\..\..\..\..\vcpkg\installed\x86-windows\bin\xlsxwriter.dll" />
+    <None Include="..\..\..\..\..\..\vcpkg\installed\x86-windows\bin\zlib1.dll" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

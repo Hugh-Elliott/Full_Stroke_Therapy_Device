@@ -1,0 +1,2494 @@
+
+GenericUserPacket.elf:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00003b58  08140000  08140000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  20010000  20010000  00013b58  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  20010000  20010000  00000000  2**0
+                  ALLOC
+  3 .comment      0000004c  00000000  00000000  00013b58  2**0
+                  CONTENTS, READONLY
+  4 .ARM.attributes 0000002e  00000000  00000000  00013ba4  2**0
+                  CONTENTS, READONLY
+  5 .debug_frame  00000038  00000000  00000000  00013bd4  2**2
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+SYMBOL TABLE:
+08140000 l    d  .text	00000000 .text
+20010000 l    d  .data	00000000 .data
+20010000 l    d  .bss	00000000 .bss
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    df *ABS*	00000000 GenericUserPacket.c
+08140000 l     O .text	0000000c CodeSignature
+0814000c l     O .text	00000004 Version
+08140020 l     O .text	00000016 DateTime
+081412ac l     O .text	00000014 UCFileName
+08140018 l     O .text	00000004 pUCFileName
+0814001c l     O .text	00000004 UCFileVersion
+08140040 l     O .text	00000004 CopyDataSectionToRAM_address
+08140060 l     O .text	00000004 GenericUserPacket_address
+08140070 l     O .text	00000012 GenericUserPacket_name
+08140068 l     O .text	00000004 GenericUserPacket_stack
+00000000 l    df *ABS*	00000000 PMDdiag.c
+00000000 l    df *ABS*	00000000 PMDcommon.c
+00000000 l    df *ABS*	00000000 startup.c
+00000000 l    df *ABS*	00000000 lib_a-memcpy.o
+00000000 l    df *ABS*	00000000 memset.c
+08040514 g       *ABS*	00000000 PMDEventClose
+080404b4 g       *ABS*	00000000 PMDDeviceGetResetCause
+0804042c g       *ABS*	00000000 PMDDeviceOpenPeriphCME
+0804049c g       *ABS*	00000000 PMDDeviceGetInfo
+08040448 g       *ABS*	00000000 PMDDeviceOpenPeriphUDP
+080404d4 g       *ABS*	00000000 PMDDeviceGetMicroseconds
+0804043c g       *ABS*	00000000 PMDDeviceOpenPeriphSerial
+08040480 g       *ABS*	00000000 PMDTaskWaitUntil
+080404e0 g       *ABS*	00000000 PMDCMEGetUserCodeChecksum
+080404c0 g       *ABS*	00000000 PMDCMEStoreUserCode
+08143b58 g       .text	00000000 _text_end
+08040484 g       *ABS*	00000000 PMDCMETaskGetState
+08040460 g       *ABS*	00000000 PMDsprintf
+080404a8 g       *ABS*	00000000 PMDDeviceSetDefault
+0804053c g       *ABS*	00000000 PMDMutexDelete
+080404d8 g       *ABS*	00000000 PMDDeviceSetNodeID
+080404a4 g       *ABS*	00000000 PMDDeviceGetDefault
+08040434 g       *ABS*	00000000 PMDDeviceOpenPeriphPIO
+080404cc g       *ABS*	00000000 PMDCMEGetUserCodeDate
+081410d8 g     F .text	00000134 memcpy
+08040418 g       *ABS*	00000000 PMDMailboxOpen
+08040454 g       *ABS*	00000000 PMDDeviceOpenPeriphCANFD
+08140ffa g     F .text	00000052 PMDPeriphSend
+20010000 g       .bss	00000000 _bss_start
+08140084 g     F .text	00000748 GenericUserPacket
+080404f0 g       *ABS*	00000000 ReadPIObus
+080404ac g       *ABS*	00000000 PMDDeviceGetTickCount
+0804050c g       *ABS*	00000000 PMDEventWait
+08040444 g       *ABS*	00000000 PMDDeviceOpenPeriphTCP
+0804040c g       *ABS*	00000000 PMDPeriphOpenDeviceMP
+20010000 g       .bss	00000000 _bss_end
+080404bc g       *ABS*	00000000 PMDDeviceNoOperation
+08143b58 g       *ABS*	00000000 _data_load_start
+080404f8 g       *ABS*	00000000 ReadPIObus32
+08040430 g       *ABS*	00000000 PMDDeviceOpenPeriphSPI
+08140fa8 g     F .text	00000052 PMDPeriphReceive
+0814109c g     F .text	0000003c CopyDataSectionToRAM
+08040414 g       *ABS*	00000000 PMDDeviceOpenMemory
+20010000 g       .bss	00000000 end
+08040474 g       *ABS*	00000000 PMDTaskCreate
+08040404 g       *ABS*	00000000 PMDAxisOpen
+08040490 g       *ABS*	00000000 PMDTaskSetPriority
+20010000 g       .data	00000000 _data_start
+08040530 g       *ABS*	00000000 PMDMutexCreate
+08040468 g       *ABS*	00000000 PMDputch
+08040494 g       *ABS*	00000000 PMDCMETaskGetInfo
+080404dc g       *ABS*	00000000 PMDDeviceSetMicroseconds
+08040510 g       *ABS*	00000000 PMDEventSetCallback
+20010000 g       .data	00000000 _data_end
+080404b0 g       *ABS*	00000000 PMDDeviceReset
+00000000 g       *ABS*	00000000 _data_size
+080404c4 g       *ABS*	00000000 PMDCMEGetUserCodeVersion
+0814120c g     F .text	000000a0 memset
+0804047c g       *ABS*	00000000 PMDTaskWait
+080404ec g       *ABS*	00000000 PMDDeviceSetSystemTime
+08040524 g       *ABS*	00000000 PMDTaskEnterCritical
+080404a0 g       *ABS*	00000000 PMDDeviceGetVersion
+080404e8 g       *ABS*	00000000 PMDDeviceGetSystemTime
+0804045c g       *ABS*	00000000 PMDprintf
+080404b8 g       *ABS*	00000000 PMDCMESetConsole
+0804048c g       *ABS*	00000000 PMDTaskGetAbortCode
+080404d0 g       *ABS*	00000000 PMDDeviceGetFaultCode
+080404f4 g       *ABS*	00000000 WritePIObus
+08040440 g       *ABS*	00000000 PMDDeviceOpenPeriphCAN
+00000000 g       *ABS*	00000000 _bss_size
+08040528 g       *ABS*	00000000 PMDTaskExitCritical
+08040534 g       *ABS*	00000000 PMDMutexLockEx
+20010000 g       .bss	00000000 _end
+080404c8 g       *ABS*	00000000 PMDCMEGetUserCodeName
+08040428 g       *ABS*	00000000 PMDDeviceOpenPeriphPRP
+08040450 g       *ABS*	00000000 PMDPeriphOpenPeriphMultiDrop
+08040478 g       *ABS*	00000000 PMDCMETaskStart
+0804046c g       *ABS*	00000000 PMDwrite
+08040508 g       *ABS*	00000000 PMDEventOpen
+08040538 g       *ABS*	00000000 PMDMutexUnlock
+0814104c g     F .text	0000004e PMDPeriphClose
+08040464 g       *ABS*	00000000 PMDputs
+081407cc g     F .text	000007dc PMDGetErrorMessage
+08040488 g       *ABS*	00000000 PMDTaskAbort
+08040410 g       *ABS*	00000000 PMDPeriphOpenDevicePRP
+080404fc g       *ABS*	00000000 WritePIObus32
+08040498 g       *ABS*	00000000 PMDTaskGetNumber
+
+
+
+Disassembly of section .text:
+
+08140000 <CodeSignature>:
+ 8140000:	50 4d 44 20 43 4d 45 00 00 00 00 00                 PMD CME.....
+
+0814000c <Version>:
+ 814000c:	00 00 02 00 ff ff ff ff ff ff ff ff                 ............
+
+08140018 <pUCFileName>:
+ 8140018:	ac 12 14 08                                         ....
+
+0814001c <UCFileVersion>:
+ 814001c:	01 00 01 00                                         ....
+
+08140020 <DateTime>:
+ 8140020:	46 65 62 20 32 35 20 32 30 32 35 20 20 31 34 3a     Feb 25 2025  14:
+ 8140030:	35 33 3a 32 35 00 ff ff ff ff ff ff ff ff ff ff     53:25...........
+
+08140040 <CopyDataSectionToRAM_address>:
+ 8140040:	9d 10 14 08 ff ff ff ff ff ff ff ff ff ff ff ff     ................
+ 8140050:	ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff     ................
+
+08140060 <GenericUserPacket_address>:
+ 8140060:	85 00 14 08 ff ff ff ff                             ........
+
+08140068 <GenericUserPacket_stack>:
+ 8140068:	00 00 00 00 ff ff ff ff                             ........
+
+08140070 <GenericUserPacket_name>:
+ 8140070:	47 65 6e 65 72 69 63 55 73 65 72 50 61 63 6b 65     GenericUserPacke
+ 8140080:	74 00 ff ff                                         t...
+
+08140084 <GenericUserPacket>:
+ 8140084:	b580      	push	{r7, lr}
+ 8140086:	b0d6      	sub	sp, #344	; 0x158
+ 8140088:	af04      	add	r7, sp, #16
+ 814008a:	1d3b      	adds	r3, r7, #4
+ 814008c:	6018      	str	r0, [r3, #0]
+ 814008e:	2301      	movs	r3, #1
+ 8140090:	f8c7 3138 	str.w	r3, [r7, #312]	; 0x138
+ 8140094:	2300      	movs	r3, #0
+ 8140096:	f8c7 3140 	str.w	r3, [r7, #320]	; 0x140
+ 814009a:	2304      	movs	r3, #4
+ 814009c:	f887 313f 	strb.w	r3, [r7, #319]	; 0x13f
+ 81400a0:	230f      	movs	r3, #15
+ 81400a2:	f8c7 3134 	str.w	r3, [r7, #308]	; 0x134
+ 81400a6:	f107 0308 	add.w	r3, r7, #8
+ 81400aa:	4acc      	ldr	r2, [pc, #816]	; (81403dc <GenericUserPacket+0x358>)
+ 81400ac:	e892 0003 	ldmia.w	r2, {r0, r1}
+ 81400b0:	6018      	str	r0, [r3, #0]
+ 81400b2:	3304      	adds	r3, #4
+ 81400b4:	8019      	strh	r1, [r3, #0]
+ 81400b6:	1d3b      	adds	r3, r7, #4
+ 81400b8:	681b      	ldr	r3, [r3, #0]
+ 81400ba:	2b00      	cmp	r3, #0
+ 81400bc:	d006      	beq.n	81400cc <GenericUserPacket+0x48>
+ 81400be:	1d3b      	adds	r3, r7, #4
+ 81400c0:	681b      	ldr	r3, [r3, #0]
+ 81400c2:	b2db      	uxtb	r3, r3
+ 81400c4:	f003 030f 	and.w	r3, r3, #15
+ 81400c8:	f887 313f 	strb.w	r3, [r7, #319]	; 0x13f
+ 81400cc:	f897 313f 	ldrb.w	r3, [r7, #319]	; 0x13f
+ 81400d0:	2b09      	cmp	r3, #9
+ 81400d2:	f200 8173 	bhi.w	81403bc <GenericUserPacket+0x338>
+ 81400d6:	a201      	add	r2, pc, #4	; (adr r2, 81400dc <GenericUserPacket+0x58>)
+ 81400d8:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
+ 81400dc:	08140373 	.word	0x08140373
+ 81400e0:	081403bd 	.word	0x081403bd
+ 81400e4:	081403bd 	.word	0x081403bd
+ 81400e8:	081403bd 	.word	0x081403bd
+ 81400ec:	08140105 	.word	0x08140105
+ 81400f0:	0814016b 	.word	0x0814016b
+ 81400f4:	081401d1 	.word	0x081401d1
+ 81400f8:	08140237 	.word	0x08140237
+ 81400fc:	08140297 	.word	0x08140297
+ 8140100:	08140319 	.word	0x08140319
+ 8140104:	2300      	movs	r3, #0
+ 8140106:	f887 310b 	strb.w	r3, [r7, #267]	; 0x10b
+ 814010a:	f897 310b 	ldrb.w	r3, [r7, #267]	; 0x10b
+ 814010e:	3301      	adds	r3, #1
+ 8140110:	4619      	mov	r1, r3
+ 8140112:	48b3      	ldr	r0, [pc, #716]	; (81403e0 <GenericUserPacket+0x35c>)
+ 8140114:	f700 f9a2 	bl	804045c <PMDprintf>
+ 8140118:	f897 210b 	ldrb.w	r2, [r7, #267]	; 0x10b
+ 814011c:	f107 00dc 	add.w	r0, r7, #220	; 0xdc
+ 8140120:	2300      	movs	r3, #0
+ 8140122:	9301      	str	r3, [sp, #4]
+ 8140124:	2300      	movs	r3, #0
+ 8140126:	9300      	str	r3, [sp, #0]
+ 8140128:	2304      	movs	r3, #4
+ 814012a:	2100      	movs	r1, #0
+ 814012c:	f700 f986 	bl	804043c <PMDDeviceOpenPeriphSerial>
+ 8140130:	4603      	mov	r3, r0
+ 8140132:	f8a7 312e 	strh.w	r3, [r7, #302]	; 0x12e
+ 8140136:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 814013a:	2b00      	cmp	r3, #0
+ 814013c:	d00a      	beq.n	8140154 <GenericUserPacket+0xd0>
+ 814013e:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 8140142:	4618      	mov	r0, r3
+ 8140144:	f000 fb42 	bl	81407cc <PMDGetErrorMessage>
+ 8140148:	4602      	mov	r2, r0
+ 814014a:	4ba6      	ldr	r3, [pc, #664]	; (81403e4 <GenericUserPacket+0x360>)
+ 814014c:	2137      	movs	r1, #55	; 0x37
+ 814014e:	48a6      	ldr	r0, [pc, #664]	; (81403e8 <GenericUserPacket+0x364>)
+ 8140150:	f700 f984 	bl	804045c <PMDprintf>
+ 8140154:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 8140158:	2b00      	cmp	r3, #0
+ 814015a:	f000 8133 	beq.w	81403c4 <GenericUserPacket+0x340>
+ 814015e:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 8140162:	4618      	mov	r0, r3
+ 8140164:	f700 f990 	bl	8040488 <PMDTaskAbort>
+ 8140168:	e12c      	b.n	81403c4 <GenericUserPacket+0x340>
+ 814016a:	f44f 7300 	mov.w	r3, #512	; 0x200
+ 814016e:	f8c7 3110 	str.w	r3, [r7, #272]	; 0x110
+ 8140172:	f44f 7380 	mov.w	r3, #256	; 0x100
+ 8140176:	f8c7 310c 	str.w	r3, [r7, #268]	; 0x10c
+ 814017a:	489c      	ldr	r0, [pc, #624]	; (81403ec <GenericUserPacket+0x368>)
+ 814017c:	f700 f96e 	bl	804045c <PMDprintf>
+ 8140180:	f107 00dc 	add.w	r0, r7, #220	; 0xdc
+ 8140184:	2300      	movs	r3, #0
+ 8140186:	9300      	str	r3, [sp, #0]
+ 8140188:	f8d7 310c 	ldr.w	r3, [r7, #268]	; 0x10c
+ 814018c:	f8d7 2110 	ldr.w	r2, [r7, #272]	; 0x110
+ 8140190:	2100      	movs	r1, #0
+ 8140192:	f700 f955 	bl	8040440 <PMDDeviceOpenPeriphCAN>
+ 8140196:	4603      	mov	r3, r0
+ 8140198:	f8a7 312e 	strh.w	r3, [r7, #302]	; 0x12e
+ 814019c:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 81401a0:	2b00      	cmp	r3, #0
+ 81401a2:	d00a      	beq.n	81401ba <GenericUserPacket+0x136>
+ 81401a4:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 81401a8:	4618      	mov	r0, r3
+ 81401aa:	f000 fb0f 	bl	81407cc <PMDGetErrorMessage>
+ 81401ae:	4602      	mov	r2, r0
+ 81401b0:	4b8f      	ldr	r3, [pc, #572]	; (81403f0 <GenericUserPacket+0x36c>)
+ 81401b2:	2140      	movs	r1, #64	; 0x40
+ 81401b4:	488c      	ldr	r0, [pc, #560]	; (81403e8 <GenericUserPacket+0x364>)
+ 81401b6:	f700 f951 	bl	804045c <PMDprintf>
+ 81401ba:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 81401be:	2b00      	cmp	r3, #0
+ 81401c0:	f000 8102 	beq.w	81403c8 <GenericUserPacket+0x344>
+ 81401c4:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 81401c8:	4618      	mov	r0, r3
+ 81401ca:	f700 f95d 	bl	8040488 <PMDTaskAbort>
+ 81401ce:	e0fb      	b.n	81403c8 <GenericUserPacket+0x344>
+ 81401d0:	2300      	movs	r3, #0
+ 81401d2:	f8c7 3118 	str.w	r3, [r7, #280]	; 0x118
+ 81401d6:	f64a 539c 	movw	r3, #44444	; 0xad9c
+ 81401da:	f8c7 3114 	str.w	r3, [r7, #276]	; 0x114
+ 81401de:	4885      	ldr	r0, [pc, #532]	; (81403f4 <GenericUserPacket+0x370>)
+ 81401e0:	f700 f93c 	bl	804045c <PMDprintf>
+ 81401e4:	f107 00dc 	add.w	r0, r7, #220	; 0xdc
+ 81401e8:	f04f 33ff 	mov.w	r3, #4294967295
+ 81401ec:	9300      	str	r3, [sp, #0]
+ 81401ee:	f8d7 3114 	ldr.w	r3, [r7, #276]	; 0x114
+ 81401f2:	f8d7 2118 	ldr.w	r2, [r7, #280]	; 0x118
+ 81401f6:	2100      	movs	r1, #0
+ 81401f8:	f700 f924 	bl	8040444 <PMDDeviceOpenPeriphTCP>
+ 81401fc:	4603      	mov	r3, r0
+ 81401fe:	f8a7 312e 	strh.w	r3, [r7, #302]	; 0x12e
+ 8140202:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 8140206:	2b00      	cmp	r3, #0
+ 8140208:	d00a      	beq.n	8140220 <GenericUserPacket+0x19c>
+ 814020a:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 814020e:	4618      	mov	r0, r3
+ 8140210:	f000 fadc 	bl	81407cc <PMDGetErrorMessage>
+ 8140214:	4602      	mov	r2, r0
+ 8140216:	4b78      	ldr	r3, [pc, #480]	; (81403f8 <GenericUserPacket+0x374>)
+ 8140218:	2149      	movs	r1, #73	; 0x49
+ 814021a:	4873      	ldr	r0, [pc, #460]	; (81403e8 <GenericUserPacket+0x364>)
+ 814021c:	f700 f91e 	bl	804045c <PMDprintf>
+ 8140220:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 8140224:	2b00      	cmp	r3, #0
+ 8140226:	f000 80d1 	beq.w	81403cc <GenericUserPacket+0x348>
+ 814022a:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 814022e:	4618      	mov	r0, r3
+ 8140230:	f700 f92a 	bl	8040488 <PMDTaskAbort>
+ 8140234:	e0ca      	b.n	81403cc <GenericUserPacket+0x348>
+ 8140236:	2300      	movs	r3, #0
+ 8140238:	f8c7 3120 	str.w	r3, [r7, #288]	; 0x120
+ 814023c:	f64a 539c 	movw	r3, #44444	; 0xad9c
+ 8140240:	f8c7 311c 	str.w	r3, [r7, #284]	; 0x11c
+ 8140244:	486d      	ldr	r0, [pc, #436]	; (81403fc <GenericUserPacket+0x378>)
+ 8140246:	f700 f909 	bl	804045c <PMDprintf>
+ 814024a:	f107 00dc 	add.w	r0, r7, #220	; 0xdc
+ 814024e:	f8d7 311c 	ldr.w	r3, [r7, #284]	; 0x11c
+ 8140252:	f8d7 2120 	ldr.w	r2, [r7, #288]	; 0x120
+ 8140256:	2100      	movs	r1, #0
+ 8140258:	f700 f8f6 	bl	8040448 <PMDDeviceOpenPeriphUDP>
+ 814025c:	4603      	mov	r3, r0
+ 814025e:	f8a7 312e 	strh.w	r3, [r7, #302]	; 0x12e
+ 8140262:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 8140266:	2b00      	cmp	r3, #0
+ 8140268:	d00a      	beq.n	8140280 <GenericUserPacket+0x1fc>
+ 814026a:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 814026e:	4618      	mov	r0, r3
+ 8140270:	f000 faac 	bl	81407cc <PMDGetErrorMessage>
+ 8140274:	4602      	mov	r2, r0
+ 8140276:	4b62      	ldr	r3, [pc, #392]	; (8140400 <GenericUserPacket+0x37c>)
+ 8140278:	2152      	movs	r1, #82	; 0x52
+ 814027a:	485b      	ldr	r0, [pc, #364]	; (81403e8 <GenericUserPacket+0x364>)
+ 814027c:	f700 f8ee 	bl	804045c <PMDprintf>
+ 8140280:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 8140284:	2b00      	cmp	r3, #0
+ 8140286:	f000 80a3 	beq.w	81403d0 <GenericUserPacket+0x34c>
+ 814028a:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 814028e:	4618      	mov	r0, r3
+ 8140290:	f700 f8fa 	bl	8040488 <PMDTaskAbort>
+ 8140294:	e09c      	b.n	81403d0 <GenericUserPacket+0x34c>
+ 8140296:	2301      	movs	r3, #1
+ 8140298:	f887 312d 	strb.w	r3, [r7, #301]	; 0x12d
+ 814029c:	2301      	movs	r3, #1
+ 814029e:	f887 312c 	strb.w	r3, [r7, #300]	; 0x12c
+ 81402a2:	2300      	movs	r3, #0
+ 81402a4:	f887 312b 	strb.w	r3, [r7, #299]	; 0x12b
+ 81402a8:	2310      	movs	r3, #16
+ 81402aa:	f887 312a 	strb.w	r3, [r7, #298]	; 0x12a
+ 81402ae:	2306      	movs	r3, #6
+ 81402b0:	f8c7 3124 	str.w	r3, [r7, #292]	; 0x124
+ 81402b4:	4853      	ldr	r0, [pc, #332]	; (8140404 <GenericUserPacket+0x380>)
+ 81402b6:	f700 f8d1 	bl	804045c <PMDprintf>
+ 81402ba:	f897 112c 	ldrb.w	r1, [r7, #300]	; 0x12c
+ 81402be:	f897 212d 	ldrb.w	r2, [r7, #301]	; 0x12d
+ 81402c2:	f107 00dc 	add.w	r0, r7, #220	; 0xdc
+ 81402c6:	f8d7 3124 	ldr.w	r3, [r7, #292]	; 0x124
+ 81402ca:	9302      	str	r3, [sp, #8]
+ 81402cc:	f897 312a 	ldrb.w	r3, [r7, #298]	; 0x12a
+ 81402d0:	9301      	str	r3, [sp, #4]
+ 81402d2:	f897 312b 	ldrb.w	r3, [r7, #299]	; 0x12b
+ 81402d6:	9300      	str	r3, [sp, #0]
+ 81402d8:	460b      	mov	r3, r1
+ 81402da:	2100      	movs	r1, #0
+ 81402dc:	f700 f8a8 	bl	8040430 <PMDDeviceOpenPeriphSPI>
+ 81402e0:	4603      	mov	r3, r0
+ 81402e2:	f8a7 312e 	strh.w	r3, [r7, #302]	; 0x12e
+ 81402e6:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 81402ea:	2b00      	cmp	r3, #0
+ 81402ec:	d00a      	beq.n	8140304 <GenericUserPacket+0x280>
+ 81402ee:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 81402f2:	4618      	mov	r0, r3
+ 81402f4:	f000 fa6a 	bl	81407cc <PMDGetErrorMessage>
+ 81402f8:	4602      	mov	r2, r0
+ 81402fa:	4b43      	ldr	r3, [pc, #268]	; (8140408 <GenericUserPacket+0x384>)
+ 81402fc:	215d      	movs	r1, #93	; 0x5d
+ 81402fe:	483a      	ldr	r0, [pc, #232]	; (81403e8 <GenericUserPacket+0x364>)
+ 8140300:	f700 f8ac 	bl	804045c <PMDprintf>
+ 8140304:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 8140308:	2b00      	cmp	r3, #0
+ 814030a:	d063      	beq.n	81403d4 <GenericUserPacket+0x350>
+ 814030c:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 8140310:	4618      	mov	r0, r3
+ 8140312:	f700 f8b9 	bl	8040488 <PMDTaskAbort>
+ 8140316:	e05d      	b.n	81403d4 <GenericUserPacket+0x350>
+ 8140318:	2302      	movs	r3, #2
+ 814031a:	f8c7 3130 	str.w	r3, [r7, #304]	; 0x130
+ 814031e:	f8d7 1130 	ldr.w	r1, [r7, #304]	; 0x130
+ 8140322:	483a      	ldr	r0, [pc, #232]	; (814040c <GenericUserPacket+0x388>)
+ 8140324:	f700 f89a 	bl	804045c <PMDprintf>
+ 8140328:	f107 00dc 	add.w	r0, r7, #220	; 0xdc
+ 814032c:	f44f 737a 	mov.w	r3, #1000	; 0x3e8
+ 8140330:	f8d7 2130 	ldr.w	r2, [r7, #304]	; 0x130
+ 8140334:	2100      	movs	r1, #0
+ 8140336:	f700 f877 	bl	8040428 <PMDDeviceOpenPeriphPRP>
+ 814033a:	4603      	mov	r3, r0
+ 814033c:	f8a7 312e 	strh.w	r3, [r7, #302]	; 0x12e
+ 8140340:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 8140344:	2b00      	cmp	r3, #0
+ 8140346:	d00a      	beq.n	814035e <GenericUserPacket+0x2da>
+ 8140348:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 814034c:	4618      	mov	r0, r3
+ 814034e:	f000 fa3d 	bl	81407cc <PMDGetErrorMessage>
+ 8140352:	4602      	mov	r2, r0
+ 8140354:	4b2e      	ldr	r3, [pc, #184]	; (8140410 <GenericUserPacket+0x38c>)
+ 8140356:	2164      	movs	r1, #100	; 0x64
+ 8140358:	4823      	ldr	r0, [pc, #140]	; (81403e8 <GenericUserPacket+0x364>)
+ 814035a:	f700 f87f 	bl	804045c <PMDprintf>
+ 814035e:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 8140362:	2b00      	cmp	r3, #0
+ 8140364:	d038      	beq.n	81403d8 <GenericUserPacket+0x354>
+ 8140366:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 814036a:	4618      	mov	r0, r3
+ 814036c:	f700 f88c 	bl	8040488 <PMDTaskAbort>
+ 8140370:	e032      	b.n	81403d8 <GenericUserPacket+0x354>
+ 8140372:	4828      	ldr	r0, [pc, #160]	; (8140414 <GenericUserPacket+0x390>)
+ 8140374:	f700 f872 	bl	804045c <PMDprintf>
+ 8140378:	f107 03dc 	add.w	r3, r7, #220	; 0xdc
+ 814037c:	2100      	movs	r1, #0
+ 814037e:	4618      	mov	r0, r3
+ 8140380:	f700 f854 	bl	804042c <PMDDeviceOpenPeriphCME>
+ 8140384:	4603      	mov	r3, r0
+ 8140386:	f8a7 312e 	strh.w	r3, [r7, #302]	; 0x12e
+ 814038a:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 814038e:	2b00      	cmp	r3, #0
+ 8140390:	d00a      	beq.n	81403a8 <GenericUserPacket+0x324>
+ 8140392:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 8140396:	4618      	mov	r0, r3
+ 8140398:	f000 fa18 	bl	81407cc <PMDGetErrorMessage>
+ 814039c:	4602      	mov	r2, r0
+ 814039e:	4b1e      	ldr	r3, [pc, #120]	; (8140418 <GenericUserPacket+0x394>)
+ 81403a0:	216a      	movs	r1, #106	; 0x6a
+ 81403a2:	4811      	ldr	r0, [pc, #68]	; (81403e8 <GenericUserPacket+0x364>)
+ 81403a4:	f700 f85a 	bl	804045c <PMDprintf>
+ 81403a8:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 81403ac:	2b00      	cmp	r3, #0
+ 81403ae:	d035      	beq.n	814041c <GenericUserPacket+0x398>
+ 81403b0:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 81403b4:	4618      	mov	r0, r3
+ 81403b6:	f700 f867 	bl	8040488 <PMDTaskAbort>
+ 81403ba:	e02f      	b.n	814041c <GenericUserPacket+0x398>
+ 81403bc:	2001      	movs	r0, #1
+ 81403be:	f700 f863 	bl	8040488 <PMDTaskAbort>
+ 81403c2:	e02c      	b.n	814041e <GenericUserPacket+0x39a>
+ 81403c4:	bf00      	nop
+ 81403c6:	e02a      	b.n	814041e <GenericUserPacket+0x39a>
+ 81403c8:	bf00      	nop
+ 81403ca:	e028      	b.n	814041e <GenericUserPacket+0x39a>
+ 81403cc:	bf00      	nop
+ 81403ce:	e026      	b.n	814041e <GenericUserPacket+0x39a>
+ 81403d0:	bf00      	nop
+ 81403d2:	e024      	b.n	814041e <GenericUserPacket+0x39a>
+ 81403d4:	bf00      	nop
+ 81403d6:	e022      	b.n	814041e <GenericUserPacket+0x39a>
+ 81403d8:	bf00      	nop
+ 81403da:	e020      	b.n	814041e <GenericUserPacket+0x39a>
+ 81403dc:	08141648 	.word	0x08141648
+ 81403e0:	081412c0 	.word	0x081412c0
+ 81403e4:	081412dc 	.word	0x081412dc
+ 81403e8:	08141358 	.word	0x08141358
+ 81403ec:	08141378 	.word	0x08141378
+ 81403f0:	08141390 	.word	0x08141390
+ 81403f4:	081413d8 	.word	0x081413d8
+ 81403f8:	081413f0 	.word	0x081413f0
+ 81403fc:	0814144c 	.word	0x0814144c
+ 8140400:	08141464 	.word	0x08141464
+ 8140404:	081414a8 	.word	0x081414a8
+ 8140408:	081414c0 	.word	0x081414c0
+ 814040c:	0814151c 	.word	0x0814151c
+ 8140410:	08141538 	.word	0x08141538
+ 8140414:	08141578 	.word	0x08141578
+ 8140418:	08141594 	.word	0x08141594
+ 814041c:	bf00      	nop
+ 814041e:	f107 0210 	add.w	r2, r7, #16
+ 8140422:	f107 0114 	add.w	r1, r7, #20
+ 8140426:	f107 00dc 	add.w	r0, r7, #220	; 0xdc
+ 814042a:	2364      	movs	r3, #100	; 0x64
+ 814042c:	9300      	str	r3, [sp, #0]
+ 814042e:	f8d7 3134 	ldr.w	r3, [r7, #308]	; 0x134
+ 8140432:	f000 fdb9 	bl	8140fa8 <PMDPeriphReceive>
+ 8140436:	4603      	mov	r3, r0
+ 8140438:	f8a7 312e 	strh.w	r3, [r7, #302]	; 0x12e
+ 814043c:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 8140440:	2b00      	cmp	r3, #0
+ 8140442:	d005      	beq.n	8140450 <GenericUserPacket+0x3cc>
+ 8140444:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 8140448:	f241 020d 	movw	r2, #4109	; 0x100d
+ 814044c:	4293      	cmp	r3, r2
+ 814044e:	d1e6      	bne.n	814041e <GenericUserPacket+0x39a>
+ 8140450:	f107 0310 	add.w	r3, r7, #16
+ 8140454:	681b      	ldr	r3, [r3, #0]
+ 8140456:	2b00      	cmp	r3, #0
+ 8140458:	d0e1      	beq.n	814041e <GenericUserPacket+0x39a>
+ 814045a:	f107 0314 	add.w	r3, r7, #20
+ 814045e:	785b      	ldrb	r3, [r3, #1]
+ 8140460:	2b09      	cmp	r3, #9
+ 8140462:	f000 818a 	beq.w	814077a <GenericUserPacket+0x6f6>
+ 8140466:	f107 0314 	add.w	r3, r7, #20
+ 814046a:	781b      	ldrb	r3, [r3, #0]
+ 814046c:	2b4d      	cmp	r3, #77	; 0x4d
+ 814046e:	d116      	bne.n	814049e <GenericUserPacket+0x41a>
+ 8140470:	f107 0308 	add.w	r3, r7, #8
+ 8140474:	2200      	movs	r2, #0
+ 8140476:	701a      	strb	r2, [r3, #0]
+ 8140478:	f107 0308 	add.w	r3, r7, #8
+ 814047c:	781a      	ldrb	r2, [r3, #0]
+ 814047e:	f107 0308 	add.w	r3, r7, #8
+ 8140482:	705a      	strb	r2, [r3, #1]
+ 8140484:	f107 0308 	add.w	r3, r7, #8
+ 8140488:	781a      	ldrb	r2, [r3, #0]
+ 814048a:	f107 0308 	add.w	r3, r7, #8
+ 814048e:	709a      	strb	r2, [r3, #2]
+ 8140490:	f107 0308 	add.w	r3, r7, #8
+ 8140494:	781a      	ldrb	r2, [r3, #0]
+ 8140496:	f107 0308 	add.w	r3, r7, #8
+ 814049a:	70da      	strb	r2, [r3, #3]
+ 814049c:	e09b      	b.n	81405d6 <GenericUserPacket+0x552>
+ 814049e:	f107 0314 	add.w	r3, r7, #20
+ 81404a2:	781b      	ldrb	r3, [r3, #0]
+ 81404a4:	2b52      	cmp	r3, #82	; 0x52
+ 81404a6:	d116      	bne.n	81404d6 <GenericUserPacket+0x452>
+ 81404a8:	f107 0308 	add.w	r3, r7, #8
+ 81404ac:	2201      	movs	r2, #1
+ 81404ae:	701a      	strb	r2, [r3, #0]
+ 81404b0:	f107 0308 	add.w	r3, r7, #8
+ 81404b4:	781a      	ldrb	r2, [r3, #0]
+ 81404b6:	f107 0308 	add.w	r3, r7, #8
+ 81404ba:	705a      	strb	r2, [r3, #1]
+ 81404bc:	f107 0308 	add.w	r3, r7, #8
+ 81404c0:	781a      	ldrb	r2, [r3, #0]
+ 81404c2:	f107 0308 	add.w	r3, r7, #8
+ 81404c6:	709a      	strb	r2, [r3, #2]
+ 81404c8:	f107 0308 	add.w	r3, r7, #8
+ 81404cc:	781a      	ldrb	r2, [r3, #0]
+ 81404ce:	f107 0308 	add.w	r3, r7, #8
+ 81404d2:	70da      	strb	r2, [r3, #3]
+ 81404d4:	e07f      	b.n	81405d6 <GenericUserPacket+0x552>
+ 81404d6:	f107 0314 	add.w	r3, r7, #20
+ 81404da:	781b      	ldrb	r3, [r3, #0]
+ 81404dc:	2b53      	cmp	r3, #83	; 0x53
+ 81404de:	d116      	bne.n	814050e <GenericUserPacket+0x48a>
+ 81404e0:	f107 0308 	add.w	r3, r7, #8
+ 81404e4:	2202      	movs	r2, #2
+ 81404e6:	701a      	strb	r2, [r3, #0]
+ 81404e8:	f107 0308 	add.w	r3, r7, #8
+ 81404ec:	781a      	ldrb	r2, [r3, #0]
+ 81404ee:	f107 0308 	add.w	r3, r7, #8
+ 81404f2:	705a      	strb	r2, [r3, #1]
+ 81404f4:	f107 0308 	add.w	r3, r7, #8
+ 81404f8:	781a      	ldrb	r2, [r3, #0]
+ 81404fa:	f107 0308 	add.w	r3, r7, #8
+ 81404fe:	709a      	strb	r2, [r3, #2]
+ 8140500:	f107 0308 	add.w	r3, r7, #8
+ 8140504:	781a      	ldrb	r2, [r3, #0]
+ 8140506:	f107 0308 	add.w	r3, r7, #8
+ 814050a:	70da      	strb	r2, [r3, #3]
+ 814050c:	e063      	b.n	81405d6 <GenericUserPacket+0x552>
+ 814050e:	f107 0314 	add.w	r3, r7, #20
+ 8140512:	781b      	ldrb	r3, [r3, #0]
+ 8140514:	2b45      	cmp	r3, #69	; 0x45
+ 8140516:	d116      	bne.n	8140546 <GenericUserPacket+0x4c2>
+ 8140518:	f107 0308 	add.w	r3, r7, #8
+ 814051c:	2203      	movs	r2, #3
+ 814051e:	701a      	strb	r2, [r3, #0]
+ 8140520:	f107 0308 	add.w	r3, r7, #8
+ 8140524:	781a      	ldrb	r2, [r3, #0]
+ 8140526:	f107 0308 	add.w	r3, r7, #8
+ 814052a:	705a      	strb	r2, [r3, #1]
+ 814052c:	f107 0308 	add.w	r3, r7, #8
+ 8140530:	781a      	ldrb	r2, [r3, #0]
+ 8140532:	f107 0308 	add.w	r3, r7, #8
+ 8140536:	709a      	strb	r2, [r3, #2]
+ 8140538:	f107 0308 	add.w	r3, r7, #8
+ 814053c:	781a      	ldrb	r2, [r3, #0]
+ 814053e:	f107 0308 	add.w	r3, r7, #8
+ 8140542:	70da      	strb	r2, [r3, #3]
+ 8140544:	e047      	b.n	81405d6 <GenericUserPacket+0x552>
+ 8140546:	f107 0314 	add.w	r3, r7, #20
+ 814054a:	781b      	ldrb	r3, [r3, #0]
+ 814054c:	2b56      	cmp	r3, #86	; 0x56
+ 814054e:	d116      	bne.n	814057e <GenericUserPacket+0x4fa>
+ 8140550:	f107 0308 	add.w	r3, r7, #8
+ 8140554:	2204      	movs	r2, #4
+ 8140556:	701a      	strb	r2, [r3, #0]
+ 8140558:	f107 0308 	add.w	r3, r7, #8
+ 814055c:	781a      	ldrb	r2, [r3, #0]
+ 814055e:	f107 0308 	add.w	r3, r7, #8
+ 8140562:	705a      	strb	r2, [r3, #1]
+ 8140564:	f107 0308 	add.w	r3, r7, #8
+ 8140568:	781a      	ldrb	r2, [r3, #0]
+ 814056a:	f107 0308 	add.w	r3, r7, #8
+ 814056e:	709a      	strb	r2, [r3, #2]
+ 8140570:	f107 0308 	add.w	r3, r7, #8
+ 8140574:	781a      	ldrb	r2, [r3, #0]
+ 8140576:	f107 0308 	add.w	r3, r7, #8
+ 814057a:	70da      	strb	r2, [r3, #3]
+ 814057c:	e02b      	b.n	81405d6 <GenericUserPacket+0x552>
+ 814057e:	f107 0314 	add.w	r3, r7, #20
+ 8140582:	781b      	ldrb	r3, [r3, #0]
+ 8140584:	2b54      	cmp	r3, #84	; 0x54
+ 8140586:	d116      	bne.n	81405b6 <GenericUserPacket+0x532>
+ 8140588:	f107 0308 	add.w	r3, r7, #8
+ 814058c:	2205      	movs	r2, #5
+ 814058e:	701a      	strb	r2, [r3, #0]
+ 8140590:	f107 0308 	add.w	r3, r7, #8
+ 8140594:	781a      	ldrb	r2, [r3, #0]
+ 8140596:	f107 0308 	add.w	r3, r7, #8
+ 814059a:	705a      	strb	r2, [r3, #1]
+ 814059c:	f107 0308 	add.w	r3, r7, #8
+ 81405a0:	781a      	ldrb	r2, [r3, #0]
+ 81405a2:	f107 0308 	add.w	r3, r7, #8
+ 81405a6:	709a      	strb	r2, [r3, #2]
+ 81405a8:	f107 0308 	add.w	r3, r7, #8
+ 81405ac:	781a      	ldrb	r2, [r3, #0]
+ 81405ae:	f107 0308 	add.w	r3, r7, #8
+ 81405b2:	70da      	strb	r2, [r3, #3]
+ 81405b4:	e00f      	b.n	81405d6 <GenericUserPacket+0x552>
+ 81405b6:	f107 0308 	add.w	r3, r7, #8
+ 81405ba:	2201      	movs	r2, #1
+ 81405bc:	701a      	strb	r2, [r3, #0]
+ 81405be:	f107 0308 	add.w	r3, r7, #8
+ 81405c2:	2202      	movs	r2, #2
+ 81405c4:	705a      	strb	r2, [r3, #1]
+ 81405c6:	f107 0308 	add.w	r3, r7, #8
+ 81405ca:	2203      	movs	r2, #3
+ 81405cc:	709a      	strb	r2, [r3, #2]
+ 81405ce:	f107 0308 	add.w	r3, r7, #8
+ 81405d2:	2204      	movs	r2, #4
+ 81405d4:	70da      	strb	r2, [r3, #3]
+ 81405d6:	f107 0310 	add.w	r3, r7, #16
+ 81405da:	681b      	ldr	r3, [r3, #0]
+ 81405dc:	4619      	mov	r1, r3
+ 81405de:	4870      	ldr	r0, [pc, #448]	; (81407a0 <GenericUserPacket+0x71c>)
+ 81405e0:	f6ff ff3c 	bl	804045c <PMDprintf>
+ 81405e4:	2300      	movs	r3, #0
+ 81405e6:	f8c7 3144 	str.w	r3, [r7, #324]	; 0x144
+ 81405ea:	e067      	b.n	81406bc <GenericUserPacket+0x638>
+ 81405ec:	f107 0214 	add.w	r2, r7, #20
+ 81405f0:	f8d7 3144 	ldr.w	r3, [r7, #324]	; 0x144
+ 81405f4:	4413      	add	r3, r2
+ 81405f6:	781b      	ldrb	r3, [r3, #0]
+ 81405f8:	4619      	mov	r1, r3
+ 81405fa:	486a      	ldr	r0, [pc, #424]	; (81407a4 <GenericUserPacket+0x720>)
+ 81405fc:	f6ff ff2e 	bl	804045c <PMDprintf>
+ 8140600:	f107 0214 	add.w	r2, r7, #20
+ 8140604:	f8d7 3144 	ldr.w	r3, [r7, #324]	; 0x144
+ 8140608:	4413      	add	r3, r2
+ 814060a:	781b      	ldrb	r3, [r3, #0]
+ 814060c:	2b4d      	cmp	r3, #77	; 0x4d
+ 814060e:	d106      	bne.n	814061e <GenericUserPacket+0x59a>
+ 8140610:	f8d7 3144 	ldr.w	r3, [r7, #324]	; 0x144
+ 8140614:	b2da      	uxtb	r2, r3
+ 8140616:	f107 0308 	add.w	r3, r7, #8
+ 814061a:	701a      	strb	r2, [r3, #0]
+ 814061c:	e049      	b.n	81406b2 <GenericUserPacket+0x62e>
+ 814061e:	f107 0214 	add.w	r2, r7, #20
+ 8140622:	f8d7 3144 	ldr.w	r3, [r7, #324]	; 0x144
+ 8140626:	4413      	add	r3, r2
+ 8140628:	781b      	ldrb	r3, [r3, #0]
+ 814062a:	2b52      	cmp	r3, #82	; 0x52
+ 814062c:	d106      	bne.n	814063c <GenericUserPacket+0x5b8>
+ 814062e:	f8d7 3144 	ldr.w	r3, [r7, #324]	; 0x144
+ 8140632:	b2da      	uxtb	r2, r3
+ 8140634:	f107 0308 	add.w	r3, r7, #8
+ 8140638:	705a      	strb	r2, [r3, #1]
+ 814063a:	e03a      	b.n	81406b2 <GenericUserPacket+0x62e>
+ 814063c:	f107 0214 	add.w	r2, r7, #20
+ 8140640:	f8d7 3144 	ldr.w	r3, [r7, #324]	; 0x144
+ 8140644:	4413      	add	r3, r2
+ 8140646:	781b      	ldrb	r3, [r3, #0]
+ 8140648:	2b53      	cmp	r3, #83	; 0x53
+ 814064a:	d106      	bne.n	814065a <GenericUserPacket+0x5d6>
+ 814064c:	f8d7 3144 	ldr.w	r3, [r7, #324]	; 0x144
+ 8140650:	b2da      	uxtb	r2, r3
+ 8140652:	f107 0308 	add.w	r3, r7, #8
+ 8140656:	709a      	strb	r2, [r3, #2]
+ 8140658:	e02b      	b.n	81406b2 <GenericUserPacket+0x62e>
+ 814065a:	f107 0214 	add.w	r2, r7, #20
+ 814065e:	f8d7 3144 	ldr.w	r3, [r7, #324]	; 0x144
+ 8140662:	4413      	add	r3, r2
+ 8140664:	781b      	ldrb	r3, [r3, #0]
+ 8140666:	2b45      	cmp	r3, #69	; 0x45
+ 8140668:	d106      	bne.n	8140678 <GenericUserPacket+0x5f4>
+ 814066a:	f8d7 3144 	ldr.w	r3, [r7, #324]	; 0x144
+ 814066e:	b2da      	uxtb	r2, r3
+ 8140670:	f107 0308 	add.w	r3, r7, #8
+ 8140674:	70da      	strb	r2, [r3, #3]
+ 8140676:	e01c      	b.n	81406b2 <GenericUserPacket+0x62e>
+ 8140678:	f107 0214 	add.w	r2, r7, #20
+ 814067c:	f8d7 3144 	ldr.w	r3, [r7, #324]	; 0x144
+ 8140680:	4413      	add	r3, r2
+ 8140682:	781b      	ldrb	r3, [r3, #0]
+ 8140684:	2b56      	cmp	r3, #86	; 0x56
+ 8140686:	d106      	bne.n	8140696 <GenericUserPacket+0x612>
+ 8140688:	f8d7 3144 	ldr.w	r3, [r7, #324]	; 0x144
+ 814068c:	b2da      	uxtb	r2, r3
+ 814068e:	f107 0308 	add.w	r3, r7, #8
+ 8140692:	711a      	strb	r2, [r3, #4]
+ 8140694:	e00d      	b.n	81406b2 <GenericUserPacket+0x62e>
+ 8140696:	f107 0214 	add.w	r2, r7, #20
+ 814069a:	f8d7 3144 	ldr.w	r3, [r7, #324]	; 0x144
+ 814069e:	4413      	add	r3, r2
+ 81406a0:	781b      	ldrb	r3, [r3, #0]
+ 81406a2:	2b54      	cmp	r3, #84	; 0x54
+ 81406a4:	d105      	bne.n	81406b2 <GenericUserPacket+0x62e>
+ 81406a6:	f8d7 3144 	ldr.w	r3, [r7, #324]	; 0x144
+ 81406aa:	b2da      	uxtb	r2, r3
+ 81406ac:	f107 0308 	add.w	r3, r7, #8
+ 81406b0:	715a      	strb	r2, [r3, #5]
+ 81406b2:	f8d7 3144 	ldr.w	r3, [r7, #324]	; 0x144
+ 81406b6:	3301      	adds	r3, #1
+ 81406b8:	f8c7 3144 	str.w	r3, [r7, #324]	; 0x144
+ 81406bc:	f107 0310 	add.w	r3, r7, #16
+ 81406c0:	681b      	ldr	r3, [r3, #0]
+ 81406c2:	f8d7 2144 	ldr.w	r2, [r7, #324]	; 0x144
+ 81406c6:	429a      	cmp	r2, r3
+ 81406c8:	d390      	bcc.n	81405ec <GenericUserPacket+0x568>
+ 81406ca:	4837      	ldr	r0, [pc, #220]	; (81407a8 <GenericUserPacket+0x724>)
+ 81406cc:	f6ff fec6 	bl	804045c <PMDprintf>
+ 81406d0:	f107 0308 	add.w	r3, r7, #8
+ 81406d4:	781b      	ldrb	r3, [r3, #0]
+ 81406d6:	4619      	mov	r1, r3
+ 81406d8:	4834      	ldr	r0, [pc, #208]	; (81407ac <GenericUserPacket+0x728>)
+ 81406da:	f6ff febf 	bl	804045c <PMDprintf>
+ 81406de:	f107 0308 	add.w	r3, r7, #8
+ 81406e2:	785b      	ldrb	r3, [r3, #1]
+ 81406e4:	4619      	mov	r1, r3
+ 81406e6:	4832      	ldr	r0, [pc, #200]	; (81407b0 <GenericUserPacket+0x72c>)
+ 81406e8:	f6ff feb8 	bl	804045c <PMDprintf>
+ 81406ec:	f107 0308 	add.w	r3, r7, #8
+ 81406f0:	789b      	ldrb	r3, [r3, #2]
+ 81406f2:	4619      	mov	r1, r3
+ 81406f4:	482f      	ldr	r0, [pc, #188]	; (81407b4 <GenericUserPacket+0x730>)
+ 81406f6:	f6ff feb1 	bl	804045c <PMDprintf>
+ 81406fa:	f107 0308 	add.w	r3, r7, #8
+ 81406fe:	78db      	ldrb	r3, [r3, #3]
+ 8140700:	4619      	mov	r1, r3
+ 8140702:	482d      	ldr	r0, [pc, #180]	; (81407b8 <GenericUserPacket+0x734>)
+ 8140704:	f6ff feaa 	bl	804045c <PMDprintf>
+ 8140708:	f107 0308 	add.w	r3, r7, #8
+ 814070c:	791b      	ldrb	r3, [r3, #4]
+ 814070e:	4619      	mov	r1, r3
+ 8140710:	482a      	ldr	r0, [pc, #168]	; (81407bc <GenericUserPacket+0x738>)
+ 8140712:	f6ff fea3 	bl	804045c <PMDprintf>
+ 8140716:	f107 0308 	add.w	r3, r7, #8
+ 814071a:	795b      	ldrb	r3, [r3, #5]
+ 814071c:	4619      	mov	r1, r3
+ 814071e:	4828      	ldr	r0, [pc, #160]	; (81407c0 <GenericUserPacket+0x73c>)
+ 8140720:	f6ff fe9c 	bl	804045c <PMDprintf>
+ 8140724:	4820      	ldr	r0, [pc, #128]	; (81407a8 <GenericUserPacket+0x724>)
+ 8140726:	f6ff fe9d 	bl	8040464 <PMDputs>
+ 814072a:	f897 313f 	ldrb.w	r3, [r7, #319]	; 0x13f
+ 814072e:	2b07      	cmp	r3, #7
+ 8140730:	f43f ae75 	beq.w	814041e <GenericUserPacket+0x39a>
+ 8140734:	f107 0310 	add.w	r3, r7, #16
+ 8140738:	681a      	ldr	r2, [r3, #0]
+ 814073a:	f107 0114 	add.w	r1, r7, #20
+ 814073e:	f107 00dc 	add.w	r0, r7, #220	; 0xdc
+ 8140742:	f44f 63fa 	mov.w	r3, #2000	; 0x7d0
+ 8140746:	f000 fc58 	bl	8140ffa <PMDPeriphSend>
+ 814074a:	4603      	mov	r3, r0
+ 814074c:	f8a7 312e 	strh.w	r3, [r7, #302]	; 0x12e
+ 8140750:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 8140754:	2b00      	cmp	r3, #0
+ 8140756:	d00a      	beq.n	814076e <GenericUserPacket+0x6ea>
+ 8140758:	f8b7 312e 	ldrh.w	r3, [r7, #302]	; 0x12e
+ 814075c:	4618      	mov	r0, r3
+ 814075e:	f000 f835 	bl	81407cc <PMDGetErrorMessage>
+ 8140762:	4602      	mov	r2, r0
+ 8140764:	4b17      	ldr	r3, [pc, #92]	; (81407c4 <GenericUserPacket+0x740>)
+ 8140766:	21fc      	movs	r1, #252	; 0xfc
+ 8140768:	4817      	ldr	r0, [pc, #92]	; (81407c8 <GenericUserPacket+0x744>)
+ 814076a:	f6ff fe77 	bl	804045c <PMDprintf>
+ 814076e:	f8d7 3140 	ldr.w	r3, [r7, #320]	; 0x140
+ 8140772:	3301      	adds	r3, #1
+ 8140774:	f8c7 3140 	str.w	r3, [r7, #320]	; 0x140
+ 8140778:	e651      	b.n	814041e <GenericUserPacket+0x39a>
+ 814077a:	bf00      	nop
+ 814077c:	f640 30b8 	movw	r0, #3000	; 0xbb8
+ 8140780:	f6ff fe7c 	bl	804047c <PMDTaskWait>
+ 8140784:	f107 03dc 	add.w	r3, r7, #220	; 0xdc
+ 8140788:	4618      	mov	r0, r3
+ 814078a:	f000 fc5f 	bl	814104c <PMDPeriphClose>
+ 814078e:	2000      	movs	r0, #0
+ 8140790:	f6ff fe7a 	bl	8040488 <PMDTaskAbort>
+ 8140794:	bf00      	nop
+ 8140796:	f507 77a4 	add.w	r7, r7, #328	; 0x148
+ 814079a:	46bd      	mov	sp, r7
+ 814079c:	bd80      	pop	{r7, pc}
+ 814079e:	bf00      	nop
+ 81407a0:	081415c4 	.word	0x081415c4
+ 81407a4:	081415d8 	.word	0x081415d8
+ 81407a8:	081415e0 	.word	0x081415e0
+ 81407ac:	081415e4 	.word	0x081415e4
+ 81407b0:	081415ec 	.word	0x081415ec
+ 81407b4:	081415f4 	.word	0x081415f4
+ 81407b8:	081415fc 	.word	0x081415fc
+ 81407bc:	08141604 	.word	0x08141604
+ 81407c0:	0814160c 	.word	0x0814160c
+ 81407c4:	08141614 	.word	0x08141614
+ 81407c8:	08141358 	.word	0x08141358
+
+081407cc <PMDGetErrorMessage>:
+ 81407cc:	b480      	push	{r7}
+ 81407ce:	b083      	sub	sp, #12
+ 81407d0:	af00      	add	r7, sp, #0
+ 81407d2:	4603      	mov	r3, r0
+ 81407d4:	80fb      	strh	r3, [r7, #6]
+ 81407d6:	88fb      	ldrh	r3, [r7, #6]
+ 81407d8:	2b00      	cmp	r3, #0
+ 81407da:	f000 8304 	beq.w	8140de6 <PMDGetErrorMessage+0x61a>
+ 81407de:	88fb      	ldrh	r3, [r7, #6]
+ 81407e0:	2b01      	cmp	r3, #1
+ 81407e2:	f000 82fe 	beq.w	8140de2 <PMDGetErrorMessage+0x616>
+ 81407e6:	88fb      	ldrh	r3, [r7, #6]
+ 81407e8:	2b02      	cmp	r3, #2
+ 81407ea:	f000 82f8 	beq.w	8140dde <PMDGetErrorMessage+0x612>
+ 81407ee:	88fb      	ldrh	r3, [r7, #6]
+ 81407f0:	2b03      	cmp	r3, #3
+ 81407f2:	f000 82f2 	beq.w	8140dda <PMDGetErrorMessage+0x60e>
+ 81407f6:	88fb      	ldrh	r3, [r7, #6]
+ 81407f8:	2b04      	cmp	r3, #4
+ 81407fa:	f000 82ec 	beq.w	8140dd6 <PMDGetErrorMessage+0x60a>
+ 81407fe:	88fb      	ldrh	r3, [r7, #6]
+ 8140800:	2b05      	cmp	r3, #5
+ 8140802:	f000 82e6 	beq.w	8140dd2 <PMDGetErrorMessage+0x606>
+ 8140806:	88fb      	ldrh	r3, [r7, #6]
+ 8140808:	2b07      	cmp	r3, #7
+ 814080a:	f000 82e0 	beq.w	8140dce <PMDGetErrorMessage+0x602>
+ 814080e:	88fb      	ldrh	r3, [r7, #6]
+ 8140810:	2b08      	cmp	r3, #8
+ 8140812:	f000 82da 	beq.w	8140dca <PMDGetErrorMessage+0x5fe>
+ 8140816:	88fb      	ldrh	r3, [r7, #6]
+ 8140818:	2b09      	cmp	r3, #9
+ 814081a:	f000 82d4 	beq.w	8140dc6 <PMDGetErrorMessage+0x5fa>
+ 814081e:	88fb      	ldrh	r3, [r7, #6]
+ 8140820:	2b0b      	cmp	r3, #11
+ 8140822:	f000 82ce 	beq.w	8140dc2 <PMDGetErrorMessage+0x5f6>
+ 8140826:	88fb      	ldrh	r3, [r7, #6]
+ 8140828:	2b0c      	cmp	r3, #12
+ 814082a:	f000 82c8 	beq.w	8140dbe <PMDGetErrorMessage+0x5f2>
+ 814082e:	88fb      	ldrh	r3, [r7, #6]
+ 8140830:	2b0d      	cmp	r3, #13
+ 8140832:	f000 82c2 	beq.w	8140dba <PMDGetErrorMessage+0x5ee>
+ 8140836:	88fb      	ldrh	r3, [r7, #6]
+ 8140838:	2b0e      	cmp	r3, #14
+ 814083a:	f000 82bc 	beq.w	8140db6 <PMDGetErrorMessage+0x5ea>
+ 814083e:	88fb      	ldrh	r3, [r7, #6]
+ 8140840:	2b0f      	cmp	r3, #15
+ 8140842:	f000 82b6 	beq.w	8140db2 <PMDGetErrorMessage+0x5e6>
+ 8140846:	88fb      	ldrh	r3, [r7, #6]
+ 8140848:	2b10      	cmp	r3, #16
+ 814084a:	f000 82b0 	beq.w	8140dae <PMDGetErrorMessage+0x5e2>
+ 814084e:	88fb      	ldrh	r3, [r7, #6]
+ 8140850:	2b11      	cmp	r3, #17
+ 8140852:	f000 82aa 	beq.w	8140daa <PMDGetErrorMessage+0x5de>
+ 8140856:	88fb      	ldrh	r3, [r7, #6]
+ 8140858:	2b12      	cmp	r3, #18
+ 814085a:	f000 82a4 	beq.w	8140da6 <PMDGetErrorMessage+0x5da>
+ 814085e:	88fb      	ldrh	r3, [r7, #6]
+ 8140860:	2b14      	cmp	r3, #20
+ 8140862:	f000 829e 	beq.w	8140da2 <PMDGetErrorMessage+0x5d6>
+ 8140866:	88fb      	ldrh	r3, [r7, #6]
+ 8140868:	2b13      	cmp	r3, #19
+ 814086a:	f000 8298 	beq.w	8140d9e <PMDGetErrorMessage+0x5d2>
+ 814086e:	88fb      	ldrh	r3, [r7, #6]
+ 8140870:	2b15      	cmp	r3, #21
+ 8140872:	f000 8292 	beq.w	8140d9a <PMDGetErrorMessage+0x5ce>
+ 8140876:	88fb      	ldrh	r3, [r7, #6]
+ 8140878:	2b16      	cmp	r3, #22
+ 814087a:	f000 828c 	beq.w	8140d96 <PMDGetErrorMessage+0x5ca>
+ 814087e:	88fb      	ldrh	r3, [r7, #6]
+ 8140880:	2b17      	cmp	r3, #23
+ 8140882:	f000 8286 	beq.w	8140d92 <PMDGetErrorMessage+0x5c6>
+ 8140886:	88fb      	ldrh	r3, [r7, #6]
+ 8140888:	2b18      	cmp	r3, #24
+ 814088a:	f000 8280 	beq.w	8140d8e <PMDGetErrorMessage+0x5c2>
+ 814088e:	88fb      	ldrh	r3, [r7, #6]
+ 8140890:	2b19      	cmp	r3, #25
+ 8140892:	f000 827a 	beq.w	8140d8a <PMDGetErrorMessage+0x5be>
+ 8140896:	88fb      	ldrh	r3, [r7, #6]
+ 8140898:	2b1a      	cmp	r3, #26
+ 814089a:	f000 8274 	beq.w	8140d86 <PMDGetErrorMessage+0x5ba>
+ 814089e:	88fb      	ldrh	r3, [r7, #6]
+ 81408a0:	2b1b      	cmp	r3, #27
+ 81408a2:	f000 826e 	beq.w	8140d82 <PMDGetErrorMessage+0x5b6>
+ 81408a6:	88fb      	ldrh	r3, [r7, #6]
+ 81408a8:	2b1c      	cmp	r3, #28
+ 81408aa:	f000 8268 	beq.w	8140d7e <PMDGetErrorMessage+0x5b2>
+ 81408ae:	88fb      	ldrh	r3, [r7, #6]
+ 81408b0:	2b1d      	cmp	r3, #29
+ 81408b2:	f000 8262 	beq.w	8140d7a <PMDGetErrorMessage+0x5ae>
+ 81408b6:	88fb      	ldrh	r3, [r7, #6]
+ 81408b8:	2b1e      	cmp	r3, #30
+ 81408ba:	f000 825c 	beq.w	8140d76 <PMDGetErrorMessage+0x5aa>
+ 81408be:	88fb      	ldrh	r3, [r7, #6]
+ 81408c0:	2b1f      	cmp	r3, #31
+ 81408c2:	f000 8256 	beq.w	8140d72 <PMDGetErrorMessage+0x5a6>
+ 81408c6:	88fb      	ldrh	r3, [r7, #6]
+ 81408c8:	2b20      	cmp	r3, #32
+ 81408ca:	f000 8250 	beq.w	8140d6e <PMDGetErrorMessage+0x5a2>
+ 81408ce:	88fb      	ldrh	r3, [r7, #6]
+ 81408d0:	2b21      	cmp	r3, #33	; 0x21
+ 81408d2:	f000 824a 	beq.w	8140d6a <PMDGetErrorMessage+0x59e>
+ 81408d6:	88fb      	ldrh	r3, [r7, #6]
+ 81408d8:	2b22      	cmp	r3, #34	; 0x22
+ 81408da:	f000 8244 	beq.w	8140d66 <PMDGetErrorMessage+0x59a>
+ 81408de:	88fb      	ldrh	r3, [r7, #6]
+ 81408e0:	2b23      	cmp	r3, #35	; 0x23
+ 81408e2:	f000 823e 	beq.w	8140d62 <PMDGetErrorMessage+0x596>
+ 81408e6:	88fb      	ldrh	r3, [r7, #6]
+ 81408e8:	f241 0202 	movw	r2, #4098	; 0x1002
+ 81408ec:	4293      	cmp	r3, r2
+ 81408ee:	f000 8236 	beq.w	8140d5e <PMDGetErrorMessage+0x592>
+ 81408f2:	88fb      	ldrh	r3, [r7, #6]
+ 81408f4:	f241 0205 	movw	r2, #4101	; 0x1005
+ 81408f8:	4293      	cmp	r3, r2
+ 81408fa:	f000 822e 	beq.w	8140d5a <PMDGetErrorMessage+0x58e>
+ 81408fe:	88fb      	ldrh	r3, [r7, #6]
+ 8140900:	f241 0206 	movw	r2, #4102	; 0x1006
+ 8140904:	4293      	cmp	r3, r2
+ 8140906:	f000 8226 	beq.w	8140d56 <PMDGetErrorMessage+0x58a>
+ 814090a:	88fb      	ldrh	r3, [r7, #6]
+ 814090c:	f241 0207 	movw	r2, #4103	; 0x1007
+ 8140910:	4293      	cmp	r3, r2
+ 8140912:	f000 821e 	beq.w	8140d52 <PMDGetErrorMessage+0x586>
+ 8140916:	88fb      	ldrh	r3, [r7, #6]
+ 8140918:	f241 0208 	movw	r2, #4104	; 0x1008
+ 814091c:	4293      	cmp	r3, r2
+ 814091e:	f000 8216 	beq.w	8140d4e <PMDGetErrorMessage+0x582>
+ 8140922:	88fb      	ldrh	r3, [r7, #6]
+ 8140924:	f241 020a 	movw	r2, #4106	; 0x100a
+ 8140928:	4293      	cmp	r3, r2
+ 814092a:	f000 820e 	beq.w	8140d4a <PMDGetErrorMessage+0x57e>
+ 814092e:	88fb      	ldrh	r3, [r7, #6]
+ 8140930:	f241 020b 	movw	r2, #4107	; 0x100b
+ 8140934:	4293      	cmp	r3, r2
+ 8140936:	f000 8206 	beq.w	8140d46 <PMDGetErrorMessage+0x57a>
+ 814093a:	88fb      	ldrh	r3, [r7, #6]
+ 814093c:	f241 020c 	movw	r2, #4108	; 0x100c
+ 8140940:	4293      	cmp	r3, r2
+ 8140942:	f000 81fe 	beq.w	8140d42 <PMDGetErrorMessage+0x576>
+ 8140946:	88fb      	ldrh	r3, [r7, #6]
+ 8140948:	f241 020d 	movw	r2, #4109	; 0x100d
+ 814094c:	4293      	cmp	r3, r2
+ 814094e:	f000 81f6 	beq.w	8140d3e <PMDGetErrorMessage+0x572>
+ 8140952:	88fb      	ldrh	r3, [r7, #6]
+ 8140954:	f241 020e 	movw	r2, #4110	; 0x100e
+ 8140958:	4293      	cmp	r3, r2
+ 814095a:	f000 81ee 	beq.w	8140d3a <PMDGetErrorMessage+0x56e>
+ 814095e:	88fb      	ldrh	r3, [r7, #6]
+ 8140960:	f241 020f 	movw	r2, #4111	; 0x100f
+ 8140964:	4293      	cmp	r3, r2
+ 8140966:	f000 81e6 	beq.w	8140d36 <PMDGetErrorMessage+0x56a>
+ 814096a:	88fb      	ldrh	r3, [r7, #6]
+ 814096c:	f241 0210 	movw	r2, #4112	; 0x1010
+ 8140970:	4293      	cmp	r3, r2
+ 8140972:	f000 81de 	beq.w	8140d32 <PMDGetErrorMessage+0x566>
+ 8140976:	88fb      	ldrh	r3, [r7, #6]
+ 8140978:	f241 1201 	movw	r2, #4353	; 0x1101
+ 814097c:	4293      	cmp	r3, r2
+ 814097e:	f000 81d6 	beq.w	8140d2e <PMDGetErrorMessage+0x562>
+ 8140982:	88fb      	ldrh	r3, [r7, #6]
+ 8140984:	f241 1202 	movw	r2, #4354	; 0x1102
+ 8140988:	4293      	cmp	r3, r2
+ 814098a:	f000 81ce 	beq.w	8140d2a <PMDGetErrorMessage+0x55e>
+ 814098e:	88fb      	ldrh	r3, [r7, #6]
+ 8140990:	f241 1203 	movw	r2, #4355	; 0x1103
+ 8140994:	4293      	cmp	r3, r2
+ 8140996:	f000 81c6 	beq.w	8140d26 <PMDGetErrorMessage+0x55a>
+ 814099a:	88fb      	ldrh	r3, [r7, #6]
+ 814099c:	f241 1204 	movw	r2, #4356	; 0x1104
+ 81409a0:	4293      	cmp	r3, r2
+ 81409a2:	f000 81be 	beq.w	8140d22 <PMDGetErrorMessage+0x556>
+ 81409a6:	88fb      	ldrh	r3, [r7, #6]
+ 81409a8:	f241 1205 	movw	r2, #4357	; 0x1105
+ 81409ac:	4293      	cmp	r3, r2
+ 81409ae:	f000 81b6 	beq.w	8140d1e <PMDGetErrorMessage+0x552>
+ 81409b2:	88fb      	ldrh	r3, [r7, #6]
+ 81409b4:	f241 1206 	movw	r2, #4358	; 0x1106
+ 81409b8:	4293      	cmp	r3, r2
+ 81409ba:	f000 81ae 	beq.w	8140d1a <PMDGetErrorMessage+0x54e>
+ 81409be:	88fb      	ldrh	r3, [r7, #6]
+ 81409c0:	f241 1207 	movw	r2, #4359	; 0x1107
+ 81409c4:	4293      	cmp	r3, r2
+ 81409c6:	f000 81a6 	beq.w	8140d16 <PMDGetErrorMessage+0x54a>
+ 81409ca:	88fb      	ldrh	r3, [r7, #6]
+ 81409cc:	f241 1208 	movw	r2, #4360	; 0x1108
+ 81409d0:	4293      	cmp	r3, r2
+ 81409d2:	f000 819e 	beq.w	8140d12 <PMDGetErrorMessage+0x546>
+ 81409d6:	88fb      	ldrh	r3, [r7, #6]
+ 81409d8:	f241 1209 	movw	r2, #4361	; 0x1109
+ 81409dc:	4293      	cmp	r3, r2
+ 81409de:	f000 8196 	beq.w	8140d0e <PMDGetErrorMessage+0x542>
+ 81409e2:	88fb      	ldrh	r3, [r7, #6]
+ 81409e4:	f241 120a 	movw	r2, #4362	; 0x110a
+ 81409e8:	4293      	cmp	r3, r2
+ 81409ea:	f000 818e 	beq.w	8140d0a <PMDGetErrorMessage+0x53e>
+ 81409ee:	88fb      	ldrh	r3, [r7, #6]
+ 81409f0:	f241 120b 	movw	r2, #4363	; 0x110b
+ 81409f4:	4293      	cmp	r3, r2
+ 81409f6:	f000 8186 	beq.w	8140d06 <PMDGetErrorMessage+0x53a>
+ 81409fa:	88fb      	ldrh	r3, [r7, #6]
+ 81409fc:	f241 2201 	movw	r2, #4609	; 0x1201
+ 8140a00:	4293      	cmp	r3, r2
+ 8140a02:	f000 817e 	beq.w	8140d02 <PMDGetErrorMessage+0x536>
+ 8140a06:	88fb      	ldrh	r3, [r7, #6]
+ 8140a08:	f241 2202 	movw	r2, #4610	; 0x1202
+ 8140a0c:	4293      	cmp	r3, r2
+ 8140a0e:	f000 8176 	beq.w	8140cfe <PMDGetErrorMessage+0x532>
+ 8140a12:	88fb      	ldrh	r3, [r7, #6]
+ 8140a14:	f241 2203 	movw	r2, #4611	; 0x1203
+ 8140a18:	4293      	cmp	r3, r2
+ 8140a1a:	f000 816e 	beq.w	8140cfa <PMDGetErrorMessage+0x52e>
+ 8140a1e:	88fb      	ldrh	r3, [r7, #6]
+ 8140a20:	f241 2204 	movw	r2, #4612	; 0x1204
+ 8140a24:	4293      	cmp	r3, r2
+ 8140a26:	f000 8166 	beq.w	8140cf6 <PMDGetErrorMessage+0x52a>
+ 8140a2a:	88fb      	ldrh	r3, [r7, #6]
+ 8140a2c:	f241 2205 	movw	r2, #4613	; 0x1205
+ 8140a30:	4293      	cmp	r3, r2
+ 8140a32:	f000 815e 	beq.w	8140cf2 <PMDGetErrorMessage+0x526>
+ 8140a36:	88fb      	ldrh	r3, [r7, #6]
+ 8140a38:	f241 2206 	movw	r2, #4614	; 0x1206
+ 8140a3c:	4293      	cmp	r3, r2
+ 8140a3e:	f000 8156 	beq.w	8140cee <PMDGetErrorMessage+0x522>
+ 8140a42:	88fb      	ldrh	r3, [r7, #6]
+ 8140a44:	f241 2207 	movw	r2, #4615	; 0x1207
+ 8140a48:	4293      	cmp	r3, r2
+ 8140a4a:	f000 814e 	beq.w	8140cea <PMDGetErrorMessage+0x51e>
+ 8140a4e:	88fb      	ldrh	r3, [r7, #6]
+ 8140a50:	f241 2208 	movw	r2, #4616	; 0x1208
+ 8140a54:	4293      	cmp	r3, r2
+ 8140a56:	f000 8146 	beq.w	8140ce6 <PMDGetErrorMessage+0x51a>
+ 8140a5a:	88fb      	ldrh	r3, [r7, #6]
+ 8140a5c:	f241 2209 	movw	r2, #4617	; 0x1209
+ 8140a60:	4293      	cmp	r3, r2
+ 8140a62:	f000 813e 	beq.w	8140ce2 <PMDGetErrorMessage+0x516>
+ 8140a66:	88fb      	ldrh	r3, [r7, #6]
+ 8140a68:	f241 220a 	movw	r2, #4618	; 0x120a
+ 8140a6c:	4293      	cmp	r3, r2
+ 8140a6e:	f000 8136 	beq.w	8140cde <PMDGetErrorMessage+0x512>
+ 8140a72:	88fb      	ldrh	r3, [r7, #6]
+ 8140a74:	f241 220b 	movw	r2, #4619	; 0x120b
+ 8140a78:	4293      	cmp	r3, r2
+ 8140a7a:	f000 812e 	beq.w	8140cda <PMDGetErrorMessage+0x50e>
+ 8140a7e:	88fb      	ldrh	r3, [r7, #6]
+ 8140a80:	f241 220c 	movw	r2, #4620	; 0x120c
+ 8140a84:	4293      	cmp	r3, r2
+ 8140a86:	f000 8126 	beq.w	8140cd6 <PMDGetErrorMessage+0x50a>
+ 8140a8a:	88fb      	ldrh	r3, [r7, #6]
+ 8140a8c:	f241 220d 	movw	r2, #4621	; 0x120d
+ 8140a90:	4293      	cmp	r3, r2
+ 8140a92:	f000 811e 	beq.w	8140cd2 <PMDGetErrorMessage+0x506>
+ 8140a96:	88fb      	ldrh	r3, [r7, #6]
+ 8140a98:	f241 220e 	movw	r2, #4622	; 0x120e
+ 8140a9c:	4293      	cmp	r3, r2
+ 8140a9e:	f000 8116 	beq.w	8140cce <PMDGetErrorMessage+0x502>
+ 8140aa2:	88fb      	ldrh	r3, [r7, #6]
+ 8140aa4:	f241 2211 	movw	r2, #4625	; 0x1211
+ 8140aa8:	4293      	cmp	r3, r2
+ 8140aaa:	f000 810e 	beq.w	8140cca <PMDGetErrorMessage+0x4fe>
+ 8140aae:	88fb      	ldrh	r3, [r7, #6]
+ 8140ab0:	f241 2212 	movw	r2, #4626	; 0x1212
+ 8140ab4:	4293      	cmp	r3, r2
+ 8140ab6:	f000 8106 	beq.w	8140cc6 <PMDGetErrorMessage+0x4fa>
+ 8140aba:	88fb      	ldrh	r3, [r7, #6]
+ 8140abc:	f241 2213 	movw	r2, #4627	; 0x1213
+ 8140ac0:	4293      	cmp	r3, r2
+ 8140ac2:	f000 80fe 	beq.w	8140cc2 <PMDGetErrorMessage+0x4f6>
+ 8140ac6:	88fb      	ldrh	r3, [r7, #6]
+ 8140ac8:	f241 2214 	movw	r2, #4628	; 0x1214
+ 8140acc:	4293      	cmp	r3, r2
+ 8140ace:	f000 80f6 	beq.w	8140cbe <PMDGetErrorMessage+0x4f2>
+ 8140ad2:	88fb      	ldrh	r3, [r7, #6]
+ 8140ad4:	f241 2215 	movw	r2, #4629	; 0x1215
+ 8140ad8:	4293      	cmp	r3, r2
+ 8140ada:	f000 80ee 	beq.w	8140cba <PMDGetErrorMessage+0x4ee>
+ 8140ade:	88fb      	ldrh	r3, [r7, #6]
+ 8140ae0:	f5b3 5f91 	cmp.w	r3, #4640	; 0x1220
+ 8140ae4:	f000 80e7 	beq.w	8140cb6 <PMDGetErrorMessage+0x4ea>
+ 8140ae8:	88fb      	ldrh	r3, [r7, #6]
+ 8140aea:	f241 2221 	movw	r2, #4641	; 0x1221
+ 8140aee:	4293      	cmp	r3, r2
+ 8140af0:	f000 80df 	beq.w	8140cb2 <PMDGetErrorMessage+0x4e6>
+ 8140af4:	88fb      	ldrh	r3, [r7, #6]
+ 8140af6:	f241 2222 	movw	r2, #4642	; 0x1222
+ 8140afa:	4293      	cmp	r3, r2
+ 8140afc:	f000 80d7 	beq.w	8140cae <PMDGetErrorMessage+0x4e2>
+ 8140b00:	88fb      	ldrh	r3, [r7, #6]
+ 8140b02:	f241 2223 	movw	r2, #4643	; 0x1223
+ 8140b06:	4293      	cmp	r3, r2
+ 8140b08:	f000 80cf 	beq.w	8140caa <PMDGetErrorMessage+0x4de>
+ 8140b0c:	88fb      	ldrh	r3, [r7, #6]
+ 8140b0e:	f241 2224 	movw	r2, #4644	; 0x1224
+ 8140b12:	4293      	cmp	r3, r2
+ 8140b14:	f000 80c7 	beq.w	8140ca6 <PMDGetErrorMessage+0x4da>
+ 8140b18:	88fb      	ldrh	r3, [r7, #6]
+ 8140b1a:	f241 2225 	movw	r2, #4645	; 0x1225
+ 8140b1e:	4293      	cmp	r3, r2
+ 8140b20:	f000 80bf 	beq.w	8140ca2 <PMDGetErrorMessage+0x4d6>
+ 8140b24:	88fb      	ldrh	r3, [r7, #6]
+ 8140b26:	f241 2226 	movw	r2, #4646	; 0x1226
+ 8140b2a:	4293      	cmp	r3, r2
+ 8140b2c:	f000 80b7 	beq.w	8140c9e <PMDGetErrorMessage+0x4d2>
+ 8140b30:	88fb      	ldrh	r3, [r7, #6]
+ 8140b32:	f241 2228 	movw	r2, #4648	; 0x1228
+ 8140b36:	4293      	cmp	r3, r2
+ 8140b38:	f000 80af 	beq.w	8140c9a <PMDGetErrorMessage+0x4ce>
+ 8140b3c:	88fb      	ldrh	r3, [r7, #6]
+ 8140b3e:	f241 2229 	movw	r2, #4649	; 0x1229
+ 8140b42:	4293      	cmp	r3, r2
+ 8140b44:	f000 80a7 	beq.w	8140c96 <PMDGetErrorMessage+0x4ca>
+ 8140b48:	88fb      	ldrh	r3, [r7, #6]
+ 8140b4a:	f241 222a 	movw	r2, #4650	; 0x122a
+ 8140b4e:	4293      	cmp	r3, r2
+ 8140b50:	f000 809f 	beq.w	8140c92 <PMDGetErrorMessage+0x4c6>
+ 8140b54:	88fb      	ldrh	r3, [r7, #6]
+ 8140b56:	f242 0201 	movw	r2, #8193	; 0x2001
+ 8140b5a:	4293      	cmp	r3, r2
+ 8140b5c:	f000 8097 	beq.w	8140c8e <PMDGetErrorMessage+0x4c2>
+ 8140b60:	88fb      	ldrh	r3, [r7, #6]
+ 8140b62:	f242 0202 	movw	r2, #8194	; 0x2002
+ 8140b66:	4293      	cmp	r3, r2
+ 8140b68:	f000 808f 	beq.w	8140c8a <PMDGetErrorMessage+0x4be>
+ 8140b6c:	88fb      	ldrh	r3, [r7, #6]
+ 8140b6e:	f242 0203 	movw	r2, #8195	; 0x2003
+ 8140b72:	4293      	cmp	r3, r2
+ 8140b74:	f000 8087 	beq.w	8140c86 <PMDGetErrorMessage+0x4ba>
+ 8140b78:	88fb      	ldrh	r3, [r7, #6]
+ 8140b7a:	f242 0204 	movw	r2, #8196	; 0x2004
+ 8140b7e:	4293      	cmp	r3, r2
+ 8140b80:	d07f      	beq.n	8140c82 <PMDGetErrorMessage+0x4b6>
+ 8140b82:	88fb      	ldrh	r3, [r7, #6]
+ 8140b84:	f242 0205 	movw	r2, #8197	; 0x2005
+ 8140b88:	4293      	cmp	r3, r2
+ 8140b8a:	d078      	beq.n	8140c7e <PMDGetErrorMessage+0x4b2>
+ 8140b8c:	88fb      	ldrh	r3, [r7, #6]
+ 8140b8e:	f242 0206 	movw	r2, #8198	; 0x2006
+ 8140b92:	4293      	cmp	r3, r2
+ 8140b94:	d071      	beq.n	8140c7a <PMDGetErrorMessage+0x4ae>
+ 8140b96:	88fb      	ldrh	r3, [r7, #6]
+ 8140b98:	f242 0207 	movw	r2, #8199	; 0x2007
+ 8140b9c:	4293      	cmp	r3, r2
+ 8140b9e:	d06a      	beq.n	8140c76 <PMDGetErrorMessage+0x4aa>
+ 8140ba0:	88fb      	ldrh	r3, [r7, #6]
+ 8140ba2:	f242 0208 	movw	r2, #8200	; 0x2008
+ 8140ba6:	4293      	cmp	r3, r2
+ 8140ba8:	d063      	beq.n	8140c72 <PMDGetErrorMessage+0x4a6>
+ 8140baa:	88fb      	ldrh	r3, [r7, #6]
+ 8140bac:	f242 0209 	movw	r2, #8201	; 0x2009
+ 8140bb0:	4293      	cmp	r3, r2
+ 8140bb2:	d05c      	beq.n	8140c6e <PMDGetErrorMessage+0x4a2>
+ 8140bb4:	88fb      	ldrh	r3, [r7, #6]
+ 8140bb6:	f242 020e 	movw	r2, #8206	; 0x200e
+ 8140bba:	4293      	cmp	r3, r2
+ 8140bbc:	d055      	beq.n	8140c6a <PMDGetErrorMessage+0x49e>
+ 8140bbe:	88fb      	ldrh	r3, [r7, #6]
+ 8140bc0:	f242 1201 	movw	r2, #8449	; 0x2101
+ 8140bc4:	4293      	cmp	r3, r2
+ 8140bc6:	d04e      	beq.n	8140c66 <PMDGetErrorMessage+0x49a>
+ 8140bc8:	88fb      	ldrh	r3, [r7, #6]
+ 8140bca:	f242 1202 	movw	r2, #8450	; 0x2102
+ 8140bce:	4293      	cmp	r3, r2
+ 8140bd0:	d047      	beq.n	8140c62 <PMDGetErrorMessage+0x496>
+ 8140bd2:	88fb      	ldrh	r3, [r7, #6]
+ 8140bd4:	f242 1203 	movw	r2, #8451	; 0x2103
+ 8140bd8:	4293      	cmp	r3, r2
+ 8140bda:	d040      	beq.n	8140c5e <PMDGetErrorMessage+0x492>
+ 8140bdc:	88fb      	ldrh	r3, [r7, #6]
+ 8140bde:	f242 1204 	movw	r2, #8452	; 0x2104
+ 8140be2:	4293      	cmp	r3, r2
+ 8140be4:	d039      	beq.n	8140c5a <PMDGetErrorMessage+0x48e>
+ 8140be6:	88fb      	ldrh	r3, [r7, #6]
+ 8140be8:	f242 1205 	movw	r2, #8453	; 0x2105
+ 8140bec:	4293      	cmp	r3, r2
+ 8140bee:	d032      	beq.n	8140c56 <PMDGetErrorMessage+0x48a>
+ 8140bf0:	88fb      	ldrh	r3, [r7, #6]
+ 8140bf2:	f242 1206 	movw	r2, #8454	; 0x2106
+ 8140bf6:	4293      	cmp	r3, r2
+ 8140bf8:	d02b      	beq.n	8140c52 <PMDGetErrorMessage+0x486>
+ 8140bfa:	88fb      	ldrh	r3, [r7, #6]
+ 8140bfc:	f242 120a 	movw	r2, #8458	; 0x210a
+ 8140c00:	4293      	cmp	r3, r2
+ 8140c02:	d024      	beq.n	8140c4e <PMDGetErrorMessage+0x482>
+ 8140c04:	88fb      	ldrh	r3, [r7, #6]
+ 8140c06:	f242 1207 	movw	r2, #8455	; 0x2107
+ 8140c0a:	4293      	cmp	r3, r2
+ 8140c0c:	d01d      	beq.n	8140c4a <PMDGetErrorMessage+0x47e>
+ 8140c0e:	88fb      	ldrh	r3, [r7, #6]
+ 8140c10:	f242 1208 	movw	r2, #8456	; 0x2108
+ 8140c14:	4293      	cmp	r3, r2
+ 8140c16:	d016      	beq.n	8140c46 <PMDGetErrorMessage+0x47a>
+ 8140c18:	88fb      	ldrh	r3, [r7, #6]
+ 8140c1a:	f242 1209 	movw	r2, #8457	; 0x2109
+ 8140c1e:	4293      	cmp	r3, r2
+ 8140c20:	d00f      	beq.n	8140c42 <PMDGetErrorMessage+0x476>
+ 8140c22:	88fb      	ldrh	r3, [r7, #6]
+ 8140c24:	f242 120c 	movw	r2, #8460	; 0x210c
+ 8140c28:	4293      	cmp	r3, r2
+ 8140c2a:	d008      	beq.n	8140c3e <PMDGetErrorMessage+0x472>
+ 8140c2c:	88fb      	ldrh	r3, [r7, #6]
+ 8140c2e:	f242 120b 	movw	r2, #8459	; 0x210b
+ 8140c32:	4293      	cmp	r3, r2
+ 8140c34:	d101      	bne.n	8140c3a <PMDGetErrorMessage+0x46e>
+ 8140c36:	4b6f      	ldr	r3, [pc, #444]	; (8140df4 <PMDGetErrorMessage+0x628>)
+ 8140c38:	e0d6      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c3a:	4b6f      	ldr	r3, [pc, #444]	; (8140df8 <PMDGetErrorMessage+0x62c>)
+ 8140c3c:	e0d4      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c3e:	4b6f      	ldr	r3, [pc, #444]	; (8140dfc <PMDGetErrorMessage+0x630>)
+ 8140c40:	e0d2      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c42:	4b6f      	ldr	r3, [pc, #444]	; (8140e00 <PMDGetErrorMessage+0x634>)
+ 8140c44:	e0d0      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c46:	4b6f      	ldr	r3, [pc, #444]	; (8140e04 <PMDGetErrorMessage+0x638>)
+ 8140c48:	e0ce      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c4a:	4b6f      	ldr	r3, [pc, #444]	; (8140e08 <PMDGetErrorMessage+0x63c>)
+ 8140c4c:	e0cc      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c4e:	4b6f      	ldr	r3, [pc, #444]	; (8140e0c <PMDGetErrorMessage+0x640>)
+ 8140c50:	e0ca      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c52:	4b6f      	ldr	r3, [pc, #444]	; (8140e10 <PMDGetErrorMessage+0x644>)
+ 8140c54:	e0c8      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c56:	4b6f      	ldr	r3, [pc, #444]	; (8140e14 <PMDGetErrorMessage+0x648>)
+ 8140c58:	e0c6      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c5a:	4b6f      	ldr	r3, [pc, #444]	; (8140e18 <PMDGetErrorMessage+0x64c>)
+ 8140c5c:	e0c4      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c5e:	4b6f      	ldr	r3, [pc, #444]	; (8140e1c <PMDGetErrorMessage+0x650>)
+ 8140c60:	e0c2      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c62:	4b6f      	ldr	r3, [pc, #444]	; (8140e20 <PMDGetErrorMessage+0x654>)
+ 8140c64:	e0c0      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c66:	4b6f      	ldr	r3, [pc, #444]	; (8140e24 <PMDGetErrorMessage+0x658>)
+ 8140c68:	e0be      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c6a:	4b6f      	ldr	r3, [pc, #444]	; (8140e28 <PMDGetErrorMessage+0x65c>)
+ 8140c6c:	e0bc      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c6e:	4b6f      	ldr	r3, [pc, #444]	; (8140e2c <PMDGetErrorMessage+0x660>)
+ 8140c70:	e0ba      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c72:	4b6f      	ldr	r3, [pc, #444]	; (8140e30 <PMDGetErrorMessage+0x664>)
+ 8140c74:	e0b8      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c76:	4b6f      	ldr	r3, [pc, #444]	; (8140e34 <PMDGetErrorMessage+0x668>)
+ 8140c78:	e0b6      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c7a:	4b6f      	ldr	r3, [pc, #444]	; (8140e38 <PMDGetErrorMessage+0x66c>)
+ 8140c7c:	e0b4      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c7e:	4b6f      	ldr	r3, [pc, #444]	; (8140e3c <PMDGetErrorMessage+0x670>)
+ 8140c80:	e0b2      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c82:	4b6f      	ldr	r3, [pc, #444]	; (8140e40 <PMDGetErrorMessage+0x674>)
+ 8140c84:	e0b0      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c86:	4b6f      	ldr	r3, [pc, #444]	; (8140e44 <PMDGetErrorMessage+0x678>)
+ 8140c88:	e0ae      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c8a:	4b6f      	ldr	r3, [pc, #444]	; (8140e48 <PMDGetErrorMessage+0x67c>)
+ 8140c8c:	e0ac      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c8e:	4b6f      	ldr	r3, [pc, #444]	; (8140e4c <PMDGetErrorMessage+0x680>)
+ 8140c90:	e0aa      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c92:	4b6f      	ldr	r3, [pc, #444]	; (8140e50 <PMDGetErrorMessage+0x684>)
+ 8140c94:	e0a8      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c96:	4b6f      	ldr	r3, [pc, #444]	; (8140e54 <PMDGetErrorMessage+0x688>)
+ 8140c98:	e0a6      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c9a:	4b6f      	ldr	r3, [pc, #444]	; (8140e58 <PMDGetErrorMessage+0x68c>)
+ 8140c9c:	e0a4      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140c9e:	4b6f      	ldr	r3, [pc, #444]	; (8140e5c <PMDGetErrorMessage+0x690>)
+ 8140ca0:	e0a2      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140ca2:	4b6f      	ldr	r3, [pc, #444]	; (8140e60 <PMDGetErrorMessage+0x694>)
+ 8140ca4:	e0a0      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140ca6:	4b6f      	ldr	r3, [pc, #444]	; (8140e64 <PMDGetErrorMessage+0x698>)
+ 8140ca8:	e09e      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140caa:	4b6f      	ldr	r3, [pc, #444]	; (8140e68 <PMDGetErrorMessage+0x69c>)
+ 8140cac:	e09c      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cae:	4b6f      	ldr	r3, [pc, #444]	; (8140e6c <PMDGetErrorMessage+0x6a0>)
+ 8140cb0:	e09a      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cb2:	4b6f      	ldr	r3, [pc, #444]	; (8140e70 <PMDGetErrorMessage+0x6a4>)
+ 8140cb4:	e098      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cb6:	4b6f      	ldr	r3, [pc, #444]	; (8140e74 <PMDGetErrorMessage+0x6a8>)
+ 8140cb8:	e096      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cba:	4b6f      	ldr	r3, [pc, #444]	; (8140e78 <PMDGetErrorMessage+0x6ac>)
+ 8140cbc:	e094      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cbe:	4b6f      	ldr	r3, [pc, #444]	; (8140e7c <PMDGetErrorMessage+0x6b0>)
+ 8140cc0:	e092      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cc2:	4b6f      	ldr	r3, [pc, #444]	; (8140e80 <PMDGetErrorMessage+0x6b4>)
+ 8140cc4:	e090      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cc6:	4b6f      	ldr	r3, [pc, #444]	; (8140e84 <PMDGetErrorMessage+0x6b8>)
+ 8140cc8:	e08e      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cca:	4b6f      	ldr	r3, [pc, #444]	; (8140e88 <PMDGetErrorMessage+0x6bc>)
+ 8140ccc:	e08c      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cce:	4b6f      	ldr	r3, [pc, #444]	; (8140e8c <PMDGetErrorMessage+0x6c0>)
+ 8140cd0:	e08a      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cd2:	4b6f      	ldr	r3, [pc, #444]	; (8140e90 <PMDGetErrorMessage+0x6c4>)
+ 8140cd4:	e088      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cd6:	4b6f      	ldr	r3, [pc, #444]	; (8140e94 <PMDGetErrorMessage+0x6c8>)
+ 8140cd8:	e086      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cda:	4b6f      	ldr	r3, [pc, #444]	; (8140e98 <PMDGetErrorMessage+0x6cc>)
+ 8140cdc:	e084      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cde:	4b6f      	ldr	r3, [pc, #444]	; (8140e9c <PMDGetErrorMessage+0x6d0>)
+ 8140ce0:	e082      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140ce2:	4b6f      	ldr	r3, [pc, #444]	; (8140ea0 <PMDGetErrorMessage+0x6d4>)
+ 8140ce4:	e080      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140ce6:	4b6f      	ldr	r3, [pc, #444]	; (8140ea4 <PMDGetErrorMessage+0x6d8>)
+ 8140ce8:	e07e      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cea:	4b6f      	ldr	r3, [pc, #444]	; (8140ea8 <PMDGetErrorMessage+0x6dc>)
+ 8140cec:	e07c      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cee:	4b6f      	ldr	r3, [pc, #444]	; (8140eac <PMDGetErrorMessage+0x6e0>)
+ 8140cf0:	e07a      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cf2:	4b6f      	ldr	r3, [pc, #444]	; (8140eb0 <PMDGetErrorMessage+0x6e4>)
+ 8140cf4:	e078      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cf6:	4b6f      	ldr	r3, [pc, #444]	; (8140eb4 <PMDGetErrorMessage+0x6e8>)
+ 8140cf8:	e076      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cfa:	4b6f      	ldr	r3, [pc, #444]	; (8140eb8 <PMDGetErrorMessage+0x6ec>)
+ 8140cfc:	e074      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140cfe:	4b6f      	ldr	r3, [pc, #444]	; (8140ebc <PMDGetErrorMessage+0x6f0>)
+ 8140d00:	e072      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d02:	4b6f      	ldr	r3, [pc, #444]	; (8140ec0 <PMDGetErrorMessage+0x6f4>)
+ 8140d04:	e070      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d06:	4b6f      	ldr	r3, [pc, #444]	; (8140ec4 <PMDGetErrorMessage+0x6f8>)
+ 8140d08:	e06e      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d0a:	4b6f      	ldr	r3, [pc, #444]	; (8140ec8 <PMDGetErrorMessage+0x6fc>)
+ 8140d0c:	e06c      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d0e:	4b6f      	ldr	r3, [pc, #444]	; (8140ecc <PMDGetErrorMessage+0x700>)
+ 8140d10:	e06a      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d12:	4b6f      	ldr	r3, [pc, #444]	; (8140ed0 <PMDGetErrorMessage+0x704>)
+ 8140d14:	e068      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d16:	4b6f      	ldr	r3, [pc, #444]	; (8140ed4 <PMDGetErrorMessage+0x708>)
+ 8140d18:	e066      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d1a:	4b6f      	ldr	r3, [pc, #444]	; (8140ed8 <PMDGetErrorMessage+0x70c>)
+ 8140d1c:	e064      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d1e:	4b6f      	ldr	r3, [pc, #444]	; (8140edc <PMDGetErrorMessage+0x710>)
+ 8140d20:	e062      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d22:	4b6f      	ldr	r3, [pc, #444]	; (8140ee0 <PMDGetErrorMessage+0x714>)
+ 8140d24:	e060      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d26:	4b6f      	ldr	r3, [pc, #444]	; (8140ee4 <PMDGetErrorMessage+0x718>)
+ 8140d28:	e05e      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d2a:	4b6f      	ldr	r3, [pc, #444]	; (8140ee8 <PMDGetErrorMessage+0x71c>)
+ 8140d2c:	e05c      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d2e:	4b6f      	ldr	r3, [pc, #444]	; (8140eec <PMDGetErrorMessage+0x720>)
+ 8140d30:	e05a      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d32:	4b6f      	ldr	r3, [pc, #444]	; (8140ef0 <PMDGetErrorMessage+0x724>)
+ 8140d34:	e058      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d36:	4b6f      	ldr	r3, [pc, #444]	; (8140ef4 <PMDGetErrorMessage+0x728>)
+ 8140d38:	e056      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d3a:	4b6f      	ldr	r3, [pc, #444]	; (8140ef8 <PMDGetErrorMessage+0x72c>)
+ 8140d3c:	e054      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d3e:	4b6f      	ldr	r3, [pc, #444]	; (8140efc <PMDGetErrorMessage+0x730>)
+ 8140d40:	e052      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d42:	4b6f      	ldr	r3, [pc, #444]	; (8140f00 <PMDGetErrorMessage+0x734>)
+ 8140d44:	e050      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d46:	4b6f      	ldr	r3, [pc, #444]	; (8140f04 <PMDGetErrorMessage+0x738>)
+ 8140d48:	e04e      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d4a:	4b6f      	ldr	r3, [pc, #444]	; (8140f08 <PMDGetErrorMessage+0x73c>)
+ 8140d4c:	e04c      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d4e:	4b6f      	ldr	r3, [pc, #444]	; (8140f0c <PMDGetErrorMessage+0x740>)
+ 8140d50:	e04a      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d52:	4b6f      	ldr	r3, [pc, #444]	; (8140f10 <PMDGetErrorMessage+0x744>)
+ 8140d54:	e048      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d56:	4b6f      	ldr	r3, [pc, #444]	; (8140f14 <PMDGetErrorMessage+0x748>)
+ 8140d58:	e046      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d5a:	4b6f      	ldr	r3, [pc, #444]	; (8140f18 <PMDGetErrorMessage+0x74c>)
+ 8140d5c:	e044      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d5e:	4b6f      	ldr	r3, [pc, #444]	; (8140f1c <PMDGetErrorMessage+0x750>)
+ 8140d60:	e042      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d62:	4b6f      	ldr	r3, [pc, #444]	; (8140f20 <PMDGetErrorMessage+0x754>)
+ 8140d64:	e040      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d66:	4b6f      	ldr	r3, [pc, #444]	; (8140f24 <PMDGetErrorMessage+0x758>)
+ 8140d68:	e03e      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d6a:	4b6f      	ldr	r3, [pc, #444]	; (8140f28 <PMDGetErrorMessage+0x75c>)
+ 8140d6c:	e03c      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d6e:	4b6f      	ldr	r3, [pc, #444]	; (8140f2c <PMDGetErrorMessage+0x760>)
+ 8140d70:	e03a      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d72:	4b6f      	ldr	r3, [pc, #444]	; (8140f30 <PMDGetErrorMessage+0x764>)
+ 8140d74:	e038      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d76:	4b6f      	ldr	r3, [pc, #444]	; (8140f34 <PMDGetErrorMessage+0x768>)
+ 8140d78:	e036      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d7a:	4b6f      	ldr	r3, [pc, #444]	; (8140f38 <PMDGetErrorMessage+0x76c>)
+ 8140d7c:	e034      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d7e:	4b6f      	ldr	r3, [pc, #444]	; (8140f3c <PMDGetErrorMessage+0x770>)
+ 8140d80:	e032      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d82:	4b6f      	ldr	r3, [pc, #444]	; (8140f40 <PMDGetErrorMessage+0x774>)
+ 8140d84:	e030      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d86:	4b6f      	ldr	r3, [pc, #444]	; (8140f44 <PMDGetErrorMessage+0x778>)
+ 8140d88:	e02e      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d8a:	4b6f      	ldr	r3, [pc, #444]	; (8140f48 <PMDGetErrorMessage+0x77c>)
+ 8140d8c:	e02c      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d8e:	4b6f      	ldr	r3, [pc, #444]	; (8140f4c <PMDGetErrorMessage+0x780>)
+ 8140d90:	e02a      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d92:	4b6f      	ldr	r3, [pc, #444]	; (8140f50 <PMDGetErrorMessage+0x784>)
+ 8140d94:	e028      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d96:	4b6f      	ldr	r3, [pc, #444]	; (8140f54 <PMDGetErrorMessage+0x788>)
+ 8140d98:	e026      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d9a:	4b6f      	ldr	r3, [pc, #444]	; (8140f58 <PMDGetErrorMessage+0x78c>)
+ 8140d9c:	e024      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140d9e:	4b6f      	ldr	r3, [pc, #444]	; (8140f5c <PMDGetErrorMessage+0x790>)
+ 8140da0:	e022      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140da2:	4b6f      	ldr	r3, [pc, #444]	; (8140f60 <PMDGetErrorMessage+0x794>)
+ 8140da4:	e020      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140da6:	4b6f      	ldr	r3, [pc, #444]	; (8140f64 <PMDGetErrorMessage+0x798>)
+ 8140da8:	e01e      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140daa:	4b6f      	ldr	r3, [pc, #444]	; (8140f68 <PMDGetErrorMessage+0x79c>)
+ 8140dac:	e01c      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140dae:	4b6f      	ldr	r3, [pc, #444]	; (8140f6c <PMDGetErrorMessage+0x7a0>)
+ 8140db0:	e01a      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140db2:	4b6f      	ldr	r3, [pc, #444]	; (8140f70 <PMDGetErrorMessage+0x7a4>)
+ 8140db4:	e018      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140db6:	4b6f      	ldr	r3, [pc, #444]	; (8140f74 <PMDGetErrorMessage+0x7a8>)
+ 8140db8:	e016      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140dba:	4b6f      	ldr	r3, [pc, #444]	; (8140f78 <PMDGetErrorMessage+0x7ac>)
+ 8140dbc:	e014      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140dbe:	4b6f      	ldr	r3, [pc, #444]	; (8140f7c <PMDGetErrorMessage+0x7b0>)
+ 8140dc0:	e012      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140dc2:	4b6f      	ldr	r3, [pc, #444]	; (8140f80 <PMDGetErrorMessage+0x7b4>)
+ 8140dc4:	e010      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140dc6:	4b6f      	ldr	r3, [pc, #444]	; (8140f84 <PMDGetErrorMessage+0x7b8>)
+ 8140dc8:	e00e      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140dca:	4b6f      	ldr	r3, [pc, #444]	; (8140f88 <PMDGetErrorMessage+0x7bc>)
+ 8140dcc:	e00c      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140dce:	4b6f      	ldr	r3, [pc, #444]	; (8140f8c <PMDGetErrorMessage+0x7c0>)
+ 8140dd0:	e00a      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140dd2:	4b6f      	ldr	r3, [pc, #444]	; (8140f90 <PMDGetErrorMessage+0x7c4>)
+ 8140dd4:	e008      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140dd6:	4b6f      	ldr	r3, [pc, #444]	; (8140f94 <PMDGetErrorMessage+0x7c8>)
+ 8140dd8:	e006      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140dda:	4b6f      	ldr	r3, [pc, #444]	; (8140f98 <PMDGetErrorMessage+0x7cc>)
+ 8140ddc:	e004      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140dde:	4b6f      	ldr	r3, [pc, #444]	; (8140f9c <PMDGetErrorMessage+0x7d0>)
+ 8140de0:	e002      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140de2:	4b6f      	ldr	r3, [pc, #444]	; (8140fa0 <PMDGetErrorMessage+0x7d4>)
+ 8140de4:	e000      	b.n	8140de8 <PMDGetErrorMessage+0x61c>
+ 8140de6:	4b6f      	ldr	r3, [pc, #444]	; (8140fa4 <PMDGetErrorMessage+0x7d8>)
+ 8140de8:	4618      	mov	r0, r3
+ 8140dea:	370c      	adds	r7, #12
+ 8140dec:	46bd      	mov	sp, r7
+ 8140dee:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8140df2:	4770      	bx	lr
+ 8140df4:	08143024 	.word	0x08143024
+ 8140df8:	0814303c 	.word	0x0814303c
+ 8140dfc:	08143058 	.word	0x08143058
+ 8140e00:	08143068 	.word	0x08143068
+ 8140e04:	08143078 	.word	0x08143078
+ 8140e08:	08143090 	.word	0x08143090
+ 8140e0c:	081430a4 	.word	0x081430a4
+ 8140e10:	081430c0 	.word	0x081430c0
+ 8140e14:	081430dc 	.word	0x081430dc
+ 8140e18:	081430f4 	.word	0x081430f4
+ 8140e1c:	08143110 	.word	0x08143110
+ 8140e20:	0814312c 	.word	0x0814312c
+ 8140e24:	08143148 	.word	0x08143148
+ 8140e28:	08143164 	.word	0x08143164
+ 8140e2c:	08143178 	.word	0x08143178
+ 8140e30:	0814318c 	.word	0x0814318c
+ 8140e34:	081431a4 	.word	0x081431a4
+ 8140e38:	081431b8 	.word	0x081431b8
+ 8140e3c:	081431d0 	.word	0x081431d0
+ 8140e40:	081431e4 	.word	0x081431e4
+ 8140e44:	081431f8 	.word	0x081431f8
+ 8140e48:	0814320c 	.word	0x0814320c
+ 8140e4c:	08143220 	.word	0x08143220
+ 8140e50:	08143244 	.word	0x08143244
+ 8140e54:	0814325c 	.word	0x0814325c
+ 8140e58:	08143274 	.word	0x08143274
+ 8140e5c:	08143280 	.word	0x08143280
+ 8140e60:	08143290 	.word	0x08143290
+ 8140e64:	081432a8 	.word	0x081432a8
+ 8140e68:	081432c0 	.word	0x081432c0
+ 8140e6c:	081432d8 	.word	0x081432d8
+ 8140e70:	081432e8 	.word	0x081432e8
+ 8140e74:	081432fc 	.word	0x081432fc
+ 8140e78:	0814330c 	.word	0x0814330c
+ 8140e7c:	08143320 	.word	0x08143320
+ 8140e80:	08143338 	.word	0x08143338
+ 8140e84:	0814334c 	.word	0x0814334c
+ 8140e88:	08143364 	.word	0x08143364
+ 8140e8c:	08143380 	.word	0x08143380
+ 8140e90:	08143390 	.word	0x08143390
+ 8140e94:	0814339c 	.word	0x0814339c
+ 8140e98:	081433a8 	.word	0x081433a8
+ 8140e9c:	081433bc 	.word	0x081433bc
+ 8140ea0:	081433d4 	.word	0x081433d4
+ 8140ea4:	081433e4 	.word	0x081433e4
+ 8140ea8:	081433f4 	.word	0x081433f4
+ 8140eac:	08143410 	.word	0x08143410
+ 8140eb0:	08143428 	.word	0x08143428
+ 8140eb4:	0814343c 	.word	0x0814343c
+ 8140eb8:	08143454 	.word	0x08143454
+ 8140ebc:	0814346c 	.word	0x0814346c
+ 8140ec0:	08143484 	.word	0x08143484
+ 8140ec4:	08143494 	.word	0x08143494
+ 8140ec8:	081434b8 	.word	0x081434b8
+ 8140ecc:	081434d0 	.word	0x081434d0
+ 8140ed0:	081434e0 	.word	0x081434e0
+ 8140ed4:	081434f4 	.word	0x081434f4
+ 8140ed8:	08143508 	.word	0x08143508
+ 8140edc:	08143518 	.word	0x08143518
+ 8140ee0:	08143528 	.word	0x08143528
+ 8140ee4:	08143538 	.word	0x08143538
+ 8140ee8:	0814354c 	.word	0x0814354c
+ 8140eec:	08143560 	.word	0x08143560
+ 8140ef0:	08143570 	.word	0x08143570
+ 8140ef4:	08143580 	.word	0x08143580
+ 8140ef8:	08143590 	.word	0x08143590
+ 8140efc:	081435a0 	.word	0x081435a0
+ 8140f00:	081435a8 	.word	0x081435a8
+ 8140f04:	081435c4 	.word	0x081435c4
+ 8140f08:	081435e0 	.word	0x081435e0
+ 8140f0c:	081435fc 	.word	0x081435fc
+ 8140f10:	08143610 	.word	0x08143610
+ 8140f14:	08143620 	.word	0x08143620
+ 8140f18:	0814362c 	.word	0x0814362c
+ 8140f1c:	08143638 	.word	0x08143638
+ 8140f20:	0814364c 	.word	0x0814364c
+ 8140f24:	0814367c 	.word	0x0814367c
+ 8140f28:	081436b4 	.word	0x081436b4
+ 8140f2c:	081436d4 	.word	0x081436d4
+ 8140f30:	08143714 	.word	0x08143714
+ 8140f34:	08143738 	.word	0x08143738
+ 8140f38:	08143778 	.word	0x08143778
+ 8140f3c:	081437a8 	.word	0x081437a8
+ 8140f40:	081437d4 	.word	0x081437d4
+ 8140f44:	081437f0 	.word	0x081437f0
+ 8140f48:	08143810 	.word	0x08143810
+ 8140f4c:	08143824 	.word	0x08143824
+ 8140f50:	0814383c 	.word	0x0814383c
+ 8140f54:	08143874 	.word	0x08143874
+ 8140f58:	08143894 	.word	0x08143894
+ 8140f5c:	081438b0 	.word	0x081438b0
+ 8140f60:	081438e8 	.word	0x081438e8
+ 8140f64:	08143918 	.word	0x08143918
+ 8140f68:	08143940 	.word	0x08143940
+ 8140f6c:	0814396c 	.word	0x0814396c
+ 8140f70:	0814398c 	.word	0x0814398c
+ 8140f74:	081439ac 	.word	0x081439ac
+ 8140f78:	081439c4 	.word	0x081439c4
+ 8140f7c:	081439ec 	.word	0x081439ec
+ 8140f80:	08143a18 	.word	0x08143a18
+ 8140f84:	08143a40 	.word	0x08143a40
+ 8140f88:	08143a54 	.word	0x08143a54
+ 8140f8c:	08143a70 	.word	0x08143a70
+ 8140f90:	08143a84 	.word	0x08143a84
+ 8140f94:	08143a9c 	.word	0x08143a9c
+ 8140f98:	08143ab4 	.word	0x08143ab4
+ 8140f9c:	08143ac4 	.word	0x08143ac4
+ 8140fa0:	08143ad8 	.word	0x08143ad8
+ 8140fa4:	08143ae8 	.word	0x08143ae8
+
+08140fa8 <PMDPeriphReceive>:
+ 8140fa8:	b590      	push	{r4, r7, lr}
+ 8140faa:	b087      	sub	sp, #28
+ 8140fac:	af02      	add	r7, sp, #8
+ 8140fae:	60f8      	str	r0, [r7, #12]
+ 8140fb0:	60b9      	str	r1, [r7, #8]
+ 8140fb2:	607a      	str	r2, [r7, #4]
+ 8140fb4:	603b      	str	r3, [r7, #0]
+ 8140fb6:	68fb      	ldr	r3, [r7, #12]
+ 8140fb8:	2b00      	cmp	r3, #0
+ 8140fba:	d102      	bne.n	8140fc2 <PMDPeriphReceive+0x1a>
+ 8140fbc:	f241 2307 	movw	r3, #4615	; 0x1207
+ 8140fc0:	e017      	b.n	8140ff2 <PMDPeriphReceive+0x4a>
+ 8140fc2:	68fb      	ldr	r3, [r7, #12]
+ 8140fc4:	681b      	ldr	r3, [r3, #0]
+ 8140fc6:	2b00      	cmp	r3, #0
+ 8140fc8:	d102      	bne.n	8140fd0 <PMDPeriphReceive+0x28>
+ 8140fca:	f241 2301 	movw	r3, #4609	; 0x1201
+ 8140fce:	e010      	b.n	8140ff2 <PMDPeriphReceive+0x4a>
+ 8140fd0:	68fb      	ldr	r3, [r7, #12]
+ 8140fd2:	699b      	ldr	r3, [r3, #24]
+ 8140fd4:	2b00      	cmp	r3, #0
+ 8140fd6:	d102      	bne.n	8140fde <PMDPeriphReceive+0x36>
+ 8140fd8:	f241 1301 	movw	r3, #4353	; 0x1101
+ 8140fdc:	e009      	b.n	8140ff2 <PMDPeriphReceive+0x4a>
+ 8140fde:	68fb      	ldr	r3, [r7, #12]
+ 8140fe0:	699c      	ldr	r4, [r3, #24]
+ 8140fe2:	6a3b      	ldr	r3, [r7, #32]
+ 8140fe4:	9300      	str	r3, [sp, #0]
+ 8140fe6:	687b      	ldr	r3, [r7, #4]
+ 8140fe8:	683a      	ldr	r2, [r7, #0]
+ 8140fea:	68b9      	ldr	r1, [r7, #8]
+ 8140fec:	68f8      	ldr	r0, [r7, #12]
+ 8140fee:	47a0      	blx	r4
+ 8140ff0:	4603      	mov	r3, r0
+ 8140ff2:	4618      	mov	r0, r3
+ 8140ff4:	3714      	adds	r7, #20
+ 8140ff6:	46bd      	mov	sp, r7
+ 8140ff8:	bd90      	pop	{r4, r7, pc}
+
+08140ffa <PMDPeriphSend>:
+ 8140ffa:	b590      	push	{r4, r7, lr}
+ 8140ffc:	b087      	sub	sp, #28
+ 8140ffe:	af00      	add	r7, sp, #0
+ 8141000:	60f8      	str	r0, [r7, #12]
+ 8141002:	60b9      	str	r1, [r7, #8]
+ 8141004:	607a      	str	r2, [r7, #4]
+ 8141006:	603b      	str	r3, [r7, #0]
+ 8141008:	68fb      	ldr	r3, [r7, #12]
+ 814100a:	2b00      	cmp	r3, #0
+ 814100c:	d102      	bne.n	8141014 <PMDPeriphSend+0x1a>
+ 814100e:	f241 2307 	movw	r3, #4615	; 0x1207
+ 8141012:	e017      	b.n	8141044 <PMDPeriphSend+0x4a>
+ 8141014:	68fb      	ldr	r3, [r7, #12]
+ 8141016:	681b      	ldr	r3, [r3, #0]
+ 8141018:	2b00      	cmp	r3, #0
+ 814101a:	d102      	bne.n	8141022 <PMDPeriphSend+0x28>
+ 814101c:	f241 2301 	movw	r3, #4609	; 0x1201
+ 8141020:	e010      	b.n	8141044 <PMDPeriphSend+0x4a>
+ 8141022:	68fb      	ldr	r3, [r7, #12]
+ 8141024:	695b      	ldr	r3, [r3, #20]
+ 8141026:	2b00      	cmp	r3, #0
+ 8141028:	d102      	bne.n	8141030 <PMDPeriphSend+0x36>
+ 814102a:	f241 1301 	movw	r3, #4353	; 0x1101
+ 814102e:	e009      	b.n	8141044 <PMDPeriphSend+0x4a>
+ 8141030:	68fb      	ldr	r3, [r7, #12]
+ 8141032:	695c      	ldr	r4, [r3, #20]
+ 8141034:	683b      	ldr	r3, [r7, #0]
+ 8141036:	687a      	ldr	r2, [r7, #4]
+ 8141038:	68b9      	ldr	r1, [r7, #8]
+ 814103a:	68f8      	ldr	r0, [r7, #12]
+ 814103c:	47a0      	blx	r4
+ 814103e:	4603      	mov	r3, r0
+ 8141040:	82fb      	strh	r3, [r7, #22]
+ 8141042:	8afb      	ldrh	r3, [r7, #22]
+ 8141044:	4618      	mov	r0, r3
+ 8141046:	371c      	adds	r7, #28
+ 8141048:	46bd      	mov	sp, r7
+ 814104a:	bd90      	pop	{r4, r7, pc}
+
+0814104c <PMDPeriphClose>:
+ 814104c:	b580      	push	{r7, lr}
+ 814104e:	b084      	sub	sp, #16
+ 8141050:	af00      	add	r7, sp, #0
+ 8141052:	6078      	str	r0, [r7, #4]
+ 8141054:	2300      	movs	r3, #0
+ 8141056:	81fb      	strh	r3, [r7, #14]
+ 8141058:	687b      	ldr	r3, [r7, #4]
+ 814105a:	2b00      	cmp	r3, #0
+ 814105c:	d102      	bne.n	8141064 <PMDPeriphClose+0x18>
+ 814105e:	f241 2307 	movw	r3, #4615	; 0x1207
+ 8141062:	e016      	b.n	8141092 <PMDPeriphClose+0x46>
+ 8141064:	687b      	ldr	r3, [r7, #4]
+ 8141066:	681b      	ldr	r3, [r3, #0]
+ 8141068:	2b00      	cmp	r3, #0
+ 814106a:	d102      	bne.n	8141072 <PMDPeriphClose+0x26>
+ 814106c:	f241 2301 	movw	r3, #4609	; 0x1201
+ 8141070:	e00f      	b.n	8141092 <PMDPeriphClose+0x46>
+ 8141072:	687b      	ldr	r3, [r7, #4]
+ 8141074:	691b      	ldr	r3, [r3, #16]
+ 8141076:	2b00      	cmp	r3, #0
+ 8141078:	d005      	beq.n	8141086 <PMDPeriphClose+0x3a>
+ 814107a:	687b      	ldr	r3, [r7, #4]
+ 814107c:	691b      	ldr	r3, [r3, #16]
+ 814107e:	6878      	ldr	r0, [r7, #4]
+ 8141080:	4798      	blx	r3
+ 8141082:	4603      	mov	r3, r0
+ 8141084:	81fb      	strh	r3, [r7, #14]
+ 8141086:	222c      	movs	r2, #44	; 0x2c
+ 8141088:	2100      	movs	r1, #0
+ 814108a:	6878      	ldr	r0, [r7, #4]
+ 814108c:	f000 f8be 	bl	814120c <memset>
+ 8141090:	89fb      	ldrh	r3, [r7, #14]
+ 8141092:	4618      	mov	r0, r3
+ 8141094:	3710      	adds	r7, #16
+ 8141096:	46bd      	mov	sp, r7
+ 8141098:	bd80      	pop	{r7, pc}
+ 814109a:	Address 0x0814109a is out of bounds.
+
+
+0814109c <CopyDataSectionToRAM>:
+ 814109c:	b580      	push	{r7, lr}
+ 814109e:	af00      	add	r7, sp, #0
+ 81410a0:	4a08      	ldr	r2, [pc, #32]	; (81410c4 <CopyDataSectionToRAM+0x28>)
+ 81410a2:	4b09      	ldr	r3, [pc, #36]	; (81410c8 <CopyDataSectionToRAM+0x2c>)
+ 81410a4:	429a      	cmp	r2, r3
+ 81410a6:	d005      	beq.n	81410b4 <CopyDataSectionToRAM+0x18>
+ 81410a8:	4b08      	ldr	r3, [pc, #32]	; (81410cc <CopyDataSectionToRAM+0x30>)
+ 81410aa:	461a      	mov	r2, r3
+ 81410ac:	4906      	ldr	r1, [pc, #24]	; (81410c8 <CopyDataSectionToRAM+0x2c>)
+ 81410ae:	4805      	ldr	r0, [pc, #20]	; (81410c4 <CopyDataSectionToRAM+0x28>)
+ 81410b0:	f000 f812 	bl	81410d8 <memcpy>
+ 81410b4:	4b06      	ldr	r3, [pc, #24]	; (81410d0 <CopyDataSectionToRAM+0x34>)
+ 81410b6:	461a      	mov	r2, r3
+ 81410b8:	2100      	movs	r1, #0
+ 81410ba:	4806      	ldr	r0, [pc, #24]	; (81410d4 <CopyDataSectionToRAM+0x38>)
+ 81410bc:	f000 f8a6 	bl	814120c <memset>
+ 81410c0:	bf00      	nop
+ 81410c2:	bd80      	pop	{r7, pc}
+ 81410c4:	20010000 	.word	0x20010000
+ 81410c8:	08143b58 	.word	0x08143b58
+	...
+ 81410d4:	20010000 	.word	0x20010000
+
+081410d8 <memcpy>:
+ 81410d8:	4684      	mov	ip, r0
+ 81410da:	ea41 0300 	orr.w	r3, r1, r0
+ 81410de:	f013 0303 	ands.w	r3, r3, #3
+ 81410e2:	d16d      	bne.n	81411c0 <memcpy+0xe8>
+ 81410e4:	3a40      	subs	r2, #64	; 0x40
+ 81410e6:	d341      	bcc.n	814116c <memcpy+0x94>
+ 81410e8:	f851 3b04 	ldr.w	r3, [r1], #4
+ 81410ec:	f840 3b04 	str.w	r3, [r0], #4
+ 81410f0:	f851 3b04 	ldr.w	r3, [r1], #4
+ 81410f4:	f840 3b04 	str.w	r3, [r0], #4
+ 81410f8:	f851 3b04 	ldr.w	r3, [r1], #4
+ 81410fc:	f840 3b04 	str.w	r3, [r0], #4
+ 8141100:	f851 3b04 	ldr.w	r3, [r1], #4
+ 8141104:	f840 3b04 	str.w	r3, [r0], #4
+ 8141108:	f851 3b04 	ldr.w	r3, [r1], #4
+ 814110c:	f840 3b04 	str.w	r3, [r0], #4
+ 8141110:	f851 3b04 	ldr.w	r3, [r1], #4
+ 8141114:	f840 3b04 	str.w	r3, [r0], #4
+ 8141118:	f851 3b04 	ldr.w	r3, [r1], #4
+ 814111c:	f840 3b04 	str.w	r3, [r0], #4
+ 8141120:	f851 3b04 	ldr.w	r3, [r1], #4
+ 8141124:	f840 3b04 	str.w	r3, [r0], #4
+ 8141128:	f851 3b04 	ldr.w	r3, [r1], #4
+ 814112c:	f840 3b04 	str.w	r3, [r0], #4
+ 8141130:	f851 3b04 	ldr.w	r3, [r1], #4
+ 8141134:	f840 3b04 	str.w	r3, [r0], #4
+ 8141138:	f851 3b04 	ldr.w	r3, [r1], #4
+ 814113c:	f840 3b04 	str.w	r3, [r0], #4
+ 8141140:	f851 3b04 	ldr.w	r3, [r1], #4
+ 8141144:	f840 3b04 	str.w	r3, [r0], #4
+ 8141148:	f851 3b04 	ldr.w	r3, [r1], #4
+ 814114c:	f840 3b04 	str.w	r3, [r0], #4
+ 8141150:	f851 3b04 	ldr.w	r3, [r1], #4
+ 8141154:	f840 3b04 	str.w	r3, [r0], #4
+ 8141158:	f851 3b04 	ldr.w	r3, [r1], #4
+ 814115c:	f840 3b04 	str.w	r3, [r0], #4
+ 8141160:	f851 3b04 	ldr.w	r3, [r1], #4
+ 8141164:	f840 3b04 	str.w	r3, [r0], #4
+ 8141168:	3a40      	subs	r2, #64	; 0x40
+ 814116a:	d2bd      	bcs.n	81410e8 <memcpy+0x10>
+ 814116c:	3230      	adds	r2, #48	; 0x30
+ 814116e:	d311      	bcc.n	8141194 <memcpy+0xbc>
+ 8141170:	f851 3b04 	ldr.w	r3, [r1], #4
+ 8141174:	f840 3b04 	str.w	r3, [r0], #4
+ 8141178:	f851 3b04 	ldr.w	r3, [r1], #4
+ 814117c:	f840 3b04 	str.w	r3, [r0], #4
+ 8141180:	f851 3b04 	ldr.w	r3, [r1], #4
+ 8141184:	f840 3b04 	str.w	r3, [r0], #4
+ 8141188:	f851 3b04 	ldr.w	r3, [r1], #4
+ 814118c:	f840 3b04 	str.w	r3, [r0], #4
+ 8141190:	3a10      	subs	r2, #16
+ 8141192:	d2ed      	bcs.n	8141170 <memcpy+0x98>
+ 8141194:	320c      	adds	r2, #12
+ 8141196:	d305      	bcc.n	81411a4 <memcpy+0xcc>
+ 8141198:	f851 3b04 	ldr.w	r3, [r1], #4
+ 814119c:	f840 3b04 	str.w	r3, [r0], #4
+ 81411a0:	3a04      	subs	r2, #4
+ 81411a2:	d2f9      	bcs.n	8141198 <memcpy+0xc0>
+ 81411a4:	3204      	adds	r2, #4
+ 81411a6:	d008      	beq.n	81411ba <memcpy+0xe2>
+ 81411a8:	07d2      	lsls	r2, r2, #31
+ 81411aa:	bf1c      	itt	ne
+ 81411ac:	f811 3b01 	ldrbne.w	r3, [r1], #1
+ 81411b0:	f800 3b01 	strbne.w	r3, [r0], #1
+ 81411b4:	d301      	bcc.n	81411ba <memcpy+0xe2>
+ 81411b6:	880b      	ldrh	r3, [r1, #0]
+ 81411b8:	8003      	strh	r3, [r0, #0]
+ 81411ba:	4660      	mov	r0, ip
+ 81411bc:	4770      	bx	lr
+ 81411be:	bf00      	nop
+ 81411c0:	2a08      	cmp	r2, #8
+ 81411c2:	d313      	bcc.n	81411ec <memcpy+0x114>
+ 81411c4:	078b      	lsls	r3, r1, #30
+ 81411c6:	d08d      	beq.n	81410e4 <memcpy+0xc>
+ 81411c8:	f010 0303 	ands.w	r3, r0, #3
+ 81411cc:	d08a      	beq.n	81410e4 <memcpy+0xc>
+ 81411ce:	f1c3 0304 	rsb	r3, r3, #4
+ 81411d2:	1ad2      	subs	r2, r2, r3
+ 81411d4:	07db      	lsls	r3, r3, #31
+ 81411d6:	bf1c      	itt	ne
+ 81411d8:	f811 3b01 	ldrbne.w	r3, [r1], #1
+ 81411dc:	f800 3b01 	strbne.w	r3, [r0], #1
+ 81411e0:	d380      	bcc.n	81410e4 <memcpy+0xc>
+ 81411e2:	f831 3b02 	ldrh.w	r3, [r1], #2
+ 81411e6:	f820 3b02 	strh.w	r3, [r0], #2
+ 81411ea:	e77b      	b.n	81410e4 <memcpy+0xc>
+ 81411ec:	3a04      	subs	r2, #4
+ 81411ee:	d3d9      	bcc.n	81411a4 <memcpy+0xcc>
+ 81411f0:	3a01      	subs	r2, #1
+ 81411f2:	f811 3b01 	ldrb.w	r3, [r1], #1
+ 81411f6:	f800 3b01 	strb.w	r3, [r0], #1
+ 81411fa:	d2f9      	bcs.n	81411f0 <memcpy+0x118>
+ 81411fc:	780b      	ldrb	r3, [r1, #0]
+ 81411fe:	7003      	strb	r3, [r0, #0]
+ 8141200:	784b      	ldrb	r3, [r1, #1]
+ 8141202:	7043      	strb	r3, [r0, #1]
+ 8141204:	788b      	ldrb	r3, [r1, #2]
+ 8141206:	7083      	strb	r3, [r0, #2]
+ 8141208:	4660      	mov	r0, ip
+ 814120a:	4770      	bx	lr
+
+0814120c <memset>:
+ 814120c:	b4f0      	push	{r4, r5, r6, r7}
+ 814120e:	0786      	lsls	r6, r0, #30
+ 8141210:	d046      	beq.n	81412a0 <memset+0x94>
+ 8141212:	1e54      	subs	r4, r2, #1
+ 8141214:	2a00      	cmp	r2, #0
+ 8141216:	d03c      	beq.n	8141292 <memset+0x86>
+ 8141218:	b2ca      	uxtb	r2, r1
+ 814121a:	4603      	mov	r3, r0
+ 814121c:	e001      	b.n	8141222 <memset+0x16>
+ 814121e:	3c01      	subs	r4, #1
+ 8141220:	d337      	bcc.n	8141292 <memset+0x86>
+ 8141222:	f803 2b01 	strb.w	r2, [r3], #1
+ 8141226:	079d      	lsls	r5, r3, #30
+ 8141228:	d1f9      	bne.n	814121e <memset+0x12>
+ 814122a:	2c03      	cmp	r4, #3
+ 814122c:	d92a      	bls.n	8141284 <memset+0x78>
+ 814122e:	b2cd      	uxtb	r5, r1
+ 8141230:	ea45 2505 	orr.w	r5, r5, r5, lsl #8
+ 8141234:	2c0f      	cmp	r4, #15
+ 8141236:	ea45 4505 	orr.w	r5, r5, r5, lsl #16
+ 814123a:	d934      	bls.n	81412a6 <memset+0x9a>
+ 814123c:	f1a4 0210 	sub.w	r2, r4, #16
+ 8141240:	f022 0c0f 	bic.w	ip, r2, #15
+ 8141244:	f103 0720 	add.w	r7, r3, #32
+ 8141248:	0916      	lsrs	r6, r2, #4
+ 814124a:	4467      	add	r7, ip
+ 814124c:	f103 0210 	add.w	r2, r3, #16
+ 8141250:	e942 5504 	strd	r5, r5, [r2, #-16]
+ 8141254:	e942 5502 	strd	r5, r5, [r2, #-8]
+ 8141258:	3210      	adds	r2, #16
+ 814125a:	42ba      	cmp	r2, r7
+ 814125c:	d1f8      	bne.n	8141250 <memset+0x44>
+ 814125e:	1c72      	adds	r2, r6, #1
+ 8141260:	f014 0f0c 	tst.w	r4, #12
+ 8141264:	eb03 1202 	add.w	r2, r3, r2, lsl #4
+ 8141268:	f004 060f 	and.w	r6, r4, #15
+ 814126c:	d013      	beq.n	8141296 <memset+0x8a>
+ 814126e:	1f33      	subs	r3, r6, #4
+ 8141270:	f023 0303 	bic.w	r3, r3, #3
+ 8141274:	3304      	adds	r3, #4
+ 8141276:	4413      	add	r3, r2
+ 8141278:	f842 5b04 	str.w	r5, [r2], #4
+ 814127c:	4293      	cmp	r3, r2
+ 814127e:	d1fb      	bne.n	8141278 <memset+0x6c>
+ 8141280:	f006 0403 	and.w	r4, r6, #3
+ 8141284:	b12c      	cbz	r4, 8141292 <memset+0x86>
+ 8141286:	b2ca      	uxtb	r2, r1
+ 8141288:	441c      	add	r4, r3
+ 814128a:	f803 2b01 	strb.w	r2, [r3], #1
+ 814128e:	429c      	cmp	r4, r3
+ 8141290:	d1fb      	bne.n	814128a <memset+0x7e>
+ 8141292:	bcf0      	pop	{r4, r5, r6, r7}
+ 8141294:	4770      	bx	lr
+ 8141296:	4634      	mov	r4, r6
+ 8141298:	4613      	mov	r3, r2
+ 814129a:	2c00      	cmp	r4, #0
+ 814129c:	d1f3      	bne.n	8141286 <memset+0x7a>
+ 814129e:	e7f8      	b.n	8141292 <memset+0x86>
+ 81412a0:	4614      	mov	r4, r2
+ 81412a2:	4603      	mov	r3, r0
+ 81412a4:	e7c1      	b.n	814122a <memset+0x1e>
+ 81412a6:	461a      	mov	r2, r3
+ 81412a8:	4626      	mov	r6, r4
+ 81412aa:	e7e0      	b.n	814126e <memset+0x62>
+
+081412ac <UCFileName>:
+ 81412ac:	6547 656e 6972 5563 6573 5072 6361 656b     GenericUserPacke
+ 81412bc:	2e74 0063 704f 6e65 6e69 2067 6573 6972     t.c.Opening seri
+ 81412cc:	6c61 7020 726f 2074 4f43 254d 0a64 0000     al port COM%d...
+ 81412dc:	4d50 4444 7665 6369 4f65 6570 506e 7265     PMDDeviceOpenPer
+ 81412ec:	7069 5368 7265 6169 286c 6826 6550 6972     iphSerial(&hPeri
+ 81412fc:	6870 202c 2828 6f76 6469 2a20 3029 2c29     ph, ((void *)0),
+ 814130c:	7320 7265 6169 706c 726f 2c74 5020 444d      serialport, PMD
+ 814131c:	6553 6972 6c61 6142 6475 3735 3036 2c30     SerialBaud57600,
+ 814132c:	5020 444d 6553 6972 6c61 6150 6972 7974      PMDSerialParity
+ 814133c:	6f4e 656e 202c 4d50 5344 7265 6169 536c     None, PMDSerialS
+ 814134c:	6f74 4270 7469 3173 0029 0000 7245 6f72     topBits1)...Erro
+ 814135c:	2072 696c 656e 203a 6425 202c 7325 2020     r line: %d, %s  
+ 814136c:	2520 382e 7330 0a0d 0000 0000 704f 6e65      %.80s......Open
+ 814137c:	6e69 2067 2061 4143 204e 6f70 7472 0a20     ing a CAN port .
+ 814138c:	0000 0000 4d50 4444 7665 6369 4f65 6570     ....PMDDeviceOpe
+ 814139c:	506e 7265 7069 4368 4e41 2628 5068 7265     nPeriphCAN(&hPer
+ 81413ac:	7069 2c68 2820 7628 696f 2064 292a 2930     iph, ((void *)0)
+ 81413bc:	202c 6461 7264 7365 5473 2c58 6120 6464     , addressTX, add
+ 81413cc:	6572 7373 5852 202c 2930 0000 704f 6e65     ressRX, 0)..Open
+ 81413dc:	6e69 2067 2061 4354 2050 6f70 7472 0a20     ing a TCP port .
+ 81413ec:	0000 0000 4d50 4444 7665 6369 4f65 6570     ....PMDDeviceOpe
+ 81413fc:	506e 7265 7069 5468 5043 2628 5068 7265     nPeriphTCP(&hPer
+ 814140c:	7069 2c68 2820 7628 696f 2064 292a 2930     iph, ((void *)0)
+ 814141c:	202c 5049 6461 7264 7365 2c73 7020 726f     , IPaddress, por
+ 814142c:	6e74 6d75 202c 5028 444d 6975 746e 3233     tnum, (PMDuint32
+ 814143c:	3029 4678 4646 4646 4646 5546 294c 0000     )0xFFFFFFFFUL)..
+ 814144c:	704f 6e65 6e69 2067 2061 4455 2050 6f70     Opening a UDP po
+ 814145c:	7472 0a20 0000 0000 4d50 4444 7665 6369     rt .....PMDDevic
+ 814146c:	4f65 6570 506e 7265 7069 5568 5044 2628     eOpenPeriphUDP(&
+ 814147c:	5068 7265 7069 2c68 2820 7628 696f 2064     hPeriph, ((void 
+ 814148c:	292a 2930 202c 5049 6461 7264 7365 2c73     *)0), IPaddress,
+ 814149c:	7020 726f 6e74 6d75 0029 0000 704f 6e65      portnum)...Open
+ 81414ac:	6e69 2067 6874 2065 5053 2049 6f70 7472     ing the SPI port
+ 81414bc:	0a20 0000 4d50 4444 7665 6369 4f65 6570      ...PMDDeviceOpe
+ 81414cc:	506e 7265 7069 5368 4950 2628 5068 7265     nPeriphSPI(&hPer
+ 81414dc:	7069 2c68 2820 7628 696f 2064 292a 2930     iph, ((void *)0)
+ 81414ec:	202c 6f70 7472 202c 6863 7069 6573 656c     , port, chipsele
+ 81414fc:	7463 202c 6f6d 6564 202c 6164 6174 6973     ct, mode, datasi
+ 814150c:	657a 202c 6962 7274 7461 2965 0000 0000     ze, bitrate)....
+ 814151c:	704f 6e65 6e69 2067 2061 5250 2050 6863     Opening a PRP ch
+ 814152c:	6e61 656e 206c 2523 0a64 0000 4d50 4444     annel #%d...PMDD
+ 814153c:	7665 6369 4f65 6570 506e 7265 7069 5068     eviceOpenPeriphP
+ 814154c:	5052 2628 5068 7265 7069 2c68 2820 7628     RP(&hPeriph, ((v
+ 814155c:	696f 2064 292a 2930 202c 5250 6350 6168     oid *)0), PRPcha
+ 814156c:	6e6e 6c65 202c 3031 3030 0029 704f 6e65     nnel, 1000).Open
+ 814157c:	6e69 2067 2061 4d43 2045 6570 6972 6870     ing a CME periph
+ 814158c:	7265 6c61 000a 0000 4d50 4444 7665 6369     eral....PMDDevic
+ 814159c:	4f65 6570 506e 7265 7069 4368 454d 2628     eOpenPeriphCME(&
+ 81415ac:	5068 7265 7069 2c68 2820 7628 696f 2064     hPeriph, ((void 
+ 81415bc:	292a 2930 0029 0000 6425 6220 7479 7365     *)0))...%d bytes
+ 81415cc:	7220 6365 6965 6576 3a64 0020 3025 7832      received: .%02x
+ 81415dc:	0020 0000 0a0d 0000 3a4d 2520 0d64 000a      .......M: %d...
+ 81415ec:	3a52 2520 0d64 000a 3a53 2520 0d64 000a     R: %d...S: %d...
+ 81415fc:	3a45 2520 0d64 000a 3a56 2520 0d64 000a     E: %d...V: %d...
+ 814160c:	3a54 2520 0d64 000a 4d50 5044 7265 7069     T: %d...PMDPerip
+ 814161c:	5368 6e65 2864 6826 6550 6972 6870 202c     hSend(&hPeriph, 
+ 814162c:	6426 7461 2c61 6220 7479 7365 6552 6563     &data, bytesRece
+ 814163c:	7669 6465 202c 3032 3030 0029 0201 0403     ived, 2000).....
+ 814164c:	0605 0000 654d 6f6d 7972 6120 6c6c 636f     ....Memory alloc
+ 814165c:	7461 6f69 206e 6166 6c69 6465 0a21 0000     ation failed!...
+ 814166c:	654d 6f6d 7972 7220 6165 6c6c 636f 7461     Memory reallocat
+ 814167c:	6f69 206e 6166 6c69 6465 0a21 0000 0000     ion failed!.....
+ 814168c:	6953 657a 6920 636e 6572 7361 6465 0a0d     Size increased..
+ 814169c:	0000 0000 6164 6174 3d20 2520 2064 0a0d     ....data = %d ..
+ 81416ac:	0000 0000 000a 0000 654e 4177 7272 7961     ........NewArray
+ 81416bc:	4420 4e4f 0045 ffff 6f4e 704f 7265 7461      DONE...NoOperat
+ 81416cc:	6f69 206e 2020 2020 2020 2020 2020 2020     ion             
+ 81416dc:	2020 0000 6e49 6176 696c 2064 706f 6f63       ..Invalid opco
+ 81416ec:	6564 2021 2020 2020 2020 2020 2020 0000     de!           ..
+ 81416fc:	6553 4d74 746f 726f 7954 6570 2020 2020     SetMotorType    
+ 814170c:	2020 2020 2020 2020 2020 0000 6547 4d74               ..GetM
+ 814171c:	746f 726f 7954 6570 2020 2020 2020 2020     otorType        
+ 814172c:	2020 2020 2020 0000 6553 4274 5169 6175           ..SetBiQua
+ 814173c:	4364 656f 6666 6369 6569 746e 2020 2020     dCoefficient    
+ 814174c:	2020 0000 6547 4274 5169 6175 4364 656f       ..GetBiQuadCoe
+ 814175c:	6666 6369 6569 746e 2020 2020 2020 0000     fficient      ..
+ 814176c:	6553 4d74 746f 726f 694c 696d 2074 2020     SetMotorLimit   
+ 814177c:	2020 2020 2020 2020 2020 0000 6547 4d74               ..GetM
+ 814178c:	746f 726f 694c 696d 2074 2020 2020 2020     otorLimit       
+ 814179c:	2020 2020 2020 0000 6553 4174 7875 6c69           ..SetAuxil
+ 81417ac:	6169 7972 6e45 6f63 6564 5372 756f 6372     iaryEncoderSourc
+ 81417bc:	2065 0000 6547 4174 7875 6c69 6169 7972     e ..GetAuxiliary
+ 81417cc:	6e45 6f63 6564 5372 756f 6372 2065 0000     EncoderSource ..
+ 81417dc:	6553 5374 4950 6f4d 6564 2020 2020 2020     SetSPIMode      
+ 81417ec:	2020 2020 2020 2020 2020 0000 6547 5374               ..GetS
+ 81417fc:	4950 6f4d 6564 2020 2020 2020 2020 2020     PIMode          
+ 814180c:	2020 2020 2020 0000 6553 5074 4d57 7246           ..SetPWMFr
+ 814181c:	7165 6575 636e 2079 2020 2020 2020 2020     equency         
+ 814182c:	2020 0000 6547 5074 4d57 7246 7165 6575       ..GetPWMFreque
+ 814183c:	636e 2079 2020 2020 2020 2020 2020 0000     ncy           ..
+ 814184c:	6547 4474 6972 6576 7453 7461 7375 2020     GetDriveStatus  
+ 814185c:	2020 2020 2020 2020 2020 0000 6553 4d74               ..SetM
+ 814186c:	746f 726f 6942 7361 2020 2020 2020 2020     otorBias        
+ 814187c:	2020 2020 2020 0000 6553 5074 736f 7469           ..SetPosit
+ 814188c:	6f69 206e 2020 2020 2020 2020 2020 2020     ion             
+ 814189c:	2020 0000 6553 5674 6c65 636f 7469 2079       ..SetVelocity 
+ 81418ac:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 81418bc:	6553 4374 4e41 6f4d 6564 2020 2020 2020     SetCANMode      
+ 81418cc:	2020 2020 2020 2020 2020 0000 6553 4a74               ..SetJ
+ 81418dc:	7265 206b 2020 2020 2020 2020 2020 2020     erk             
+ 81418ec:	2020 2020 2020 0000 6553 4774 6165 5272           ..SetGearR
+ 81418fc:	7461 6f69 2020 2020 2020 2020 2020 2020     atio            
+ 814190c:	2020 0000 6547 4374 4e41 6f4d 6564 2020       ..GetCANMode  
+ 814191c:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 814192c:	7055 6164 6574 2020 2020 2020 2020 2020     Update          
+ 814193c:	2020 2020 2020 2020 2020 0000 6553 4f74               ..SetO
+ 814194c:	6576 7472 6d65 6570 6172 7574 6572 694c     vertemperatureLi
+ 814195c:	696d 2074 2020 0000 6547 4f74 6576 7472     mit   ..GetOvert
+ 814196c:	6d65 6570 6172 7574 6572 694c 696d 2074     emperatureLimit 
+ 814197c:	2020 0000 6547 4374 6d6f 616d 646e 6465       ..GetCommanded
+ 814198c:	6f50 6973 6974 6e6f 2020 2020 2020 0000     Position      ..
+ 814199c:	6547 4374 6d6f 616d 646e 6465 6556 6f6c     GetCommandedVelo
+ 81419ac:	6963 7974 2020 2020 2020 0000 6553 4674     city      ..SetF
+ 81419bc:	6565 6264 6361 506b 7261 6d61 7465 7265     eedbackParameter
+ 81419cc:	2020 2020 2020 0000 6547 4674 6565 6264           ..GetFeedb
+ 81419dc:	6361 506b 7261 6d61 7465 7265 2020 2020     ackParameter    
+ 81419ec:	2020 0000 6553 4474 6972 6576 5750 204d       ..SetDrivePWM 
+ 81419fc:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 8141a0c:	6547 4474 6972 6576 5750 204d 2020 2020     GetDrivePWM     
+ 8141a1c:	2020 2020 2020 2020 2020 0000 6553 4b74               ..SetK
+ 8141a2c:	2070 2020 2020 2020 2020 2020 2020 2020     p               
+ 8141a3c:	2020 2020 2020 0000 6553 4b74 2069 2020           ..SetKi   
+ 8141a4c:	2020 2020 2020 2020 2020 2020 2020 2020                     
+ 8141a5c:	2020 0000 6553 4b74 2064 2020 2020 2020       ..SetKd       
+ 8141a6c:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 8141a7c:	6547 5474 6172 6563 6156 756c 2065 2020     GetTraceValue   
+ 8141a8c:	2020 2020 2020 2020 2020 0000 6553 4174               ..SetA
+ 8141a9c:	616e 6f6c 4367 6c61 6269 6172 6974 6e6f     nalogCalibration
+ 8141aac:	2020 2020 2020 0000 6547 4174 616e 6f6c           ..GetAnalo
+ 8141abc:	4367 6c61 6269 6172 6974 6e6f 2020 2020     gCalibration    
+ 8141acc:	2020 0000 6553 4b74 6676 2066 2020 2020       ..SetKvff     
+ 8141adc:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 8141aec:	6547 5074 6168 6573 6e41 6c67 2065 2020     GetPhaseAngle   
+ 8141afc:	2020 2020 2020 2020 2020 0000 6547 4d74               ..GetM
+ 8141b0c:	746f 726f 6942 7361 2020 2020 2020 2020     otorBias        
+ 8141b1c:	2020 2020 2020 0000 6552 7473 726f 4f65           ..RestoreO
+ 8141b2c:	6570 6172 6974 676e 6f4d 6564 2020 2020     peratingMode    
+ 8141b3c:	2020 0000 6553 4974 746e 7265 7572 7470       ..SetInterrupt
+ 8141b4c:	614d 6b73 2020 2020 2020 2020 2020 0000     Mask          ..
+ 8141b5c:	564e 4152 204d 2020 2020 2020 2020 2020     NVRAM           
+ 8141b6c:	2020 2020 2020 2020 2020 0000 6547 4574               ..GetE
+ 8141b7c:	6576 746e 7453 7461 7375 2020 2020 2020     ventStatus      
+ 8141b8c:	2020 2020 2020 0000 6553 4274 6572 6b61           ..SetBreak
+ 8141b9c:	6f70 6e69 5574 6470 7461 4d65 7361 206b     pointUpdateMask 
+ 8141bac:	2020 0000 6547 4274 6572 6b61 6f70 6e69       ..GetBreakpoin
+ 8141bbc:	5574 6470 7461 4d65 7361 206b 2020 0000     tUpdateMask   ..
+ 8141bcc:	6552 6573 4574 6576 746e 7453 7461 7375     ResetEventStatus
+ 8141bdc:	2020 2020 2020 2020 2020 0000 7845 6365               ..Exec
+ 8141bec:	7475 6f69 436e 6e6f 7274 6c6f 2020 2020     utionControl    
+ 8141bfc:	2020 2020 2020 0000 6547 4374 7061 7574           ..GetCaptu
+ 8141c0c:	6572 6156 756c 2065 2020 2020 2020 2020     reValue         
+ 8141c1c:	2020 0000 6547 4174 7463 6175 506c 736f       ..GetActualPos
+ 8141c2c:	7469 6f69 206e 2020 2020 2020 2020 0000     ition         ..
+ 8141c3c:	6552 6573 2074 2020 2020 2020 2020 2020     Reset           
+ 8141c4c:	2020 2020 2020 2020 2020 0000 6547 4174               ..GetA
+ 8141c5c:	7463 7669 4d65 746f 726f 6f43 6d6d 6e61     ctiveMotorComman
+ 8141c6c:	2064 2020 2020 0000 6553 5374 6d61 6c70     d     ..SetSampl
+ 8141c7c:	5465 6d69 2065 2020 2020 2020 2020 2020     eTime           
+ 8141c8c:	2020 0000 6547 5374 6d61 6c70 5465 6d69       ..GetSampleTim
+ 8141c9c:	2065 2020 2020 2020 2020 2020 2020 0000     e             ..
+ 8141cac:	6547 5474 6d69 2065 2020 2020 2020 2020     GetTime         
+ 8141cbc:	2020 2020 2020 2020 2020 0000 6547 4274               ..GetB
+ 8141ccc:	7375 6f56 746c 6761 2065 2020 2020 2020     usVoltage       
+ 8141cdc:	2020 2020 2020 0000 6553 4374 7275 6572           ..SetCurre
+ 8141cec:	746e 6f46 646c 6162 6b63 2020 2020 2020     ntFoldback      
+ 8141cfc:	2020 0000 6547 4374 7275 6572 746e 6f46       ..GetCurrentFo
+ 8141d0c:	646c 6162 6b63 2020 2020 2020 2020 0000     ldback        ..
+ 8141d1c:	6553 4374 7275 6572 746e 6f43 746e 6f72     SetCurrentContro
+ 8141d2c:	4d6c 646f 2065 2020 2020 0000 6547 4374     lMode     ..GetC
+ 8141d3c:	7275 6572 746e 6f43 746e 6f72 4d6c 646f     urrentControlMod
+ 8141d4c:	2065 2020 2020 0000 6553 4174 6978 4f73     e     ..SetAxisO
+ 8141d5c:	7475 614d 6b73 2020 2020 2020 2020 2020     utMask          
+ 8141d6c:	2020 0000 6547 4174 6978 4f73 7475 614d       ..GetAxisOutMa
+ 8141d7c:	6b73 2020 2020 2020 2020 2020 2020 0000     sk            ..
+ 8141d8c:	6c43 6165 5072 736f 7469 6f69 456e 7272     ClearPositionErr
+ 8141d9c:	726f 2020 2020 2020 2020 0000 6553 4574     or        ..SetE
+ 8141dac:	6576 746e 6341 6974 6e6f 2020 2020 2020     ventAction      
+ 8141dbc:	2020 2020 2020 0000 6547 4574 6576 746e           ..GetEvent
+ 8141dcc:	6341 6974 6e6f 2020 2020 2020 2020 2020     Action          
+ 8141ddc:	2020 0000 6547 5074 736f 7469 6f69 206e       ..GetPosition 
+ 8141dec:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 8141dfc:	6547 5674 6c65 636f 7469 2079 2020 2020     GetVelocity     
+ 8141e0c:	2020 2020 2020 2020 2020 0000 6547 4174               ..GetA
+ 8141e1c:	6363 6c65 7265 7461 6f69 206e 2020 2020     cceleration     
+ 8141e2c:	2020 2020 2020 0000 6553 4174 7463 6175           ..SetActua
+ 8141e3c:	506c 736f 7469 6f69 206e 2020 2020 2020     lPosition       
+ 8141e4c:	2020 0000 6547 4b74 2070 2020 2020 2020       ..GetKp       
+ 8141e5c:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 8141e6c:	6547 4b74 2069 2020 2020 2020 2020 2020     GetKi           
+ 8141e7c:	2020 2020 2020 2020 2020 0000 6547 4b74               ..GetK
+ 8141e8c:	2064 2020 2020 2020 2020 2020 2020 2020     d               
+ 8141e9c:	2020 2020 2020 0000 6547 5474 6d65 6570           ..GetTempe
+ 8141eac:	6172 7574 6572 2020 2020 2020 2020 2020     rature          
+ 8141ebc:	2020 0000 6547 4b74 6676 2066 2020 2020       ..GetKvff     
+ 8141ecc:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 8141edc:	6547 5074 736f 7469 6f69 4c6e 6f6f 5670     GetPositionLoopV
+ 8141eec:	6c61 6575 2020 2020 2020 0000 6547 4974     alue      ..GetI
+ 8141efc:	746e 7265 7572 7470 614d 6b73 2020 2020     nterruptMask    
+ 8141f0c:	2020 2020 2020 0000 6547 4174 7463 7669           ..GetActiv
+ 8141f1c:	4f65 6570 6172 6974 676e 6f4d 6564 2020     eOperatingMode  
+ 8141f2c:	2020 0000 6547 4a74 7265 206b 2020 2020       ..GetJerk     
+ 8141f3c:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 8141f4c:	6547 4774 6165 5272 7461 6f69 2020 2020     GetGearRatio    
+ 8141f5c:	2020 2020 2020 2020 2020 0000 6547 4674               ..GetF
+ 8141f6c:	434f 6156 756c 2065 2020 2020 2020 2020     OCValue         
+ 8141f7c:	2020 2020 2020 0000 754d 746c 5569 6470           ..MultiUpd
+ 8141f8c:	7461 2065 2020 2020 2020 2020 2020 2020     ate             
+ 8141f9c:	2020 0000 6553 4374 7275 6572 746e 2020       ..SetCurrent  
+ 8141fac:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 8141fbc:	6547 4374 7275 6572 746e 2020 2020 2020     GetCurrent      
+ 8141fcc:	2020 2020 2020 2020 2020 0000 6547 4474               ..GetD
+ 8141fdc:	6972 6576 6146 6c75 5074 7261 6d61 7465     riveFaultParamet
+ 8141fec:	7265 2020 2020 0000 6553 4474 6972 6576     er    ..SetDrive
+ 8141ffc:	6146 6c75 5074 7261 6d61 7465 7265 2020     FaultParameter  
+ 814200c:	2020 0000 6553 4f74 6570 6172 6974 676e       ..SetOperating
+ 814201c:	6f4d 6564 2020 2020 2020 2020 2020 0000     Mode          ..
+ 814202c:	6547 4f74 6570 6172 6974 676e 6f4d 6564     GetOperatingMode
+ 814203c:	2020 2020 2020 2020 2020 0000 6553 5074               ..SetP
+ 814204c:	736f 7469 6f69 4c6e 6f6f 2070 2020 2020     ositionLoop     
+ 814205c:	2020 2020 2020 0000 6547 5074 736f 7469           ..GetPosit
+ 814206c:	6f69 4c6e 6f6f 2070 2020 2020 2020 2020     ionLoop         
+ 814207c:	2020 0000 6547 4d74 746f 726f 6f43 6d6d       ..GetMotorComm
+ 814208c:	6e61 2064 2020 2020 2020 2020 2020 0000     and           ..
+ 814209c:	6553 5374 6174 7472 6556 6f6c 6963 7974     SetStartVelocity
+ 81420ac:	2020 2020 2020 2020 2020 0000 6547 5374               ..GetS
+ 81420bc:	6174 7472 6556 6f6c 6963 7974 2020 2020     tartVelocity    
+ 81420cc:	2020 2020 2020 0000 6c43 6165 4472 6972           ..ClearDri
+ 81420dc:	6576 6146 6c75 5374 6174 7574 2073 2020     veFaultStatus   
+ 81420ec:	2020 0000 6547 4474 6972 6576 6146 6c75       ..GetDriveFaul
+ 81420fc:	5374 6174 7574 2073 2020 2020 2020 0000     tStatus       ..
+ 814210c:	6547 4f74 7475 7570 4d74 646f 2065 2020     GetOutputMode   
+ 814211c:	2020 2020 2020 2020 2020 0000 6143 696c               ..Cali
+ 814212c:	7262 7461 4165 616e 6f6c 2067 2020 2020     brateAnalog     
+ 814213c:	2020 2020 2020 0000 6547 4474 6972 6576           ..GetDrive
+ 814214c:	6156 756c 2065 2020 2020 2020 2020 2020     Value           
+ 814215c:	2020 0000 6547 4374 7275 6572 746e 6f4c       ..GetCurrentLo
+ 814216c:	706f 6156 756c 2065 2020 2020 2020 0000     opValue       ..
+ 814217c:	6553 5074 6168 6573 6e49 7469 6169 696c     SetPhaseInitiali
+ 814218c:	657a 6954 656d 2020 2020 0000 6553 4374     zeTime    ..SetC
+ 814219c:	7275 6572 746e 6f4c 706f 2020 2020 2020     urrentLoop      
+ 81421ac:	2020 2020 2020 0000 6547 4374 7275 6572           ..GetCurre
+ 81421bc:	746e 6f4c 706f 2020 2020 2020 2020 2020     ntLoop          
+ 81421cc:	2020 0000 6553 5074 6168 6573 6f43 6e75       ..SetPhaseCoun
+ 81421dc:	7374 2020 2020 2020 2020 2020 2020 0000     ts            ..
+ 81421ec:	6553 5074 6168 6573 664f 7366 7465 2020     SetPhaseOffset  
+ 81421fc:	2020 2020 2020 2020 2020 0000 6553 4d74               ..SetM
+ 814220c:	746f 726f 6f43 6d6d 6e61 2064 2020 2020     otorCommand     
+ 814221c:	2020 2020 2020 0000 6553 4c74 6f6f 2070           ..SetLoop 
+ 814222c:	2020 2020 2020 2020 2020 2020 2020 2020                     
+ 814223c:	2020 0000 6547 4c74 6f6f 2070 2020 2020       ..GetLoop     
+ 814224c:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 814225c:	6e49 7469 6169 696c 657a 6850 7361 2065     InitializePhase 
+ 814226c:	2020 2020 2020 2020 2020 0000 6547 5074               ..GetP
+ 814227c:	6168 6573 664f 7366 7465 2020 2020 2020     haseOffset      
+ 814228c:	2020 2020 2020 0000 6547 5074 6168 6573           ..GetPhase
+ 814229c:	6e49 7469 6169 696c 657a 6954 656d 2020     InitializeTime  
+ 81422ac:	2020 0000 6547 5074 6168 6573 6f43 6e75       ..GetPhaseCoun
+ 81422bc:	7374 2020 2020 2020 2020 2020 2020 0000     ts            ..
+ 81422cc:	6553 4474 6972 6576 6f43 6d6d 6e61 4d64     SetDriveCommandM
+ 81422dc:	646f 2065 2020 2020 2020 0000 6547 4474     ode       ..GetD
+ 81422ec:	6972 6576 6f43 6d6d 6e61 4d64 646f 2065     riveCommandMode 
+ 81422fc:	2020 2020 2020 0000 6553 4c74 6d69 7469           ..SetLimit
+ 814230c:	7753 7469 6863 6f4d 6564 2020 2020 2020     SwitchMode      
+ 814231c:	2020 0000 6547 4c74 6d69 7469 7753 7469       ..GetLimitSwit
+ 814232c:	6863 6f4d 6564 2020 2020 2020 2020 0000     chMode        ..
+ 814233c:	7257 7469 4965 204f 2020 2020 2020 2020     WriteIO         
+ 814234c:	2020 2020 2020 2020 2020 0000 6552 6461               ..Read
+ 814235c:	4f49 2020 2020 2020 2020 2020 2020 2020     IO              
+ 814236c:	2020 2020 2020 0000 6553 5074 6168 6573           ..SetPhase
+ 814237c:	6e41 6c67 2065 2020 2020 2020 2020 2020     Angle           
+ 814238c:	2020 0000 6553 4174 6978 4d73 646f 2065       ..SetAxisMode 
+ 814239c:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 81423ac:	6547 4174 6978 4d73 646f 2065 2020 2020     GetAxisMode     
+ 81423bc:	2020 2020 2020 2020 2020 0000 6553 4474               ..SetD
+ 81423cc:	6665 7561 746c 2020 2020 2020 2020 2020     efault          
+ 81423dc:	2020 2020 2020 0000 6547 4474 6665 7561           ..GetDefau
+ 81423ec:	746c 2020 2020 2020 2020 2020 2020 2020     lt              
+ 81423fc:	2020 0000 6553 5374 7265 6169 506c 726f       ..SetSerialPor
+ 814240c:	4d74 646f 2065 2020 2020 2020 2020 0000     tMode         ..
+ 814241c:	6547 5374 7265 6169 506c 726f 4d74 646f     GetSerialPortMod
+ 814242c:	2065 2020 2020 2020 2020 0000 6553 4574     e         ..SetE
+ 814243c:	636e 646f 7265 6f4d 7564 756c 2073 2020     ncoderModulus   
+ 814244c:	2020 2020 2020 0000 6547 4574 636e 646f           ..GetEncod
+ 814245c:	7265 6f4d 7564 756c 2073 2020 2020 2020     erModulus       
+ 814246c:	2020 0000 6547 5674 7265 6973 6e6f 2020       ..GetVersion  
+ 814247c:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 814248c:	6553 4174 6363 6c65 7265 7461 6f69 206e     SetAcceleration 
+ 814249c:	2020 2020 2020 2020 2020 0000 6553 4474               ..SetD
+ 81424ac:	6365 6c65 7265 7461 6f69 206e 2020 2020     eceleration     
+ 81424bc:	2020 2020 2020 0000 6547 4474 6365 6c65           ..GetDecel
+ 81424cc:	7265 7461 6f69 206e 2020 2020 2020 2020     eration         
+ 81424dc:	2020 0000 6553 4b74 6661 2066 2020 2020       ..SetKaff     
+ 81424ec:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 81424fc:	6547 4b74 6661 2066 2020 2020 2020 2020     GetKaff         
+ 814250c:	2020 2020 2020 2020 2020 0000 6553 4974               ..SetI
+ 814251c:	746e 6765 6172 6974 6e6f 694c 696d 2074     ntegrationLimit 
+ 814252c:	2020 2020 2020 0000 6547 4974 746e 6765           ..GetInteg
+ 814253c:	6172 6974 6e6f 694c 696d 2074 2020 2020     rationLimit     
+ 814254c:	2020 0000 6553 5074 736f 7469 6f69 456e       ..SetPositionE
+ 814255c:	7272 726f 694c 696d 2074 2020 2020 0000     rrorLimit     ..
+ 814256c:	6547 5074 736f 7469 6f69 456e 7272 726f     GetPositionError
+ 814257c:	694c 696d 2074 2020 2020 0000 6547 5074     Limit     ..GetP
+ 814258c:	736f 7469 6f69 456e 7272 726f 2020 2020     ositionError    
+ 814259c:	2020 2020 2020 0000 6547 4974 746e 6765           ..GetInteg
+ 81425ac:	6172 206c 2020 2020 2020 2020 2020 2020     ral             
+ 81425bc:	2020 0000 6547 4474 7265 7669 7461 7669       ..GetDerivativ
+ 81425cc:	2065 2020 2020 2020 2020 2020 2020 0000     e             ..
+ 81425dc:	6553 4474 7265 7669 7461 7669 5465 6d69     SetDerivativeTim
+ 81425ec:	2065 2020 2020 2020 2020 0000 6547 4474     e         ..GetD
+ 81425fc:	7265 7669 7461 7669 5465 6d69 2065 2020     erivativeTime   
+ 814260c:	2020 2020 2020 0000 6553 4b74 756f 2074           ..SetKout 
+ 814261c:	2020 2020 2020 2020 2020 2020 2020 2020                     
+ 814262c:	2020 0000 6547 4b74 756f 2074 2020 2020       ..GetKout     
+ 814263c:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 814264c:	6553 5074 6f72 6966 656c 6f4d 6564 2020     SetProfileMode  
+ 814265c:	2020 2020 2020 2020 2020 0000 6547 5074               ..GetP
+ 814266c:	6f72 6966 656c 6f4d 6564 2020 2020 2020     rofileMode      
+ 814267c:	2020 2020 2020 0000 6553 5374 6769 616e           ..SetSigna
+ 814268c:	536c 6e65 6573 2020 2020 2020 2020 2020     lSense          
+ 814269c:	2020 0000 6547 5374 6769 616e 536c 6e65       ..GetSignalSen
+ 81426ac:	6573 2020 2020 2020 2020 2020 2020 0000     se            ..
+ 81426bc:	6547 5374 6769 616e 536c 6174 7574 2073     GetSignalStatus 
+ 81426cc:	2020 2020 2020 2020 2020 0000 6547 4974               ..GetI
+ 81426dc:	736e 7274 6375 6974 6e6f 7245 6f72 2072     nstructionError 
+ 81426ec:	2020 2020 2020 0000 6547 4174 7463 7669           ..GetActiv
+ 81426fc:	7469 5379 6174 7574 2073 2020 2020 2020     ityStatus       
+ 814270c:	2020 0000 6547 4374 6d6f 616d 646e 6465       ..GetCommanded
+ 814271c:	6341 6563 656c 6172 6974 6e6f 2020 0000     Acceleration  ..
+ 814272c:	6553 5474 6172 6b63 6e69 5767 6e69 6f64     SetTrackingWindo
+ 814273c:	2077 2020 2020 2020 2020 0000 6547 5474     w         ..GetT
+ 814274c:	6172 6b63 6e69 5767 6e69 6f64 2077 2020     rackingWindow   
+ 814275c:	2020 2020 2020 0000 6553 5374 7465 6c74           ..SetSettl
+ 814276c:	5465 6d69 2065 2020 2020 2020 2020 2020     eTime           
+ 814277c:	2020 0000 6547 5374 7465 6c74 5465 6d69       ..GetSettleTim
+ 814278c:	2065 2020 2020 2020 2020 2020 2020 0000     e             ..
+ 814279c:	6c43 6165 4972 746e 7265 7572 7470 2020     ClearInterrupt  
+ 81427ac:	2020 2020 2020 2020 2020 0000 6547 4174               ..GetA
+ 81427bc:	7463 6175 566c 6c65 636f 7469 2079 2020     ctualVelocity   
+ 81427cc:	2020 2020 2020 0000 6553 4774 6165 4d72           ..SetGearM
+ 81427dc:	7361 6574 2072 2020 2020 2020 2020 2020     aster           
+ 81427ec:	2020 0000 6547 4774 6165 4d72 7361 6574       ..GetGearMaste
+ 81427fc:	2072 2020 2020 2020 2020 2020 2020 0000     r             ..
+ 814280c:	6553 5474 6172 6563 6f4d 6564 2020 2020     SetTraceMode    
+ 814281c:	2020 2020 2020 2020 2020 0000 6547 5474               ..GetT
+ 814282c:	6172 6563 6f4d 6564 2020 2020 2020 2020     raceMode        
+ 814283c:	2020 2020 2020 0000 6553 5474 6172 6563           ..SetTrace
+ 814284c:	7453 7261 2074 2020 2020 2020 2020 2020     Start           
+ 814285c:	2020 0000 6547 5474 6172 6563 7453 7261       ..GetTraceStar
+ 814286c:	2074 2020 2020 2020 2020 2020 2020 0000     t             ..
+ 814287c:	6553 5474 6172 6563 7453 706f 2020 2020     SetTraceStop    
+ 814288c:	2020 2020 2020 2020 2020 0000 6547 5474               ..GetT
+ 814289c:	6172 6563 7453 706f 2020 2020 2020 2020     raceStop        
+ 81428ac:	2020 2020 2020 0000 6553 5474 6172 6563           ..SetTrace
+ 81428bc:	6156 6972 6261 656c 2020 2020 2020 2020     Variable        
+ 81428cc:	2020 0000 6547 5474 6172 6563 6156 6972       ..GetTraceVari
+ 81428dc:	6261 656c 2020 2020 2020 2020 2020 0000     able          ..
+ 81428ec:	6553 5474 6172 6563 6550 6972 646f 2020     SetTracePeriod  
+ 81428fc:	2020 2020 2020 2020 2020 0000 6547 5474               ..GetT
+ 814290c:	6172 6563 6550 6972 646f 2020 2020 2020     racePeriod      
+ 814291c:	2020 2020 2020 0000 6547 5474 6172 6563           ..GetTrace
+ 814292c:	7453 7461 7375 2020 2020 2020 2020 2020     Status          
+ 814293c:	2020 0000 6547 5474 6172 6563 6f43 6e75       ..GetTraceCoun
+ 814294c:	2074 2020 2020 2020 2020 2020 2020 0000     t             ..
+ 814295c:	6553 5374 7465 6c74 5765 6e69 6f64 2077     SetSettleWindow 
+ 814296c:	2020 2020 2020 2020 2020 0000 6547 5374               ..GetS
+ 814297c:	7465 6c74 5765 6e69 6f64 2077 2020 2020     ettleWindow     
+ 814298c:	2020 2020 2020 0000 6553 4174 7463 6175           ..SetActua
+ 814299c:	506c 736f 7469 6f69 556e 696e 7374 2020     lPositionUnits  
+ 81429ac:	2020 0000 6547 4174 7463 6175 506c 736f       ..GetActualPos
+ 81429bc:	7469 6f69 556e 696e 7374 2020 2020 0000     itionUnits    ..
+ 81429cc:	6553 4274 6675 6566 5372 6174 7472 2020     SetBufferStart  
+ 81429dc:	2020 2020 2020 2020 2020 0000 6547 4274               ..GetB
+ 81429ec:	6675 6566 5372 6174 7472 2020 2020 2020     ufferStart      
+ 81429fc:	2020 2020 2020 0000 6553 4274 6675 6566           ..SetBuffe
+ 8142a0c:	4c72 6e65 7467 2068 2020 2020 2020 2020     rLength         
+ 8142a1c:	2020 0000 6547 4274 6675 6566 4c72 6e65       ..GetBufferLen
+ 8142a2c:	7467 2068 2020 2020 2020 2020 2020 0000     gth           ..
+ 8142a3c:	6553 4274 6675 6566 5772 6972 6574 6e49     SetBufferWriteIn
+ 8142a4c:	6564 2078 2020 2020 2020 0000 6547 4274     dex       ..GetB
+ 8142a5c:	6675 6566 5772 6972 6574 6e49 6564 2078     ufferWriteIndex 
+ 8142a6c:	2020 2020 2020 0000 6553 4274 6675 6566           ..SetBuffe
+ 8142a7c:	5272 6165 4964 646e 7865 2020 2020 2020     rReadIndex      
+ 8142a8c:	2020 0000 6547 4274 6675 6566 5272 6165       ..GetBufferRea
+ 8142a9c:	4964 646e 7865 2020 2020 2020 2020 0000     dIndex        ..
+ 8142aac:	7257 7469 4265 6675 6566 2072 2020 2020     WriteBuffer     
+ 8142abc:	2020 2020 2020 2020 2020 0000 6552 6461               ..Read
+ 8142acc:	7542 6666 7265 2020 2020 2020 2020 2020     Buffer          
+ 8142adc:	2020 2020 2020 0000 6553 4274 6675 6566           ..SetBuffe
+ 8142aec:	4672 6e75 7463 6f69 206e 2020 2020 2020     rFunction       
+ 8142afc:	2020 0000 6547 4274 6675 6566 4672 6e75       ..GetBufferFun
+ 8142b0c:	7463 6f69 206e 2020 2020 2020 2020 0000     ction         ..
+ 8142b1c:	7257 7469 4265 6675 6566 3172 2036 2020     WriteBuffer16   
+ 8142b2c:	2020 2020 2020 2020 2020 0000 6552 6461               ..Read
+ 8142b3c:	7542 6666 7265 3631 2020 2020 2020 2020     Buffer16        
+ 8142b4c:	2020 2020 2020 0000 6547 5374 6574 5270           ..GetStepR
+ 8142b5c:	6e61 6567 2020 2020 2020 2020 2020 2020     ange            
+ 8142b6c:	2020 0000 6553 5374 6574 5270 6e61 6567       ..SetStepRange
+ 8142b7c:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 8142b8c:	6553 5374 6f74 4d70 646f 2065 2020 2020     SetStopMode     
+ 8142b9c:	2020 2020 2020 2020 2020 0000 6547 5374               ..GetS
+ 8142bac:	6f74 4d70 646f 2065 2020 2020 2020 2020     topMode         
+ 8142bbc:	2020 2020 2020 0000 6553 4174 7475 536f           ..SetAutoS
+ 8142bcc:	6f74 4d70 646f 2065 2020 2020 2020 2020     topMode         
+ 8142bdc:	2020 0000 6547 4174 7475 536f 6f74 4d70       ..GetAutoStopM
+ 8142bec:	646f 2065 2020 2020 2020 2020 2020 0000     ode           ..
+ 8142bfc:	6553 4274 6572 6b61 6f70 6e69 2074 2020     SetBreakpoint   
+ 8142c0c:	2020 2020 2020 2020 2020 0000 6547 4274               ..GetB
+ 8142c1c:	6572 6b61 6f70 6e69 2074 2020 2020 2020     reakpoint       
+ 8142c2c:	2020 2020 2020 0000 6553 4274 6572 6b61           ..SetBreak
+ 8142c3c:	6f70 6e69 5674 6c61 6575 2020 2020 2020     pointValue      
+ 8142c4c:	2020 0000 6547 4274 6572 6b61 6f70 6e69       ..GetBreakpoin
+ 8142c5c:	5674 6c61 6575 2020 2020 2020 2020 0000     tValue        ..
+ 8142c6c:	6553 4374 7061 7574 6572 6f53 7275 6563     SetCaptureSource
+ 8142c7c:	2020 2020 2020 2020 2020 0000 6547 4374               ..GetC
+ 8142c8c:	7061 7574 6572 6f53 7275 6563 2020 2020     aptureSource    
+ 8142c9c:	2020 2020 2020 0000 6553 4574 636e 646f           ..SetEncod
+ 8142cac:	7265 6f53 7275 6563 2020 2020 2020 2020     erSource        
+ 8142cbc:	2020 0000 6547 4574 636e 646f 7265 6f53       ..GetEncoderSo
+ 8142ccc:	7275 6563 2020 2020 2020 2020 2020 0000     urce          ..
+ 8142cdc:	6553 4d74 746f 726f 6f4d 6564 2020 2020     SetMotorMode    
+ 8142cec:	2020 2020 2020 2020 2020 0000 6547 4d74               ..GetM
+ 8142cfc:	746f 726f 6f4d 6564 2020 2020 2020 2020     otorMode        
+ 8142d0c:	2020 2020 2020 0000 6553 4574 636e 646f           ..SetEncod
+ 8142d1c:	7265 6f54 7453 7065 6152 6974 206f 2020     erToStepRatio   
+ 8142d2c:	2020 0000 6547 4574 636e 646f 7265 6f54       ..GetEncoderTo
+ 8142d3c:	7453 7065 6152 6974 206f 2020 2020 0000     StepRatio     ..
+ 8142d4c:	6553 4f74 7475 7570 4d74 646f 2065 2020     SetOutputMode   
+ 8142d5c:	2020 2020 2020 2020 2020 0000 6547 4974               ..GetI
+ 8142d6c:	746e 7265 7572 7470 7841 7369 2020 2020     nterruptAxis    
+ 8142d7c:	2020 2020 2020 0000 6553 4374 6d6f 756d           ..SetCommu
+ 8142d8c:	6174 6974 6e6f 6f4d 6564 2020 2020 2020     tationMode      
+ 8142d9c:	2020 0000 6547 4374 6d6f 756d 6174 6974       ..GetCommutati
+ 8142dac:	6e6f 6f4d 6564 2020 2020 2020 2020 0000     onMode        ..
+ 8142dbc:	6553 5074 6168 6573 6e49 7469 6169 696c     SetPhaseInitiali
+ 8142dcc:	657a 6f4d 6564 2020 2020 0000 6547 5074     zeMode    ..GetP
+ 8142ddc:	6168 6573 6e49 7469 6169 696c 657a 6f4d     haseInitializeMo
+ 8142dec:	6564 2020 2020 0000 6553 5074 6168 6573     de    ..SetPhase
+ 8142dfc:	7250 7365 6163 656c 2020 2020 2020 2020     Prescale        
+ 8142e0c:	2020 0000 6547 5074 6168 6573 7250 7365       ..GetPhasePres
+ 8142e1c:	6163 656c 2020 2020 2020 2020 2020 0000     cale          ..
+ 8142e2c:	6553 5074 6168 6573 6f43 7272 6365 6974     SetPhaseCorrecti
+ 8142e3c:	6e6f 6f4d 6564 2020 2020 0000 6547 5074     onMode    ..GetP
+ 8142e4c:	6168 6573 6f43 7272 6365 6974 6e6f 6f4d     haseCorrectionMo
+ 8142e5c:	6564 2020 2020 0000 6547 5074 6168 6573     de    ..GetPhase
+ 8142e6c:	6f43 6d6d 6e61 2064 2020 2020 2020 2020     Command         
+ 8142e7c:	2020 0000 6553 4d74 746f 6f69 436e 6d6f       ..SetMotionCom
+ 8142e8c:	6c70 7465 4d65 646f 2065 2020 2020 0000     pleteMode     ..
+ 8142e9c:	6547 4d74 746f 6f69 436e 6d6f 6c70 7465     GetMotionComplet
+ 8142eac:	4d65 646f 2065 2020 2020 0000 6553 4174     eMode     ..SetA
+ 8142ebc:	6978 4f73 7475 6f53 7275 6563 2020 2020     xisOutSource    
+ 8142ecc:	2020 2020 2020 0000 6547 4174 6978 4f73           ..GetAxisO
+ 8142edc:	7475 6f53 7275 6563 2020 2020 2020 2020     utSource        
+ 8142eec:	2020 0000 6552 6461 6e41 6c61 676f 2020       ..ReadAnalog  
+ 8142efc:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 8142f0c:	6553 5374 6e79 6863 6f72 696e 617a 6974     SetSynchronizati
+ 8142f1c:	6e6f 6f4d 6564 2020 2020 0000 6547 5374     onMode    ..GetS
+ 8142f2c:	6e79 6863 6f72 696e 617a 6974 6e6f 6f4d     ynchronizationMo
+ 8142f3c:	6564 2020 2020 0000 6441 756a 7473 6341     de    ..AdjustAc
+ 8142f4c:	7574 6c61 6f50 6973 6974 6e6f 2020 2020     tualPosition    
+ 8142f5c:	2020 0000 6553 4674 434f 2020 2020 2020       ..SetFOC      
+ 8142f6c:	2020 2020 2020 2020 2020 2020 2020 0000                   ..
+ 8142f7c:	6547 4674 434f 2020 2020 2020 2020 2020     GetFOC          
+ 8142f8c:	2020 2020 2020 2020 2020 0000 6547 4374               ..GetC
+ 8142f9c:	6568 6b63 7573 206d 2020 2020 2020 2020     hecksum         
+ 8142fac:	2020 2020 2020 0000 6553 5574 6470 7461           ..SetUpdat
+ 8142fbc:	4d65 7361 206b 2020 2020 2020 2020 2020     eMask           
+ 8142fcc:	2020 0000 6547 5574 6470 7461 4d65 7361       ..GetUpdateMas
+ 8142fdc:	206b 2020 2020 2020 2020 2020 2020 0000     k             ..
+ 8142fec:	6553 4674 7561 746c 754f 4d74 7361 206b     SetFaultOutMask 
+ 8142ffc:	2020 2020 2020 2020 2020 0000 6547 4674               ..GetF
+ 814300c:	7561 746c 754f 4d74 7361 206b 2020 2020     aultOutMask     
+ 814301c:	2020 2020 2020 0000 6552 6573 7672 6465           ..Reserved
+ 814302c:	6620 6e75 7463 6f69 206e 6163 6c6c 0000      function call..
+ 814303c:	6e55 6564 6966 656e 2064 7265 6f72 2072     Undefined error 
+ 814304c:	636f 7563 7272 6465 0000 0000 6154 6b73     occurred....Task
+ 814305c:	6120 6f62 7472 6465 0000 0000 6154 6b73      aborted....Task
+ 814306c:	6e20 746f 6620 756f 646e 0000 6154 6b73      not found..Task
+ 814307c:	6120 726c 6165 7964 7220 6e75 696e 676e      already running
+ 814308c:	0000 0000 6154 6b73 6e20 746f 7320 6174     ....Task not sta
+ 814309c:	7472 6465 0000 0000 6e49 6176 696c 2064     rted....Invalid 
+ 81430ac:	7375 7265 6320 646f 2065 6f66 6d72 7461     user code format
+ 81430bc:	0000 0000 7355 7265 6320 646f 2065 6f6e     ....User code no
+ 81430cc:	2074 7270 676f 6172 6d6d 6465 0000 0000     t programmed....
+ 81430dc:	7355 7265 6320 646f 2065 7277 7469 2065     User code write 
+ 81430ec:	7265 6f72 0072 0000 6e49 6176 696c 2064     error...Invalid 
+ 81430fc:	7375 7265 6320 646f 2065 6863 6365 736b     user code checks
+ 814310c:	6d75 0000 6e49 6176 696c 2064 7375 7265     um..Invalid user
+ 814311c:	6320 646f 2065 6966 656c 7320 7a69 0065      code file size.
+ 814312c:	6e49 6176 696c 2064 7375 7265 6320 646f     Invalid user cod
+ 814313c:	2065 6576 7372 6f69 006e 0000 6e49 6176     e version...Inva
+ 814314c:	696c 2064 7375 7265 6320 646f 2065 6973     lid user code si
+ 814315c:	6e67 7461 7275 0065 6e49 6176 696c 2064     gnature.Invalid 
+ 814316c:	5052 6320 6568 6b63 7573 006d 6e49 6176     RP checksum.Inva
+ 814317c:	696c 2064 5052 7020 6361 656b 0074 0000     lid RP packet...
+ 814318c:	6e49 6176 696c 2064 5052 7020 7261 6d61     Invalid RP param
+ 814319c:	7465 7265 0000 0000 6e49 6176 696c 2064     eter....Invalid 
+ 81431ac:	5052 6320 6d6f 616d 646e 0000 6e49 6176     RP command..Inva
+ 81431bc:	696c 2064 5052 7320 6275 6361 6974 6e6f     lid RP subaction
+ 81431cc:	0000 0000 6e49 6176 696c 2064 5052 6120     ....Invalid RP a
+ 81431dc:	7463 6f69 006e 0000 6e49 6176 696c 2064     ction...Invalid 
+ 81431ec:	5052 6120 6464 6572 7373 0000 6e49 6176     RP address..Inva
+ 81431fc:	696c 2064 5052 7220 7365 756f 6372 0065     lid RP resource.
+ 814320c:	6e49 6176 696c 2064 5052 7620 7265 6973     Invalid RP versi
+ 814321c:	6e6f 0000 6544 6976 6563 7720 7361 7220     on..Device was r
+ 814322c:	7365 7465 7320 6e69 6563 6c20 7361 2074     eset since last 
+ 814323c:	6f63 6d6d 6e61 0064 4143 204e 6341 6974     command.CAN Acti
+ 814324c:	6576 6520 7272 726f 7320 6174 6574 0000     ve error state..
+ 814325c:	4143 204e 6150 7373 7669 2065 7265 6f72     CAN Passive erro
+ 814326c:	2072 7473 7461 0065 4143 204e 7542 2073     r state.CAN Bus 
+ 814327c:	666f 0066 4143 204e 5243 2043 7265 6f72     off.CAN CRC erro
+ 814328c:	0072 0000 4143 204e 6942 2074 6f64 696d     r...CAN Bit domi
+ 814329c:	616e 746e 6520 7272 726f 0000 4143 204e     nant error..CAN 
+ 81432ac:	6942 2074 6572 6563 7373 7669 2065 7265     Bit recessive er
+ 81432bc:	6f72 0072 4143 204e 6341 6e6b 776f 656c     ror.CAN Acknowle
+ 81432cc:	6764 2065 7265 6f72 0072 0000 4143 204e     dge error...CAN 
+ 81432dc:	6f46 6d72 6520 7272 726f 0000 4143 204e     Form error..CAN 
+ 81432ec:	6942 2074 7473 6675 2066 7265 6f72 0072     Bit stuff error.
+ 81432fc:	6552 6563 7669 2065 766f 7265 7572 006e     Receive overrun.
+ 814330c:	6553 6972 6c61 6e20 696f 6573 6520 7272     Serial noise err
+ 814331c:	726f 0000 6553 6972 6c61 6620 6172 696d     or..Serial frami
+ 814332c:	676e 6520 7272 726f 0000 0000 6553 6972     ng error....Seri
+ 814333c:	6c61 7020 7261 7469 2079 7265 6f72 0072     al parity error.
+ 814334c:	6553 6972 6c61 6220 6572 6b61 6320 6e6f     Serial break con
+ 814335c:	6964 6974 6e6f 0000 6553 6972 6c61 7220     dition..Serial r
+ 814336c:	6365 6965 6576 6420 7461 2061 766f 7265     eceive data over
+ 814337c:	7572 006e 6552 6f73 7275 6563 6920 206e     run.Resource in 
+ 814338c:	7375 0065 7551 7565 2065 6d65 7470 0079     use.Queue empty.
+ 814339c:	7551 7565 2065 7566 6c6c 0000 754f 2074     Queue full..Out 
+ 81433ac:	666f 7220 7365 756f 6372 7365 0000 0000     of resources....
+ 81433bc:	6143 6e6e 746f 7220 756f 6574 4920 2050     Cannot route IP 
+ 81433cc:	6461 7264 7365 0073 6441 7264 7365 2073     address.Address 
+ 81433dc:	6e69 7520 6573 0000 7244 7669 7265 6520     in use..Driver e
+ 81433ec:	7272 726f 0000 0000 6e49 6574 6672 6361     rror....Interfac
+ 81433fc:	2065 6f6e 2074 6e69 7469 6169 696c 657a     e not initialize
+ 814340c:	0064 0000 7245 6f72 2072 6f63 666e 6769     d...Error config
+ 814341c:	7275 6e69 2067 6f70 7472 0000 7245 6f72     uring port..Erro
+ 814342c:	2072 706f 6e65 6e69 2067 6f70 7472 0000     r opening port..
+ 814343c:	7245 6f72 2072 7277 7469 6e69 2067 6f74     Error writing to
+ 814344c:	7020 726f 0074 0000 7245 6f72 2072 6572      port...Error re
+ 814345c:	6461 6e69 2067 7266 6d6f 7020 726f 0074     ading from port.
+ 814346c:	6544 6976 6563 6e20 746f 7220 7365 6f70     Device not respo
+ 814347c:	646e 6e69 0067 0000 6f4e 2074 6f63 6e6e     nding...Not conn
+ 814348c:	6365 6574 0064 0000 6144 6174 7020 696f     ected...Data poi
+ 814349c:	746e 7265 7020 7261 6d61 7465 7265 6d20     nter parameter m
+ 81434ac:	7369 6c61 6769 656e 0064 0000 6150 6172     isaligned...Para
+ 81434bc:	656d 6574 2072 756f 2074 666f 7220 6e61     meter out of ran
+ 81434cc:	6567 0000 6e49 6176 696c 2064 6461 7264     ge..Invalid addr
+ 81434dc:	7365 0073 6e49 6176 696c 2064 6170 6172     ess.Invalid para
+ 81434ec:	656d 6574 0072 0000 6e49 6176 696c 2064     meter...Invalid 
+ 81434fc:	6164 6174 7320 7a69 0065 0000 6e49 6176     data size...Inva
+ 814350c:	696c 2064 6168 646e 656c 0000 6e49 6176     lid handle..Inva
+ 814351c:	696c 2064 6162 6475 0000 0000 6e49 6176     lid baud....Inva
+ 814352c:	696c 2064 6f70 7472 0000 0000 6e49 6176     lid port....Inva
+ 814353c:	696c 2064 6e69 6574 6672 6361 0065 0000     lid interface...
+ 814354c:	6e49 6176 696c 2064 706f 7265 7461 6f69     Invalid operatio
+ 814355c:	006e 0000 6f4e 2074 7573 7070 726f 6574     n...Not supporte
+ 814356c:	0064 0000 754d 6574 2078 6954 656d 756f     d...Mutex Timeou
+ 814357c:	0074 0000 6f43 6d6d 6e61 2064 7265 6f72     t...Command erro
+ 814358c:	0072 0000 6843 6365 736b 6d75 6520 7272     r...Checksum err
+ 814359c:	726f 0000 6954 656d 756f 0074 654d 6f6d     or..Timeout.Memo
+ 81435ac:	7972 6120 6c6c 636f 7461 6f69 206e 6166     ry allocation fa
+ 81435bc:	6c69 7275 0065 0000 6e55 7865 6570 7463     ilure...Unexpect
+ 81435cc:	6465 6420 7461 2061 6572 6563 7669 6465     ed data received
+ 81435dc:	0000 0000 6e49 7573 6666 6369 6569 746e     ....Insufficient
+ 81435ec:	6420 7461 2061 6572 6563 7669 6465 0000      data received..
+ 81435fc:	6f43 6d6d 6e75 6369 7461 6f69 206e 7265     Communication er
+ 814360c:	6f72 0072 6157 7469 6320 6e61 6563 6c6c     ror.Wait cancell
+ 814361c:	6465 0000 6552 6461 6520 7272 726f 0000     ed..Read error..
+ 814362c:	7257 7469 2065 7265 6f72 0072 6e49 6f63     Write error.Inco
+ 814363c:	7272 6365 2074 6576 7372 6f69 006e 0000     rrect version...
+ 814364c:	704f 7265 7461 6f69 206e 6f6e 2074 6570     Operation not pe
+ 814365c:	6d72 7469 6574 2064 6e6f 6320 6d6f 616d     rmitted on comma
+ 814366c:	646e 6920 746e 7265 6166 6563 0000 0000     nd interface....
+ 814367c:	6552 6573 2074 6177 2073 6570 6672 726f     Reset was perfor
+ 814368c:	656d 2064 6977 6874 4e20 5256 4d41 6920     med with NVRAM i
+ 814369c:	696e 6974 6c61 7a69 7461 6f69 206e 6e69     nitialization in
+ 81436ac:	6968 6962 6574 0064 6e49 6176 696c 2064     hibited.Invalid 
+ 81436bc:	7865 6574 6e72 6c61 6320 6f6c 6b63 6420     external clock d
+ 81436cc:	7465 6365 6574 0064 7441 6574 706d 2074     etected.Attempt 
+ 81436dc:	6f74 6320 6168 676e 2065 7562 6666 7265     to change buffer
+ 81436ec:	3120 7320 6174 6574 7720 6968 656c 4e20      1 state while N
+ 81436fc:	5256 4d41 6920 696e 2074 7369 7220 6e75     VRAM init is run
+ 814370c:	696e 676e 0000 0000 7845 6365 7475 6f69     ning....Executio
+ 814371c:	436e 6e6f 7274 6c6f 6320 6d6f 616d 646e     nControl command
+ 814372c:	7420 6d69 6465 6f20 7475 0000 7441 6574      timed out..Atte
+ 814373c:	706d 2074 6f74 6d20 766f 2065 6877 6c69     mpt to move whil
+ 814374c:	2065 6e61 6520 6576 746e 6220 7469 6920     e an event bit i
+ 814375c:	2073 6573 2074 6874 7461 6320 7561 6573     s set that cause
+ 814376c:	2064 2061 7473 706f 0000 0000 6e49 6f63     d a stop....Inco
+ 814377c:	7272 6365 2074 6d61 756f 746e 6f20 2066     rrect amount of 
+ 814378c:	6164 6174 7220 6365 6965 6576 2064 7962     data received by
+ 814379c:	7020 6f72 6563 7373 726f 0000 6f43 6d6d      processor..Comm
+ 81437ac:	6e61 2064 6e6f 796c 7620 6c61 6469 6920     and only valid i
+ 81437bc:	206e 564e 4152 204d 6e69 6974 6c61 7a69     n NVRAM intializ
+ 81437cc:	7461 6f69 006e 0000 7257 7469 2065 6f74     ation...Write to
+ 81437dc:	7220 6165 2064 6e6f 796c 6220 6675 6566      read only buffe
+ 81437ec:	0072 0000 6f43 6d6d 6e61 2064 6f6e 2074     r...Command not 
+ 81437fc:	6176 696c 2064 6e69 6620 616c 6873 6d20     valid in flash m
+ 814380c:	646f 0065 6142 2064 6c66 7361 2068 6863     ode.Bad flash ch
+ 814381c:	6365 736b 6d75 0000 6e49 6176 696c 2064     ecksum..Invalid 
+ 814382c:	6f74 7172 6575 6320 6d6f 616d 646e 0000     torque command..
+ 814383c:	6e41 5320 4950 6320 6d6f 616d 646e 7220     An SPI command r
+ 814384c:	7365 6c75 2074 6177 2073 6572 7571 7365     esult was reques
+ 814385c:	6574 2064 6562 6f66 6572 6920 2074 6177     ted before it wa
+ 814386c:	2073 6572 6461 0079 6e49 6f63 7272 6365     s ready.Incorrec
+ 814387c:	2074 5053 2049 6f63 6d6d 6e61 2064 7270     t SPI command pr
+ 814388c:	746f 636f 6c6f 0000 6142 2064 5053 2049     otocol..Bad SPI 
+ 814389c:	6f63 6d6d 6e61 2064 6863 6365 736b 6d75     command checksum
+ 81438ac:	0000 0000 2041 6168 6472 6620 7561 746c     ....A hard fault
+ 81438bc:	6820 7361 6f20 6363 7275 6465 202e 6854      has occured. Th
+ 81438cc:	2065 7270 636f 7365 6f73 2072 756d 7473     e processor must
+ 81438dc:	6220 2065 6572 6573 2074 0000 7441 616c      be reset ..Atla
+ 81438ec:	2073 6f63 6d6d 6e61 2064 7073 6365 6669     s command specif
+ 81438fc:	6569 2064 7562 2074 6f6e 4120 6c74 7361     ied but no Atlas
+ 814390c:	6420 7465 6365 6574 2e64 0000 6f43 6d6d      detected...Comm
+ 814391c:	6e61 2064 6f6e 2074 6361 6563 7470 6465     and not accepted
+ 814392c:	6920 206e 7563 7272 6e65 2074 7473 7461      in current stat
+ 814393c:	0065 0000 6f43 6d6d 6e61 2064 6f6e 2074     e...Command not 
+ 814394c:	6176 696c 2064 6e69 7420 6968 2073 706f     valid in this op
+ 814395c:	7265 7461 6e69 2067 6f6d 6564 0000 0000     erating mode....
+ 814396c:	6e49 6176 696c 2064 706f 7265 7461 6e69     Invalid operatin
+ 814397c:	2067 6f6d 6564 7220 7365 6f74 6572 0000     g mode restore..
+ 814398c:	6e49 6176 696c 2064 6f63 6d6d 6e61 2064     Invalid command 
+ 814399c:	6e69 4e20 5256 4d41 6d20 646f 0065 0000     in NVRAM mode...
+ 81439ac:	6e49 6176 696c 2064 6f6d 6576 6920 746e     Invalid move int
+ 81439bc:	206f 696c 696d 0074 6e49 6176 696c 2064     o limit.Invalid 
+ 81439cc:	6f6d 6576 7720 7469 2068 696c 696d 2074     move with limit 
+ 81439dc:	7665 6e65 2074 6570 646e 6e69 0067 0000     event pending...
+ 81439ec:	6e49 6176 696c 2064 6170 6172 656d 6574     Invalid paramete
+ 81439fc:	2072 6863 6e61 6567 6620 726f 7020 6f72     r change for pro
+ 8143a0c:	6966 656c 6d20 646f 0065 0000 6e49 6176     file mode...Inva
+ 8143a1c:	696c 2064 656e 6167 6974 6576 7620 6c61     lid negative val
+ 8143a2c:	6575 6620 726f 7020 6f72 6966 656c 6d20     ue for profile m
+ 8143a3c:	646f 0065 6e49 6176 696c 2064 6863 6365     ode.Invalid chec
+ 8143a4c:	736b 6d75 0000 0000 655a 6f72 6c20 6e65     ksum....Zero len
+ 8143a5c:	7467 2068 7274 6361 2065 7562 6666 7265     gth trace buffer
+ 8143a6c:	0000 0000 6c42 636f 206b 756f 2074 666f     ....Block out of
+ 8143a7c:	6220 756f 646e 0073 7254 6361 2065 7563      bounds.Trace cu
+ 8143a8c:	7272 6e65 6c74 2079 7572 6e6e 6e69 0067     rrently running.
+ 8143a9c:	6e49 6176 696c 2064 6164 6174 7020 7261     Invalid data par
+ 8143aac:	6d61 7465 7265 0000 6e49 6176 696c 2064     ameter..Invalid 
+ 8143abc:	7861 7369 0000 0000 6e49 6176 696c 2064     axis....Invalid 
+ 8143acc:	6e69 7473 7572 7463 6f69 006e 7250 636f     instruction.Proc
+ 8143adc:	7365 6f73 2072 6572 6573 0074 6f4e 6520     essor reset.No e
+ 8143aec:	7272 726f 0000 0000 6f53 7466 7220 7365     rror....Soft res
+ 8143afc:	7465 0000 6e55 6564 6966 656e 2064 6572     et..Undefined re
+ 8143b0c:	6573 2074 6163 7375 0065 0000 7845 6563     set cause...Exce
+ 8143b1c:	7470 6f69 006e 0000 7953 7473 6d65 7720     ption...System w
+ 8143b2c:	7461 6863 6f64 0067 6148 6472 7220 7365     atchdog.Hard res
+ 8143b3c:	7465 0000 6e55 6564 7672 6c6f 6174 6567     et..Undervoltage
+ 8143b4c:	0000 0000 6f4e 656e ff00 ffff               ....None....

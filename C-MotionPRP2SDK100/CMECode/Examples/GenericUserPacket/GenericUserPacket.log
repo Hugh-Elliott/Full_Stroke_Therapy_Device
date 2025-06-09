@@ -1,0 +1,66 @@
+﻿   
+  -------- begin --------
+   
+  Cleaning project:
+  del /q GenericUserPacket.bin  
+  del /q GenericUserPacket.elf  
+  del /q GenericUserPacket.map  
+  del /q GenericUserPacket.sym  
+  del /q GenericUserPacket.lss  
+  if exist obj rmdir /s /q obj 
+  if exist dep rmdir /s /q dep 
+  mkdir obj
+  mkdir dep
+   
+  Assembling: ../../UserImport.S
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -mcpu=cortex-m7 -I.  -I../../ -I../../../c-motion/include ../../UserImport.S -o obj/UserImport.o
+   
+  Compiling C: GenericUserPacket.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/GenericUserPacket.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 GenericUserPacket.c -o obj/GenericUserPacket.o 
+GenericUserPacket.c(13,22): warning G14367C81: extra tokens at end of #include directive
+     13 | #include "c-motion.h", "C-Motion.h"
+        |                      ^
+   
+  Compiling C: ../../../c-motion/c/C-Motion.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/C-Motion.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ../../../c-motion/c/C-Motion.c -o obj/C-Motion.o 
+   
+  Compiling C: ../../../c-motion/c/PMDtrans.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/PMDtrans.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ../../../c-motion/c/PMDtrans.c -o obj/PMDtrans.o 
+   
+  Compiling C: ../../../c-motion/c/PMDdiag.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/PMDdiag.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ../../../c-motion/c/PMDdiag.c -o obj/PMDdiag.o 
+   
+  Compiling C: ../../../c-motion/c/PMDcommon.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/PMDcommon.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ../../../c-motion/c/PMDcommon.c -o obj/PMDcommon.o 
+   
+  Compiling C: ../../../c-motion/c/PMDutil.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/PMDutil.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ../../../c-motion/c/PMDutil.c -o obj/PMDutil.o 
+   
+  Compiling C: ../../startup.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/startup.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ../../startup.c -o obj/startup.o 
+   
+  Compiling C: ../../syscalls.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/syscalls.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ../../syscalls.c -o obj/syscalls.o 
+   
+  Linking: GenericUserPacket.elf
+  "..\..\GNU/bin/arm-none-eabi-gcc" -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/GenericUserPacket.elf.d -Wcast-qual -Wno-unused-variable -mhard-float obj/UserImport.o obj/GenericUserPacket.o obj/C-Motion.o obj/PMDtrans.o obj/PMDdiag.o obj/PMDcommon.o obj/PMDutil.o obj/startup.o obj/syscalls.o  --output GenericUserPacket.elf -nostartfiles  -Wl,-Map=GenericUserPacket.map,--gc-sections,--print-memory-usage -lm	 -lc -T../..//linkPMD.ld
+  Memory region         Used Size  Region Size  %age Used
+             FLASH:       14312 B       256 KB      5.46%
+               RAM:          0 GB        64 KB      0.00%
+   
+  Creating CME flash file: GenericUserPacket.bin
+  "..\..\GNU/bin/arm-none-eabi-objcopy" -O binary GenericUserPacket.elf GenericUserPacket.bin
+   
+  Creating Extended Listing: GenericUserPacket.lss
+  "..\..\GNU/bin/arm-none-eabi-objdump" -h -S -C -t GenericUserPacket.elf > GenericUserPacket.lss
+   
+  Creating Symbol Table: GenericUserPacket.sym
+  "..\..\GNU/bin/arm-none-eabi-nm" -n GenericUserPacket.elf > GenericUserPacket.sym
+   
+  Adding CRC to flash file:
+  ../../utils/bin/crc GenericUserPacket.bin
+  CRC = A1FA3CB3
+  
+  Errors: none
+  --------  end  --------
+   

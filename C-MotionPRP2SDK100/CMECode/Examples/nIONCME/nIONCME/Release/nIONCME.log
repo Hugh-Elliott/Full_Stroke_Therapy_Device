@@ -1,0 +1,123 @@
+﻿  c-motion.c
+  Examples.c
+  PMDcan.c
+  PMDcommon.c
+  PMDdiag.c
+  PMDIXXATCAN4.c
+  PMDopen.c
+  PMDPcan.c
+  PMDPser.c
+  PMDPspi.c
+  PMDPtcp.c
+  PMDser.c
+  PMDspi.c
+  PMDtrans.c
+  PMDutil.c
+  nIONCME.c
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\CMECode\Examples\nIONCME\nIONCME.c(69,20): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Pro-MotionExport.c
+  FullMotionRange.c
+  Generating Code...
+  PMDRP.cpp
+  PMDRPdevice.cpp
+  PMDRPperiph.cpp
+  AnalogExample.cpp
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\AnalogExample.cpp(20,15): warning C4101: 'version': unreferenced local variable
+  COMFUNC.cpp
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\COMFUNC.cpp(31,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\COMFUNC.cpp(18,15): warning C4101: 'rec': unreferenced local variable
+  HomeCapture.cpp
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\HomeCapture.cpp(17,15): warning C4101: 'PMDSignalEncoderHomeMask': unreferenced local variable
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\HomeCapture.cpp(15,15): warning C4101: 'RegValue': unreferenced local variable
+  LoadCellTest.cpp
+  MotionCOMTest.cpp
+  MotionCycle.cpp
+  ResistMode.cpp
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\ResistMode.cpp(11,23): warning C4002: too many arguments for function-like macro invocation 'max'
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\ResistMode.cpp(15,20): warning C4244: 'initializing': conversion from 'double' to 'PMDint16', possible loss of data
+  ReverseMove.cpp
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\ReverseMove.cpp(20,5): warning C4244: 'argument': conversion from 'double' to 'PMDuint32', possible loss of data
+  SetTrace.cpp
+  StepInput.cpp
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\StepInput.cpp(16,72): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\StepInput.cpp(79,4): warning C4244: 'argument': conversion from 'float' to 'PMDint16', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\StepInput.cpp(90,27): warning C4244: '=': conversion from 'float' to 'PMDuint16', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\StepInput.cpp(99,25): warning C4244: 'argument': conversion from 'float' to 'PMDint16', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\StepInput.cpp(113,29): warning C4244: 'argument': conversion from 'float' to 'PMDint16', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\StepInput.cpp(17,58): warning C4101: 'i': unreferenced local variable
+  StepInput2.cpp
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\StepInput2.cpp(13,72): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\StepInput2.cpp(80,46): warning C4244: '=': conversion from 'double' to 'PMDuint32', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\StepInput2.cpp(87,4): warning C4244: 'argument': conversion from 'float' to 'PMDint16', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\StepInput2.cpp(97,27): warning C4244: '=': conversion from 'float' to 'PMDuint16', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\StepInput2.cpp(106,28): warning C4244: 'argument': conversion from 'float' to 'PMDint16', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\StepInput2.cpp(120,29): warning C4244: 'argument': conversion from 'float' to 'PMDint16', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\StepInput2.cpp(142,46): warning C4244: '=': conversion from 'double' to 'PMDuint32', possible loss of data
+  TorqueAnalog.cpp
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\TorqueAnalog.cpp(27,12): warning C4244: '=': conversion from 'double' to 'PMDint16', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\TorqueAnalog.cpp(40,45): warning C4244: '=': conversion from 'double' to 'PMDint16', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\TorqueAnalog.cpp(46,19): warning C4244: '=': conversion from 'double' to 'PMDint16', possible loss of data
+  TorqueMode.cpp
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\TorqueMode.cpp(19,12): warning C4244: '=': conversion from 'double' to 'PMDint16', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\TorqueMode.cpp(23,18): warning C4244: '=': conversion from 'double' to 'PMDint16', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\TorqueMode.cpp(26,17): warning C4244: '=': conversion from 'double' to 'PMDint16', possible loss of data
+  TorqueResist2.cpp
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\TorqueResist2.cpp(41,12): warning C4244: '=': conversion from 'double' to 'PMDint16', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\TorqueResist2.cpp(51,45): warning C4244: '=': conversion from 'double' to 'PMDuint32', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\TorqueResist2.cpp(66,27): warning C4244: '=': conversion from 'double' to 'PMDint16', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\TorqueResist2.cpp(96,41): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\TorqueResist2.cpp(100,48): warning C4244: '=': conversion from 'double' to 'PMDuint32', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\TorqueResist2.cpp(119,41): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\TorqueResist2.cpp(123,48): warning C4244: '=': conversion from 'double' to 'PMDuint32', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\TorqueResist2.cpp(141,41): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\TorqueResist2.cpp(145,48): warning C4244: '=': conversion from 'double' to 'PMDuint32', possible loss of data
+  TorqueResistMode.cpp
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\TorqueResistMode.cpp(36,12): warning C4244: '=': conversion from 'double' to 'PMDint16', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\TorqueResistMode.cpp(50,26): warning C4244: '=': conversion from 'double' to 'PMDint16', possible loss of data
+  TraceTest.cpp
+  Write.cpp
+  Generating Code...
+  Compiling...
+  Write2CSV.cpp
+  Write2XLSX.cpp
+C:\Users\hjhje\vcpkg\installed\x86-windows\include\xlsxwriter\worksheet.h(1772,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  (compiling source file 'Write2XLSX.cpp')
+  
+C:\Users\hjhje\vcpkg\installed\x86-windows\include\xlsxwriter\workbook.h(771,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  (compiling source file 'Write2XLSX.cpp')
+  
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\Write2XLSX.cpp(65,50): warning C4267: 'argument': conversion from 'size_t' to 'lxw_col_t', possible loss of data
+C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\Write2XLSX.cpp(74,55): warning C4267: 'argument': conversion from 'size_t' to 'lxw_col_t', possible loss of data
+  WriteExcel.cpp
+C:\Users\hjhje\vcpkg\installed\x86-windows\include\xlsxwriter\worksheet.h(1772,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  (compiling source file 'WriteExcel.cpp')
+  
+C:\Users\hjhje\vcpkg\installed\x86-windows\include\xlsxwriter\workbook.h(771,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  (compiling source file 'WriteExcel.cpp')
+  
+  WriteExcel2.cpp
+C:\Users\hjhje\vcpkg\installed\x86-windows\include\xlsxwriter\worksheet.h(1772,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  (compiling source file 'WriteExcel2.cpp')
+  
+C:\Users\hjhje\vcpkg\installed\x86-windows\include\xlsxwriter\workbook.h(771,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  (compiling source file 'WriteExcel2.cpp')
+  
+  WriteExcelDirect.cpp
+C:\Users\hjhje\vcpkg\installed\x86-windows\include\xlsxwriter\worksheet.h(1772,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  (compiling source file 'WriteExcelDirect.cpp')
+  
+C:\Users\hjhje\vcpkg\installed\x86-windows\include\xlsxwriter\workbook.h(771,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  (compiling source file 'WriteExcelDirect.cpp')
+  
+  Generating Code...
+  nIONCME.vcxproj -> C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\Release\nIONCME.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.
+  getMutex : Cannot invoke method. Method invocation is supported only on core types in this language mode.
+  At C:\Users\hjhje\vcpkg\scripts\buildsystems\msbuild\applocal.ps1:40 char:16
+  +         $mtx = getMutex($targetBinaryDir)
+  +                ~~~~~~~~~~~~~~~~~~~~~~~~~~
+      + CategoryInfo          : NotSpecified: (:) [Write-Error], WriteErrorException
+      + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,getMutex
+   
+C:\Users\hjhje\vcpkg\scripts\buildsystems\msbuild\vcpkg.targets(247,5): warning : [vcpkg] Failed to gather app local DLL dependencies, program may not run. Set VcpkgApplocalDeps to false in your project file to suppress this warning. PowerShell arguments: -ExecutionPolicy Bypass -noprofile -File "C:\Users\hjhje\vcpkg\scripts\buildsystems\msbuild\applocal.ps1" "C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\HostCode\Examples\nIONCME\Release\nIONCME.exe" "C:\Users\hjhje\vcpkg\installed\x86-windows\bin" ".\Release\nIONCME.tlog\nIONCME.write.1u.tlog" ".\Release\vcpkg.applocal.log"

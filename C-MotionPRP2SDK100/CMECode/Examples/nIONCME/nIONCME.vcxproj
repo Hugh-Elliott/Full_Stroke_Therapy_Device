@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{50E7687E-9718-4BF8-84D1-257797B3705D}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeBuildCommandLine>build.bat</NMakeBuildCommandLine>
+    <NMakeOutput>
+    </NMakeOutput>
+    <NMakePreprocessorDefinitions>
+    </NMakePreprocessorDefinitions>
+    <NMakeCleanCommandLine>build.bat clean</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>build.bat rebuild</NMakeReBuildCommandLine>
+    <IncludePath>C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\C-Motion\Include;C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\C-Motion\C;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\C-Motion\C\C-Motion.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\Examples.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDcommon.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDdiag.c" />
+    <ClCompile Include="nIONCME.c" />
+    <ClCompile Include="Pro-MotionExport.c" />
+    <ClCompile Include="Pro-MotionExport1_15_25.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\C-Motion\Include\C-Motion.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\Examples.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDdevice.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDdiag.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDecode.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDintf.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDocode.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDperiph.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDRPtypes.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDsys.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDtrans.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDtypes.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDutil.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

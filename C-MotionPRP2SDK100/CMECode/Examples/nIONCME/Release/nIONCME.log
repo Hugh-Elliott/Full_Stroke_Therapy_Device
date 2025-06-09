@@ -1,0 +1,278 @@
+﻿   
+  -------- begin --------
+   
+  Cleaning project:
+  del /q nIONCME.bin  
+  Could Not Find C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\CMECode\Examples\nIONCME\nIONCME.bin
+  del /q nIONCME.elf  
+  Could Not Find C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\CMECode\Examples\nIONCME\nIONCME.elf
+  del /q nIONCME.map  
+  Could Not Find C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\CMECode\Examples\nIONCME\nIONCME.map
+  del /q nIONCME.sym  
+  Could Not Find C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\CMECode\Examples\nIONCME\nIONCME.sym
+  del /q nIONCME.lss  
+  Could Not Find C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\CMECode\Examples\nIONCME\nIONCME.lss
+  if exist obj rmdir /s /q obj 
+  if exist dep rmdir /s /q dep 
+  mkdir obj
+  mkdir dep
+   
+  Assembling: ../../UserImport.S
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -mcpu=cortex-m7 -I.  -I../../ -I../../../c-motion/include ../../UserImport.S -o obj/UserImport.o
+   
+  Compiling C: nIONCME.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/nIONCME.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 nIONCME.c -o obj/nIONCME.o 
+  In file included from nIONCME.c:10:
+  nIONCME.c: In function 'nIONCME':
+nIONCME.c(382,24): warning G84A3CD4A: implicit declaration of function 'Transparent' [-Wimplicit-function-declaration]
+    382 |             PMD_RESULT(Transparent(&hPeriph, &hAxis, &hPeriphLOAD));
+        |                        ^~~~~~~~~~~
+  ../../../c-motion/include/PMDdiag.h:14:38: note: in definition of macro 'PMD_RESULT'
+     14 | #define PMD_RESULT(_call)  {result = _call; if (result) PMDprintf("Error line: %d, %s   %.80s\r\n", __LINE__, PMDGetErrorMessage(result), #_call);}
+        |                                      ^~~~~
+nIONCME.c(382,24): warning G9372FA0A: nested extern declaration of 'Transparent' [-Wnested-externs]
+    382 |             PMD_RESULT(Transparent(&hPeriph, &hAxis, &hPeriphLOAD));
+        |                        ^~~~~~~~~~~
+  ../../../c-motion/include/PMDdiag.h:14:38: note: in definition of macro 'PMD_RESULT'
+     14 | #define PMD_RESULT(_call)  {result = _call; if (result) PMDprintf("Error line: %d, %s   %.80s\r\n", __LINE__, PMDGetErrorMessage(result), #_call);}
+        |                                      ^~~~~
+nIONCME.c(418,37): warning G26EC2BC0: passing argument 1 of 'PMDDeviceClose' from incompatible pointer type [-Wincompatible-pointer-types]
+    418 |     PMD_ABORTONERROR(PMDDeviceClose(&phDevice));
+        |                                     ^~~~~~~~~
+        |                                     |
+        |                                     PMDDeviceHandle ** {aka struct tagPMDDeviceHandle **}
+  ../../../c-motion/include/PMDdiag.h:14:38: note: in definition of macro 'PMD_RESULT'
+     14 | #define PMD_RESULT(_call)  {result = _call; if (result) PMDprintf("Error line: %d, %s   %.80s\r\n", __LINE__, PMDGetErrorMessage(result), #_call);}
+        |                                      ^~~~~
+  nIONCME.c:418:5: note: in expansion of macro 'PMD_ABORTONERROR'
+    418 |     PMD_ABORTONERROR(PMDDeviceClose(&phDevice));
+        |     ^~~~~~~~~~~~~~~~
+  In file included from ../../../c-motion/include/c-motion.h:19,
+                   from nIONCME.c:7:
+  ../../../c-motion/include/PMDdevice.h:148:59: note: expected 'PMDDeviceHandle *' {aka 'struct tagPMDDeviceHandle *'} but argument is of type 'PMDDeviceHandle **' {aka 'struct tagPMDDeviceHandle **'}
+    148 | PMDCFunc PMDDeviceClose                 (PMDDeviceHandle *hDevice);
+        |                                          ~~~~~~~~~~~~~~~~~^~~~~~~
+   
+  Compiling C: Pro-MotionExport1_15_25.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/Pro-MotionExport1_15_25.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 Pro-MotionExport1_15_25.c -o obj/Pro-MotionExport1_15_25.o 
+   
+  Compiling C: ../../../c-motion/c/Examples.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/Examples.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ../../../c-motion/c/Examples.c -o obj/Examples.o 
+  ../../../c-motion/c/Examples.c: In function 'ProfileMove':
+../../../c-motion/c/Examples.c(387,15): warning G183B9D1E: variable 'OperatingEnableAll' set but not used [-Wunused-but-set-variable]
+    387 |     PMDuint16 OperatingEnableAll; // I added
+        |               ^~~~~~~~~~~~~~~~~~
+   
+  Compiling C: PassiveMode2.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/PassiveMode2.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 PassiveMode2.c -o obj/PassiveMode2.o 
+  PassiveMode2.c: In function 'PassiveMode2':
+PassiveMode2.c(20,53): warning G183B9D1E: variable 'dir' set but not used [-Wunused-but-set-variable]
+     20 |  int count = 0, countInput = comConfig._rep, i = 0, dir = 1, j = 0;
+        |                                                     ^~~
+   
+  Compiling C: LoadCellFunctions.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/LoadCellFunctions.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 LoadCellFunctions.c -o obj/LoadCellFunctions.o 
+   
+  Compiling C: HomeCapture.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/HomeCapture.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 HomeCapture.c -o obj/HomeCapture.o 
+   
+  Compiling C: ReverseMove.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/ReverseMove.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ReverseMove.c -o obj/ReverseMove.o 
+   
+  Compiling C: ComFunctions.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/ComFunctions.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ComFunctions.c -o obj/ComFunctions.o 
+  In file included from ComFunctions.c:5:
+  ComFunctions.c: In function 'SendError':
+ComFunctions.c(176,39): warning G3C952465: passing argument 2 of 'PMDPeriphSend' makes pointer from integer without a cast [-Wint-conversion]
+    176 |  PMD_RESULT(PMDPeriphSend(hPeriphSer, temp, bytes2Send, 100));
+        |                                       ^~~~
+        |                                       |
+        |                                       PMDint32 {aka long int}
+  ../../../c-motion/include/PMDdiag.h:14:38: note: in definition of macro 'PMD_RESULT'
+     14 | #define PMD_RESULT(_call)  {result = _call; if (result) PMDprintf("Error line: %d, %s   %.80s\r\n", __LINE__, PMDGetErrorMessage(result), #_call);}
+        |                                      ^~~~~
+  In file included from ComFunctions.c:2:
+  ../../../c-motion/include/PMDperiph.h:156:74: note: expected 'const void *' but argument is of type 'PMDint32' {aka 'long int'}
+    156 | PMDCFunc PMDPeriphSend            (PMDPeriphHandle* hPeriph, const void *data, PMDparam nCount, PMDparam timeoutms);
+        |                                                              ~~~~~~~~~~~~^~~~
+   
+  Compiling C: Assistive2.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/Assistive2.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 Assistive2.c -o obj/Assistive2.o 
+  Assistive2.c: In function 'Assistive2':
+Assistive2.c(100,11): warning G183B9D1E: variable 'oldaccel' set but not used [-Wunused-but-set-variable]
+    100 |  PMDint32 oldaccel = 0;
+        |           ^~~~~~~~
+Assistive2.c(70,74): warning G183B9D1E: variable 'comTIME' set but not used [-Wunused-but-set-variable]
+     70 |  PMDuint32 startTime, curTime, sampleTime, cycTime, TRACESTART, serTime, comTIME;
+        |                                                                          ^~~~~~~
+Assistive2.c(52,33): warning G183B9D1E: variable 'velError' set but not used [-Wunused-but-set-variable]
+     52 |  PMDint32 vel = 0, velPred = 0, velError = 0;
+        |                                 ^~~~~~~~
+Assistive2.c(51,114): warning G183B9D1E: variable 'comTemp' set but not used [-Wunused-but-set-variable]
+     51 |  PMDint32 tempVel = 0, pVelMax = -100, pVelMin = 9999, nVelMax = -100, nVelMin = 9999, pVelAve = 0, nVelAve = 0, comTemp = 0, controlOutput = 0;
+        |                                                                                                                  ^~~~~~~
+Assistive2.c(37,24): warning G183B9D1E: variable 'max' set but not used [-Wunused-but-set-variable]
+     37 |  PMDint16 command = 0, max;
+        |                        ^~~
+   
+  Compiling C: Admittance2.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/Admittance2.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 Admittance2.c -o obj/Admittance2.o 
+   
+  Compiling C: ResistTorqueGoal2.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/ResistTorqueGoal2.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ResistTorqueGoal2.c -o obj/ResistTorqueGoal2.o 
+  ResistTorqueGoal2.c: In function 'ResistTorqueGoal2':
+ResistTorqueGoal2.c(25,24): warning G183B9D1E: variable 'max' set but not used [-Wunused-but-set-variable]
+     25 |  PMDint16 command = 0, max, comInput = comConfig._torq;
+        |                        ^~~
+   
+  Compiling C: StepResponse.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/StepResponse.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 StepResponse.c -o obj/StepResponse.o 
+  StepResponse.c: In function 'StepResponse':
+StepResponse.c(188,1): warning GE268A9FD: control reaches end of non-void function [-Wreturn-type]
+    188 | }
+        | ^
+   
+  Compiling C: LoadCellCME.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/LoadCellCME.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 LoadCellCME.c -o obj/LoadCellCME.o 
+   
+  Compiling C: AssistiveForce.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/AssistiveForce.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 AssistiveForce.c -o obj/AssistiveForce.o 
+  AssistiveForce.c: In function 'AssistiveForce':
+AssistiveForce.c(317,9): warning G3FC1A267: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+    317 |   if (i == 4 & firstRun == 0) j = 14;
+        |       ~~^~~~
+AssistiveForce.c(82,74): warning G183B9D1E: variable 'comTIME' set but not used [-Wunused-but-set-variable]
+     82 |  PMDuint32 startTime, curTime, sampleTime, cycTime, TRACESTART, serTime, comTIME, loadCycTime;
+        |                                                                          ^~~~~~~
+AssistiveForce.c(48,9): warning G183B9D1E: variable 'kd' set but not used [-Wunused-but-set-variable]
+     48 |  double kd = 0;
+        |         ^~
+AssistiveForce.c(35,24): warning G183B9D1E: variable 'max' set but not used [-Wunused-but-set-variable]
+     35 |  PMDint16 command = 0, max;
+        |                        ^~~
+   
+  Compiling C: SaveOnly.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/SaveOnly.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 SaveOnly.c -o obj/SaveOnly.o 
+   
+  Compiling C: Transparent.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/Transparent.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 Transparent.c -o obj/Transparent.o 
+  Transparent.c: In function 'Transparent':
+Transparent.c(47,74): warning G183B9D1E: variable 'comTIME' set but not used [-Wunused-but-set-variable]
+     47 |  PMDuint32 startTime, curTime, sampleTime, cycTime, TRACESTART, serTime, comTIME, loadCycTime;
+        |                                                                          ^~~~~~~
+Transparent.c(27,24): warning G183B9D1E: variable 'max' set but not used [-Wunused-but-set-variable]
+     27 |  PMDint16 command = 0, max;
+        |                        ^~~
+Transparent.c(27,11): warning G183B9D1E: variable 'command' set but not used [-Wunused-but-set-variable]
+     27 |  PMDint16 command = 0, max;
+        |           ^~~~~~~
+   
+  Compiling C: Impedance.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/Impedance.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 Impedance.c -o obj/Impedance.o 
+  Impedance.c: In function 'Impedance':
+Impedance.c(301,9): warning G3FC1A267: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+    301 |   if (i == 4 & firstRun == 0) j = 14;
+        |       ~~^~~~
+Impedance.c(93,74): warning G183B9D1E: variable 'comTIME' set but not used [-Wunused-but-set-variable]
+     93 |  PMDuint32 startTime, curTime, sampleTime, cycTime, TRACESTART, serTime, comTIME, loadCycTime, deltaT = 0;
+        |                                                                          ^~~~~~~
+Impedance.c(67,9): warning G183B9D1E: variable 'Fext' set but not used [-Wunused-but-set-variable]
+     67 |  double Fext = 0.0;
+        |         ^~~~
+Impedance.c(59,9): warning G183B9D1E: variable 'kd' set but not used [-Wunused-but-set-variable]
+     59 |  double kd = 0;
+        |         ^~
+Impedance.c(55,9): warning G183B9D1E: variable 'Dd' set but not used [-Wunused-but-set-variable]
+     55 |  double Dd = 0.0;
+        |         ^~
+Impedance.c(36,24): warning G183B9D1E: variable 'max' set but not used [-Wunused-but-set-variable]
+     36 |  PMDint16 command = 0, max;
+        |                        ^~~
+Impedance.c(28,6): warning G183B9D1E: variable 'saved' set but not used [-Wunused-but-set-variable]
+     28 |  int saved = 0;
+        |      ^~~~~
+   
+  Compiling C: AssistTrajectory.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/AssistTrajectory.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 AssistTrajectory.c -o obj/AssistTrajectory.o 
+  AssistTrajectory.c: In function 'trapProfile':
+AssistTrajectory.c(47,1): warning G06B731C0: no return statement in function returning non-void [-Wreturn-type]
+     47 | }
+        | ^
+  AssistTrajectory.c: In function 'trapProfile2':
+AssistTrajectory.c(67,1): warning G06B731C0: no return statement in function returning non-void [-Wreturn-type]
+     67 | }
+        | ^
+  AssistTrajectory.c: In function 'AssistTrajectory':
+AssistTrajectory.c(583,9): warning G3FC1A267: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+    583 |   if (i == 4 & firstRun == 0) j = 14;
+        |       ~~^~~~
+AssistTrajectory.c(187,74): warning G183B9D1E: variable 'comTIME' set but not used [-Wunused-but-set-variable]
+    187 |  PMDuint32 startTime, curTime, sampleTime, cycTime, TRACESTART, serTime, comTIME, loadCycTime, deltaT = 0, waitTime;
+        |                                                                          ^~~~~~~
+   
+  Compiling C: ReturnHome.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/ReturnHome.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ReturnHome.c -o obj/ReturnHome.o 
+  ReturnHome.c: In function 'ReturnHome':
+ReturnHome.c(35,1): warning GE268A9FD: control reaches end of non-void function [-Wreturn-type]
+     35 | }
+        | ^
+   
+  Compiling C: EKF.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/EKF.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 EKF.c -o obj/EKF.o 
+  EKF.c: In function 'EKF_Update':
+EKF.c(101,23): warning G189E2254: missing braces around initializer [-Wmissing-braces]
+    101 |  float H_Tran[1][2] = { H[0], H[1] };
+        |                       ^
+        |                         {          }
+EKF.c(120,13): warning G26EC2BC0: passing argument 1 of 'mat2x2_sub' from incompatible pointer type [-Wincompatible-pointer-types]
+    120 |  mat2x2_sub(I2,KH, I_KH);
+        |             ^~
+        |             |
+        |             const float (*)[2]
+  EKF.c:25:44: note: expected 'const double (*)[2]' but argument is of type 'const float (*)[2]'
+     25 | static inline void mat2x2_sub(const double A[2][2], const double B[2][2], double out[2][2]) {
+        |                               ~~~~~~~~~~~~~^~~~~~~
+   
+  Compiling C: ../../../c-motion/c/C-Motion.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/C-Motion.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ../../../c-motion/c/C-Motion.c -o obj/C-Motion.o 
+   
+  Compiling C: ../../../c-motion/c/PMDtrans.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/PMDtrans.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ../../../c-motion/c/PMDtrans.c -o obj/PMDtrans.o 
+   
+  Compiling C: ../../../c-motion/c/PMDdiag.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/PMDdiag.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ../../../c-motion/c/PMDdiag.c -o obj/PMDdiag.o 
+   
+  Compiling C: ../../../c-motion/c/PMDcommon.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/PMDcommon.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ../../../c-motion/c/PMDcommon.c -o obj/PMDcommon.o 
+   
+  Compiling C: ../../../c-motion/c/PMDutil.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/PMDutil.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ../../../c-motion/c/PMDutil.c -o obj/PMDutil.o 
+   
+  Compiling C: ../../startup.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/startup.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ../../startup.c -o obj/startup.o 
+   
+  Compiling C: ../../syscalls.c
+  "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/syscalls.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ../../syscalls.c -o obj/syscalls.o 
+   
+  Linking: nIONCME.elf
+  "..\..\GNU/bin/arm-none-eabi-gcc" -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/nIONCME.elf.d -Wcast-qual -Wno-unused-variable -mhard-float obj/UserImport.o obj/nIONCME.o obj/Pro-MotionExport1_15_25.o obj/Examples.o obj/PassiveMode2.o obj/LoadCellFunctions.o obj/HomeCapture.o obj/ReverseMove.o obj/ComFunctions.o obj/Assistive2.o obj/Admittance2.o obj/ResistTorqueGoal2.o obj/StepResponse.o obj/LoadCellCME.o obj/AssistiveForce.o obj/SaveOnly.o obj/Transparent.o obj/Impedance.o obj/AssistTrajectory.o obj/ReturnHome.o obj/EKF.o obj/C-Motion.o obj/PMDtrans.o obj/PMDdiag.o obj/PMDcommon.o obj/PMDutil.o obj/startup.o obj/syscalls.o  --output nIONCME.elf -nostartfiles  -Wl,-Map=nIONCME.map,--gc-sections,--print-memory-usage -lm	 -lc -T../..//linkPMD.ld
+  Memory region         Used Size  Region Size  %age Used
+             FLASH:      112304 B       256 KB     42.84%
+               RAM:        1168 B        64 KB      1.78%
+   
+  Creating CME flash file: nIONCME.bin
+  "..\..\GNU/bin/arm-none-eabi-objcopy" -O binary nIONCME.elf nIONCME.bin
+   
+  Creating Extended Listing: nIONCME.lss
+  "..\..\GNU/bin/arm-none-eabi-objdump" -h -S -C -t nIONCME.elf > nIONCME.lss
+   
+  Creating Symbol Table: nIONCME.sym
+  "..\..\GNU/bin/arm-none-eabi-nm" -n nIONCME.elf > nIONCME.sym
+   
+  Adding CRC to flash file:
+  ../../utils/bin/crc nIONCME.bin
+  CRC = 8A467966
+  
+  Errors: none
+  --------  end  --------
+   

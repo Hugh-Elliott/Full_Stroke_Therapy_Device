@@ -1,0 +1,138 @@
+CMESDK2 Release Notes
+====================
+
+This file contains information pertaining to the releases of the  
+Performance Motion Devices C-Motion Engine Software Development Kit II (CMESDK2).
+
+Version 1.00	5/30/2024
+
+	C-Motion version 10.1
+
+	TCP now attempts to reconnect when connection is dropped as in the case of a device reset.
+	Modified : /CMESDK/C-Motion/C/PMDPtcp.c
+
+	Fixed - specifying a timeout of 0 is supposed to return immediately with any or no chars received.
+	Modified : /CMESDK/C-Motion/C/PMDPser.c
+
+	Modified some PMD_DefaultsEnum enums to match documentation.
+	Modified : /CMESDK/C-Motion/Include/PMDRPtypes.h
+
+	Fixed compiler warnings with x64 build
+	Modified : /CMESDK/C-Motion/C/PMDRP.cpp
+	Modified : /CMESDK/C-Motion/C/PMDcommon.c
+	Modified : /CMESDK/C-Motion/Include/PMDsys.h
+
+	Added missing PMDDeviceOpenPeriphCME to PMDopen.c.
+	Modified : /CMESDK/C-Motion/C/PMDRPdevice.cpp
+	Modified : /CMESDK/C-Motion/C/PMDopen.c
+	Modified : /CMESDK/C-Motion/Include/PMDperiph.h
+	Modified : /CMESDK/CMECode/Examples/GenericUserPacket/GenericUserPacket.c
+
+	Removed "Motor" from PMDPhaseParameterPulseMotorCommand to be consistent with the manual.
+	Modified : /CMESDK/C-Motion/Include/PMDtypes.h
+	Modified : /CMESDK/CMECode/Examples/nIONCME/Pro-MotionExport.c
+	Modified : /CMESDK/HostCode/Examples/MotionProcessor/Pro-MotionExport.c
+
+	Added support for InitializePhase() for 2-phase BLDC (closed-loop stepper).
+	Modified : /CMESDK/C-Motion/C/PMDutil.c
+
+	Prevent another thread from communicating to the Magellan and corrupting the data during an NVRAM block write.
+	Modified : /CMESDK/C-Motion/C/PMDser.c
+
+	Removed the 1 sec wait after sending a reset in case the user wants to do other tasks while waiting for the board to come out of reset.
+	Modified : /CMESDK/C-Motion/C/PMDRP.cpp
+
+	Added PMDPeripheralCANFD class.
+	Modified /CMESDK/HostCode/DLLBuild/c-motion.def
+	Modified /CMESDK/HostCode/DotNet/CSTestApp/Program.cs
+	Modified /CMESDK/HostCode/DotNet/ClassLibrary/PMDLibrary.vb
+
+Version 0.43	11/01/2023
+
+	Documentation updates
+
+Version 0.42	10/24/2023
+
+	Magellan Motion Control IC User Guide.pdf	v3.0
+	C-Motion.dll was not exporting functions as __stdcall.
+	PRP over CANFD required an added length field because the DLC bit field is not linear.
+	Simplified handling of the PRP 3 padding bytes. (PMDRP.cpp, PMDRPperiph.cpp)
+	Fixed - The NVRAM erase command were timing out prematurely which cause subsequent communications to fail.
+	Fixed - PMDIXXATCAN4.c was not handling multiple packets sent/received in a sequence.
+	Switched to v4 of the IXXAT driver.
+
+Version 0.41	4/04/2023
+
+	32-bit align SPIpacket[] buffer.
+	Some changes to the host SPI driver (PMDPspi.c) to simplify embedded migration.
+	
+Version 0.40	3/08/2023
+
+	Fixed some missing or incorrect PRP II functions.
+	Modified : /CMESDK/C-Motion/Include/PMDdevice.h
+	Modified : /CMESDK/CMECode/UserImport.S
+
+	Added PMD_Default_TCPKeepAliveInterval
+	Modified : /CMESDK/C-Motion/Include/PMDRPtypes.h
+
+	Return PMD_ERR_MutexTimeout if mutex lock fails.
+	Yield to any waiting tasks after unlocking the mutex to prevent starving other tasks.
+	Modified : /CMESDK/C-Motion/C/PMDRPperiph.cpp
+
+	Fixed - AddFilter was returning "The component is not initialized."
+	Modified : /CMESDK/C-Motion/C/PMDIXXATCAN4.c
+
+	Fixed - compiling with OPT = 3 was reordering the user task functions
+	Modified : /CMESDK/CMECode/Makefile
+
+	Renamed SSI Resolution to BiSS Resolution
+	Modified : /CMESDK/C-Motion/Include/PMDRPtypes.h
+	
+	Improvements to StoreUserCode.exe.
+	Added some command line switches.
+	Added LogPRPConsole().
+	Modified : /CMESDK/HostCode/Examples/StoreUserCode/StoreUserCode.c
+	Modified : /CMESDK/HostCode/Release/StoreUserCode.exe
+
+Version 0.30	10/05/2022
+
+	C-Motion version 10.0
+	Renamed "event" variable which is a keyword in VB.
+	Host SPI implementation (16-bit aligned)
+	Fixed - memory leak caused by creating more than one mutex. 
+	Fixed potential buffer overflow in GetUserCode??? functions
+	Fixed exception when closing an invalid memory or device handle.
+	Added PMDDeviceInfo_Heap
+	Fixed remote/attached device access.
+	New API naming convention
+	Moved all "PMD_" enums for generating PRP packets only into newly created PMDrpcode.h. 
+	Added NVRAM1 and NVRAM2 individual 128K sectors of 256K NVRAM to access individual sectors.
+	PMDser.c: Fixed - mutex was not being unlocked on certain error conditions.
+	PMDser.c: Removed PMDPeriphFlush before sending a Magellan command. 
+	Fixed - Specific user code was generating a new section (.ARM.exidx) that caused the CopyDataSectionToRAM to be off by 4 bytes.
+	Fixed - Compiler optimization level (OPT=0) can now be set from 0 to 3. Default is 0 to ease debugging.
+	Return PMD_ERR_Timeout if Magellan does not respond instead of PMD_ERR_InsufficientDataReceived.
+
+Version 0.22	05/26/2022
+
+	Changes:
+	Fixed compiler errors and warnings
+	Renamed PAR to PIO
+	Removed PMDPCOM_SetTimeout from PMDPCOM_Send because handshaking is not enabled.
+	PMDIXXATCAN4.c:  Was not able to receive more than 8-byte buffers.
+	Fixed - potential memory leak if PMDRPDeviceOpen failed.
+	Added higher serial baud rates that nION can support
+	Added PMDDeviceGetInfo
+	Changed PMDFaultCode_Exception_? values to fit in the subcommand byte
+
+	Known issues:
+	Host SPI not fully implemented.
+
+
+Version 0.21	12/23/2020
+	Fixed - PMDRP.c, PMDRP.h had incorrect definitions for SendPacket and ReceivePacket 
+causing the base class version to be called returning PMD_ERR_InterfaceNotInitialized.
+
+
+Version 0.20 
+	First beta version

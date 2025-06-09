@@ -1,0 +1,10 @@
+﻿   
+  -------- begin --------
+   
+  Adding CRC to flash file:
+  ../../utils/bin/crc Hello.bin
+  CRC = 4836E600
+  
+  Errors: none
+  --------  end  --------
+   
