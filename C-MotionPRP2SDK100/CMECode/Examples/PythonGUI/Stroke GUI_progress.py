@@ -2,10 +2,12 @@
 nIONcon = True              # Turns on/ off serial communication
 TEST = False                 # Test functions for send/ receive
 ALLDATA = False           # Switches between receiving all data at the end or as it goes
-SIMULATION = False      # Turns on/off matlab simulation code
+SIMULATION = True      # Turns on/off matlab simulation code
 plotOn = True                   # Turns on/off plotting using matplotlib
 SENDINLOOP = False      # Turns on/off including the Send function in the main loop vs only calling the Send function when a button is pressed
-TRAJFORCE = True            # Turns on/off saving the force components from Assitive Mode Trajectory
+TRAJFORCE = False            # Turns on/off saving the force components from Assitive Mode Trajectory
+TRAJVAR = True              # Saves x0_dot and x0_ddot
+NORESAMPLE = False             # If a resampled time is used for Assistive Trajectory Simulation
 
 from tkinter import *
 from tkinter import ttk
@@ -140,6 +142,7 @@ KdImpEntryVar.set(45)
 
 # Variables needed for the trajectory force breakdown
 if (TRAJFORCE):
+    # Save flags
     TFSave = 0
     FSave = 0
     FextSave = 0
@@ -149,6 +152,7 @@ if (TRAJFORCE):
     TvSave = 0
     aSave = 0
 
+    # Saving Arrays
     TIMEFORCE = []
     FORCE = []
     FEXT = []
@@ -158,6 +162,7 @@ if (TRAJFORCE):
     TV = []
     ACCELERATION = []
 
+    # Unit adjusted arrays
     TIMEFORCE2 = []
     FORCE2 = []
     FEXT2 = []
@@ -166,6 +171,19 @@ if (TRAJFORCE):
     TC2 = []
     TV2 = []
     ACCELERATION2 = []
+
+if (TRAJVAR):
+    # Save flags
+    x0_dotSave = 0
+    x0_ddotSave = 0
+
+    # Saving Arrays
+    X0_DOT = []
+    X0_DDOT = []
+
+    # Unit adjusted arrays
+    X0_DOT2 = []
+    X0_DDOT2 = []
     
 def print_dimensions():
     width = window.winfo_width()
@@ -529,9 +547,13 @@ def Receive():
     global Kd_Imp
     global mSAVED, MdSAVED, DdSAVED, KdSAVED
 
+    global X0_DOT, X0_DDOT, x0_dotSave, x0_ddotSave
+
     allSaveFlags = tSave|pSave|vSave|fSave|mSave|dSave|mImpSave|MdImpSave|DdImpSave|KdImpSave
     if(TRAJFORCE):
         allSaveFlags = allSaveFlags|TFSave|FSave|FextSave|e_termSave|e_dot_termSave|TcSave|TvSave|aSave
+    if (TRAJVAR):
+        allSaveFlags = allSaveFlags|x0_dotSave|x0_ddotSave
     try:
         ion = [0x00]
         if (NIONCME.in_waiting > 0 and allSaveFlags == 0):
@@ -591,6 +613,11 @@ def Receive():
                 print("ion = <Z")
             if (TRAJFORCE and M == 77):
                 TrajFlag(ion)
+            if (TRAJVAR and M == 77):
+                if (ion == b'<d>'):
+                    x0_dotSave = 1
+                if (ion == b'<b>'):
+                    x0_ddotSave = 1
         
         if (NIONCME.in_waiting > 3):
             ion = NIONCME.read(4)
@@ -630,6 +657,11 @@ def Receive():
                     print(f"Received {icount} raw bytes: {ion.hex()}")
                 if (TRAJFORCE and M == 77):
                     TrajFlag(ion)
+                if (TRAJVAR and M == 77):
+                    if (x0_dotSave):
+                        x0_dotSave = 0
+                    if (x0_ddotSave):
+                        x0_ddotSave = 0
             else:
                 if (tSave):
                     TIME.append(temp)
@@ -678,6 +710,12 @@ def Receive():
                     print(f"{temp}")
                 if (TRAJFORCE and M == 77):
                     TrajFlag(ion)
+                if (TRAJVAR and M == 77):
+                    if (x0_dotSave):
+                        X0_DOT.append(temp)
+                    if (x0_ddotSave):
+                        X0_DDOT.append(temp)
+                    
             if(ALLDATA):
                 icount = len(ion)
                 #print(f"Received {icount} raw bytes: {ion.hex()}")            
@@ -709,6 +747,9 @@ def Receive():
                 DesVeL2 = [(i-vOffset) for i in DesVeL]
             if (M == 77):
                 DesVeL2 = [((i-vOffset)*.01) for i in DesVeL]
+                if (SIMULATION):
+                    X0_DOT2 = [((i-vOffset)*.01) for i in X0_DOT]
+                    X0_DDOT2 = [((i-vOffset)*.01) for i in X0_DDOT]
             # Opens file and writes data
             #if (LastM != M):
               #  M = LastM
@@ -758,7 +799,13 @@ def Receive():
             file1.write(f"force = {force2};" + '\n')
             file1.write(f"motCom = {motCom2};" + '\n')
             #file1.write(f"%motCom2 size = {mSize}" + '\n')
-            file1.write(f"desvel = {DesVeL2};" + '\n')
+            if (M == 77):
+                file1.write(f"x0 = {DesVeL2};" + '\n')
+                if (SIMULATION):
+                    file1.write(f"x0_dot = {X0_DOT2};" + '\n')
+                    file1.write(f"x0_ddot = {X0_DDOT2};" + '\n')
+            else:
+                file1.write(f"desvel = {DesVeL2};" + '\n')
             file1.write("vel2 = 0;" + '\n')
             file1.write("d = size(pos);" + '\n')
             file1.write("velApp = 0;" + '\n')
@@ -790,7 +837,7 @@ def Receive():
             file1.write("plot(time, pos, 'LineWidth', 1)"+'\n')
             if (M == 77):
                 file1.write("hold on" + '\n')
-                file1.write("plot(time, desvel, 'LineWidth', 1)"+'\n')
+                file1.write("plot(time, x0, 'LineWidth', 1)"+'\n')
                 file1.write("legend('Actual Position', 'x0')"+'\n')
                 file1.write("hold off" + '\n')
             file1.write("grid on" + '\n')
@@ -912,19 +959,36 @@ def Receive():
             if (SIMULATION and M == 77):
                 modelname = 'AssistTrajectory'
                 file1.write("figure(3)" + '\n')
-                file1.write("ForceIn = timeseries(force.', time);" + '\n')
-                file1.write("X0In = timeseries(desvel.', time);" + '\n')
+                if (NORESAMPLE): 
+                    file1.write("ForceIn = timeseries(force.', time);" + '\n')
+                    file1.write("X0In = timeseries(x0.', time);" + '\n')
+                    file1.write("X0_DOTIn = timeseries(x0_dot.', time);" + '\n')
+                    file1.write("X0_DDOTIn = timeseries(x0_ddot.', time);" + '\n')
+                else:
+                    file1.write("new_time = 0:0.001:max(time);" + '\n')
+                    file1.write("Ftemp = spline(time, force, new_time);" + '\n')
+                    file1.write("x0temp = spline(time, x0, new_time);" + '\n')
+                    file1.write("x0dottemp = spline(time, x0_dot, new_time);" + '\n')
+                    file1.write("x0ddottemp = spline(time, x0_ddot, new_time);" + '\n')
+                    file1.write("ForceIn = timeseries(Ftemp.', new_time);" + '\n')
+                    file1.write("X0In = timeseries(x0temp.', new_time);" + '\n')
+                    file1.write("X0_DOTIn = timeseries(x0dottemp.', new_time);" + '\n')
+                    file1.write("X0_DDOTIn = timeseries(x0ddottemp.', new_time);" + '\n')
                 file1.write(f"load_system('{modelname}');" + '\n')
                 file1.write(f"set_param('{modelname}', 'StopTime', num2str(max(time)));" + '\n')
                 file1.write(f"set_param('{modelname}/m', 'Value', num2str({m_Imp}));" + '\n')
                 file1.write(f"set_param('{modelname}/Md', 'Value', num2str({Md_Imp}));" + '\n')
                 file1.write(f"set_param('{modelname}/Dd', 'Value', num2str({Dd_Imp}));" + '\n')
                 file1.write(f"set_param('{modelname}/Kd', 'Value', num2str({Kd_Imp}));" + '\n')
+                if (TRAJVAR):
+                    file1.write(f"set_param('{modelname}/Impedance Control2/DerivativeVsWorkspace/Use Workspace', 'Value', num2str(1));" + '\n')
+                else:
+                    file1.write(f"set_param('{modelname}/Impedance Control2/DerivativeVsWorkspace/Use Workspace', 'Value', num2str(0));" + '\n')
                 file1.write(f"out = sim('{modelname}.slx');" + '\n')
                 file1.write('\n')
                 file1.write("plot(time, pos, 'LineWidth', 1)" + '\n')
                 file1.write("hold on" + '\n')
-                file1.write("plot(time, desvel, 'LineWidth', 1)" + '\n')
+                file1.write("plot(time, x0, 'LineWidth', 1)" + '\n')
                 file1.write("plot(out.Pos.Time, out.Pos.Data, 'LineWidth', 1)" + '\n')
                 file1.write("legend('Actual Position', 'x0', 'x-sim')" + '\n')
                 file1.write("hold off" + '\n')
@@ -965,6 +1029,9 @@ def Receive():
             MdSAVED = 1
             DdSAVED = 1
             KdSAVED = 1
+
+            X0_DOT = []
+            X0_DDOT = []
             
     except Exception as e:
         print(f"Error receiving data: {e}")
@@ -1200,6 +1267,22 @@ def Sizing():
             if (ACCELSize < sizeMax and ACCELSize >0):
                 for i in range(ACCELSize, sizeMax):
                     ACCELERATION.append(ACCELERATION[-1])
+        if (SIMULATION and M == 77):
+            global X0_DOT, X0_DDOT
+
+            if (X0_DOT == []):
+                X0_DOT.append(0)
+            if (X0_DDOT == []):
+                X0_DDOT.append(0)
+            x0dotSize = len(X0_DOT)
+            x0ddotSize = len(X0_DDOT)
+
+            if (x0dotSize < sizeMax and x0dotSize > 0):
+                for i in range(x0dotSize, sizeMax):
+                    X0_DOT.append(X0_DOT[-1])
+            if (x0ddotSize < sizeMax and x0ddotSize > 0):
+                for i in range(x0ddotSize, sizeMax):
+                    X0_DDOT.append(X0_DDOT[-1])
             
     except Exception as e:
         print(f"Sizing Error: {e}")

@@ -16,7 +16,8 @@
 #define VELDIRINT 0
 #define TRAPPROFILE 01
 #define EKFONLINE 0
-#define SENDTRAJFORCE 01
+#define SENDTRAJFORCE 0
+#define TRAJVAR 01
 
 static double trapProfile(double a, double v_max, double* v_peak, double* TimeAccel, double* TimeCon, double* TimeTotal, double posMaxCM, double posMinCM) {
 
@@ -124,6 +125,7 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 	double velPeak = 0;
 	double x0_dot_prev = x0_dot;
 	x0_ddot = 10; // cm/s^2
+	x0_dot = 0;
 	double accel = x0_ddot;
 	double TimeAccel =  velMaxCM / x0_ddot;
 	double x_accel = 0.5 * x0_ddot * TimeAccel * TimeAccel;
@@ -256,6 +258,12 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 
 
 #endif // SENDTRAJFORCE
+	
+	// Used if x0_dot and x0_ddot are to be saved
+#if TRAJVAR == 1
+	PMDint32 X0_DOT[arraySize] = { 0 };
+	PMDint32 X0_DDOT[arraySize] = { 0 };
+#endif
 
 	// Size of arrays
 	int tSize = 0, pSize = 0, vSize = 0, mSize = 0, fSize = 0, dSize = 0;
@@ -282,6 +290,11 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 	VeL[i] = 0 + vOffset;
 	force[i] = (0 + fOffset);
 	DesVeL[i] = 0 + vOffset;
+
+#if TRAJVAR == 1
+	X0_DOT[i] = 0;
+	X0_DDOT[i] = 0;
+#endif
 
 	SendParts(hPeriphSer, binSave, TIME[i], POS[i], VeL[i], force[i], motCom[i], DesVeL[i]);
 	i++;
@@ -502,6 +515,16 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 					DesVeL[i] = 100*x0 + vOffset;
 #endif
 				}
+#if TRAJVAR == 1
+				X0_DOT[i] = x0_dot * 100 + vOffset;
+				if (fabs(x0_ddot) != accel) {
+					X0_DDOT[i] = x0_ddot * 100 * 100 + vOffset;
+				}
+				else {
+					X0_DDOT[i] = x0_ddot * 100 + vOffset;
+				}
+				SendTrajValues(hPeriphSer, X0_DOT[i], X0_DDOT[i]);
+#endif
 
 				x_dot = (VeL[j] - vOffset) * counts2cm*10;
 #ifndef SINECURVE

@@ -412,3 +412,24 @@ void SendTrajForce(PMDPeriphHandle* hPeriphSer, int TIMEFORCE, int F, int Fext, 
 
 
 }
+
+void SendTrajValues(PMDPeriphHandle* hPeriphSer, PMDint32 x0_dot, PMDint32 x0_ddot) {
+	PMDresult result;
+	char label[3] = { '<', 'G', '>' };
+	char endlabel[4] = { '>', '>', '>', '>' };
+	PMDint32
+		x0dotArr[1] = { x0_dot },
+		x0ddotArr[1] = { x0_ddot };
+
+	// x0_dot
+	label[1] = 'd';
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &label, 3, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &x0dotArr, 4, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &endlabel, 4, .1));
+
+	// x0_ddot
+	label[1] = 'b';
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &label, 3, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &x0ddotArr, 4, .1));
+	PMD_RESULT(PMDPeriphSend(hPeriphSer, &endlabel, 4, .1));
+}
