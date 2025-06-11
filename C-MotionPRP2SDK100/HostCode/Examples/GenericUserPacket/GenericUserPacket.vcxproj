@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <ProjectGuid>{F2221DB3-6BF7-CB46-001A-2F11C2B1E29A}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Release\</OutDir>
+    <IntDir>.\Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\Debug\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <EmbedManifest>false</EmbedManifest>
+    <IncludePath>C:\Program Files %28x86%29\Windows Kits\10\Include\10.0.22621.0\um;C:\Program Files %28x86%29\Windows Kits\10\Include\10.0.22621.0\ucrt;C:\Program Files %28x86%29\Windows Kits\10\Include\10.0.22621.0\shared;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include;C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\CMECode\GNU\arm-none-eabi\include\sys;C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\CMECode\GNU\arm-none-eabi\lib;C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\CMECode\GNU\arm-none-eabi\include;C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\CMECode\GNU\arm-none-eabi\bin;C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\CMECode\GNU\arm-none-eabi;C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\C-Motion\Include;C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\C-Motion\C;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <EmbedManifest>false</EmbedManifest>
+    <IncludePath>C:\Program Files %28x86%29\Windows Kits\10\Include\10.0.22621.0\um;C:\Program Files %28x86%29\Windows Kits\10\Include\10.0.22621.0\ucrt;C:\Program Files %28x86%29\Windows Kits\10\Include\10.0.22621.0\shared;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include;C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\CMECode\GNU\arm-none-eabi\include\sys;C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\CMECode\GNU\arm-none-eabi\lib;C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\CMECode\GNU\arm-none-eabi\include;C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\CMECode\GNU\arm-none-eabi\bin;C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\CMECode\GNU\arm-none-eabi;C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\C-Motion\Include;C:\Users\hjhje\Downloads\PMDSoftwareNION600\C-MotionPRP2SDK100\C-Motion\C;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>../../../C-Motion/Include;../../../C-Motion/Include/IXXAT4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;USE_CAN_INTERFACE;USE_SPI_INTERFACE;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderOutputFile>.\Release\GenericUserPacket.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <Midl>
+      <TypeLibraryName>.\Release\GenericUserPacket.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\GenericUserPacket.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>.\Release\GenericUserPacket.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\..\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DelayLoadDLLs>ni845x.dll;vcinpl2.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <AdditionalDependencies>ni845x.lib;vcinpl2.lib;Ws2_32.lib;delayimp.lib;%(AdditionalDependencies);</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>../../../C-Motion/Include;../../../C-Motion/Include/IXXAT4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;USE_CAN_INTERFACE;USE_SPI_INTERFACE;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderOutputFile>.\Release\GenericUserPacket.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <Midl>
+      <TypeLibraryName>.\Release\GenericUserPacket.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\GenericUserPacket.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>.\Release\GenericUserPacket.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\..\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DelayLoadDLLs>ni845x.dll;vcinpl2.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <AdditionalDependencies>ni845x.lib;vcinpl2.lib;Ws2_32.lib;delayimp.lib;%(AdditionalDependencies);</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>../../../C-Motion/Include;../../../C-Motion/Include/IXXAT4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;USE_CAN_INTERFACE;USE_SPI_INTERFACE;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BrowseInformation>true</BrowseInformation>
+      <PrecompiledHeaderOutputFile>.\Debug\GenericUserPacket.pch</PrecompiledHeaderOutputFile>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+    </ClCompile>
+    <Midl>
+      <TypeLibraryName>.\Debug\GenericUserPacket.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug\GenericUserPacket.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>.\Debug\GenericUserPacket.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\..\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DelayLoadDLLs>ni845x.dll;vcinpl2.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <AdditionalDependencies>ni845x.lib;vcinpl2.lib;Ws2_32.lib;delayimp.lib;%(AdditionalDependencies);</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>../../../C-Motion/Include;../../../C-Motion/Include/IXXAT4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;USE_CAN_INTERFACE;USE_SPI_INTERFACE;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BrowseInformation>true</BrowseInformation>
+      <PrecompiledHeaderOutputFile>.\Debug\GenericUserPacket.pch</PrecompiledHeaderOutputFile>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+    </ClCompile>
+    <Midl>
+      <TypeLibraryName>.\Debug\GenericUserPacket.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug\GenericUserPacket.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>.\Debug\GenericUserPacket.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\..\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DelayLoadDLLs>ni845x.dll;vcinpl2.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <AdditionalDependencies>ni845x.lib;vcinpl2.lib;Ws2_32.lib;delayimp.lib;%(AdditionalDependencies);</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\C-Motion\C\c-motion.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDIXXATCAN4.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDPspi.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDspi.c" />
+    <ClCompile Include="..\nIONCME\SPIMaster.c" />
+    <ClCompile Include="GenericUserPacket.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDcan.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDcommon.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDdiag.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDopen.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDPcan.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDPser.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDPtcp.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDRP.cpp" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDRPdevice.cpp" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDRPperiph.cpp" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDser.c" />
+    <ClCompile Include="..\..\..\C-Motion\C\PMDtrans.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\C-Motion\Include\c-motion.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDdevice.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDdiag.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDecode.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDintf.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDIXXATCAN.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDmutex.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDocode.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDperiph.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDPfunc.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDRP.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDrpdevice.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDRPperiph.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDRPtypes.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDsys.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDtrans.h" />
+    <ClInclude Include="..\..\..\C-Motion\Include\PMDtypes.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
