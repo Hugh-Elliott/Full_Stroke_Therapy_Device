@@ -105,7 +105,7 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 	double Kd = comImp._Kd;
 
 	double mMd = (m*1.0) / (Md*1.0);
-	double fgain = mMd - 1;
+	double fgain = -1 * (mMd - 1);
 	double Fext = 0.0;
 	double e = 0.0;
 	double e_dot = 0.0;
