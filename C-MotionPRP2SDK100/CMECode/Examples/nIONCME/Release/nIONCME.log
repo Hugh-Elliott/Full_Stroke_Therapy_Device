@@ -266,7 +266,7 @@ EKF.c(120,13): warning G26EC2BC0: passing argument 1 of 'mat2x2_sub' from incomp
    
   Adding CRC to flash file:
   ../../utils/bin/crc nIONCME.bin
-  CRC = DBC02939
+  CRC =  2322237
   
   Errors: none
   --------  end  --------

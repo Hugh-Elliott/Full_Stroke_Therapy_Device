@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\hjhje\\Downloads\\PMDSoftwareNION600\\C-MotionPRP2SDK100\\CMECode\\Examples\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hjhje\\Downloads\\PMDSoftwareNION600\\C-MotionPRP2SDK100\\CMECode\\Examples\\nIONCME\\Makefile||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:nIONCME\\Makefile||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hjhje\\Downloads\\PMDSoftwareNION600\\C-MotionPRP2SDK100\\CMECode\\Examples\\nIONCME\\AssistTrajectory.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:nIONCME\\AssistTrajectory.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hjhje\\Downloads\\PMDSoftwareNION600\\C-MotionPRP2SDK100\\CMECode\\Examples\\nIONCME\\Makefile||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:nIONCME\\Makefile||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{50E7687E-9718-4BF8-84D1-257797B3705D}|nIONCME\\nIONCME.vcxproj|C:\\Users\\hjhje\\Downloads\\PMDSoftwareNION600\\C-MotionPRP2SDK100\\C-Motion\\Include\\PMDdiag.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -59,7 +59,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
@@ -105,15 +105,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AssistTrajectory.c",
               "DocumentMoniker": "C:\\Users\\hjhje\\Downloads\\PMDSoftwareNION600\\C-MotionPRP2SDK100\\CMECode\\Examples\\nIONCME\\AssistTrajectory.c",
               "RelativeDocumentMoniker": "nIONCME\\AssistTrajectory.c",
               "ToolTip": "C:\\Users\\hjhje\\Downloads\\PMDSoftwareNION600\\C-MotionPRP2SDK100\\CMECode\\Examples\\nIONCME\\AssistTrajectory.c",
               "RelativeToolTip": "nIONCME\\AssistTrajectory.c",
-              "ViewState": "AgIAAAcBAAAAAAAAAADgvw4BAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAGUAAAAAAAAAAADgvw4BAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-06-04T17:34:56.418Z"
+              "WhenOpened": "2025-06-04T17:34:56.418Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -177,7 +178,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Makefile",
               "DocumentMoniker": "C:\\Users\\hjhje\\Downloads\\PMDSoftwareNION600\\C-MotionPRP2SDK100\\CMECode\\Examples\\nIONCME\\Makefile",
               "RelativeDocumentMoniker": "nIONCME\\Makefile",
