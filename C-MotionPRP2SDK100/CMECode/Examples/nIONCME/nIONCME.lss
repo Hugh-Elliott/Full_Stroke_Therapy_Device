@@ -282,8 +282,8 @@ Disassembly of section .text:
  814001c:	00 00 01 00                                         ....
 
 08140020 <DateTime>:
- 8140020:	4a 75 6e 20 31 32 20 32 30 32 35 20 20 31 33 3a     Jun 12 2025  13:
- 8140030:	31 37 3a 32 30 00 ff ff ff ff ff ff ff ff ff ff     17:20...........
+ 8140020:	4a 75 6e 20 31 33 20 32 30 32 35 20 20 31 30 3a     Jun 13 2025  10:
+ 8140030:	33 30 3a 31 39 00 ff ff ff ff ff ff ff ff ff ff     30:19...........
 
 08140040 <CopyDataSectionToRAM_address>:
  8140040:	59 40 15 08 ff ff ff ff ff ff ff ff ff ff ff ff     Y@..............
@@ -23834,86 +23834,86 @@ Disassembly of section .text:
  81504fc:	ed92 6b00 	vldr	d6, [r2]
  8150500:	ee85 7b06 	vdiv.f64	d7, d5, d6
  8150504:	ed83 7b00 	vstr	d7, [r3]
- 8150508:	f507 6396 	add.w	r3, r7, #1200	; 0x4b0
- 815050c:	f507 6297 	add.w	r2, r7, #1208	; 0x4b8
- 8150510:	ed92 7b00 	vldr	d7, [r2]
- 8150514:	eeb7 6b00 	vmov.f64	d6, #112	; 0x3f800000  1.0
- 8150518:	ee37 7b46 	vsub.f64	d7, d7, d6
- 815051c:	ed83 7b00 	vstr	d7, [r3]
- 8150520:	f507 6195 	add.w	r1, r7, #1192	; 0x4a8
- 8150524:	f04f 0200 	mov.w	r2, #0
- 8150528:	f04f 0300 	mov.w	r3, #0
- 815052c:	e9c1 2300 	strd	r2, r3, [r1]
- 8150530:	f507 6194 	add.w	r1, r7, #1184	; 0x4a0
- 8150534:	f04f 0200 	mov.w	r2, #0
- 8150538:	f04f 0300 	mov.w	r3, #0
- 815053c:	e9c1 2300 	strd	r2, r3, [r1]
- 8150540:	f507 6193 	add.w	r1, r7, #1176	; 0x498
- 8150544:	f04f 0200 	mov.w	r2, #0
- 8150548:	f04f 0300 	mov.w	r3, #0
- 815054c:	e9c1 2300 	strd	r2, r3, [r1]
- 8150550:	f507 6192 	add.w	r1, r7, #1168	; 0x490
- 8150554:	f04f 0200 	mov.w	r2, #0
- 8150558:	f04f 0300 	mov.w	r3, #0
- 815055c:	e9c1 2300 	strd	r2, r3, [r1]
- 8150560:	f04f 0200 	mov.w	r2, #0
- 8150564:	f04f 0300 	mov.w	r3, #0
- 8150568:	f507 61b6 	add.w	r1, r7, #1456	; 0x5b0
- 815056c:	e9c1 2300 	strd	r2, r3, [r1]
- 8150570:	f507 6191 	add.w	r1, r7, #1160	; 0x488
- 8150574:	a334      	add	r3, pc, #208	; (adr r3, 8150648 <AssistTrajectory+0x390>)
- 8150576:	e9d3 2300 	ldrd	r2, r3, [r3]
- 815057a:	e9c1 2300 	strd	r2, r3, [r1]
- 815057e:	4b3c      	ldr	r3, [pc, #240]	; (8150670 <AssistTrajectory+0x3b8>)
- 8150580:	691b      	ldr	r3, [r3, #16]
- 8150582:	ee07 3a90 	vmov	s15, r3
- 8150586:	eeb8 6be7 	vcvt.f64.s32	d6, s15
- 815058a:	f507 63a1 	add.w	r3, r7, #1288	; 0x508
- 815058e:	ed93 7b00 	vldr	d7, [r3]
- 8150592:	ee26 7b07 	vmul.f64	d7, d6, d7
- 8150596:	ed9f 6b2e 	vldr	d6, [pc, #184]	; 8150650 <AssistTrajectory+0x398>
- 815059a:	ee27 7b06 	vmul.f64	d7, d7, d6
- 815059e:	eeb0 0b47 	vmov.f64	d0, d7
- 81505a2:	f003 fd77 	bl	8154094 <round>
- 81505a6:	eeb0 7b40 	vmov.f64	d7, d0
- 81505aa:	ed9f 6b2b 	vldr	d6, [pc, #172]	; 8150658 <AssistTrajectory+0x3a0>
- 81505ae:	ee27 6b06 	vmul.f64	d6, d7, d6
- 81505b2:	ed9f 5b27 	vldr	d5, [pc, #156]	; 8150650 <AssistTrajectory+0x398>
- 81505b6:	ee86 7b05 	vdiv.f64	d7, d6, d5
- 81505ba:	f507 63b5 	add.w	r3, r7, #1448	; 0x5a8
- 81505be:	ed83 7b00 	vstr	d7, [r3]
- 81505c2:	a327      	add	r3, pc, #156	; (adr r3, 8150660 <AssistTrajectory+0x3a8>)
- 81505c4:	e9d3 2300 	ldrd	r2, r3, [r3]
- 81505c8:	f507 61b4 	add.w	r1, r7, #1440	; 0x5a0
- 81505cc:	e9c1 2300 	strd	r2, r3, [r1]
- 81505d0:	f04f 0200 	mov.w	r2, #0
- 81505d4:	f04f 0300 	mov.w	r3, #0
- 81505d8:	f507 61b3 	add.w	r1, r7, #1432	; 0x598
- 81505dc:	e9c1 2300 	strd	r2, r3, [r1]
- 81505e0:	f04f 0200 	mov.w	r2, #0
- 81505e4:	f04f 0300 	mov.w	r3, #0
- 81505e8:	f507 61b2 	add.w	r1, r7, #1424	; 0x590
- 81505ec:	e9c1 2300 	strd	r2, r3, [r1]
- 81505f0:	f507 6190 	add.w	r1, r7, #1152	; 0x480
- 81505f4:	a31c      	add	r3, pc, #112	; (adr r3, 8150668 <AssistTrajectory+0x3b0>)
- 81505f6:	e9d3 2300 	ldrd	r2, r3, [r3]
- 81505fa:	e9c1 2300 	strd	r2, r3, [r1]
- 81505fe:	f207 437c 	addw	r3, r7, #1148	; 0x47c
- 8150602:	2202      	movs	r2, #2
- 8150604:	601a      	str	r2, [r3, #0]
- 8150606:	f507 63b5 	add.w	r3, r7, #1448	; 0x5a8
- 815060a:	ed93 7b00 	vldr	d7, [r3]
- 815060e:	ed9f 6b10 	vldr	d6, [pc, #64]	; 8150650 <AssistTrajectory+0x398>
- 8150612:	ee27 7b06 	vmul.f64	d7, d7, d6
- 8150616:	f507 63b1 	add.w	r3, r7, #1416	; 0x588
- 815061a:	ed83 7b00 	vstr	d7, [r3]
- 815061e:	f507 7178 	add.w	r1, r7, #992	; 0x3e0
- 8150622:	f04f 0200 	mov.w	r2, #0
- 8150626:	f04f 0300 	mov.w	r3, #0
- 815062a:	e9c1 2300 	strd	r2, r3, [r1]
- 815062e:	f507 63b5 	add.w	r3, r7, #1448	; 0x5a8
- 8150632:	e02d      	b.n	8150690 <AssistTrajectory+0x3d8>
- 8150634:	f3af 8000 	nop.w
+ 8150508:	f507 6397 	add.w	r3, r7, #1208	; 0x4b8
+ 815050c:	ed93 7b00 	vldr	d7, [r3]
+ 8150510:	eeb7 6b00 	vmov.f64	d6, #112	; 0x3f800000  1.0
+ 8150514:	ee37 7b46 	vsub.f64	d7, d7, d6
+ 8150518:	f507 6396 	add.w	r3, r7, #1200	; 0x4b0
+ 815051c:	eeb1 7b47 	vneg.f64	d7, d7
+ 8150520:	ed83 7b00 	vstr	d7, [r3]
+ 8150524:	f507 6195 	add.w	r1, r7, #1192	; 0x4a8
+ 8150528:	f04f 0200 	mov.w	r2, #0
+ 815052c:	f04f 0300 	mov.w	r3, #0
+ 8150530:	e9c1 2300 	strd	r2, r3, [r1]
+ 8150534:	f507 6194 	add.w	r1, r7, #1184	; 0x4a0
+ 8150538:	f04f 0200 	mov.w	r2, #0
+ 815053c:	f04f 0300 	mov.w	r3, #0
+ 8150540:	e9c1 2300 	strd	r2, r3, [r1]
+ 8150544:	f507 6193 	add.w	r1, r7, #1176	; 0x498
+ 8150548:	f04f 0200 	mov.w	r2, #0
+ 815054c:	f04f 0300 	mov.w	r3, #0
+ 8150550:	e9c1 2300 	strd	r2, r3, [r1]
+ 8150554:	f507 6192 	add.w	r1, r7, #1168	; 0x490
+ 8150558:	f04f 0200 	mov.w	r2, #0
+ 815055c:	f04f 0300 	mov.w	r3, #0
+ 8150560:	e9c1 2300 	strd	r2, r3, [r1]
+ 8150564:	f04f 0200 	mov.w	r2, #0
+ 8150568:	f04f 0300 	mov.w	r3, #0
+ 815056c:	f507 61b6 	add.w	r1, r7, #1456	; 0x5b0
+ 8150570:	e9c1 2300 	strd	r2, r3, [r1]
+ 8150574:	f507 6191 	add.w	r1, r7, #1160	; 0x488
+ 8150578:	a333      	add	r3, pc, #204	; (adr r3, 8150648 <AssistTrajectory+0x390>)
+ 815057a:	e9d3 2300 	ldrd	r2, r3, [r3]
+ 815057e:	e9c1 2300 	strd	r2, r3, [r1]
+ 8150582:	4b3b      	ldr	r3, [pc, #236]	; (8150670 <AssistTrajectory+0x3b8>)
+ 8150584:	691b      	ldr	r3, [r3, #16]
+ 8150586:	ee07 3a90 	vmov	s15, r3
+ 815058a:	eeb8 6be7 	vcvt.f64.s32	d6, s15
+ 815058e:	f507 63a1 	add.w	r3, r7, #1288	; 0x508
+ 8150592:	ed93 7b00 	vldr	d7, [r3]
+ 8150596:	ee26 7b07 	vmul.f64	d7, d6, d7
+ 815059a:	ed9f 6b2d 	vldr	d6, [pc, #180]	; 8150650 <AssistTrajectory+0x398>
+ 815059e:	ee27 7b06 	vmul.f64	d7, d7, d6
+ 81505a2:	eeb0 0b47 	vmov.f64	d0, d7
+ 81505a6:	f003 fd75 	bl	8154094 <round>
+ 81505aa:	eeb0 7b40 	vmov.f64	d7, d0
+ 81505ae:	ed9f 6b2a 	vldr	d6, [pc, #168]	; 8150658 <AssistTrajectory+0x3a0>
+ 81505b2:	ee27 6b06 	vmul.f64	d6, d7, d6
+ 81505b6:	ed9f 5b26 	vldr	d5, [pc, #152]	; 8150650 <AssistTrajectory+0x398>
+ 81505ba:	ee86 7b05 	vdiv.f64	d7, d6, d5
+ 81505be:	f507 63b5 	add.w	r3, r7, #1448	; 0x5a8
+ 81505c2:	ed83 7b00 	vstr	d7, [r3]
+ 81505c6:	a326      	add	r3, pc, #152	; (adr r3, 8150660 <AssistTrajectory+0x3a8>)
+ 81505c8:	e9d3 2300 	ldrd	r2, r3, [r3]
+ 81505cc:	f507 61b4 	add.w	r1, r7, #1440	; 0x5a0
+ 81505d0:	e9c1 2300 	strd	r2, r3, [r1]
+ 81505d4:	f04f 0200 	mov.w	r2, #0
+ 81505d8:	f04f 0300 	mov.w	r3, #0
+ 81505dc:	f507 61b3 	add.w	r1, r7, #1432	; 0x598
+ 81505e0:	e9c1 2300 	strd	r2, r3, [r1]
+ 81505e4:	f04f 0200 	mov.w	r2, #0
+ 81505e8:	f04f 0300 	mov.w	r3, #0
+ 81505ec:	f507 61b2 	add.w	r1, r7, #1424	; 0x590
+ 81505f0:	e9c1 2300 	strd	r2, r3, [r1]
+ 81505f4:	f507 6190 	add.w	r1, r7, #1152	; 0x480
+ 81505f8:	a31b      	add	r3, pc, #108	; (adr r3, 8150668 <AssistTrajectory+0x3b0>)
+ 81505fa:	e9d3 2300 	ldrd	r2, r3, [r3]
+ 81505fe:	e9c1 2300 	strd	r2, r3, [r1]
+ 8150602:	f207 437c 	addw	r3, r7, #1148	; 0x47c
+ 8150606:	2202      	movs	r2, #2
+ 8150608:	601a      	str	r2, [r3, #0]
+ 815060a:	f507 63b5 	add.w	r3, r7, #1448	; 0x5a8
+ 815060e:	ed93 7b00 	vldr	d7, [r3]
+ 8150612:	ed9f 6b0f 	vldr	d6, [pc, #60]	; 8150650 <AssistTrajectory+0x398>
+ 8150616:	ee27 7b06 	vmul.f64	d7, d7, d6
+ 815061a:	f507 63b1 	add.w	r3, r7, #1416	; 0x588
+ 815061e:	ed83 7b00 	vstr	d7, [r3]
+ 8150622:	f507 7178 	add.w	r1, r7, #992	; 0x3e0
+ 8150626:	f04f 0200 	mov.w	r2, #0
+ 815062a:	f04f 0300 	mov.w	r3, #0
+ 815062e:	e9c1 2300 	strd	r2, r3, [r1]
+ 8150632:	f507 63b5 	add.w	r3, r7, #1448	; 0x5a8
+ 8150636:	e02b      	b.n	8150690 <AssistTrajectory+0x3d8>
  8150638:	00000000 	.word	0x00000000
  815063c:	408f4000 	.word	0x408f4000
  8150640:	33333333 	.word	0x33333333

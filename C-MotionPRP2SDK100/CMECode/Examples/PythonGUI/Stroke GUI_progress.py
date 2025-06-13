@@ -787,7 +787,7 @@ def Receive():
             
             file1.write("clc;" + '\n')
             file1.write("clear;" + '\n')
-            file1.write("clf;" + '\n')
+            file1.write("% clf;" + '\n')
             if (M == 8):
                 file1.write("comp = 0;" + '\n')
                 file1.write('\n')
@@ -958,6 +958,8 @@ def Receive():
                     file1.write("grid on" + '\n')
             if (SIMULATION and M == 77):
                 modelname = 'AssistTrajectory'
+                file1.write("figure(5)" + '\n')
+                file1.write("figure(4)" + '\n')
                 file1.write("figure(3)" + '\n')
                 if (NORESAMPLE): 
                     file1.write("ForceIn = timeseries(force.', time);" + '\n')
@@ -984,6 +986,7 @@ def Receive():
                     file1.write(f"set_param('{modelname}/Impedance Control2/DerivativeVsWorkspace/Use Workspace', 'Value', num2str(1));" + '\n')
                 else:
                     file1.write(f"set_param('{modelname}/Impedance Control2/DerivativeVsWorkspace/Use Workspace', 'Value', num2str(0));" + '\n')
+                file1.write(f"set_param('AssistTrajectory/Impedance Control2/Gain', 'Gain', num2str(1));" + '\n')
                 file1.write(f"out = sim('{modelname}.slx');" + '\n')
                 file1.write('\n')
                 file1.write("plot(time, pos, 'LineWidth', 1)" + '\n')
