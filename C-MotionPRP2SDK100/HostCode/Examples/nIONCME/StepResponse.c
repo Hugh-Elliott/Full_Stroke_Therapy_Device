@@ -38,19 +38,22 @@ PMDresult StepResponse(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1) {
 	// Event Masks
 	PMDuint16 resPos = 0xFFDF, resNeg = 0xFFBF, resMoCo = 0xFFFE;
 
+	// Array offsets
+	int pOffset = comMan._pOffset, vOffset = comMan._vOffset, fOffset = comMan._fOffset, mOffset = comMan._mOffset;
+
 	//Arrays for writing
 	PMDuint32 TIME[arraySize] = { 0 };
-	PMDint32 POS[arraySize] = { 10000 };
-	PMDint32 VeL[arraySize] = { 10000 };
-	PMDint32 force[arraySize] = { 10000 };
-	PMDint16 motCom[arraySize] = { 15000 };
+	PMDint32 POS[arraySize] = { pOffset };
+	PMDint32 VeL[arraySize] = { vOffset };
+	PMDint32 force[arraySize] = { fOffset };
+	PMDint16 motCom[arraySize] = { mOffset };
 	PMDint32 DesVeL[arraySize] = { 0 };
 	int i = 0;
 
 	for (int zzz = 0; zzz < arraySize; zzz++) {
-		POS[zzz] = 10000;
-		VeL[zzz] = 10000;
-		motCom[zzz] = 15000;
+		POS[zzz] = pOffset;
+		VeL[zzz] = vOffset;
+		motCom[zzz] = mOffset;
 	}
 
 	PMDint16 motTemp = 0;
@@ -74,10 +77,10 @@ PMDresult StepResponse(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1) {
 	PMD_RESULT(PMDGetActiveMotorCommand(hAxis1, &motTemp));
 
 	TIME[i] = (curTime - TRACESTART) * sampleTime * 0.001;
-	POS[i] = posTemp + 10000;
-	motCom[i] = motTemp + 15000;
-	VeL[i] = 0 + 10000;
-	force[i] = 0 + 10000;
+	POS[i] = posTemp + pOffset;
+	motCom[i] = motTemp + mOffset;
+	VeL[i] = 0 + vOffset;
+	force[i] = 0 + fOffset;
 	DesVeL[i] = 0;
 	SendParts(hPeriphSer, binSave, TIME[i], POS[i], VeL[i], force[i], motCom[i], DesVeL[i]);
 	PMDprintf("moo\r\n");
@@ -148,15 +151,15 @@ PMDresult StepResponse(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1) {
 			PMD_RESULT(PMDGetActualPosition(hAxis1, &posTemp));
 			PMD_RESULT(PMDGetActiveMotorCommand(hAxis1, &motTemp));
 			TIME[i] = (curTime - TRACESTART) * sampleTime * 0.001;
-			POS[i] = posTemp + 10000;
+			POS[i] = posTemp + pOffset;
 			if (i == 4 && firstRun == 0) {
-				VeL[i] = ((POS[4] - POS[14]) / ((PMDint32)TIME[4] - (PMDint32)TIME[14])) + 10000;
+				VeL[i] = ((POS[4] - POS[14]) / ((PMDint32)TIME[4] - (PMDint32)TIME[14])) + vOffset;
 			}
 			else {
-				VeL[i] = ((POS[i] - POS[i - 1]) / ((PMDint32)TIME[i] - (PMDint32)TIME[i - 1])) + 10000;
+				VeL[i] = ((POS[i] - POS[i - 1]) / ((PMDint32)TIME[i] - (PMDint32)TIME[i - 1])) + vOffset;
 			}
-			force[i] = dir + 10000;
-			motCom[i] = (motTemp)+15000;
+			force[i] = dir + fOffset;
+			motCom[i] = (motTemp)+mOffset;
 			DesVeL[0] = 0;
 			PMD_RESULT(PMDGetTime(hAxis1, &saveTime));
 			SendParts(hPeriphSer, binSave, TIME[i], POS[i], VeL[i], force[i], motCom[i], DesVeL[i]);

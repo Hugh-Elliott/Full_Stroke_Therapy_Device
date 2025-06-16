@@ -998,7 +998,7 @@ def Receive():
                 file1.write("grid on" + '\n')
                 file1.write("xlabel('Time (s)')" + '\n')
                 file1.write("ylabel('Position (cm)')" + '\n')
-                file1.write("title('Assistive Trajectory')" + '\n')
+                file1.write("title('Position Plot')" + '\n')
                 file1.write("figure(4)" + '\n')
                 file1.write("plot(time, motCom, time, force, out.motCom.Time, out.motCom.Data, 'LineWidth', 1)" + '\n')
                 file1.write("legend('Motor PWM%', 'Force (N)', 'PWM%-sim')" + '\n')
@@ -1010,8 +1010,95 @@ def Receive():
                 file1.write("legend('Actual Velocity', 'x0-dot', 'Vel-sim')" + '\n')
                 file1.write("grid on" + '\n')
                 file1.write("xlabel('Time (s)')" + '\n')
-                file1.write("title('Assistive Trajectory')" + '\n')      
-              
+                file1.write("title('Velocity Plot')" + '\n')      
+            if (M == 99 and SIMULATION): ## Transparent
+                modelname = 'Simple'
+                file1.write("figure(5)" + '\n')
+                file1.write("clf;" + '\n')
+                file1.write("figure(4)" + '\n')
+                file1.write("clf;" + '\n')
+                file1.write("figure(3)" + '\n')
+                file1.write("clf;" + '\n')
+                if (NORESAMPLE): 
+                    file1.write("ForceIn = timeseries(force.', time);" + '\n')
+                    file1.write("motComIn = timeseries(force.', time);" + '\n')
+                else:
+                    file1.write("new_time = 0:0.001:max(time);" + '\n')
+                    file1.write("Ftemp = spline(time, force, new_time);" + '\n')
+                    file1.write("ForceIn = timeseries(Ftemp.', new_time);" + '\n')
+                    file1.write("motComIn = timeseries(Ftemp.', new_time);" + '\n')
+                file1.write(f"load_system('{modelname}');" + '\n')
+                file1.write(f"set_param('{modelname}', 'StopTime', num2str(max(time)));" + '\n')
+                file1.write(f"set_param('{modelname}/FGain', 'Gain', num2str(1));" + '\n')
+                file1.write(f"set_param('{modelname}/motComGain', 'Gain', num2str(0));" + '\n')
+                file1.write(f"out = sim('{modelname}.slx');" + '\n')
+                file1.write('\n')
+                file1.write("plot(time, pos, 'LineWidth', 1)" + '\n')
+                file1.write("hold on" + '\n')
+                file1.write("plot(out.Pos.Time, out.Pos.Data, 'LineWidth', 1)" + '\n')
+                file1.write("legend('Actual Position', 'x-sim')" + '\n')
+                file1.write("hold off" + '\n')
+                file1.write("grid on" + '\n')
+                file1.write("xlabel('Time (s)')" + '\n')
+                file1.write("ylabel('Position (cm)')" + '\n')
+                file1.write("title('Position Plot')" + '\n')
+                file1.write("figure(4)" + '\n')
+                file1.write("plot(time, force, 'LineWidth', 1)" + '\n')
+                file1.write("legend('Force (N)')" + '\n')
+                file1.write("xlabel('Time (s)')" + '\n')
+                file1.write("grid on" + '\n')
+                file1.write("title('Force')" + '\n')
+                file1.write("figure(5)" + '\n')
+                file1.write("plot(time, vel, out.Vel.Time, out.Vel.Data, 'LineWidth', 1)" + '\n')
+                file1.write("legend('Actual Velocity', 'Vel-sim')" + '\n')
+                file1.write("grid on" + '\n')
+                file1.write("xlabel('Time (s)')" + '\n')
+                file1.write("title('Velocity Plot')" + '\n')      
+            if (M == 8 and SIMULATION):
+                ## Step Response
+                modelname = 'Simple'
+                file1.write("figure(5)" + '\n')
+                file1.write("clf;" + '\n')
+                file1.write("figure(4)" + '\n')
+                file1.write("clf;" + '\n')
+                file1.write("figure(3)" + '\n')
+                file1.write("clf;" + '\n')
+                if (NORESAMPLE): 
+                    file1.write("motComIn = timeseries(motCom.', time);" + '\n')
+                    file1.write("ForceIn = timeseries(motCom.', time);" + '\n')
+                else:
+                    file1.write("new_time = 0:0.001:max(time);" + '\n')
+                    file1.write("mtemp = spline(time, motCom, new_time);" + '\n')
+                    file1.write("motComIn = timeseries(mtemp.', new_time);" + '\n')
+                    file1.write("ForceIn = timeseries(mtemp.', new_time);" + '\n')
+                file1.write(f"load_system('{modelname}');" + '\n')
+                file1.write(f"set_param('{modelname}', 'StopTime', num2str(max(time)));" + '\n')
+                file1.write(f"set_param('{modelname}/FGain', 'Gain', num2str(0));" + '\n')
+                file1.write(f"set_param('{modelname}/motComGain', 'Gain', num2str(1));" + '\n')
+                file1.write(f"out = sim('{modelname}.slx');" + '\n')
+                file1.write('\n')
+                file1.write("plot(time, pos, 'LineWidth', 1)" + '\n')
+                file1.write("hold on" + '\n')
+                file1.write("plot(out.Pos.Time, out.Pos.Data, 'LineWidth', 1)" + '\n')
+                file1.write("legend('Actual Position', 'x-sim')" + '\n')
+                file1.write("hold off" + '\n')
+                file1.write("grid on" + '\n')
+                file1.write("xlabel('Time (s)')" + '\n')
+                file1.write("ylabel('Position (cm)')" + '\n')
+                file1.write("title('Position Plot')" + '\n')
+                file1.write("figure(4)" + '\n')
+                file1.write("plot(time, motCom, 'LineWidth', 1)" + '\n')
+                file1.write("legend('Motor PWM%')" + '\n')
+                file1.write("xlabel('Time (s)')" + '\n')
+                file1.write("grid on" + '\n')
+                file1.write("title('Motor Command')" + '\n')
+                file1.write("figure(5)" + '\n')
+                file1.write("plot(time, vel, out.Vel.Time, out.Vel.Data, 'LineWidth', 1)" + '\n')
+                file1.write("legend('Actual Velocity', 'Vel-sim')" + '\n')
+                file1.write("grid on" + '\n')
+                file1.write("xlabel('Time (s)')" + '\n')
+                file1.write("title('Velocity Plot')" + '\n')
+                
             file1.write("tmax = max(diff(time))" + '\n')
             file1.write("tmin = min(diff(time))" + '\n')
             file1.write("tmean = mean(diff(time))" + '\n')
@@ -1485,10 +1572,10 @@ Mode = { "Off" : 0,
 ##              "Admittance" : 2,
 ##              "Assistive" : 3,
 ##              "Assistive Force" : 33,         
-              "Assistive" : 77,
+              "Assistive" : 77,     ## Assistive using impedance control
               "Transparent" : 99,
               "Resistive" : 4,
-##              "Step Response" : 8,
+              "Step Response" : 8,
 ##              "Load CME" : 66,
 ##              "Impedance" : 22
          }
