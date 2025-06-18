@@ -11,6 +11,7 @@ PMDresult ReturnHome(PMDAxisHandle* hAxis1) {
 	PMDresult result = PMD_ERR_OK;
 	int errorRange = 50; // Encoder count range for error
 	PMDint32 pos = 2*errorRange; // Initiallized out of range
+	PMDuint16 MODE = 420;
 
 	// Operating mode mask
 	PMD_RESULT(PMDSetOperatingMode(hAxis1, PMDOperatingModeAllEnabled));
@@ -44,4 +45,6 @@ PMDresult ReturnHome(PMDAxisHandle* hAxis1) {
 	PMD_RESULT(PMDSetMotorCommand(hAxis1, 0));
 	PMD_RESULT(PMDUpdate(hAxis1));
 	PMDTaskWait(100);
+	PMD_RESULT(PMDGetActiveOperatingMode(hAxis1, &MODE));
+	PMDprintf("Mode = %d\r\n", MODE);
 }

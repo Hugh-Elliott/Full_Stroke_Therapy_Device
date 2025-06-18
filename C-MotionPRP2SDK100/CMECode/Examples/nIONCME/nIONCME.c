@@ -399,6 +399,7 @@ USER_CODE_TASK(nIONCME)
         PMD_RESULT(PMDGetActualPosition(&hAxis, &posTemp));
         if (posTemp > 50 || posTemp < -50) {
             ReturnHome(&hAxis);
+            PMDprintf("position = %d\r\n", posTemp);
         }
     }
 #endif //!CME

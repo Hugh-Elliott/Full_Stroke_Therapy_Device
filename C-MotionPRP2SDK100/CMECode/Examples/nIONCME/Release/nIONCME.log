@@ -31,16 +31,16 @@ nIONCME.c(382,24): warning G9372FA0A: nested extern declaration of 'Transparent'
   ../../../c-motion/include/PMDdiag.h:14:38: note: in definition of macro 'PMD_RESULT'
      14 | #define PMD_RESULT(_call)  {result = _call; if (result) PMDprintf("Error line: %d, %s   %.80s\r\n", __LINE__, PMDGetErrorMessage(result), #_call);}
         |                                      ^~~~~
-nIONCME.c(418,37): warning G26EC2BC0: passing argument 1 of 'PMDDeviceClose' from incompatible pointer type [-Wincompatible-pointer-types]
-    418 |     PMD_ABORTONERROR(PMDDeviceClose(&phDevice));
+nIONCME.c(419,37): warning G26EC2BC0: passing argument 1 of 'PMDDeviceClose' from incompatible pointer type [-Wincompatible-pointer-types]
+    419 |     PMD_ABORTONERROR(PMDDeviceClose(&phDevice));
         |                                     ^~~~~~~~~
         |                                     |
         |                                     PMDDeviceHandle ** {aka struct tagPMDDeviceHandle **}
   ../../../c-motion/include/PMDdiag.h:14:38: note: in definition of macro 'PMD_RESULT'
      14 | #define PMD_RESULT(_call)  {result = _call; if (result) PMDprintf("Error line: %d, %s   %.80s\r\n", __LINE__, PMDGetErrorMessage(result), #_call);}
         |                                      ^~~~~
-  nIONCME.c:418:5: note: in expansion of macro 'PMD_ABORTONERROR'
-    418 |     PMD_ABORTONERROR(PMDDeviceClose(&phDevice));
+  nIONCME.c:419:5: note: in expansion of macro 'PMD_ABORTONERROR'
+    419 |     PMD_ABORTONERROR(PMDDeviceClose(&phDevice));
         |     ^~~~~~~~~~~~~~~~
   In file included from ../../../c-motion/include/c-motion.h:19,
                    from nIONCME.c:7:
@@ -208,8 +208,8 @@ AssistTrajectory.c(191,74): warning G183B9D1E: variable 'comTIME' set but not us
   Compiling C: ReturnHome.c
   "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/ReturnHome.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 ReturnHome.c -o obj/ReturnHome.o 
   ReturnHome.c: In function 'ReturnHome':
-ReturnHome.c(47,1): warning GE268A9FD: control reaches end of non-void function [-Wreturn-type]
-     47 | }
+ReturnHome.c(50,1): warning GE268A9FD: control reaches end of non-void function [-Wreturn-type]
+     50 | }
         | ^
    
   Compiling C: EKF.c
@@ -252,7 +252,7 @@ EKF.c(120,13): warning G26EC2BC0: passing argument 1 of 'mat2x2_sub' from incomp
   Linking: nIONCME.elf
   "..\..\GNU/bin/arm-none-eabi-gcc" -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/nIONCME.elf.d -Wcast-qual -Wno-unused-variable -mhard-float obj/UserImport.o obj/nIONCME.o obj/Pro-MotionExport1_15_25.o obj/Examples.o obj/PassiveMode2.o obj/LoadCellFunctions.o obj/HomeCapture.o obj/ReverseMove.o obj/ComFunctions.o obj/Assistive2.o obj/Admittance2.o obj/ResistTorqueGoal2.o obj/StepResponse.o obj/LoadCellCME.o obj/AssistiveForce.o obj/SaveOnly.o obj/Transparent.o obj/Impedance.o obj/AssistTrajectory.o obj/ReturnHome.o obj/EKF.o obj/C-Motion.o obj/PMDtrans.o obj/PMDdiag.o obj/PMDcommon.o obj/PMDutil.o obj/startup.o obj/syscalls.o  --output nIONCME.elf -nostartfiles  -Wl,-Map=nIONCME.map,--gc-sections,--print-memory-usage -lm	 -lc -T../..//linkPMD.ld
   Memory region         Used Size  Region Size  %age Used
-             FLASH:      114392 B       256 KB     43.64%
+             FLASH:      114584 B       256 KB     43.71%
                RAM:        1176 B        64 KB      1.79%
    
   Creating CME flash file: nIONCME.bin
@@ -266,7 +266,7 @@ EKF.c(120,13): warning G26EC2BC0: passing argument 1 of 'mat2x2_sub' from incomp
    
   Adding CRC to flash file:
   ../../utils/bin/crc nIONCME.bin
-  CRC = 9358C3AD
+  CRC =  2AEAF4E
   
   Errors: none
   --------  end  --------
