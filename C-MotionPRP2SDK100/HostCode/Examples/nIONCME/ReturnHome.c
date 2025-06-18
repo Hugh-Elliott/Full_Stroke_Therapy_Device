@@ -41,5 +41,7 @@ PMDresult ReturnHome(PMDAxisHandle* hAxis1) {
 	} while (pos > errorRange || pos < -errorRange);
 
 	PMD_RESULT(PMDSetOperatingMode(hAxis1, 0));
+	PMD_RESULT(PMDSetMotorCommand(hAxis1, 0));
 	PMD_RESULT(PMDUpdate(hAxis1));
+	PMDTaskWait(100);
 }

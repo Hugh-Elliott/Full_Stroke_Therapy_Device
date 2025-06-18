@@ -724,10 +724,12 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 #endif // !SINECURVE
 #if FORCECLAMP == 1
 		if (dir == 1 && F < 0) {
-			F = waitPWM;
+			F = 2;
+			PMDprintf("Positive Clamp\r\n");
 		}
 		else if (dir == -1 && F > 0) {
-			F = -waitPWM;
+			F = -2;
+			PMDprintf("Negative Clamp\r\n");
 		}
 #endif // FORCECLAMP == 1
 		command = F * motScale;

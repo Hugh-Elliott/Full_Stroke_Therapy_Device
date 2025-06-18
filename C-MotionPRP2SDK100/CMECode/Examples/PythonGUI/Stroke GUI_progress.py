@@ -829,7 +829,7 @@ def Receive():
                 file1.write("        velsum = velsum + vel(i);" + '\n')
                 file1.write("    end" + '\n')
                 file1.write("end" + '\n')
-            file1.write("if ((abs(force(i)- force(i-1)) ) > 5)" + '\n')
+            file1.write("if ((abs(force(i)- force(i-1)) ) > 10)" + '\n')
             file1.write("    force(i) = (force(i-1)+ fdiff);" + '\n')
             file1.write("end" + '\n')
             file1.write("end" + '\n')
@@ -990,7 +990,7 @@ def Receive():
                     file1.write(f"set_param('{modelname}/Impedance Control2/DerivativeVsWorkspace/Use Workspace', 'Value', num2str(1));" + '\n')
                 else:
                     file1.write(f"set_param('{modelname}/Impedance Control2/DerivativeVsWorkspace/Use Workspace', 'Value', num2str(0));" + '\n')
-                file1.write(f"set_param('AssistTrajectory/Impedance Control2/Gain', 'Gain', num2str(1));" + '\n')
+                file1.write(f"set_param('AssistTrajectory/Impedance Control2/Gain', 'Gain', num2str(-1));" + '\n')
                 file1.write(f"out = sim('{modelname}.slx');" + '\n')
                 file1.write('\n')
                 file1.write("plot(time, pos, 'LineWidth', 1)" + '\n')
@@ -1002,7 +1002,7 @@ def Receive():
                 file1.write("grid on" + '\n')
                 file1.write("xlabel('Time (s)')" + '\n')
                 file1.write("ylabel('Position (cm)')" + '\n')
-                file1.write("title('Position Plot')" + '\n')
+                file1.write("title('Assistive Trajectory- Position Plot')" + '\n')
                 file1.write("figure(4)" + '\n')
                 file1.write("plot(time, motCom, time, force, out.motCom.Time, out.motCom.Data, 'LineWidth', 1)" + '\n')
                 file1.write("legend('Motor PWM%', 'Force (N)', 'PWM%-sim')" + '\n')
@@ -1014,7 +1014,7 @@ def Receive():
                 file1.write("legend('Actual Velocity', 'x0-dot', 'Vel-sim')" + '\n')
                 file1.write("grid on" + '\n')
                 file1.write("xlabel('Time (s)')" + '\n')
-                file1.write("title('Velocity Plot')" + '\n')      
+                file1.write("title('Assistive Trajectory- Velocity Plot')" + '\n')      
             if (M == 99 and SIMULATION): ## Transparent
                 modelname = 'Simple'
                 file1.write("figure(5)" + '\n')
@@ -1025,12 +1025,13 @@ def Receive():
                 file1.write("clf;" + '\n')
                 if (NORESAMPLE): 
                     file1.write("ForceIn = timeseries(force.', time);" + '\n')
-                    file1.write("motComIn = timeseries(force.', time);" + '\n')
+                    file1.write("motComIn = timeseries(motCom.', time);" + '\n')
                 else:
                     file1.write("new_time = 0:0.001:max(time);" + '\n')
                     file1.write("Ftemp = spline(time, force, new_time);" + '\n')
                     file1.write("ForceIn = timeseries(Ftemp.', new_time);" + '\n')
-                    file1.write("motComIn = timeseries(Ftemp.', new_time);" + '\n')
+                    file1.write("mtemp = spline(time, motCom, new_time);" + '\n')
+                    file1.write("motComIn = timeseries(mtemp.', new_time);" + '\n')
                 file1.write(f"load_system('{modelname}');" + '\n')
                 file1.write(f"set_param('{modelname}', 'StopTime', num2str(max(time)));" + '\n')
                 file1.write(f"set_param('{modelname}/FGain', 'Gain', num2str(1));" + '\n')
@@ -1069,12 +1070,13 @@ def Receive():
                 file1.write("clf;" + '\n')
                 if (NORESAMPLE): 
                     file1.write("motComIn = timeseries(motCom.', time);" + '\n')
-                    file1.write("ForceIn = timeseries(motCom.', time);" + '\n')
+                    file1.write("ForceIn = timeseries(force.', time);" + '\n')
                 else:
                     file1.write("new_time = 0:0.001:max(time);" + '\n')
                     file1.write("mtemp = spline(time, motCom, new_time);" + '\n')
                     file1.write("motComIn = timeseries(mtemp.', new_time);" + '\n')
-                    file1.write("ForceIn = timeseries(mtemp.', new_time);" + '\n')
+                    file1.write("Ftemp = spline(time, force, new_time);" + '\n')
+                    file1.write("ForceIn = timeseries(Ftemp.', new_time);" + '\n')
                 file1.write(f"load_system('{modelname}');" + '\n')
                 file1.write(f"set_param('{modelname}', 'StopTime', num2str(max(time)));" + '\n')
                 file1.write(f"set_param('{modelname}/FGain', 'Gain', num2str(0));" + '\n')

@@ -59,7 +59,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
@@ -88,6 +88,22 @@
               "IsPinned": true
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "AssistTrajectory.c",
@@ -95,7 +111,7 @@
               "RelativeDocumentMoniker": "nIONCME\\AssistTrajectory.c",
               "ToolTip": "C:\\Users\\hjhje\\Downloads\\PMDSoftwareNION600\\C-MotionPRP2SDK100\\CMECode\\Examples\\nIONCME\\AssistTrajectory.c",
               "RelativeToolTip": "nIONCME\\AssistTrajectory.c",
-              "ViewState": "AgIAAGYAAAAAAAAAAADgv3EAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAGYAAAAAAAAAAADgv3QAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-06-04T17:34:56.418Z",
               "EditorCaption": ""
@@ -134,23 +150,8 @@
               "RelativeToolTip": "nIONCME\\Makefile",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-02-14T16:17:20.559Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+              "WhenOpened": "2025-02-14T16:17:20.559Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
