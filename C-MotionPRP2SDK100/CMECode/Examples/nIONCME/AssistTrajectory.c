@@ -18,6 +18,7 @@
 #define EKFONLINE 0
 #define SENDTRAJFORCE 0
 #define TRAJVAR 01
+#define FORCECLAMP 01
 
 static double trapProfile(double a, double v_max, double* v_peak, double* TimeAccel, double* TimeCon, double* TimeTotal, double posMaxCM, double posMinCM) {
 
@@ -721,6 +722,14 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 		F = fgain * Fext - mMd * (Dd * e_dot + Kd * e) + velDir * Tcoulomb + viscousFrictionGain * x_dot + m * x0_ddot;
 #endif // !Viscous
 #endif // !SINECURVE
+#if FORCECLAMP == 1
+		if (dir == 1 && F < 0) {
+			F = waitPWM;
+		}
+		else if (dir == -1 && F > 0) {
+			F = -waitPWM;
+		}
+#endif // FORCECLAMP == 1
 		command = F * motScale;
 		//PMDprintf("velDir = %d, visGain = %f, x_dot = %f, velDir*visGain = %f, all = %f\r\n", velDir, viscousFrictionGain, x_dot, (velDir* viscousFrictionGain), (velDir* (viscousFrictionGain* fabs(x_dot))));
 		//PMDprintf("x0 = %f, x = %f, x= %f, e = %f\r\n", x0, (counts2cm * (POS[j] - pOffset)), x, e);

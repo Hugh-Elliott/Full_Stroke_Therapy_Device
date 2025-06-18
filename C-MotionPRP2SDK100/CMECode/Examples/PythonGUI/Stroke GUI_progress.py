@@ -809,6 +809,7 @@ def Receive():
             file1.write("vel2 = 0;" + '\n')
             file1.write("d = size(pos);" + '\n')
             file1.write("velApp = 0;" + '\n')
+            file1.write("fdiff = mean(diff(force))" + '\n')
             file1.write("for i = 2:1:d(2)" + '\n')
             file1.write("vel2(i) = (pos(i)-pos(i-1))/(time(i)-time(i-1));" + '\n')
             if (M == 3):
@@ -828,6 +829,9 @@ def Receive():
                 file1.write("        velsum = velsum + vel(i);" + '\n')
                 file1.write("    end" + '\n')
                 file1.write("end" + '\n')
+            file1.write("if ((abs(force(i)- force(i-1)) ) > 5)" + '\n')
+            file1.write("    force(i) = (force(i-1)+ fdiff);" + '\n')
+            file1.write("end" + '\n')
             file1.write("end" + '\n')
             file1.write('\n')
             if (M == 8):

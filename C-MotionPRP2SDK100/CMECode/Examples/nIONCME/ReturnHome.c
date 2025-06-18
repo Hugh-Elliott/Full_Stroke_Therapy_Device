@@ -9,6 +9,8 @@
 
 PMDresult ReturnHome(PMDAxisHandle* hAxis1) {
 	PMDresult result = PMD_ERR_OK;
+	int errorRange = 50; // Encoder count range for error
+	PMDint32 pos = 2*errorRange; // Initiallized out of range
 
 	// Operating mode mask
 	PMD_RESULT(PMDSetOperatingMode(hAxis1, PMDOperatingModeAllEnabled));
@@ -31,5 +33,13 @@ PMDresult ReturnHome(PMDAxisHandle* hAxis1) {
 	PMD_RESULT(PMDSetVelocity(hAxis1, 10000));      // former 32768
 	PMD_RESULT(PMDSetAcceleration(hAxis1, 5000));  // former 256
 	PMD_RESULT(PMDSetJerk(hAxis1, 65535));
+	PMD_RESULT(PMDUpdate(hAxis1));
+
+	do {
+		PMD_RESULT(PMDGetActualPosition(hAxis1, &pos));
+		PMDTaskWait(100);
+	} while (pos > errorRange || pos < -errorRange);
+
+	PMD_RESULT(PMDSetOperatingMode(hAxis1, 0));
 	PMD_RESULT(PMDUpdate(hAxis1));
 }

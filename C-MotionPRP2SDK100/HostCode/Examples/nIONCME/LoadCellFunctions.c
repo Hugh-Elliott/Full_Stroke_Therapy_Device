@@ -2,7 +2,7 @@
 #include "PMDperiph.h"
 #include "PMDdiag.h"
 
-LoadCellConfig loadCellConfig = { 119040, 1/205.184006, 200 };  // Initialize offset and scaleFactor
+LoadCellConfig loadCellConfig = { 119040, 1/205.184006, 25 };  // Initialize offset, scaleFactor and time interval
 
 PMDint32 read(PMDPeriphHandle* hPeriphLoad) {
 	int p = 0;
