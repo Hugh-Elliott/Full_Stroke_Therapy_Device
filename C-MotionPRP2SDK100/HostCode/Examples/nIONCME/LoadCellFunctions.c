@@ -73,7 +73,42 @@ PMDint32 getValue(PMDPeriphHandle* hPeriphLoad, int times) {
 }
 // Returns scaled and offset value
 PMDint32 getUnits(PMDPeriphHandle* hPeriphLoad, int times) {
-	PMDint32 sensordata = 0;
+	PMDint32 sensordata = 0, temp = 0;
 	sensordata = getValue(hPeriphLoad, times) * loadCellConfig._scaleFactor;
+	//sensordata = forceFilter(temp);
 	return sensordata;
+}
+
+#define Fc 10													// Corner Frequency in Hz
+#define alpha exp(-2*3.14*Fc*loadCellConfig._loadTime/1000)		// Alpha for filter
+#define spikeThreshold 5000										// Cut off for sudden spike in mN
+
+PMDint32 forceFilter(PMDint32 newForce, PMDint32* oldForce) {	// Added oldForce because of weird halucinations when using static variable filtered
+	static PMDint32 filtered = 0, old = 0;
+
+	PMDint32 diff = abs(newForce - *oldForce);
+	//PMDprintf("filtered = %d\r\n", filtered);
+	
+	if (diff > spikeThreshold) {
+		//PMDprintf("newforce = %d\r\n", newForce);
+		//PMDprintf("filtered = %d\r\n", filtered);
+		if (newForce > *oldForce) {
+			newForce = *oldForce + spikeThreshold;
+		}
+		else {
+			newForce = *oldForce - spikeThreshold;
+		}
+	}
+	old = *oldForce;
+	*oldForce = alpha * (double)newForce + (1.0 - alpha) * (double)*oldForce;
+	/*
+	if (*oldForce < -15000) {
+		PMDprintf("old term = %d\r\n", old);
+		PMDprintf("new force term = %f\r\n", (alpha * (double)newForce));
+		PMDprintf("filtered term = %f\r\n", ((1.0 - alpha) * (double)old));
+		PMDprintf("Filtered = %d\r\n", *oldForce);
+	}
+	*/
+	return *oldForce;
+
 }

@@ -29,6 +29,7 @@ extern "C" {
 	void setScale(float scale);														// Manually sets scale factor
 	PMDint32 getValue(PMDPeriphHandle* hPeriphLoad, int times);						// Returns read value with corrected offset
 	PMDint32 getUnits(PMDPeriphHandle* hPeriphLoad, int times);						// Returns scaled and offset value
+	PMDint32 forceFilter(PMDint32 newForce, PMDint32* oldForce);					// Implements Digital Filter
 
 	// If we are using a C++ compiler, close the extern "C" block
 #ifdef __cplusplus

@@ -86,7 +86,10 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 	double comInput = 1000.0 * comConfig._torq / motScale; // comInput in 
 	int count = 0, i = 0, j = 0, countInput = comConfig._rep, dir = 1;
 	int waitPWM = 8 * motScale;
+
+	// Force
 	double forceError = 0, forceTemp = 0;
+	PMDint32 oldForce = 0;
 
 	// Position
 	PMDint32 pos = 0, posPLim = comMan._posLimit, posNLim = 0;
@@ -229,7 +232,7 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 		VeL[zzz] = vOffset;
 		force[zzz] = fOffset;
 		motCom[zzz] = mOffset;
-		DesVeL[zzz] = vOffset;
+		DesVeL[zzz] = fOffset;
 	}
 
 	PMDint32 posTemp = 0;
@@ -290,7 +293,7 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 	motCom[i] = motTemp + mOffset;
 	VeL[i] = 0 + vOffset;
 	force[i] = (0 + fOffset);
-	DesVeL[i] = 0 + vOffset;
+	DesVeL[i] = 0 + fOffset;
 
 #if TRAJVAR == 1
 	X0_DOT[i] = 0;
@@ -511,7 +514,7 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 				}
 				if (binSave & 0b00100000) {
 #if TRAPPROFILE == 1
-					DesVeL[i] = x0 * 100 + vOffset;
+					DesVeL[i] = forceFilter(forceTemp, &oldForce) + fOffset;
 #else
 					DesVeL[i] = 100*x0 + vOffset;
 #endif
@@ -725,17 +728,15 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 #if FORCECLAMP == 1
 		if (dir == 1 && F < 0) {
 			F = 2;
-			PMDprintf("Positive Clamp\r\n");
 		}
 		else if (dir == -1 && F > 0) {
 			F = -2;
-			PMDprintf("Negative Clamp\r\n");
 		}
 #endif // FORCECLAMP == 1
 		command = F * motScale;
 		//PMDprintf("velDir = %d, visGain = %f, x_dot = %f, velDir*visGain = %f, all = %f\r\n", velDir, viscousFrictionGain, x_dot, (velDir* viscousFrictionGain), (velDir* (viscousFrictionGain* fabs(x_dot))));
 		//PMDprintf("x0 = %f, x = %f, x= %f, e = %f\r\n", x0, (counts2cm * (POS[j] - pOffset)), x, e);
-		PMDprintf("F = %f, Fext = %f, e = %f, e_dot = %f, Tcoulomb = %f, viscous = %f, x0_ddot = %f\r\n", F, (fgain * Fext), (-mMd * Kd * e), (-mMd * Dd * e_dot), (dir * Tcoulomb), (viscousFrictionGain * x_dot), (m * x0_ddot));
+		//PMDprintf("F = %f, Fext = %f, e = %f, e_dot = %f, Tcoulomb = %f, viscous = %f, x0_ddot = %f\r\n", F, (fgain * Fext), (-mMd * Kd * e), (-mMd * Dd * e_dot), (dir * Tcoulomb), (viscousFrictionGain * x_dot), (m * x0_ddot));
 		//PMDprintf("x_dot = %f, velDir = %f");
 		//PMDprintf("VeL = %f, x0_dot = %f, e_dot = %f, x = %f, x0 = %f\r\n", (x_dot), x0_dot, e_dot, x, x0);
 		if (abs(F) > 30) {

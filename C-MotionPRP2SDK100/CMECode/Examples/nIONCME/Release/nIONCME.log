@@ -67,6 +67,26 @@ PassiveMode2.c(20,53): warning G183B9D1E: variable 'dir' set but not used [-Wunu
    
   Compiling C: LoadCellFunctions.c
   "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/LoadCellFunctions.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 LoadCellFunctions.c -o obj/LoadCellFunctions.o 
+  LoadCellFunctions.c: In function 'forceFilter':
+LoadCellFunctions.c(83,15): warning G84A3CD4A: implicit declaration of function 'exp' [-Wimplicit-function-declaration]
+     83 | #define alpha exp(-2*3.14*Fc*loadCellConfig._loadTime/1000)  // Alpha for filter
+        |               ^~~
+  LoadCellFunctions.c:103:14: note: in expansion of macro 'alpha'
+    103 |  *oldForce = alpha * (double)newForce + (1.0 - alpha) * (double)*oldForce;
+        |              ^~~~~
+LoadCellFunctions.c(83,15): warning GB9F30EB1: incompatible implicit declaration of built-in function 'exp'
+     83 | #define alpha exp(-2*3.14*Fc*loadCellConfig._loadTime/1000)  // Alpha for filter
+        |               ^~~
+  LoadCellFunctions.c:103:14: note: in expansion of macro 'alpha'
+    103 |  *oldForce = alpha * (double)newForce + (1.0 - alpha) * (double)*oldForce;
+        |              ^~~~~
+  LoadCellFunctions.c:4:1: note: include '<math.h>' or provide a declaration of 'exp'
+      3 | #include "PMDdiag.h"
+    +++ |+#include <math.h>
+      4 | 
+LoadCellFunctions.c(87,32): warning G183B9D1E: variable 'old' set but not used [-Wunused-but-set-variable]
+     87 |  static PMDint32 filtered = 0, old = 0;
+        |                                ^~~
    
   Compiling C: HomeCapture.c
   "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/HomeCapture.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 HomeCapture.c -o obj/HomeCapture.o 
@@ -198,11 +218,11 @@ AssistTrajectory.c(70,1): warning G06B731C0: no return statement in function ret
      70 | }
         | ^
   AssistTrajectory.c: In function 'AssistTrajectory':
-AssistTrajectory.c(687,9): warning G3FC1A267: suggest parentheses around comparison in operand of '&' [-Wparentheses]
-    687 |   if (i == 4 & firstRun == 0) j = 14;
+AssistTrajectory.c(690,9): warning G3FC1A267: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+    690 |   if (i == 4 & firstRun == 0) j = 14;
         |       ~~^~~~
-AssistTrajectory.c(191,74): warning G183B9D1E: variable 'comTIME' set but not used [-Wunused-but-set-variable]
-    191 |  PMDuint32 startTime, curTime, sampleTime, cycTime, TRACESTART, serTime, comTIME, loadCycTime, deltaT = 0, waitTime;
+AssistTrajectory.c(194,74): warning G183B9D1E: variable 'comTIME' set but not used [-Wunused-but-set-variable]
+    194 |  PMDuint32 startTime, curTime, sampleTime, cycTime, TRACESTART, serTime, comTIME, loadCycTime, deltaT = 0, waitTime;
         |                                                                          ^~~~~~~
    
   Compiling C: ReturnHome.c
@@ -252,7 +272,7 @@ EKF.c(120,13): warning G26EC2BC0: passing argument 1 of 'mat2x2_sub' from incomp
   Linking: nIONCME.elf
   "..\..\GNU/bin/arm-none-eabi-gcc" -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/nIONCME.elf.d -Wcast-qual -Wno-unused-variable -mhard-float obj/UserImport.o obj/nIONCME.o obj/Pro-MotionExport1_15_25.o obj/Examples.o obj/PassiveMode2.o obj/LoadCellFunctions.o obj/HomeCapture.o obj/ReverseMove.o obj/ComFunctions.o obj/Assistive2.o obj/Admittance2.o obj/ResistTorqueGoal2.o obj/StepResponse.o obj/LoadCellCME.o obj/AssistiveForce.o obj/SaveOnly.o obj/Transparent.o obj/Impedance.o obj/AssistTrajectory.o obj/ReturnHome.o obj/EKF.o obj/C-Motion.o obj/PMDtrans.o obj/PMDdiag.o obj/PMDcommon.o obj/PMDutil.o obj/startup.o obj/syscalls.o  --output nIONCME.elf -nostartfiles  -Wl,-Map=nIONCME.map,--gc-sections,--print-memory-usage -lm	 -lc -T../..//linkPMD.ld
   Memory region         Used Size  Region Size  %age Used
-             FLASH:      114584 B       256 KB     43.71%
+             FLASH:      117344 B       256 KB     44.76%
                RAM:        1176 B        64 KB      1.79%
    
   Creating CME flash file: nIONCME.bin
@@ -266,7 +286,7 @@ EKF.c(120,13): warning G26EC2BC0: passing argument 1 of 'mat2x2_sub' from incomp
    
   Adding CRC to flash file:
   ../../utils/bin/crc nIONCME.bin
-  CRC =  2AEAF4E
+  CRC = 1A8BB01B
   
   Errors: none
   --------  end  --------

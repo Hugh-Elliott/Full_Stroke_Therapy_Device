@@ -746,7 +746,7 @@ def Receive():
             if (M == 22):
                 DesVeL2 = [(i-vOffset) for i in DesVeL]
             if (M == 77):
-                DesVeL2 = [((i-vOffset)*.01) for i in DesVeL]
+                DesVeL2 = [((i-fOffset)*.001) for i in DesVeL]
                 if (SIMULATION):
                     X0_DOT2 = [((i-vOffset)*.01) for i in X0_DOT]
                     X0_DDOT2 = [((i-vOffset)*.01) for i in X0_DDOT]
@@ -755,6 +755,7 @@ def Receive():
               #  M = LastM
             while (len(TIME2) < len(POS2)):
                 TIME2.append(TIME2[-1]+.03)
+            Smoothing()
             if (M == 1):
                 title = "Passive"
             elif (M == 2):
@@ -1552,7 +1553,28 @@ def TrajWrite(file1):        # Writes values from TrajFlag to matlab script
     TC = []
     TV = []
     ACCELERATION = []
+
+def Smoothing(): # smooths outliers
+    global POS2, VeL2, force2, DesVeL2
+
+    arraySize = len(POS2)
+    desSize = len(DesVeL2)
+##    print(f"pos size {len(POS2)}")
+##    print(f"vel size {len(VeL2)}")
+##    print(f"force size {len(force2)}")
+##    print(f"desvel size {len(DesVeL2)}")
+##    input()
     
+    for i in range(2,arraySize):
+        if (abs(POS2[i] - POS2[i-1]) > 15):
+            POS2[i] = POS2[i-1] + (POS2[i-1] - POS2[i-2])
+        if (abs(VeL2[i] - VeL2[i-1]) > 40):
+            VeL2[i] = VeL2[i-1] + (VeL2[i-1] - VeL2[i-2])
+        if (abs(force2[i] - force2[i-1]) > 50):
+            force2[i] = force2[i-1] + (force2[i-1] - force2[i-2])
+        if (desSize == arraySize):
+            if (abs(DesVeL2[i] - DesVeL2[i-1]) > 30):
+                DesVeL2[i] = DesVeL2[i-1] + (DesVeL2[i-1] - DesVeL2[i-2])
     
 # Buttons
 start = Button(text="Start", fg="black", width = z, command = Start)
