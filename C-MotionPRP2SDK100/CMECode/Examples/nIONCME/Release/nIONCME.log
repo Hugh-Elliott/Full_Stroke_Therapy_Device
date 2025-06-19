@@ -172,8 +172,8 @@ AssistiveForce.c(35,24): warning G183B9D1E: variable 'max' set but not used [-Wu
   Compiling C: Transparent.c
   "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/Transparent.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 Transparent.c -o obj/Transparent.o 
   Transparent.c: In function 'Transparent':
-Transparent.c(47,74): warning G183B9D1E: variable 'comTIME' set but not used [-Wunused-but-set-variable]
-     47 |  PMDuint32 startTime, curTime, sampleTime, cycTime, TRACESTART, serTime, comTIME, loadCycTime;
+Transparent.c(51,74): warning G183B9D1E: variable 'comTIME' set but not used [-Wunused-but-set-variable]
+     51 |  PMDuint32 startTime, curTime, sampleTime, cycTime, TRACESTART, serTime, comTIME, loadCycTime;
         |                                                                          ^~~~~~~
 Transparent.c(27,24): warning G183B9D1E: variable 'max' set but not used [-Wunused-but-set-variable]
      27 |  PMDint16 command = 0, max;
@@ -218,8 +218,8 @@ AssistTrajectory.c(70,1): warning G06B731C0: no return statement in function ret
      70 | }
         | ^
   AssistTrajectory.c: In function 'AssistTrajectory':
-AssistTrajectory.c(690,9): warning G3FC1A267: suggest parentheses around comparison in operand of '&' [-Wparentheses]
-    690 |   if (i == 4 & firstRun == 0) j = 14;
+AssistTrajectory.c(691,9): warning G3FC1A267: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+    691 |   if (i == 4 & firstRun == 0) j = 14;
         |       ~~^~~~
 AssistTrajectory.c(194,74): warning G183B9D1E: variable 'comTIME' set but not used [-Wunused-but-set-variable]
     194 |  PMDuint32 startTime, curTime, sampleTime, cycTime, TRACESTART, serTime, comTIME, loadCycTime, deltaT = 0, waitTime;
@@ -272,7 +272,7 @@ EKF.c(120,13): warning G26EC2BC0: passing argument 1 of 'mat2x2_sub' from incomp
   Linking: nIONCME.elf
   "..\..\GNU/bin/arm-none-eabi-gcc" -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/nIONCME.elf.d -Wcast-qual -Wno-unused-variable -mhard-float obj/UserImport.o obj/nIONCME.o obj/Pro-MotionExport1_15_25.o obj/Examples.o obj/PassiveMode2.o obj/LoadCellFunctions.o obj/HomeCapture.o obj/ReverseMove.o obj/ComFunctions.o obj/Assistive2.o obj/Admittance2.o obj/ResistTorqueGoal2.o obj/StepResponse.o obj/LoadCellCME.o obj/AssistiveForce.o obj/SaveOnly.o obj/Transparent.o obj/Impedance.o obj/AssistTrajectory.o obj/ReturnHome.o obj/EKF.o obj/C-Motion.o obj/PMDtrans.o obj/PMDdiag.o obj/PMDcommon.o obj/PMDutil.o obj/startup.o obj/syscalls.o  --output nIONCME.elf -nostartfiles  -Wl,-Map=nIONCME.map,--gc-sections,--print-memory-usage -lm	 -lc -T../..//linkPMD.ld
   Memory region         Used Size  Region Size  %age Used
-             FLASH:      117344 B       256 KB     44.76%
+             FLASH:      117816 B       256 KB     44.94%
                RAM:        1176 B        64 KB      1.79%
    
   Creating CME flash file: nIONCME.bin
@@ -286,7 +286,7 @@ EKF.c(120,13): warning G26EC2BC0: passing argument 1 of 'mat2x2_sub' from incomp
    
   Adding CRC to flash file:
   ../../utils/bin/crc nIONCME.bin
-  CRC = 1A8BB01B
+  CRC = C1F32682
   
   Errors: none
   --------  end  --------

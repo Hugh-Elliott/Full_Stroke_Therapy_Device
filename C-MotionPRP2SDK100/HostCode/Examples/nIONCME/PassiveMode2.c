@@ -28,6 +28,10 @@ PMDresult PassiveMode2(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, PMDPe
 	// Status
 	PMDuint16 status = 0;
 
+	// Force
+	PMDint32 oldForce = 0;
+	double forceTemp = 0;
+
 	// Position
 	PMDint32 pos = 0, posPLim = comMan._posLimit, posNLim = 50;
 	PMDint32 pos1 = comConfig._endPos, pos2 = comConfig._startPos, destpos;
@@ -333,7 +337,9 @@ PMDresult PassiveMode2(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, PMDPe
 				//PMDprintf("Vel = %d\r\n", VeL[i]);				
 				if (loadCell) {
 					if ((curTime - loadCycTime) >= loadTimeCounts) {
-						force[i] = (getUnits(hPeriphLOAD, 1) + fOffset);
+						forceTemp = getUnits(hPeriphLOAD, 1);
+						forceTemp = forceFilter(forceTemp, &oldForce);
+						force[i] = (forceTemp + fOffset);
 						loadCycTime = curTime;
 						//PMDprintf("New value\r\n");
 					}

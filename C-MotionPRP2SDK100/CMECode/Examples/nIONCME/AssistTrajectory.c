@@ -232,7 +232,7 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 		VeL[zzz] = vOffset;
 		force[zzz] = fOffset;
 		motCom[zzz] = mOffset;
-		DesVeL[zzz] = fOffset;
+		DesVeL[zzz] = vOffset;
 	}
 
 	PMDint32 posTemp = 0;
@@ -293,7 +293,7 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 	motCom[i] = motTemp + mOffset;
 	VeL[i] = 0 + vOffset;
 	force[i] = (0 + fOffset);
-	DesVeL[i] = 0 + fOffset;
+	DesVeL[i] = 0 + vOffset;
 
 #if TRAJVAR == 1
 	X0_DOT[i] = 0;
@@ -497,6 +497,7 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 				if (loadCell) {
 					if ((curTime - loadCycTime) >= loadTimeCounts) {
 						forceTemp = getUnits(hPeriphLOAD, 1);
+						forceTemp = forceFilter(forceTemp, &oldForce);
 						force[i] = (forceTemp + fOffset);
 						loadCycTime = curTime;
 					}
@@ -514,7 +515,7 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 				}
 				if (binSave & 0b00100000) {
 #if TRAPPROFILE == 1
-					DesVeL[i] = forceFilter(forceTemp, &oldForce) + fOffset;
+					DesVeL[i] = x0 *100 + vOffset;
 #else
 					DesVeL[i] = 100*x0 + vOffset;
 #endif

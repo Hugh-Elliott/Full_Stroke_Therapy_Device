@@ -28,6 +28,10 @@ PMDresult Transparent(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, PMDPer
 	double comInput = 1000 * comConfig._torq / motScale; // comInput in 
 	int count = 0, i = 0, countInput = comConfig._rep, dir = 1;
 
+	// Force
+	PMDint32 oldForce = 0;
+	double forceTemp = 0;
+
 	// Position
 	PMDint32 pos = 0, posPLim = comMan._posLimit, posNLim = 0;
 	PMDint32 posMax = comConfig._endPos, posMin = comConfig._startPos;
@@ -208,7 +212,9 @@ PMDresult Transparent(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, PMDPer
 				}
 				if (loadCell) {
 					if ((curTime - loadCycTime) >= loadTimeCounts) {
-						force[i] = (getUnits(hPeriphLOAD, 1) + fOffset);
+						forceTemp = getUnits(hPeriphLOAD, 1);
+						forceTemp = forceFilter(forceTemp, &oldForce);
+						force[i] = (forceTemp + fOffset);
 						loadCycTime = curTime;
 					}
 					else {

@@ -27,6 +27,10 @@ PMDresult ResistTorqueGoal2(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, 
 	int count = 0, i = 0, countInput = comConfig._rep;
 	PMDint16 mot15 = 15 * motScale;
 	int waitPWM = 8 * motScale;
+
+	// Force
+	PMDint32 oldForce = 0;
+	double forceTemp = 0;
 	
 	// Position
 	PMDint32 pos = 0, posPLim = comMan._posLimit, posNLim = 50;
@@ -234,7 +238,9 @@ PMDresult ResistTorqueGoal2(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, 
 				}				
 				if (loadCell) {
 					if ((curTime - loadCycTime) >= loadTimeCounts) {
-						force[i] = (getUnits(hPeriphLOAD, 1) + fOffset);
+						forceTemp = getUnits(hPeriphLOAD, 1);
+						forceTemp = forceFilter(forceTemp, &oldForce);
+						force[i] = (forceTemp + fOffset);
 						loadCycTime = curTime;
 					}
 					else {
