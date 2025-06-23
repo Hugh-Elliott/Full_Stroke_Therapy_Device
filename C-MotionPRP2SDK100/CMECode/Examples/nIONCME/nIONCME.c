@@ -240,12 +240,12 @@ USER_CODE_TASK(nIONCME)
     defaultVals();
     //setScale(151.14998);
     setTare(-123648);
-    //setTare(0);
-    if (1) {
+    //setTare(2037764);
+    if (01) {
         setScale(167332/(9.81*1000)); // 165332 // 162304 //157184
     }
     else {
-        setScale(1);
+        setScale(1);//1274 / (9.81 * 500) or 2564/(9.81*1000) this is for 5 bits per word
     }
     PMD_RESULT(PMDSetStopMode(&hAxis, PMDStopModeSmooth));
     PMDGetEventStatus(&hAxis, &status); PMDprintf("Status: %d\r\n", status);

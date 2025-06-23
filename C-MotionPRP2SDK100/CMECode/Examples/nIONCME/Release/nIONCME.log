@@ -68,24 +68,24 @@ PassiveMode2.c(20,53): warning G183B9D1E: variable 'dir' set but not used [-Wunu
   Compiling C: LoadCellFunctions.c
   "..\..\GNU/bin/arm-none-eabi-gcc" -c -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/LoadCellFunctions.o.d -Wcast-qual -Wno-unused-variable -mhard-float -Wnested-externs  -std=gnu99 LoadCellFunctions.c -o obj/LoadCellFunctions.o 
   LoadCellFunctions.c: In function 'forceFilter':
-LoadCellFunctions.c(83,15): warning G84A3CD4A: implicit declaration of function 'exp' [-Wimplicit-function-declaration]
-     83 | #define alpha exp(-2*3.14*Fc*loadCellConfig._loadTime/1000)  // Alpha for filter
+LoadCellFunctions.c(99,15): warning G84A3CD4A: implicit declaration of function 'exp' [-Wimplicit-function-declaration]
+     99 | #define alpha exp(-2*3.14*Fc*loadCellConfig._loadTime/1000)  // Alpha for filter
         |               ^~~
-  LoadCellFunctions.c:103:14: note: in expansion of macro 'alpha'
-    103 |  *oldForce = alpha * (double)newForce + (1.0 - alpha) * (double)*oldForce;
+  LoadCellFunctions.c:119:14: note: in expansion of macro 'alpha'
+    119 |  *oldForce = alpha * (double)newForce + (1.0 - alpha) * (double)*oldForce;
         |              ^~~~~
-LoadCellFunctions.c(83,15): warning GB9F30EB1: incompatible implicit declaration of built-in function 'exp'
-     83 | #define alpha exp(-2*3.14*Fc*loadCellConfig._loadTime/1000)  // Alpha for filter
+LoadCellFunctions.c(99,15): warning GB9F30EB1: incompatible implicit declaration of built-in function 'exp'
+     99 | #define alpha exp(-2*3.14*Fc*loadCellConfig._loadTime/1000)  // Alpha for filter
         |               ^~~
-  LoadCellFunctions.c:103:14: note: in expansion of macro 'alpha'
-    103 |  *oldForce = alpha * (double)newForce + (1.0 - alpha) * (double)*oldForce;
+  LoadCellFunctions.c:119:14: note: in expansion of macro 'alpha'
+    119 |  *oldForce = alpha * (double)newForce + (1.0 - alpha) * (double)*oldForce;
         |              ^~~~~
   LoadCellFunctions.c:4:1: note: include '<math.h>' or provide a declaration of 'exp'
       3 | #include "PMDdiag.h"
     +++ |+#include <math.h>
       4 | 
-LoadCellFunctions.c(87,32): warning G183B9D1E: variable 'old' set but not used [-Wunused-but-set-variable]
-     87 |  static PMDint32 filtered = 0, old = 0;
+LoadCellFunctions.c(103,32): warning G183B9D1E: variable 'old' set but not used [-Wunused-but-set-variable]
+    103 |  static PMDint32 filtered = 0, old = 0;
         |                                ^~~
    
   Compiling C: HomeCapture.c
@@ -272,7 +272,7 @@ EKF.c(120,13): warning G26EC2BC0: passing argument 1 of 'mat2x2_sub' from incomp
   Linking: nIONCME.elf
   "..\..\GNU/bin/arm-none-eabi-gcc" -O0 -mcpu=cortex-m7 -DCME  -I. -I../../ -I../../../c-motion/include -I. -ffunction-sections -fdata-sections -fno-toplevel-reorder -Wall -Wcast-align -Wpointer-arith -Wunused-function -MD -MP -MF dep/nIONCME.elf.d -Wcast-qual -Wno-unused-variable -mhard-float obj/UserImport.o obj/nIONCME.o obj/Pro-MotionExport1_15_25.o obj/Examples.o obj/PassiveMode2.o obj/LoadCellFunctions.o obj/HomeCapture.o obj/ReverseMove.o obj/ComFunctions.o obj/Assistive2.o obj/Admittance2.o obj/ResistTorqueGoal2.o obj/StepResponse.o obj/LoadCellCME.o obj/AssistiveForce.o obj/SaveOnly.o obj/Transparent.o obj/Impedance.o obj/AssistTrajectory.o obj/ReturnHome.o obj/EKF.o obj/C-Motion.o obj/PMDtrans.o obj/PMDdiag.o obj/PMDcommon.o obj/PMDutil.o obj/startup.o obj/syscalls.o  --output nIONCME.elf -nostartfiles  -Wl,-Map=nIONCME.map,--gc-sections,--print-memory-usage -lm	 -lc -T../..//linkPMD.ld
   Memory region         Used Size  Region Size  %age Used
-             FLASH:      117816 B       256 KB     44.94%
+             FLASH:      117832 B       256 KB     44.95%
                RAM:        1176 B        64 KB      1.79%
    
   Creating CME flash file: nIONCME.bin
@@ -286,7 +286,7 @@ EKF.c(120,13): warning G26EC2BC0: passing argument 1 of 'mat2x2_sub' from incomp
    
   Adding CRC to flash file:
   ../../utils/bin/crc nIONCME.bin
-  CRC = C1F32682
+  CRC = BA2B3205
   
   Errors: none
   --------  end  --------

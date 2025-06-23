@@ -3,6 +3,7 @@
 #include "PMDdiag.h"
 
 LoadCellConfig loadCellConfig = { 119040, 1/205.184006, 25 };  // Initialize offset, scaleFactor and time interval
+#define wordBit9 0
 
 PMDint32 read(PMDPeriphHandle* hPeriphLoad) {
 	int p = 0;
@@ -12,7 +13,22 @@ PMDint32 read(PMDPeriphHandle* hPeriphLoad) {
 	PMDuint32 buffer = 10;
 	PMDresult result;
 
+	PMDuint16 bitword9 = 0x100;
+	PMDuint16 bitword16 = 0xFFFF;
+	PMDuint8 clockPulse[4] = {0xFF, 0xFF, 0xFF, 0x80};
+
+#if wordBit9 == 1
+	PMD_RESULT(PMDPeriphSend(hPeriphLoad, &clockPulse, 5, 25));
+	/*PMDPeriphClose(hPeriphLoad);
+	PMD_RESULT(PMDDeviceOpenPeriphSPI(hPeriphLoad, NULL, 0, 0, 0, 9, PMDSPIBitRate_625kHz));
+	PMD_RESULT(PMDPeriphSend(hPeriphLoad, (PMDuint8*)&bitword9, 2, 25));
+	PMDPeriphClose(hPeriphLoad);
+	PMD_RESULT(PMDDeviceOpenPeriphSPI(hPeriphLoad, NULL, 0, 0, 0, 8, PMDSPIBitRate_625kHz));
+	*/
+#else
+
 	PMD_RESULT(PMDPeriphSend(hPeriphLoad, &clockDATA, 2, 20));
+#endif // wordBit9 == 1
 	PMD_RESULT(PMDPeriphReceive(hPeriphLoad, &TEMP, &buffer, sizeof(TEMP), 20));
 	sensordata = TEMP[0] << 16;
 	sensordata |= TEMP[1] << 8;
