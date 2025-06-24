@@ -789,7 +789,7 @@ def Receive():
             file1.write("clc;" + '\n')
             file1.write("clear;" + '\n')
             file1.write("% clf;" + '\n')
-            if (M == 8):
+            if (M == 8 or M == 88):
                 file1.write("comp = 0;" + '\n')
                 file1.write('\n')
                 file1.write("velsum = 0;" + '\n')
@@ -823,7 +823,7 @@ def Receive():
                 file1.write("else" + '\n')
                 file1.write("    velApp(i) = 2*motCom(i)+20;" + '\n')
                 file1.write("end" + '\n')
-            if (M == 8):
+            if (M == 8 or M == 88):
                 file1.write("if (time(i) < 1.5)" + '\n')
                 file1.write("    if (vel(i) >= 5.5)" + '\n')
                 file1.write("        velcount = velcount+1;" + '\n')
@@ -835,7 +835,7 @@ def Receive():
             file1.write("end" + '\n')
             file1.write("end" + '\n')
             file1.write('\n')
-            if (M == 8):
+            if (M == 8 or M == 88):
                 file1.write("velaverage = velsum/velcount" + '\n')
                 file1.write("if (comp == 1)" + '\n')
             file1.write("figure(1)"+'\n')
@@ -883,7 +883,7 @@ def Receive():
                 file1.write("ylabel('Velocity (cm/s)')" + '\n')
             file1.write("grid on" + '\n')
             file1.write(f"title('{title}')" + '\n')
-            if (M == 8):
+            if (M == 8 or M == 88):
                 file1.write("xlim([0 1])" + '\n')
                 file1.write("end" + '\n')
             if (SIMULATION and (M == 3 or M == 33 or M == 22)):

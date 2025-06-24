@@ -211,18 +211,27 @@ PMDresult NegStepResponse(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1) {
 
 	// Position
 	PMDint32 pos = 0;
-	int endSpot = 17000;
+	int endSpot = 30 * (10.0 * (4000.0 / 74.0));
+	if (command > 6552) {
+		endSpot = 35 * (10.0 * (4000.0 / 74.0));
+	}
+
+	// Velocity
+	double velScaleFactor = 33423 / 10000.0; // Should convert cm/sec to be used in Setvelocity
+	PMDint32 Defvelocity = comConfig._desVel;
+	
 	// Set Trapezoidal Operating Mode
 	PMD_RESULT(PMDSetOperatingMode(hAxis1, PMDOperatingModeAllEnabled));
 	PMD_RESULT(PMDUpdate(hAxis1));
-	PMD_RESULT(PMDSetPosition(hAxis1, endSpot)); // Moves to x = 31.45 cm
+	PMD_RESULT(PMDSetPosition(hAxis1, endSpot)); // Moves to x = 30+ cm, 35 cm if motor command is greater than 20 
+	PMD_RESULT(PMDSetVelocity(hAxis1, (velScaleFactor * Defvelocity)));
 	PMD_RESULT(PMDUpdate(hAxis1));
 
 	do {
 		PMD_RESULT(PMDGetActualPosition(hAxis1, &pos));
 		PMDTaskWait(100);
 	} while (pos > endSpot + 100 || pos < endSpot - 100);
-
+	PMDTaskWait(1000);
 
 	// Operating mode mask
 	PMDuint16 OPMODE = PMDOperatingModeAxisEnabled | PMDOperatingModeMotorOutputEnabled;
@@ -293,10 +302,10 @@ PMDresult NegStepResponse(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1) {
 		state = nextState;
 		switch (state)
 		{
-		case 1: // Applies positive torque
+		case 1: // Applies negative torque
 			if (forwardEntry) {
-				PMDprintf("Positive step\r\n");
-				dir = 1;
+				PMDprintf("negative step\r\n");
+				dir = -1;
 				PMD_RESULT(PMDSetMotorCommand(hAxis1, dir * command));
 				cycTime = curTime;
 				forwardEntry = 0;
@@ -320,10 +329,10 @@ PMDresult NegStepResponse(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1) {
 				waitEntry = 1;
 			}
 			break;
-		case 3: // Applies negative torque
+		case 3: // Applies positive torque
 			if (backEntry) {
-				PMDprintf("Negative step\r\n");
-				dir = -1;
+				PMDprintf("positive step\r\n");
+				dir = 1;
 				PMD_RESULT(PMDSetMotorCommand(hAxis1, dir * command));
 				cycTime = curTime;
 				backEntry = 0;
@@ -372,7 +381,7 @@ PMDresult NegStepResponse(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1) {
 		PMD_RESULT(PMDGetTime(hAxis1, &curTime));
 		if ((float)(0.001 * (curTime - serTime) * sampleTime) >= serTimeMS) {
 			Take(hPeriphSer);
-			if (comConfig._mode != 0x08) {
+			if (comConfig._mode != 88) {
 				run = 0;
 			}
 			PMD_RESULT(PMDGetTime(hAxis1, &serTime));
