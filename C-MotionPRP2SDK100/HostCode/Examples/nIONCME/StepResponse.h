@@ -10,7 +10,8 @@ extern "C" {
 #pragma once
 	// Step response dynamics
 	//{
-	PMDresult StepResponse(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1);
+	PMDresult StepResponse(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1);		// Step Response for positive direction
+	PMDresult NegStepResponse(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1);	// Step Response for negative direction
 	//};
 
 

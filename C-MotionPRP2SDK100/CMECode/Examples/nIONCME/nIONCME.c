@@ -99,7 +99,7 @@ USER_CODE_TASK(nIONCME)
     // Function entry flags
     int ard = 0, torque = 0, trace = 0, torAn = 0, home = 01, torRes = 0, writeTest = 0, MotCyc = 0, resMod = 0, Step = 0;
     int torRes2 = 0, Step2 = 0, Load = 0, SPI = 01, resTorGo = 0, Assist = 0, Passive = 0, Admit = 0, Load2 = 0, StepRes = 0; // Switch to release for torRes2, resTorGo and Assist
-    int LoadCME = 01, saveOnly = 0, assistForce = 0, Imp = 0, AssistTraj = 0;
+    int LoadCME = 01, saveOnly = 0, assistForce = 0, Imp = 0, AssistTraj = 0, NegStepRes = 0;
     // Time 
     PMDuint32 startTime, curTime, serTime, sampleTime;
 
@@ -319,6 +319,7 @@ USER_CODE_TASK(nIONCME)
                 else if (mode == 99) saveOnly = 1;
                 else if (mode == 22) Imp = 1;
                 else if (mode == 77) AssistTraj = 1;
+                else if (mode == 88) NegStepRes = 1;
                 if (mode == 9) run = 0;
             //}
             serTime = curTime;
@@ -395,6 +396,14 @@ USER_CODE_TASK(nIONCME)
             if (comConfig._mode == 9) run = 0;
             comConfig._mode = 0;
         }
+        if (NegStepRes) {
+            PMD_RESULT(NegStepResponse(&hPeriph, &hAxis));
+            NegStepRes = 0;
+            if (comConfig._mode == 9) run = 0;
+            comConfig._mode = 0;
+        }
+
+
         PMD_RESULT(PMDGetInstructionError(&hAxis, &instructionerror));
         PMD_RESULT(PMDGetActualPosition(&hAxis, &posTemp));
         if (posTemp > 50 || posTemp < -50) {
