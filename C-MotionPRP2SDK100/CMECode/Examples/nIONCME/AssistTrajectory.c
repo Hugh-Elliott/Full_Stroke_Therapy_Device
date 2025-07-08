@@ -114,10 +114,10 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 	double e = 0.0;
 	double e_dot = 0.0;
 	double F = 0;
-	double x0 = 0;
+	double xref = 0;
 	double Tcoulomb = 10.95; // Minimum PWM% to overcome friction
-	double x0_dot = .01 * round(counts2cm * comConfig._desVel * 100.0) / 100; // m/s
-	double x0_ddot = 0.097; // can't remember why this is 0.097
+	double xref_dot = .01 * round(counts2cm * comConfig._desVel * 100.0) / 100; // m/s
+	double xref_ddot = 0.097; // can't remember why this is 0.097
 	double x = 0;
 	double x_dot = 0;
 	double viscousFrictionGain = 1 * (1.0 / 0.090977) * (100.0 / 24.0);
@@ -125,14 +125,14 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 #if TRAPPROFILE == 1
 	int trap = 02;
 
-	double velMaxCM = x0_dot * 100;
+	double velMaxCM = xref_dot * 100;
 	double velPeak = 0;
-	double x0_dot_prev = x0_dot;
-	x0_ddot = 10; // cm/s^2
-	x0_dot = 0;
-	double accel = x0_ddot;
-	double TimeAccel =  velMaxCM / x0_ddot;
-	double x_accel = 0.5 * x0_ddot * TimeAccel * TimeAccel;
+	double xref_dot_prev = xref_dot;
+	xref_ddot = 10; // cm/s^2
+	xref_dot = 0;
+	double accel = xref_ddot;
+	double TimeAccel =  velMaxCM / xref_ddot;
+	double x_accel = 0.5 * xref_ddot * TimeAccel * TimeAccel;
 	double TimeCon = (posMaxCM - 2 * x_accel) / velMaxCM;
 	double TimeConLast = TimeCon;
 	double TimeMotion = 0;
@@ -159,7 +159,7 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 #endif
 
 #ifdef SINECURVE
-	x0_dot = 0;
+	xref_dot = 0;
 	double pi = 3.14159265358979323846;
 	double freqFactor = pi / 5.0; // Arbitrarily choden
 	double positionAmplitude = (posMaxCM) / 2.0;
@@ -225,7 +225,7 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 	PMDint32 VeL[arraySize] = { vOffset };
 	PMDint32 force[arraySize] = { fOffset };
 	PMDint16 motCom[arraySize] = { mOffset };
-	PMDint32 DesVeL[arraySize] = { 0 };			// Will be used to save x0 values
+	PMDint32 DesVeL[arraySize] = { 0 };			// Will be used to save xref values
 
 	for (int zzz = 0; zzz < arraySize; zzz++) {
 		POS[zzz] = pOffset;
@@ -263,10 +263,10 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 
 #endif // SENDTRAJFORCE
 	
-	// Used if x0_dot and x0_ddot are to be saved
+	// Used if xref_dot and xref_ddot are to be saved
 #if TRAJVAR == 1
-	PMDint32 X0_DOT[arraySize] = { 0 };
-	PMDint32 X0_DDOT[arraySize] = { 0 };
+	PMDint32 XREF_DOT[arraySize] = { 0 };
+	PMDint32 XREF_DDOT[arraySize] = { 0 };
 #endif
 
 	// Size of arrays
@@ -296,8 +296,8 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 	DesVeL[i] = 0 + vOffset;
 
 #if TRAJVAR == 1
-	X0_DOT[i] = 0;
-	X0_DDOT[i] = 0;
+	XREF_DOT[i] = 0;
+	XREF_DDOT[i] = 0;
 #endif
 
 	SendParts(hPeriphSer, binSave, TIME[i], POS[i], VeL[i], force[i], motCom[i], DesVeL[i]);
@@ -326,7 +326,7 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 #ifndef SINECURVE
 				PMD_RESULT(PMDSetMotorCommand(hAxis1, waitPWM));
 #if TRAPPROFILE == 0
-				x0 = posMinCM;
+				xref = posMinCM;
 #endif
 #endif // !SINECURVE
 				//PMDprintf("Start pushing in the positive direction\r\n");
@@ -397,7 +397,7 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 #ifndef SINECURVE
 				PMD_RESULT(PMDSetMotorCommand(hAxis1, -waitPWM));
 #if TRAPPROFILE == 0
-				x0 = posMaxCM;
+				xref = posMaxCM;
 #endif
 #endif // !SINECURVE
 				//PMDprintf("Start pushing in the negative direction\r\n");
@@ -515,118 +515,118 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 				}
 				if (binSave & 0b00100000) {
 #if TRAPPROFILE == 1
-					DesVeL[i] = x0 *100 + vOffset;
+					DesVeL[i] = xref *100 + vOffset;
 #else
-					DesVeL[i] = 100*x0 + vOffset;
+					DesVeL[i] = 100*xref + vOffset;
 #endif
 				}
 #if TRAJVAR == 1
-				X0_DOT[i] = x0_dot * 100 + vOffset;
-				if (fabs(x0_ddot) != accel) {
-					X0_DDOT[i] = x0_ddot * 100 * 100 + vOffset;
+				XREF_DOT[i] = xref_dot * 100 + vOffset;
+				if (fabs(xref_ddot) != accel) {
+					XREF_DDOT[i] = xref_ddot * 100 * 100 + vOffset;
 				}
 				else {
-					X0_DDOT[i] = x0_ddot * 100 + vOffset;
+					XREF_DDOT[i] = xref_ddot * 100 + vOffset;
 				}
-				SendTrajValues(hPeriphSer, X0_DOT[i], X0_DDOT[i]);
+				SendTrajValues(hPeriphSer, XREF_DOT[i], XREF_DDOT[i]);
 #endif
 
 				x_dot = (VeL[j] - vOffset) * counts2cm*10;
 #ifndef SINECURVE
 					deltaT_s = deltaT * .001;
 					if (0) {
-						if (dir == 1 && x > x0) {
-							x0 = x;
+						if (dir == 1 && x > xref) {
+							xref = x;
 						}
-						else if (dir == -1 && x < x0) {
-							x0 = x;
+						else if (dir == -1 && x < xref) {
+							xref = x;
 						}
 					}
 #if TRAPPROFILE == 1
 					TimeMotion += deltaT_s;
 					if (trap == 1) {
 						if (TimeMotion < TimeAccel) {
-							x0_dot = trapDir * TimeMotion * accel; // cm/s
-							x0_ddot = trapDir * accel;
+							xref_dot = trapDir * TimeMotion * accel; // cm/s
+							xref_ddot = trapDir * accel;
 						}
 						else if (TimeMotion < (TimeAccel + TimeCon)) {
-							x0_dot = trapDir * velPeak;
-							x0_ddot = 0;
+							xref_dot = trapDir * velPeak;
+							xref_ddot = 0;
 						}
 						else if (TimeMotion < TimeMotionTotal) {
-							x0_dot = trapDir * (velPeak - accel * (TimeMotion - TimeAccel - TimeCon));
-							x0_ddot = trapDir * -accel;
-							PMDprintf("x0 = %f, x0_dot = %f, TimeMotion = %f, trapDir = %d\r\n", x0, x0_dot, TimeMotion, trapDir);
-							if ((trapDir == 1 && x0_dot < 0) || (trapDir == -1 && x0_dot > 0)) {
-								x0_dot = 0;
-								x0_ddot = 0;
+							xref_dot = trapDir * (velPeak - accel * (TimeMotion - TimeAccel - TimeCon));
+							xref_ddot = trapDir * -accel;
+							PMDprintf("xref = %f, xref_dot = %f, TimeMotion = %f, trapDir = %d\r\n", xref, xref_dot, TimeMotion, trapDir);
+							if ((trapDir == 1 && xref_dot < 0) || (trapDir == -1 && xref_dot > 0)) {
+								xref_dot = 0;
+								xref_ddot = 0;
 							}
 						}
 						else {
-							x0_dot = 0;
-							x0_ddot = 0;
+							xref_dot = 0;
+							xref_ddot = 0;
 						}
 					}
 					else {
-						x_travelled = fabs(x0 - x_start);
+						x_travelled = fabs(xref - x_start);
 
 						if (x_travelled < x_accel) {
-							x0_ddot = trapDir * accel;
-							x0_dot += deltaT_s * x0_ddot;
+							xref_ddot = trapDir * accel;
+							xref_dot += deltaT_s * xref_ddot;
 						}
 						else if (x_travelled < (x_accel + x_const)) {
-							x0_ddot = 0;
-							x0_dot = trapDir * velPeak;
+							xref_ddot = 0;
+							xref_dot = trapDir * velPeak;
 						}
 						else if (x_travelled < x_total) {
-							x0_ddot = -trapDir * accel;
-							x0_dot += deltaT_s * x0_ddot;
+							xref_ddot = -trapDir * accel;
+							xref_dot += deltaT_s * xref_ddot;
 
-							if ((trapDir == 1 && x0_dot < 0) || (trapDir == -1 && x0_dot > 0)) {
-								x0_dot = 0;
-								x0_ddot = 0;
+							if ((trapDir == 1 && xref_dot < 0) || (trapDir == -1 && xref_dot > 0)) {
+								xref_dot = 0;
+								xref_ddot = 0;
 							}
 						}
 						else {
-							x0 = x_goal;
-							x0_dot = 0;
-							x0_ddot = 0;
+							xref = x_goal;
+							xref_dot = 0;
+							xref_ddot = 0;
 						}
-						if (x0_ddot != 0) {
-							x0_ddot = x0_ddot * .01;
+						if (xref_ddot != 0) {
+							xref_ddot = xref_ddot * .01;
 						}
 					}
 					//PMDprintf("state = %d, trapDir = %d\r\n", state, trapDir);
-					//PMDprintf("x0 = %f, x0_dot = %f, x = %f\r\n", x0, x0_dot, x);
-					x0 += deltaT_s * 0.5 * (x0_dot + x0_dot_prev);
-					x0_dot_prev = x0_dot;
+					//PMDprintf("xref = %f, xref_dot = %f, x = %f\r\n", xref, xref_dot, x);
+					xref += deltaT_s * 0.5 * (xref_dot + xref_dot_prev);
+					xref_dot_prev = xref_dot;
 
-					if ((trapDir == 1 && x0 > x_goal) || (trapDir == -1 && x0 < x_goal)) {
-						x0_dot = 0;
-						x0 = x_goal;
-						x0_ddot = 0;
+					if ((trapDir == 1 && xref > x_goal) || (trapDir == -1 && xref < x_goal)) {
+						xref_dot = 0;
+						xref = x_goal;
+						xref_ddot = 0;
 					}
 #else
 					if (dir != 0) {
-						x0 = x0 + dir * deltaT_s * 100 * x0_dot;
+						xref = xref + dir * deltaT_s * 100 * xref_dot;
 					}
 #endif // TRAPPROFILE
-					//PMDprintf("x0_dot = %f, add = %f, x0 = %f\r\n", x0_dot, (dir * (PMDint32)deltaT * .001 * x0_dot), x0);
-					//PMDprintf("dir = %d, deltaT = %d, add = %f, dir*deltaT = %d, dir*deltaT*.001 = %f\r\n", dir, deltaT, (dir* (PMDint32)deltaT * .001 * x0_dot), (dir* deltaT), (dir* (PMDint32)deltaT * .001));
+					//PMDprintf("xref_dot = %f, add = %f, xref = %f\r\n", xref_dot, (dir * (PMDint32)deltaT * .001 * xref_dot), xref);
+					//PMDprintf("dir = %d, deltaT = %d, add = %f, dir*deltaT = %d, dir*deltaT*.001 = %f\r\n", dir, deltaT, (dir* (PMDint32)deltaT * .001 * xref_dot), (dir* deltaT), (dir* (PMDint32)deltaT * .001));
 #if TRAPPROFILE == 0
-					if (x0 > posMaxCM) {
-						x0 = posMaxCM;
+					if (xref > posMaxCM) {
+						xref = posMaxCM;
 					}
-					else if (x0 < posMinCM) {
-						x0 = posMinCM;
+					else if (xref < posMinCM) {
+						xref = posMinCM;
 					}
 #endif
 				
 #else
 				sineTime = (TIME[i] * .001);
-				x0 = positionAmplitude * sin(freqFactor * sineTime - positionPhase) + positionAmplitude;
-				x0_dot = velocityAmplitude * sin(freqFactor * sineTime);
-				x0_ddot = accelerationAmplitude * cos(freqFactor * sineTime);
+				xref = positionAmplitude * sin(freqFactor * sineTime - positionPhase) + positionAmplitude;
+				xref_dot = velocityAmplitude * sin(freqFactor * sineTime);
+				xref_ddot = accelerationAmplitude * cos(freqFactor * sineTime);
 #endif // !SINCECURVE
 
 				SendParts(hPeriphSer, binSave, TIME[i], POS[i], VeL[i], force[i], motCom[i], DesVeL[i]);
@@ -646,7 +646,7 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 				E_DOT_TERM[iFORCE] = (-mMd * Dd * e_dot + 200) * 10000;
 				TC[iFORCE] = (dir * Tcoulomb + 200) * 10000;
 				TV[iFORCE] = (viscousFrictionGain * x_dot + 200) * 10000;
-				ACCELERATION[iFORCE] = (m * x0_ddot + 200) * 10000;
+				ACCELERATION[iFORCE] = (m * xref_ddot + 200) * 10000;
 
 				SendTrajForce(hPeriphSer, TIMEFORCE[iFORCE], FORCE[iFORCE], FEXT[iFORCE], E_TERM[iFORCE], E_DOT_TERM[iFORCE], TC[iFORCE], TV[iFORCE], ACCELERATION[iFORCE]);
 
@@ -691,24 +691,24 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 		if (i == 4 & firstRun == 0) j = 14;
 		else j = i - 1;
 		Fext = 0.001 * (force[j] - fOffset);
-		e = .01 * (x - x0);
+		e = .01 * (x - xref);
 #ifndef SINECURVE
 #if TRAPPROFILE == 1
-		e_dot = (x_dot)-(x0_dot * .01);
+		e_dot = (x_dot)-(xref_dot * .01);
 #else
-		e_dot = (x_dot) - dir * x0_dot;
+		e_dot = (x_dot) - dir * xref_dot;
 #endif // TRAPPROFILE
 #ifndef Viscous
 		F = fgain * Fext - mMd * (Dd * e_dot + Kd * e) + dir * Tcoulomb;
 #else
 #if TRAPPROFILE == 1
-		F = fgain * Fext - mMd * (Dd * e_dot + Kd * e) + dir * Tcoulomb + viscousFrictionGain * x_dot + m * x0_ddot;
+		F = fgain * Fext - mMd * (Dd * e_dot + Kd * e) + dir * Tcoulomb + viscousFrictionGain * x_dot + m * xref_ddot;
 #else
 		F = fgain * Fext - mMd * (Dd * e_dot + Kd * e) + dir * Tcoulomb + viscousFrictionGain * x_dot;
 #endif
 #endif // !Viscous
 #else
-		e_dot = (x_dot)-(x0_dot * .01);
+		e_dot = (x_dot)-(xref_dot * .01);
 #if SMOOTH == 0
 		if (x_dot > 0) {
 			velDir = 1;
@@ -721,9 +721,9 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 		velDir = tanh(200.0 * x_dot);
 #endif
 #ifndef Viscous
-		F = fgain * Fext - mMd * (Dd * e_dot + Kd * e) + velDir * Tcoulomb + m * x0_ddot;
+		F = fgain * Fext - mMd * (Dd * e_dot + Kd * e) + velDir * Tcoulomb + m * xref_ddot;
 #else
-		F = fgain * Fext - mMd * (Dd * e_dot + Kd * e) + velDir * Tcoulomb + viscousFrictionGain * x_dot + m * x0_ddot;
+		F = fgain * Fext - mMd * (Dd * e_dot + Kd * e) + velDir * Tcoulomb + viscousFrictionGain * x_dot + m * xref_ddot;
 #endif // !Viscous
 #endif // !SINECURVE
 #if FORCECLAMP == 1
@@ -736,10 +736,10 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 #endif // FORCECLAMP == 1
 		command = F * motScale;
 		//PMDprintf("velDir = %d, visGain = %f, x_dot = %f, velDir*visGain = %f, all = %f\r\n", velDir, viscousFrictionGain, x_dot, (velDir* viscousFrictionGain), (velDir* (viscousFrictionGain* fabs(x_dot))));
-		//PMDprintf("x0 = %f, x = %f, x= %f, e = %f\r\n", x0, (counts2cm * (POS[j] - pOffset)), x, e);
-		//PMDprintf("F = %f, Fext = %f, e = %f, e_dot = %f, Tcoulomb = %f, viscous = %f, x0_ddot = %f\r\n", F, (fgain * Fext), (-mMd * Kd * e), (-mMd * Dd * e_dot), (dir * Tcoulomb), (viscousFrictionGain * x_dot), (m * x0_ddot));
+		//PMDprintf("xref = %f, x = %f, x= %f, e = %f\r\n", xref, (counts2cm * (POS[j] - pOffset)), x, e);
+		//PMDprintf("F = %f, Fext = %f, e = %f, e_dot = %f, Tcoulomb = %f, viscous = %f, xref_ddot = %f\r\n", F, (fgain * Fext), (-mMd * Kd * e), (-mMd * Dd * e_dot), (dir * Tcoulomb), (viscousFrictionGain * x_dot), (m * xref_ddot));
 		//PMDprintf("x_dot = %f, velDir = %f");
-		//PMDprintf("VeL = %f, x0_dot = %f, e_dot = %f, x = %f, x0 = %f\r\n", (x_dot), x0_dot, e_dot, x, x0);
+		//PMDprintf("VeL = %f, xref_dot = %f, e_dot = %f, x = %f, xref = %f\r\n", (x_dot), xref_dot, e_dot, x, xref);
 		if (abs(F) > 30) {
 			if (F > 0) {
 				command = 30.0 * motScale;
@@ -777,8 +777,8 @@ PMDresult AssistTrajectory(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, P
 			}
 			if (comConfig._desVel != desiredVelocity) {
 				desiredVelocity = comConfig._desVel;
-				x0_dot = .01 * round(counts2cm * desiredVelocity * 100) / 100;
-				velMaxCM = x0_dot * 100;
+				xref_dot = .01 * round(counts2cm * desiredVelocity * 100) / 100;
+				velMaxCM = xref_dot * 100;
 				if (trap == 1) {
 					trapProfile(accel, velMaxCM, &velPeak, &TimeAccel, &TimeCon, &TimeMotionTotal, posMaxCM, posMinCM);
 				}
