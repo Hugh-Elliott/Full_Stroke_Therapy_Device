@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: Elliott"
+  given-names: "Hugh"
+  orcid: "N/A"
+title: "Full_Stroke_Therapy_Device"
+version: 1.0.0
+doi: TBD
+date-released: 2025-07-17
+url: "https://github.com/Hugh-Elliott/Full_Stroke_Therapy_Device"
