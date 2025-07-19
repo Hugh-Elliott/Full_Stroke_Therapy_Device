@@ -115,7 +115,7 @@ PMDresult PassiveMode2(PMDPeriphHandle* hPeriphSer, PMDAxisHandle* hAxis1, PMDPe
 
 	// Entry flags
 	int inputEntry = 1, posEntry = 1, negEntry = 1, nWaitEntry = 1, pWaitEntry = 1;
-	int go = 01;
+	int go = 0;
 
 	//Adding t = 0 values
 	PMD_RESULT(PMDGetTime(hAxis1, &curTime));

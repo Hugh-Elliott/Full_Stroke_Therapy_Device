@@ -1251,13 +1251,12 @@ END GROUP
  *fill*         0x0815a0e7        0x1 ff
  .rodata        0x0815a0e8      0x305 obj/Impedance.o
  *fill*         0x0815a3ed        0x3 ff
- .rodata        0x0815a3f0      0x3d5 obj/AssistTrajectory.o
- *fill*         0x0815a7c5        0x3 ff
- .rodata        0x0815a7c8      0x28c obj/ReturnHome.o
- .rodata        0x0815aa54     0x2491 obj/PMDdiag.o
- *fill*         0x0815cee5        0x3 ff
- .rodata        0x0815cee8      0x20c obj/PMDutil.o
- *fill*         0x0815d0f4        0x4 ff
+ .rodata        0x0815a3f0      0x3d9 obj/AssistTrajectory.o
+ *fill*         0x0815a7c9        0x3 ff
+ .rodata        0x0815a7cc      0x28c obj/ReturnHome.o
+ .rodata        0x0815aa58     0x2491 obj/PMDdiag.o
+ *fill*         0x0815cee9        0x3 ff
+ .rodata        0x0815ceec      0x20c obj/PMDutil.o
  .rodata.__exp_data
                 0x0815d0f8      0x870 c:/users/hjhje/downloads/pmdsoftwarenion600/c-motionprp2sdk100/cmecode/gnu/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(lib_a-exp_data.o)
                 0x0815d0f8                __exp_data
