@@ -6,7 +6,7 @@ SIMULATION = True      # Turns on/off matlab simulation code
 plotOn = True                   # Turns on/off plotting using matplotlib
 SENDINLOOP = False      # Turns on/off including the Send function in the main loop vs only calling the Send function when a button is pressed
 TRAJFORCE = False            # Turns on/off saving the force components from Assitive Mode Trajectory
-TRAJVAR = True              # Saves x0_dot and x0_ddot
+TRAJVAR = True              # Saves xref_dot and xref_ddot
 NORESAMPLE = False             # If a resampled time is used for Assistive Trajectory Simulation
 
 from tkinter import *
@@ -33,7 +33,7 @@ def GetTimeNow():                    #Read the timer function
 ## Variables
 
 # Entry box variables
-posMax = 31.45
+posMax = 31.45        # in cm
 posMin = 0
 countInput = IntVar()
 pos1 = DoubleVar()
@@ -174,16 +174,16 @@ if (TRAJFORCE):
 
 if (TRAJVAR):
     # Save flags
-    x0_dotSave = 0
-    x0_ddotSave = 0
+    xref_dotSave = 0
+    xref_ddotSave = 0
 
     # Saving Arrays
-    X0_DOT = []
-    X0_DDOT = []
+    XREF_DOT = []
+    XREF_DDOT = []
 
     # Unit adjusted arrays
-    X0_DOT2 = []
-    X0_DDOT2 = []
+    XREF_DOT2 = []
+    XREF_DDOT2 = []
     
 def print_dimensions():
     width = window.winfo_width()
@@ -251,6 +251,26 @@ def Buttons():
         GoButton.place(x = s+3*lxspace, y = ly+5*lyspace)
     else:
         GoButton.place_forget()
+    if (M == 77):
+        mImpEntry.place(x = 50, y = 375)
+        mImpLabel.place(x = 50, y = 350)
+        MdImpEntry.place(x = 50+1*75, y = 375)
+        MdImpLabel.place(x = 50+1*75, y = 350)
+        DdImpEntry.place(x = 50+2*75, y = 375)
+        DdImpLabel.place(x = 50+2*75, y = 350)
+        KdImpEntry.place(x = 50+3*75, y = 375)
+        KdImpLabel.place(x = 50+3*75, y = 350)
+        ImpButton.place(x = 50+4*75, y = 375)
+    else:
+        mImpEntry.place_forget()
+        mImpLabel.place_forget()
+        MdImpEntry.place_forget()
+        MdImpLabel.place_forget()
+        DdImpEntry.place_forget()
+        DdImpLabel.place_forget()
+        KdImpEntry.place_forget()
+        KdImpLabel.place_forget()
+        ImpButton.place_forget()
 
 def SubFunc():
     global M
@@ -345,15 +365,15 @@ def Begin():
     actCount.place(x = s+4*lxspace, y = ly)
     actCountNum.place(x = s+550, y = ly)
     # Place Impedance Variable Entry Boxes and Labels
-    mImpEntry.place(x = 50, y = 375)
-    mImpLabel.place(x = 50, y = 350)
-    MdImpEntry.place(x = 50+1*75, y = 375)
-    MdImpLabel.place(x = 50+1*75, y = 350)
-    DdImpEntry.place(x = 50+2*75, y = 375)
-    DdImpLabel.place(x = 50+2*75, y = 350)
-    KdImpEntry.place(x = 50+3*75, y = 375)
-    KdImpLabel.place(x = 50+3*75, y = 350)
-    ImpButton.place(x = 50+4*75, y = 375)
+##    mImpEntry.place(x = 50, y = 375)
+##    mImpLabel.place(x = 50, y = 350)
+##    MdImpEntry.place(x = 50+1*75, y = 375)
+##    MdImpLabel.place(x = 50+1*75, y = 350)
+##    DdImpEntry.place(x = 50+2*75, y = 375)
+##    DdImpLabel.place(x = 50+2*75, y = 350)
+##    KdImpEntry.place(x = 50+3*75, y = 375)
+##    KdImpLabel.place(x = 50+3*75, y = 350)
+##    ImpButton.place(x = 50+4*75, y = 375)
     
 if TEST:
     data = [0,1,2,3]
@@ -547,13 +567,13 @@ def Receive():
     global Kd_Imp
     global mSAVED, MdSAVED, DdSAVED, KdSAVED
 
-    global X0_DOT, X0_DDOT, x0_dotSave, x0_ddotSave
+    global XREF_DOT, XREF_DDOT, xref_dotSave, xref_ddotSave
 
     allSaveFlags = tSave|pSave|vSave|fSave|mSave|dSave|mImpSave|MdImpSave|DdImpSave|KdImpSave
     if(TRAJFORCE):
         allSaveFlags = allSaveFlags|TFSave|FSave|FextSave|e_termSave|e_dot_termSave|TcSave|TvSave|aSave
     if (TRAJVAR):
-        allSaveFlags = allSaveFlags|x0_dotSave|x0_ddotSave
+        allSaveFlags = allSaveFlags|xref_dotSave|xref_ddotSave
     try:
         ion = [0x00]
         if (NIONCME.in_waiting > 0 and allSaveFlags == 0):
@@ -568,6 +588,8 @@ def Receive():
             rem = icount % 2
 ##            if (rem == 1):
 ##                print(f"Rem = {rem}")
+            
+## Handles checking for data flags
             if(ALLDATA):
                 b = 1
                 #print(f"Received {icount} raw bytes: {ion.hex()}")
@@ -615,9 +637,9 @@ def Receive():
                 TrajFlag(ion)
             if (TRAJVAR and M == 77):
                 if (ion == b'<d>'):
-                    x0_dotSave = 1
+                    xref_dotSave = 1
                 if (ion == b'<b>'):
-                    x0_ddotSave = 1
+                    xref_ddotSave = 1
         
         if (NIONCME.in_waiting > 3):
             ion = NIONCME.read(4)
@@ -625,6 +647,8 @@ def Receive():
             #time.sleep(0.02)
             #print(f"temp = {hex(temp)}")
             #print(f"Expected endValue = {hex(endValue)}")
+            
+## Handles the data ending flags
             if (temp == endValue or temp == otherEnd):
                 if (temp == otherEnd):
                     dump = NIONCME.read(1)
@@ -658,10 +682,11 @@ def Receive():
                 if (TRAJFORCE and M == 77):
                     TrajFlag(ion)
                 if (TRAJVAR and M == 77):
-                    if (x0_dotSave):
-                        x0_dotSave = 0
-                    if (x0_ddotSave):
-                        x0_ddotSave = 0
+                    if (xref_dotSave):
+                        xref_dotSave = 0
+                    if (xref_ddotSave):
+                        xref_ddotSave = 0
+## Accepts incoming data and saves it to the appropriate variable based on flags
             else:
                 if (tSave):
                     TIME.append(temp)
@@ -711,14 +736,15 @@ def Receive():
                 if (TRAJFORCE and M == 77):
                     TrajFlag(ion)
                 if (TRAJVAR and M == 77):
-                    if (x0_dotSave):
-                        X0_DOT.append(temp)
-                    if (x0_ddotSave):
-                        X0_DDOT.append(temp)
+                    if (xref_dotSave):
+                        XREF_DOT.append(temp)
+                    if (xref_ddotSave):
+                        XREF_DDOT.append(temp)
                     
             if(ALLDATA):
                 icount = len(ion)
-                #print(f"Received {icount} raw bytes: {ion.hex()}")            
+                #print(f"Received {icount} raw bytes: {ion.hex()}")
+## Saving data to file
         if(sSave and curSaving):
             if (TIME == []):
                 sSave = 0
@@ -748,8 +774,8 @@ def Receive():
             if (M == 77):
                 DesVeL2 = [((i-vOffset)*.01) for i in DesVeL]
                 if (SIMULATION):
-                    X0_DOT2 = [((i-vOffset)*.01) for i in X0_DOT]
-                    X0_DDOT2 = [((i-vOffset)*.01) for i in X0_DDOT]
+                    XREF_DOT2 = [((i-vOffset)*.01) for i in XREF_DOT]
+                    XREF_DDOT2 = [((i-vOffset)*.01) for i in XREF_DDOT]
             # Opens file and writes data
             #if (LastM != M):
               #  M = LastM
@@ -783,7 +809,7 @@ def Receive():
             # Opens and writes to file
 
 ####################################################################
-            file1 = open('ZStep.m', 'w')
+            file1 = open('ZTrap.m', 'w')
 ####################################################################
             
             file1.write("clc;" + '\n')
@@ -801,12 +827,16 @@ def Receive():
             file1.write(f"motCom = {motCom2};" + '\n')
             #file1.write(f"%motCom2 size = {mSize}" + '\n')
             if (M == 77):
-                file1.write(f"x0 = {DesVeL2};" + '\n')
+                file1.write(f"xref = {DesVeL2};" + '\n')
                 if (SIMULATION):
-                    file1.write(f"x0_dot = {X0_DOT2};" + '\n')
-                    file1.write(f"x0_ddot = {X0_DDOT2};" + '\n')
+                    file1.write(f"xref_dot = {XREF_DOT2};" + '\n')
+                    file1.write(f"xref_ddot = {XREF_DDOT2};" + '\n')
             else:
                 file1.write(f"desvel = {DesVeL2};" + '\n')
+            file1.write('\n')
+            file1.write(f"Tcoulomb = 10.95;" + '\n')
+            file1.write(f"TNm = 0.144761812;" + '\n')
+            file1.write('\n')
             file1.write("vel2 = 0;" + '\n')
             file1.write("d = size(pos);" + '\n')
             file1.write("velApp = 0;" + '\n')
@@ -842,8 +872,8 @@ def Receive():
             file1.write("plot(time, pos, 'LineWidth', 1)"+'\n')
             if (M == 77):
                 file1.write("hold on" + '\n')
-                file1.write("plot(time, x0, 'LineWidth', 1)"+'\n')
-                file1.write("legend('Actual Position', 'x0')"+'\n')
+                file1.write("plot(time, xref, 'LineWidth', 1)"+'\n')
+                file1.write("legend('Actual Position', 'xref')"+'\n')
                 file1.write("hold off" + '\n')
             file1.write("grid on" + '\n')
             #file1.write("legend('Position (cm)')"+'\n')
@@ -968,19 +998,22 @@ def Receive():
                 file1.write("figure(3)" + '\n')
                 if (NORESAMPLE): 
                     file1.write("ForceIn = timeseries(force.', time);" + '\n')
-                    file1.write("X0In = timeseries(x0.', time);" + '\n')
-                    file1.write("X0_DOTIn = timeseries(x0_dot.', time);" + '\n')
-                    file1.write("X0_DDOTIn = timeseries(x0_ddot.', time);" + '\n')
+                    file1.write("XREFIn = timeseries(xref.', time);" + '\n')
+                    file1.write("XREF_DOTIn = timeseries(xref_dot.', time);" + '\n')
+                    file1.write("XREF_DDOTIn = timeseries(xref_ddot.', time);" + '\n')
+                    file1.write("motComIn = timeseries(motCom.', time);" + '\n')
                 else:
                     file1.write("new_time = 0:0.001:max(time);" + '\n')
                     file1.write("Ftemp = spline(time, force, new_time);" + '\n')
-                    file1.write("x0temp = spline(time, x0, new_time);" + '\n')
-                    file1.write("x0dottemp = spline(time, x0_dot, new_time);" + '\n')
-                    file1.write("x0ddottemp = spline(time, x0_ddot, new_time);" + '\n')
+                    file1.write("xreftemp = spline(time, xref, new_time);" + '\n')
+                    file1.write("xrefdottemp = spline(time, xref_dot, new_time);" + '\n')
+                    file1.write("xrefddottemp = spline(time, xref_ddot, new_time);" + '\n')
                     file1.write("ForceIn = timeseries(Ftemp.', new_time);" + '\n')
-                    file1.write("X0In = timeseries(x0temp.', new_time);" + '\n')
-                    file1.write("X0_DOTIn = timeseries(x0dottemp.', new_time);" + '\n')
-                    file1.write("X0_DDOTIn = timeseries(x0ddottemp.', new_time);" + '\n')
+                    file1.write("XREFIn = timeseries(xreftemp.', new_time);" + '\n')
+                    file1.write("XREF_DOTIn = timeseries(xrefdottemp.', new_time);" + '\n')
+                    file1.write("XREF_DDOTIn = timeseries(xrefddottemp.', new_time);" + '\n')
+                    file1.write("mtemp = spline(time, motCom, new_time);" + '\n')
+                    file1.write("motComIn = timeseries(mtemp.', new_time);" + '\n')
                 file1.write(f"load_system('{modelname}');" + '\n')
                 file1.write(f"set_param('{modelname}', 'StopTime', num2str(max(time)));" + '\n')
                 file1.write(f"set_param('{modelname}/m', 'Value', num2str({m_Imp}));" + '\n')
@@ -994,11 +1027,42 @@ def Receive():
                 file1.write(f"set_param('AssistTrajectory/Impedance Control2/Gain', 'Gain', num2str(-1));" + '\n')
                 file1.write(f"out = sim('{modelname}.slx');" + '\n')
                 file1.write('\n')
+                file1.write("compliant = 01;" + '\n')
+                file1.write("simpleMode = 01;" + '\n')
+                file1.write('\n')
+                file1.write("if (compliant)" + '\n')
+                file1.write("    run('CompliantModel.m');" + '\n')
+                file1.write("end" + '\n')
+                file1.write('\n')
+                file1.write("if (simpleMode)" + '\n')
+                file1.write("    load_system('Simple');" + '\n')
+                file1.write("    set_param('Simple', 'StopTime', num2str(max(time)));" + '\n')
+                file1.write("    set_param('Simple/FGain', 'Gain', num2str(1));" + '\n')
+                file1.write("    set_param('Simple/motComGain', 'Gain', num2str(1));" + '\n')
+                file1.write("    outSimple = sim('Simple.slx');" + '\n')
+                file1.write("end" + '\n')
+                file1.write('\n')
                 file1.write("plot(time, pos, 'LineWidth', 1)" + '\n')
                 file1.write("hold on" + '\n')
-                file1.write("plot(time, x0, 'LineWidth', 1)" + '\n')
+                file1.write("plot(time, xref, 'LineWidth', 1)" + '\n')
                 file1.write("plot(out.Pos.Time, out.Pos.Data, 'LineWidth', 1)" + '\n')
-                file1.write("legend('Actual Position', 'x0', 'x-sim', 'Location','best')" + '\n')
+                file1.write("if (compliant)" + '\n')
+                file1.write("hold on" + '\n')
+                file1.write("plot(outCompliant.LinearStateVector.x1.Time, outCompliant.LinearStateVector.x1.Data, 'LineWidth', 1)" + '\n')
+                file1.write("end" + '\n')
+                file1.write("if (simpleMode)" + '\n')
+                file1.write("hold on" + '\n')
+                file1.write("plot(outSimple.Pos.Time, outSimple.Pos.Data, 'LineWidth', 1)" + '\n')
+                file1.write("end" + '\n')
+                file1.write("if (compliant && simpleMode == 0)" + '\n')
+                file1.write("    legend('Actual Position', 'xref', 'x-sim', 'Compliant', 'Location','best')" + '\n')
+                file1.write("elseif (compliant == 0 && simpleMode)" + '\n')
+                file1.write("    legend('Actual Position', 'xref', 'x-sim', 'Simple', 'Location','best')" + '\n')
+                file1.write("elseif (compliant && simpleMode)" + '\n')
+                file1.write("    legend('Actual Position', 'xref', 'x-sim', 'Compliant', 'Simple', 'Location','best')" + '\n')
+                file1.write("else" + '\n')
+                file1.write("   legend('Actual Position', 'xref', 'x-sim', 'Location','best')" + '\n')
+                file1.write("end" + '\n')
                 file1.write("hold off" + '\n')
                 file1.write("grid on" + '\n')
                 file1.write("xlabel('Time (s)')" + '\n')
@@ -1011,12 +1075,31 @@ def Receive():
                 file1.write("grid on" + '\n')
                 file1.write("title('Assistive Trajectory')" + '\n')
                 file1.write("figure(5)" + '\n')
-                file1.write("plot(time, vel, time, x0_dot, out.Vel.Time, out.Vel.Data, 'LineWidth', 1)" + '\n')
-                file1.write("legend('Actual Velocity', 'x0-dot', 'Vel-sim', 'Location','best')" + '\n')
+                file1.write("plot(time, vel, time, xref_dot, out.Vel.Time, out.Vel.Data, 'LineWidth', 1)" + '\n')
+                file1.write("legend('Actual Velocity', 'xref-dot', 'Vel-sim', 'Location','best')" + '\n')
+                file1.write("if(compliant)" + '\n')
+                file1.write("    hold on" + '\n')
+                file1.write("    plot(outCompliant.LinearStateVector.x2.Time, outCompliant.LinearStateVector.x2.Data, 'LineWidth', 1)" + '\n')
+                file1.write("    hold off" + '\n')
+                file1.write("end" + '\n')
+                file1.write("if (simpleMode)" + '\n')
+                file1.write("    hold on" + '\n')
+                file1.write("    plot(outSimple.Vel.Time, outSimple.Vel.Data, 'LineWidth', 1)" + '\n')
+                file1.write("    hold off" + '\n')
+                file1.write("end" + '\n')
+                file1.write("if (compliant && simpleMode == 0)" + '\n')
+                file1.write("    legend('Actual Velocity', 'xref-dot', 'Vel-sim', 'Compliant', 'Location','best')" + '\n')
+                file1.write("elseif (compliant == 0 && simpleMode)" + '\n')
+                file1.write("    legend('Actual Velocity', 'xref-dot', 'Vel-sim', 'Simple', 'Location','best')" + '\n')
+                file1.write("elseif (compliant && simpleMode)" + '\n')
+                file1.write("    legend('Actual Velocity', 'xref-dot', 'Vel-sim', 'Compliant', 'Simple', 'Location','best')" + '\n')
+                file1.write("else" + '\n')
+                file1.write("   legend('Actual Velocity', 'xref-dot', 'Vel-sim', 'Location','best')" + '\n')
+                file1.write("end" + '\n')
                 file1.write("grid on" + '\n')
                 file1.write("xlabel('Time (s)')" + '\n')
                 file1.write("title('Assistive Trajectory- Velocity Plot')" + '\n')      
-            if (M == 99 and SIMULATION): ## Transparent
+            if ((M == 99 or M == 4 or M == 5 or M == 6) and SIMULATION): ## Transparent
                 modelname = 'Simple'
                 file1.write("figure(5)" + '\n')
                 file1.write("clf;" + '\n')
@@ -1036,8 +1119,11 @@ def Receive():
                 file1.write(f"load_system('{modelname}');" + '\n')
                 file1.write(f"set_param('{modelname}', 'StopTime', num2str(max(time)));" + '\n')
                 file1.write(f"set_param('{modelname}/FGain', 'Gain', num2str(1));" + '\n')
-                file1.write(f"set_param('{modelname}/motComGain', 'Gain', num2str(0));" + '\n')
-                file1.write(f"out = sim('{modelname}.slx');" + '\n')
+                if (M == 99):
+                    file1.write(f"set_param('{modelname}/motComGain', 'Gain', num2str(0));" + '\n')
+                else:
+                    file1.write(f"set_param('{modelname}/motComGain', 'Gain', num2str(1));" + '\n')
+                file1.write(f"outSimple = sim('{modelname}.slx');" + '\n')
                 file1.write('\n')
                 file1.write("plot(time, pos, 'LineWidth', 1)" + '\n')
                 file1.write("hold on" + '\n')
@@ -1082,7 +1168,7 @@ def Receive():
                 file1.write(f"set_param('{modelname}', 'StopTime', num2str(max(time)));" + '\n')
                 file1.write(f"set_param('{modelname}/FGain', 'Gain', num2str(0));" + '\n')
                 file1.write(f"set_param('{modelname}/motComGain', 'Gain', num2str(1));" + '\n')
-                file1.write(f"out = sim('{modelname}.slx');" + '\n')
+                file1.write(f"outSimple = sim('{modelname}.slx');" + '\n')
                 file1.write('\n')
                 file1.write("plot(time, pos, 'LineWidth', 1)" + '\n')
                 file1.write("hold on" + '\n')
@@ -1133,8 +1219,8 @@ def Receive():
             DdSAVED = 1
             KdSAVED = 1
 
-            X0_DOT = []
-            X0_DDOT = []
+            XREF_DOT = []
+            XREF_DDOT = []
             
     except Exception as e:
         print(f"Error receiving data: {e}")
@@ -1205,7 +1291,7 @@ def Plots():
 
         if (M == 77):
             ax1.plot(TIME2, POS2, label = 'Actual Position')
-            ax1.plot(TIME2, DesVeL2, label = 'x0')
+            ax1.plot(TIME2, DesVeL2, label = 'xref')
             ax1.legend()
         else:
             ax1.plot(TIME2, POS2)
@@ -1282,7 +1368,7 @@ def Plots():
                 ax3.plot(TIMEFORCE2, E_DOT_TERM2, label = "Velocity Error")
                 ax3.plot(TIMEFORCE2, TC2, label = "Tcoulomb")
                 ax3.plot(TIMEFORCE2, TV2, label = "Tviscous")
-                ax3.plot(TIMEFORCE2, ACCELERATION2, label = "x0_ddot")
+                ax3.plot(TIMEFORCE2, ACCELERATION2, label = "xref_ddot")
 
                 ax3.legend()    
                 ax3.grid(True)
@@ -1371,21 +1457,21 @@ def Sizing():
                 for i in range(ACCELSize, sizeMax):
                     ACCELERATION.append(ACCELERATION[-1])
         if (SIMULATION and M == 77):
-            global X0_DOT, X0_DDOT
+            global XREF_DOT, XREF_DDOT
 
-            if (X0_DOT == []):
-                X0_DOT.append(0)
-            if (X0_DDOT == []):
-                X0_DDOT.append(0)
-            x0dotSize = len(X0_DOT)
-            x0ddotSize = len(X0_DDOT)
+            if (XREF_DOT == []):
+                XREF_DOT.append(0)
+            if (XREF_DDOT == []):
+                XREF_DDOT.append(0)
+            xrefdotSize = len(XREF_DOT)
+            xrefddotSize = len(XREF_DDOT)
 
-            if (x0dotSize < sizeMax and x0dotSize > 0):
-                for i in range(x0dotSize, sizeMax):
-                    X0_DOT.append(X0_DOT[-1])
-            if (x0ddotSize < sizeMax and x0ddotSize > 0):
-                for i in range(x0ddotSize, sizeMax):
-                    X0_DDOT.append(X0_DDOT[-1])
+            if (xrefdotSize < sizeMax and xrefdotSize > 0):
+                for i in range(xrefdotSize, sizeMax):
+                    XREF_DOT.append(XREF_DOT[-1])
+            if (xrefddotSize < sizeMax and xrefddotSize > 0):
+                for i in range(xrefddotSize, sizeMax):
+                    XREF_DDOT.append(XREF_DDOT[-1])
             
     except Exception as e:
         print(f"Sizing Error: {e}")
@@ -1538,7 +1624,7 @@ def TrajWrite(file1):        # Writes values from TrajFlag to matlab script
     file1.write("plot(TIMEFORCE, TC, 'LineWidth', 1)" + '\n')
     file1.write("plot(TIMEFORCE, TV, 'LineWidth', 1)" + '\n')
     file1.write("plot(TIMEFORCE, ACCELERATION, 'LineWidth', 1)" + '\n')
-    file1.write("legend('Control Force', 'Fext', 'Position Error', 'Velocity Error', 'Tcoulomb', 'Tviscous', 'x0_ddot', 'Location', 'best')" + '\n')
+    file1.write("legend('Control Force', 'Fext', 'Position Error', 'Velocity Error', 'Tcoulomb', 'Tviscous', 'xref_ddot', 'Location', 'best')" + '\n')
     file1.write("hold off" + '\n')
     file1.write("grid on" + '\n')
     file1.write("xlabel('Time (s)')" + '\n')
@@ -1602,16 +1688,16 @@ mode_frame = Frame(window)
 
 Mode = { "Off" : 0,
               "Passive" : 1,
-##              "Admittance" : 2,
-##              "Assistive" : 3,
-##              "Assistive Force" : 33,         
-              "Assistive" : 77,     ## Assistive using impedance control
+##              "Admittance" : 2,                 ## No Longer needed
+##              "Assistive" : 3,                    ## No Longer needed
+##              "Assistive Force" : 33,         ## No Longer needed         
+              "Assistive" : 77,                     ## Assistive using impedance control
               "Transparent" : 99,
               "Resistive" : 4,
-              "Step Response" : 8,
+##              "Step Response" : 8,
 ##              "Load CME" : 66,
-##              "Impedance" : 22,
-              "Neg Step Response": 88,
+##              "Impedance" : 22,               ## No Longer needed
+##              "Neg Step Response": 88,
          }
 for (text, Mode) in Mode.items(): 
     Radiobutton(master = mode_frame, command = Buttons, text = text, variable = m, 
@@ -1620,7 +1706,7 @@ for (text, Mode) in Mode.items():
 # Initialize SubMode radio buttons frame
 submode_frame = Frame(window)
 
-SubMode = { "Both" : 4,
+SubMode = { "Both Directions" : 4,
                     "Push" : 5,
                     "Pull" : 6}
 for (text, SubMode) in SubMode.items(): 
