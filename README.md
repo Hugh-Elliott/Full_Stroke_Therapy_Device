@@ -20,8 +20,8 @@ During initial development, the nIONCME.c example was chosen as the basis for th
 Located in ~\C-MotionPRP2SDK100\CMECode\Examples
 The CMECodeExamples.sln solution compiles the four example programs designed to be executed from the nIONCME itself. It shares the same nIONCME.c file as the Host PC code. 
 
-[!CAUTION]
-WARNING: the nIONCME is only compatible with C language code
+> [!CAUTION]
+> WARNING: the nIONCME is only compatible with C language code
 
 It is not possible to execute the code using the Visual Studio solution. Any files to be included in the code **must** be added to the Makefile in ~\nIONCME before building in Visual Studio. The bin file then must be uploaded to the nIONCME microcontroller. A full rundown of steps is provided in ***PLACEHOLDER***.
 
