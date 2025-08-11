@@ -23,10 +23,23 @@ window.title("Stroke Therapy Device")
 window.geometry('800x400')
 window.minsize(800, 400)
 
+# Checks operating system type for
+portName = 'temp'
+import platfrom
+platformType = platform.system()
+
+if (platformType == 'Windows'):
+    portName = 'COM1'
+elif(platformType == 'Linux')
+    portName = '/dev/ttyUSB0'
+
 if(nIONcon): # this will handle communication
     import serial
-    NIONCME = serial.Serial(port='COM1', baudrate=115200, parity='N', stopbits=1,  timeout=0.05)
-
+    if (portName == 'temp'):
+        NIONCME = serial.Serial(port=portName, baudrate=115200, parity='N', stopbits=1,  timeout=0.05)
+    else:
+        print("Unknown Operating System. Can't open port")
+        
 def GetTimeNow():                    #Read the timer function
     return(time.perf_counter())
 
