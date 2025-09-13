@@ -25,17 +25,17 @@ window.minsize(800, 400)
 
 # Checks operating system type for
 portName = 'temp'
-import platfrom
+import platform
 platformType = platform.system()
 
 if (platformType == 'Windows'):
-    portName = 'COM1'
-elif(platformType == 'Linux')
+    portName = 'COM2'
+elif(platformType == 'Linux'):
     portName = '/dev/ttyUSB0'
 
 if(nIONcon): # this will handle communication
     import serial
-    if (portName == 'temp'):
+    if (portName != 'temp'):
         NIONCME = serial.Serial(port=portName, baudrate=115200, parity='N', stopbits=1,  timeout=0.05)
     else:
         print("Unknown Operating System. Can't open port")
@@ -1705,8 +1705,8 @@ Mode = { "Off" : 0,
 ##              "Assistive" : 3,                    ## No Longer needed
 ##              "Assistive Force" : 33,         ## No Longer needed         
               "Assistive" : 77,                     ## Assistive using impedance control
-              "Transparent" : 99,
               "Resistive" : 4,
+              "Transparent" : 99,
 ##              "Step Response" : 8,
 ##              "Load CME" : 66,
 ##              "Impedance" : 22,               ## No Longer needed
