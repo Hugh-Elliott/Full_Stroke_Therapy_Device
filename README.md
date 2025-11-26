@@ -24,7 +24,7 @@ The CMECodeExamples.sln solution compiles the four example programs designed to 
 > [!CAUTION]
 > **The nIONCME is only compatible with C language code**
 
-It is not possible to execute the code using the Visual Studio solution. Any files to be included in the code **must** be added to the Makefile in ~\nIONCME before building in Visual Studio. The bin file then must be uploaded to the nIONCME microcontroller. A full rundown of steps is provided in ***PLACEHOLDER***.
+It is not possible to execute the code using the Visual Studio solution. Any files to be included in the code **must** be added to the Makefile in ~\nIONCME before building in Visual Studio. The bin file then must be uploaded to the nIONCME microcontroller. 
 
 In addition to the example code, two folders were added for all MATLAB code and the Python GUI script. Those being ~\MATLAB and ~\PythonGUI, respectively.
 # Contributions
