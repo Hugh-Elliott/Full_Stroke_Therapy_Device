@@ -29,5 +29,9 @@ It is not possible to execute the code using the Visual Studio solution. Any fil
 In addition to the example code, two folders were added for all MATLAB code and the Python GUI script. Those being ~\MATLAB and ~\PythonGUI, respectively.
 # Operating Mode Videos
 Demonstration videos for each of the modes can be found in the "Operating Mode Videos" folder. Please note that the Resistive Mode video was compressed using VLC Media Player to meet GitHub's file size limit (Origonal file size: 114MB). 
+
+> [!NOTE]
+> This repository uses Git LFS for large video files (.MOV). Make sure Git LFS is installed before cloning.
+
 # Contributions
 * Originally created and maintained by Hugh Elliott from September 2024 to August 2025
