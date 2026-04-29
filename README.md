@@ -24,14 +24,19 @@ The CMECodeExamples.sln solution compiles the four example programs designed to 
 > [!CAUTION]
 > **The nIONCME is only compatible with C language code**
 
-It is not possible to execute the code using the Visual Studio solution. Any files to be included in the code **must** be added to the Makefile in ~\nIONCME before building in Visual Studio. The bin file then must be uploaded to the nIONCME microcontroller. 
+It is not possible to execute the code using the Visual Studio solution. Any files to be included in the code **must** be added to the Makefile in ~\nIONCME before building in Visual Studio. The bin file must then be uploaded to the nIONCME microcontroller. 
 
 In addition to the example code, two folders were added for all MATLAB code and the Python GUI script. Those being ~\MATLAB and ~\PythonGUI, respectively.
 # Operating Mode Videos
-Demonstration videos for each of the modes can be found in the "Operating Mode Videos" folder. Please note that the Resistive Mode video was compressed using VLC Media Player to meet GitHub's file size limit (Origonal file size: 114MB). 
+Demonstration videos for each of the modes can be found in the "Operating Mode Videos" folder. 
 
 > [!NOTE]
 > This repository uses Git LFS for large video files (.MOV). Make sure Git LFS is installed before cloning.
+
+# Subsidiary GitHub Repository
+When this project was started, code and commands were executed from the host computer. As a result, the subsidiary GitHub was created from the ~\C-MotionPRP2SDK100\HostCode\Examples folder. As development continued, it became apparent that executing code from the host PC was not feasible for optimal performance. Switching to running code directly from the nIONCME meant editing files that were not in the original repo. This repo was created to encompass the entire folder structure and track changes for both solutions. One significant improvement from the switch, among others, was reducing the data logging interval from 500+ milliseconds down to ~10 ms.   
+**Link-**
+https://github.com/Hugh-Elliott/Examples-stroke
 
 # Contributions
 * Originally created and maintained by Hugh Elliott from September 2024 to August 2025
